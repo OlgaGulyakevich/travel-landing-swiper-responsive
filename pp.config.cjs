@@ -1,3 +1,7 @@
+const os = require('os');
+const fs = require('fs');
+const path = require('path');
+
 const desktopSections = [
   {section: 'header', misMatchThreshold: 1.1},
   {section: 'hero', misMatchThreshold: 0.4},
@@ -59,6 +63,59 @@ function generateScenario(section, misMatchThreshold, viewport) {
   };
 }
 
+/**
+ * Определяет путь к Chrome в зависимости от операционной системы.
+ * Проверяет переменную окружения PUPPETEER_EXECUTABLE_PATH,
+ * затем стандартные пути для macOS, Linux и Windows.
+ * @returns {string|undefined} Путь к Chrome или undefined, если не найден
+ */
+function getChromePath() {
+  // Проверяем переменную окружения (приоритет)
+  if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+    return process.env.PUPPETEER_EXECUTABLE_PATH;
+  }
+
+  const platform = os.platform();
+
+  if (platform === 'darwin') {
+    // macOS
+    const chromePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+    if (fs.existsSync(chromePath)) {
+      return chromePath;
+    }
+  } else if (platform === 'linux') {
+    // Linux - проверяем стандартные пути
+    const possiblePaths = [
+      '/usr/bin/google-chrome',
+      '/usr/bin/google-chrome-stable',
+      '/usr/bin/chromium',
+      '/usr/bin/chromium-browser',
+      '/snap/bin/chromium'
+    ];
+    for (const chromePath of possiblePaths) {
+      if (fs.existsSync(chromePath)) {
+        return chromePath;
+      }
+    }
+  } else if (platform === 'win32') {
+    // Windows
+    const possiblePaths = [
+      'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+      'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+      path.join(process.env.LOCALAPPDATA || '', 'Google\\Chrome\\Application\\chrome.exe'),
+      path.join(process.env.PROGRAMFILES || '', 'Google\\Chrome\\Application\\chrome.exe')
+    ];
+    for (const chromePath of possiblePaths) {
+      if (fs.existsSync(chromePath)) {
+        return chromePath;
+      }
+    }
+  }
+
+  // Если ничего не найдено, вернем undefined - Puppeteer попробует найти сам
+  return undefined;
+}
+
 module.exports = {
   "id": "tours test-pp",
   "onReadyScript": "onReady.cjs",
@@ -101,10 +158,19 @@ module.exports = {
   },
   "report": ["browser", "json"],
   "engine": "puppeteer",
-  "engineOptions": {
-    "args": ["--no-sandbox"],
-    "gotoParameters": {"waitUntil": ["load", "networkidle0"], timeout: 30000},
-  },
+  "engineOptions": (() => {
+    const options = {
+      "args": ["--no-sandbox"],
+      "gotoParameters": {"waitUntil": ["load", "networkidle0"], timeout: 30000},
+    };
+
+    const chromePath = getChromePath();
+    if (chromePath) {
+      options.executablePath = chromePath;
+    }
+
+    return options;
+  })(),
   "asyncCaptureLimit": 10,
   "asyncCompareLimit": 50,
   "debug": false,
