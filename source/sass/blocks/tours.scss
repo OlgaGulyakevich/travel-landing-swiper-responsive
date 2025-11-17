@@ -1,0 +1,26 @@
+.tours {
+  padding: 60px 0;
+
+  // МОДИФИКАТОР: Общий фон для Tours и Training секций
+  // Реализовать через ::before с image-set() для ретинизации
+  &--with-extended-background {
+    position: relative;
+
+    // TODO: Реализовать фоновое изображение
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
+    //   height: calc(100% + var(--training-height)); // растянуть на Training секцию
+    //   background-image: image-set(
+    //     url('../img/decorative/tours-bg.jpg') 1x,
+    //     url('../img/decorative/tours-bg@2x.jpg') 2x
+    //   );
+    //   background-size: cover;
+    //   background-position: center;
+    //   z-index: -1;
+    // }
+  }
+}

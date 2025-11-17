@@ -1,0 +1,70 @@
+// =============================================================================
+// UTILITY CLASSES
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Accessibility
+// -----------------------------------------------------------------------------
+
+// Hides element visually, but keeps it accessible for screen readers
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+// -----------------------------------------------------------------------------
+// Scroll Lock
+// -----------------------------------------------------------------------------
+
+// Scroll lock (for open burger menu)
+.scroll-lock {
+  overflow: hidden;
+  padding-right: var(--scrollbar-width, 0);
+}
+
+// -----------------------------------------------------------------------------
+// States
+// -----------------------------------------------------------------------------
+
+// Hidden element
+.is-hidden {
+  display: none !important;
+}
+
+// Visible element
+.is-visible {
+  display: block;
+}
+
+// Open state (for burger menu)
+.is-open {
+  // Добавляется JavaScript к мобильному меню
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+// Invalid state (for form fields)
+.is-invalid {
+  // Добавляется JavaScript к невалидным полям формы
+  border-color: #ff0000;
+  outline-color: #ff0000;
+}
+
+// -----------------------------------------------------------------------------
+// Focus Management
+// -----------------------------------------------------------------------------
+
+// Removes outline on click with mouse, but keeps for keyboard
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+

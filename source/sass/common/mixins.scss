@@ -1,0 +1,44 @@
+// =============================================================================
+// MIXINS
+// Mobile-First approach: base styles for mobile (320px+)
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Media Queries (Responsive Breakpoints)
+// -----------------------------------------------------------------------------
+
+// Tablet and up (768px+)
+// Used for styles that apply to tablet and desktop
+@mixin tablet {
+  @media (min-width: $tablet-min) {
+    @content;
+  }
+}
+
+// Desktop and up (1440px+)
+// Used for styles that apply only to desktop
+@mixin desktop {
+  @media (min-width: $desktop-min) {
+    @content;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Overflow Prevention
+// -----------------------------------------------------------------------------
+
+// Prevents flex children from overflowing container
+// Use on flex containers to add min-width: 0 to all direct children
+@mixin flex-no-overflow {
+  > * {
+    min-width: 0;
+  }
+}
+
+// Prevents grid children from overflowing container
+// Use on grid containers to add min-width: 0 to all direct children
+@mixin grid-no-overflow {
+  > * {
+    min-width: 0;
+  }
+}

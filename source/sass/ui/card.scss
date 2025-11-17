@@ -1,0 +1,12 @@
+.card {
+  background-color: $color-bg-white;
+  
+  &--tour {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  &--review {
+    padding: 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+}

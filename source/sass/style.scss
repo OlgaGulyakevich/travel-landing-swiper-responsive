@@ -1,4 +1,40 @@
-// Vendor
-// ---------------------------------
+// =============================================================================
+// MAIN STYLES
+// Lifetour Landing
+// =============================================================================
 
+// Vendor
 @import "vendor/normalize";
+
+// Common
+@import "common/variables";
+@import "common/mixins";
+@import "common/fonts";
+@import "common/global";
+@import "common/utility";
+
+// Layout
+@import "layout/container";
+
+// UI Components
+@import "ui/button";
+@import "ui/card";
+@import "ui/input";
+@import "ui/icon";
+@import "ui/logo";
+@import "ui/nav";
+@import "ui/navigation-arrows";
+@import "ui/pagination";
+@import "ui/title";
+
+// Blocks
+@import "blocks/header";
+@import "blocks/hero";
+@import "blocks/tours";
+@import "blocks/training";
+@import "blocks/about";
+@import "blocks/reviews";
+@import "blocks/advantages";
+@import "blocks/gallery";
+@import "blocks/form";
+@import "blocks/footer";

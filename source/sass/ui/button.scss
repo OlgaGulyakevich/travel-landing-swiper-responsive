@@ -1,0 +1,18 @@
+.button {
+  display: inline-block;
+  padding: 16px 32px;
+  font-weight: $font-weight-bold;
+  font-size: 16px;
+  color: $color-text-inverse;
+  background-color: $color-primary;
+  transition: background-color $transition;
+
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,13 @@
+// =============================================================================
+// HEADER
+// Sticky header with navigation
+// =============================================================================
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: $color-primary;
+  color: $color-text-inverse;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

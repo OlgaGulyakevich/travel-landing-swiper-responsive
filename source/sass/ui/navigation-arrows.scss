@@ -1,0 +1,33 @@
+// =============================================================================
+// NAVIGATION ARROWS
+// Стрелки навигации для слайдеров (Swiper navigation)
+// =============================================================================
+
+// Используется в блоках: tours, training, reviews, gallery
+// Swiper добавляет классы .swiper-button-next и .swiper-button-prev
+
+.swiper-button-prev,
+.swiper-button-next {
+  // Базовые стили кнопок навигации
+  // TODO: добавить размеры, позиционирование, цвета из дизайн-системы
+
+  &:hover {
+    // TODO: добавить hover эффект
+  }
+
+  &:active {
+    // TODO: добавить active эффект
+  }
+
+  &:focus-visible {
+    outline: $focus-outline;
+    outline-offset: 2px;
+  }
+
+  &.swiper-button-disabled {
+    // Заблокированное состояние в крайних положениях
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
