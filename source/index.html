@@ -25,7 +25,7 @@
 
         <!-- Logo -->
         <a class="logo header__logo" href="#hero">
-          <img class="logo__image" src="/__spritemap#sprite-logotype-view" width="142" height="42" alt="Lifetour">
+          <img class="logo__image" src="/__spritemap#sprite-logo" width="142" height="42" alt="Lifetour">
         </a>
 
         <!-- Navigation (Desktop) -->
@@ -104,44 +104,49 @@
           <!-- Hero Slide 1 -->
           <div class="hero__slide swiper-slide">
             <picture>
-              <source srcset="img/hero/hero-bg.webp 1x, img/hero/hero-bg@2x.webp 2x" type="image/webp">
-              <img class="hero__bg" src="img/hero/hero-bg.jpg" srcset="img/hero/hero-bg@2x.jpg 2x" alt="" role="presentation">
+              <source type="image/webp" srcset="img/hero-1@1x.webp 1x, img/hero-1@2x.webp 2x">
+              <img class="hero__bg" src="img/hero-1@1x.png" srcset="img/hero-1@2x.png 2x" width="320" height="568" alt="Захватывающие вершины Кавказа" role="presentation">
             </picture>
 
             <div class="container">
               <div class="hero__content">
                 <!-- Контентная область БЕЗ классов (каскадная стилизация) -->
                 <h1>Захватывающие вершины Кавказа</h1>
-                <p>В сопровождении опытных гидов вы пройдёте через живописные ущелья, альпийские луга и ледники.</p>
+                <p>В сопровождении опытных гидов вы пройдёте через потрясающие ландшафты и совершите восход на вершину горы Чегет.</p>
                 <a class="button hero__button" href="#tours">Смотреть тур</a>
-              </div>
-
-              <div class="hero__meta">
-                <span class="hero__meta-item">К вершине Казбека</span>
-                <span class="hero__meta-item">48 часов</span>
               </div>
             </div>
           </div>
 
-          <!-- Hero Slide 2 (Placeholder) -->
+          <!-- Hero Slide 2 -->
           <div class="hero__slide swiper-slide">
             <picture>
-              <source srcset="https://via.placeholder.com/1440x600/0266C1/FFFFFF?text=Hero+Slide+2 1x, https://via.placeholder.com/2880x1200/0266C1/FFFFFF?text=Hero+Slide+2 2x" type="image/webp">
-              <img class="hero__bg" src="https://via.placeholder.com/1440x600/0266C1/FFFFFF?text=Hero+Slide+2" srcset="https://via.placeholder.com/2880x1200/0266C1/FFFFFF?text=Hero+Slide+2 2x" alt="" role="presentation">
+              <source type="image/webp" srcset="img/hero-2@1x.webp 1x, img/hero-2@2x.webp 2x">
+              <img class="hero__bg" src="img/hero-2@1x.jpg" srcset="img/hero-2@2x.jpg 2x" width="320" height="568" alt="Невероятная природа Камчатки" role="presentation">
             </picture>
 
             <div class="container">
               <div class="hero__content">
-                <h1>Заголовок второго слайда</h1>
-                <p>Описание второго слайда с текстом о туре.</p>
+                <h1>Невероятная природа Камчатки</h1>
+                <p>Незабываемое приключение, во время которого вы отправитесь в путешествие по одному из самых нетронутых уголков дикой природы в мире.</p>
                 <a class="button hero__button" href="#tours">Смотреть тур</a>
               </div>
-
-              <div class="hero__meta">
-                <span class="hero__meta-item">Название тура</span>
-                <span class="hero__meta-item">Длительность</span>
-              </div>
             </div>
+          </div>
+
+          <!-- Hero Slide 3 -->
+          <div class="hero__slide swiper-slide">
+            <picture>
+              <source type="image/webp" srcset="img/hero-3@1x.webp 1x, img/hero-3@2x.webp 2x">
+              <img class="hero__bg" src="img/hero-3@1x.png" srcset="img/hero-3@2x.png 2x" width="320" height="568" alt="Магические пейзажи Алтайского Края" role="presentation">
+            </picture>
+
+            <div class="container">
+              <div class="hero__content">
+                <h1>Магические пейзажи Алтайского Края</h1>
+                <p>Алтайский трекинг-тур— это захватывающее приключение с посещением магических и захватывающих душу ландшафтов Алтайских гор.</p>
+                <a class="button hero__button" href="#tours">Смотреть тур</a>
+              </div>
           </div>
 
         </div>
@@ -166,55 +171,75 @@
         <!-- Mobile: 1 слайд (показывает слайд 0) -->
         <!-- Tablet: 2 слайда (показывает слайды 0, 1) -->
         <!-- Desktop: 3 слайда (показывает слайды 0, 1, 2) -->
-        <!-- TODO: Заменить placeholder на реальные фото туров из макета в правильном порядке -->
+
         <div class="tours__slider swiper" data-slider="tours">
           <div class="swiper-wrapper">
 
             <!-- Слайд 0: Показывается ВЕЗДЕ (mobile: 1-й, tablet: 1-й, desktop: 1-й) -->
             <div class="swiper-slide">
               <article class="card tours__card">
-                <picture>
-                  <source srcset="img/tours/tour-1.webp 1x, img/tours/tour-1@2x.webp 2x" type="image/webp">
-                  <img class="card__image" src="img/tours/tour-1.jpg" srcset="img/tours/tour-1@2x.jpg 2x" width="380" height="270" alt="Поход к вершине Казбек">
-                </picture>
+                <div class="card__image-wrapper">
+                  <picture>
+                    <source type="image/webp" srcset="img/tour-1@1x.webp 1x, img/tour-1@2x.webp 2x">
+                    <img class="card__image" src="img/tour-1@1x.png" srcset="img/tour-1@2x.png 2x" width="290" height="416" alt="Путешествие вокруг Эльбруса">
+                  </picture>
+                </div>
 
                 <div class="card__content">
                   <div class="card__meta">
                     <span class="card__meta-item">
-                      <svg class="icon" width="16" height="16" aria-hidden="true">
-                        <use href="/__spritemap#sprite-pin-stroke"></use>
+                      <svg class="icon" width="9" height="12" aria-hidden="true">
+                        <use href="/__spritemap#sprite-pin-fill"></use>
                       </svg>
                       Кавказ
                     </span>
                     <span class="card__meta-item">
-                      <svg class="icon" width="16" height="16" aria-hidden="true">
+                      <svg class="icon" width="20" height="20" aria-hidden="true">
                         <use href="/__spritemap#sprite-sun"></use>
                       </svg>
-                      5 дней / 4 ночи
+                      4 дня
                     </span>
                     <span class="card__meta-item">
                       <svg class="icon" width="16" height="16" aria-hidden="true">
-                        <use href="/__spritemap#sprite-level"></use>
+                        <use href="/__spritemap#sprite-moon"></use>
                       </svg>
-                      Средний
+                      3 ночи
                     </span>
                   </div>
 
-                  <h3 class="card__title">Поход к вершине Казбек</h3>
-
-                  <div class="card__rating">
-                    <span class="visually-hidden">Рейтинг: 4.8 из 5</span>
-                    <!-- TODO: Rating stars -->
-                  </div>
-
-                  <p class="card__description">Восхождение на одну из высочайших вершин Кавказа с потрясающими видами на горные панорамы.</p>
+                  <h3 class="card__title">Путешествие вокруг Эльбруса</h3>
 
                   <div class="card__footer">
-                    <span class="card__price">от 32 900 ₽</span>
-                    <span class="card__dates">15-20 июня</span>
+                    <div class="card__rating">
+                      <span class="card__description">Cложность</span>
+                      <span class="visually-hidden">Рейтинг: 4 из 5</span>
+                      <div class="card__stars">
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-stroke"></use>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="card__dates">
+                      <span class="card__description">Даты набора</span>
+                      <span class="card__content">12.06-19.06</span>
+                    </div>
+                    <div class="card__group">
+                      <span class="card__description">Группа</span>
+                      <span class="card__content">до 15 чел.</span>
+                    </div>
                   </div>
-
-                  <a class="button card__button" href="#tours">Подробнее</a>
                 </div>
               </article>
             </div>
@@ -222,40 +247,68 @@
             <!-- Слайд 1: Показывается на tablet/desktop (tablet: 2-й, desktop: 2-й) -->
             <div class="swiper-slide">
               <article class="card tours__card">
-                <img class="card__image" src="https://via.placeholder.com/380x270/0266C1/FFFFFF?text=Tour+2" width="380" height="270" alt="Тур 2">
+                <div class="card__image-wrapper">
+                  <picture>
+                    <source type="image/webp" srcset="img/tour-2@1x.webp 1x, img/tour-2@2x.webp 2x">
+                    <img class="card__image" src="img/tour-2@1x.png" srcset="img/tour-2@2x.png 2x" width="290" height="416" alt="Путь к подножию Белухи">
+                  </picture>
+                </div>
 
                 <div class="card__content">
                   <div class="card__meta">
                     <span class="card__meta-item">
-                      <svg class="icon" width="16" height="16" aria-hidden="true">
-                        <use href="/__spritemap#sprite-pin-stroke"></use>
+                      <svg class="icon" width="9" height="12" aria-hidden="true">
+                        <use href="/__spritemap#sprite-pin-fill"></use>
                       </svg>
                       Алтай
                     </span>
                     <span class="card__meta-item">
-                      <svg class="icon" width="16" height="16" aria-hidden="true">
+                      <svg class="icon" width="20" height="20" aria-hidden="true">
                         <use href="/__spritemap#sprite-sun"></use>
                       </svg>
-                      7 дней / 6 ночей
+                      14 дней
                     </span>
                     <span class="card__meta-item">
                       <svg class="icon" width="16" height="16" aria-hidden="true">
-                        <use href="/__spritemap#sprite-level"></use>
+                        <use href="/__spritemap#sprite-moon"></use>
                       </svg>
-                      Легкий
+                      13 ночей
                     </span>
                   </div>
 
-                  <h3 class="card__title">Название тура 2</h3>
-
-                  <p class="card__description">Описание тура с информацией о маршруте и достопримечательностях.</p>
+                  <h3 class="card__title">Путь к подножию Белухи</h3>
 
                   <div class="card__footer">
-                    <span class="card__price">от 25 000 ₽</span>
-                    <span class="card__dates">1-7 июля</span>
+                    <div class="card__rating">
+                      <span class="card__description">Cложность</span>
+                      <span class="visually-hidden">Рейтинг: 4 из 5</span>
+                      <div class="card__stars">
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-stroke"></use>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="card__dates">
+                      <span class="card__description">Даты набора</span>
+                      <span class="card__content">14.06-23.06</span>
+                    </div>
+                    <div class="card__group">
+                      <span class="card__description">Группа</span>
+                      <span class="card__content">до 25 чел.</span>
+                    </div>
                   </div>
-
-                  <a class="button card__button" href="#tours">Подробнее</a>
                 </div>
               </article>
             </div>
@@ -263,40 +316,68 @@
             <!-- Слайд 2: Показывается только на desktop (desktop: 3-й) -->
             <div class="swiper-slide">
               <article class="card tours__card">
-                <img class="card__image" src="https://via.placeholder.com/380x270/0266C1/FFFFFF?text=Tour+3" width="380" height="270" alt="Тур 3">
+                <div class="card__image-wrapper">
+                  <picture>
+                    <source type="image/webp" srcset="img/tour-3@1x.webp 1x, img/tour-3@2x.webp 2x">
+                    <img class="card__image" src="img/tour-3@1x.png" srcset="img/tour-3@2x.png 2x" width="290" height="416" alt="Через Фишт к Чёрному морю и обратно">
+                  </picture>
+                </div>
 
                 <div class="card__content">
                   <div class="card__meta">
                     <span class="card__meta-item">
-                      <svg class="icon" width="16" height="16" aria-hidden="true">
-                        <use href="/__spritemap#sprite-pin-stroke"></use>
+                      <svg class="icon" width="9" height="12" aria-hidden="true">
+                        <use href="/__spritemap#sprite-pin-fill"></use>
                       </svg>
-                      Байкал
+                      Адыгея
                     </span>
                     <span class="card__meta-item">
-                      <svg class="icon" width="16" height="16" aria-hidden="true">
+                      <svg class="icon" width="20" height="20" aria-hidden="true">
                         <use href="/__spritemap#sprite-sun"></use>
                       </svg>
-                      10 дней / 9 ночей
+                      7 дней
                     </span>
                     <span class="card__meta-item">
                       <svg class="icon" width="16" height="16" aria-hidden="true">
-                        <use href="/__spritemap#sprite-level"></use>
+                        <use href="/__spritemap#sprite-moon"></use>
                       </svg>
-                      Сложный
+                      6 ночей
                     </span>
                   </div>
 
-                  <h3 class="card__title">Название тура 3</h3>
-
-                  <p class="card__description">Описание тура с информацией о маршруте и достопримечательностях.</p>
+                  <h3 class="card__title">Через Фишт к Чёрному морю и обратно</h3>
 
                   <div class="card__footer">
-                    <span class="card__price">от 45 000 ₽</span>
-                    <span class="card__dates">10-19 августа</span>
+                    <div class="card__rating">
+                      <span class="card__description">Cложность</span>
+                      <span class="visually-hidden">Рейтинг: 4 из 5</span>
+                      <div class="card__stars">
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-stroke"></use>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="card__dates">
+                      <span class="card__description">Даты набора</span>
+                      <span class="card__content">15.07-19.07</span>
+                    </div>
+                    <div class="card__group">
+                      <span class="card__description">Группа</span>
+                      <span class="card__content">до 22 чел.</span>
+                    </div>
                   </div>
-
-                  <a class="button card__button" href="#tours">Подробнее</a>
                 </div>
               </article>
             </div>
@@ -304,40 +385,68 @@
             <!-- Слайд 3: Дополнительный слайд (для прокрутки) -->
             <div class="swiper-slide">
               <article class="card tours__card">
-                <img class="card__image" src="https://via.placeholder.com/380x270/0266C1/FFFFFF?text=Tour+4" width="380" height="270" alt="Тур 4">
+                <div class="card__image-wrapper">
+                  <picture>
+                    <source type="image/webp" srcset="img/tour-4@1x.webp 1x, img/tour-4@2x.webp 2x">
+                    <img class="card__image" src="img/tour-4@1x.png" srcset="img/tour-4@2x.png 2x" width="290" height="416" alt="Восхождение Манарага">
+                  </picture>
+                </div>
 
                 <div class="card__content">
                   <div class="card__meta">
                     <span class="card__meta-item">
-                      <svg class="icon" width="16" height="16" aria-hidden="true">
-                        <use href="/__spritemap#sprite-pin-stroke"></use>
+                      <svg class="icon" width="9" height="12" aria-hidden="true">
+                        <use href="/__spritemap#sprite-pin-fill"></use>
                       </svg>
-                      Камчатка
+                      Урал
                     </span>
                     <span class="card__meta-item">
-                      <svg class="icon" width="16" height="16" aria-hidden="true">
+                      <svg class="icon" width="20" height="20" aria-hidden="true">
                         <use href="/__spritemap#sprite-sun"></use>
                       </svg>
-                      14 дней / 13 ночей
+                      9 дней
                     </span>
                     <span class="card__meta-item">
                       <svg class="icon" width="16" height="16" aria-hidden="true">
-                        <use href="/__spritemap#sprite-level"></use>
+                        <use href="/__spritemap#sprite-moon"></use>
                       </svg>
-                      Сложный
+                      10 ночей
                     </span>
                   </div>
 
-                  <h3 class="card__title">Название тура 4</h3>
-
-                  <p class="card__description">Описание тура с информацией о маршруте и достопримечательностях.</p>
+                  <h3 class="card__title">Восхождение Манарага</h3>
 
                   <div class="card__footer">
-                    <span class="card__price">от 89 000 ₽</span>
-                    <span class="card__dates">1-14 сентября</span>
+                    <div class="card__rating">
+                      <span class="card__description">Cложность</span>
+                      <span class="visually-hidden">Рейтинг: 5 из 5</span>
+                      <div class="card__stars">
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-star-fill"></use>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="card__dates">
+                      <span class="card__description">Даты набора</span>
+                      <span class="card__content">12.07-19.07</span>
+                    </div>
+                    <div class="card__group">
+                      <span class="card__description">Группа</span>
+                      <span class="card__content">до 7 чел.</span>
+                    </div>
                   </div>
-
-                  <a class="button card__button" href="#tours">Подробнее</a>
                 </div>
               </article>
             </div>
@@ -381,7 +490,10 @@
             <!-- Слайд 0: Показывается ВЕЗДЕ (mobile: 1-й, tablet: 1-й, desktop: 1-й) -->
             <div class="swiper-slide">
               <article class="card training__card">
-                <img class="card__image" src="https://via.placeholder.com/285x285/0266C1/FFFFFF?text=Instructor+1" width="285" height="285" alt="Инструктор Иван Иванов">
+                <picture>
+                  <source type="image/webp" srcset="img/trainer-1@1x.webp 1x, img/trainer-1@2x.webp 2x">
+                  <img class="card__image" src="img/trainer-1@1x.jpg" srcset="img/trainer-1@2x.jpg 2x" width="285" height="285" alt="Инструктор Иван Иванов">
+                </picture>
 
                 <div class="card__content">
                   <h3 class="card__name">Иван Иванов</h3>
@@ -396,7 +508,10 @@
             <!-- Слайд 1: Показывается на tablet/desktop (tablet: 2-й, desktop: 2-й) -->
             <div class="swiper-slide">
               <article class="card training__card">
-                <img class="card__image" src="https://via.placeholder.com/285x285/0266C1/FFFFFF?text=Instructor+2" width="285" height="285" alt="Инструктор Петр Петров">
+                <picture>
+                  <source type="image/webp" srcset="img/trainer-2@1x.webp 1x, img/trainer-2@2x.webp 2x">
+                  <img class="card__image" src="img/trainer-2@1x.jpg" srcset="img/trainer-2@2x.jpg 2x" width="285" height="285" alt="Инструктор Петр Петров">
+                </picture>
 
                 <div class="card__content">
                   <h3 class="card__name">Петр Петров</h3>
@@ -409,7 +524,10 @@
             <!-- Слайд 2: Показывается на tablet/desktop (tablet: 3-й, desktop: 3-й) -->
             <div class="swiper-slide">
               <article class="card training__card">
-                <img class="card__image" src="https://via.placeholder.com/285x285/0266C1/FFFFFF?text=Instructor+3" width="285" height="285" alt="Инструктор Сидор Сидоров">
+                <picture>
+                  <source type="image/webp" srcset="img/trainer-3@1x.webp 1x, img/trainer-3@2x.webp 2x">
+                  <img class="card__image" src="img/trainer-3@1x.jpg" srcset="img/trainer-3@2x.jpg 2x" width="285" height="285" alt="Инструктор Сидор Сидоров">
+                </picture>
 
                 <div class="card__content">
                   <h3 class="card__name">Сидор Сидоров</h3>
@@ -422,7 +540,10 @@
             <!-- Слайд 3: Показывается только на desktop (desktop: 4-й) -->
             <div class="swiper-slide">
               <article class="card training__card">
-                <img class="card__image" src="https://via.placeholder.com/285x285/0266C1/FFFFFF?text=Instructor+4" width="285" height="285" alt="Инструктор Мария Маркова">
+                <picture>
+                  <source type="image/webp" srcset="img/trainer-4@1x.webp 1x, img/trainer-4@2x.webp 2x">
+                  <img class="card__image" src="img/trainer-4@1x.jpg" srcset="img/trainer-4@2x.jpg 2x" width="285" height="285" alt="Инструктор Мария Маркова">
+                </picture>
 
                 <div class="card__content">
                   <h3 class="card__name">Мария Маркова</h3>
@@ -435,7 +556,10 @@
             <!-- Слайд 4: Дополнительный слайд (для прокрутки на desktop) -->
             <div class="swiper-slide">
               <article class="card training__card">
-                <img class="card__image" src="https://via.placeholder.com/285x285/0266C1/FFFFFF?text=Instructor+5" width="285" height="285" alt="Инструктор Анна Анненкова">
+                <picture>
+                  <source type="image/webp" srcset="img/trainer-5@1x.webp 1x, img/trainer-5@2x.webp 2x">
+                  <img class="card__image" src="img/trainer-5@1x.jpg" srcset="img/trainer-5@2x.jpg 2x" width="285" height="285" alt="Инструктор Анна Анненкова">
+                </picture>
 
                 <div class="card__content">
                   <h3 class="card__name">Анна Анненкова</h3>
@@ -514,8 +638,8 @@
           <!-- Image with Retina Support -->
           <div class="about__image-wrapper">
             <picture>
-              <source srcset="img/about/about.webp 1x, img/about/about@2x.webp 2x" type="image/webp">
-              <img class="about__image" src="img/about/about.jpg" srcset="img/about/about@2x.jpg 2x" width="660" height="500" alt="Группа туристов на вершине горы">
+              <source type="image/webp" srcset="img/about@1x.webp 1x, img/about@2x.webp 2x">
+              <img class="about__image" src="img/about@1x.jpg" srcset="img/about@2x.jpg 2x" width="660" height="500" alt="Группа туристов на вершине горы">
             </picture>
           </div>
         </div>
@@ -537,11 +661,18 @@
         <div class="reviews__slider swiper" data-slider="reviews">
           <div class="swiper-wrapper">
 
-            <!-- Review Card 1 (Placeholder) -->
+            <!-- Review Card 1 -->
             <div class="swiper-slide">
               <article class="card reviews__card">
                 <div class="card__header">
-                  <img class="card__photo" src="https://via.placeholder.com/80x80/0266C1/FFFFFF?text=Photo" width="80" height="80" alt="Фото Фролов Александр">
+                  <picture>
+                    <source type="image/webp" media="(min-width: 1440px)" srcset="img/review-1-desktop@1x.webp 1x, img/review-1-desktop@2x.webp 2x">
+                    <source type="image/webp" media="(min-width: 768px)" srcset="img/review-1-tablet@1x.webp 1x, img/review-1-tablet@2x.webp 2x">
+                    <source type="image/webp" srcset="img/review-1-mobile@1x.webp 1x, img/review-1-mobile@2x.webp 2x">
+                    <source media="(min-width: 1440px)" srcset="img/review-1-desktop@1x.jpg 1x, img/review-1-desktop@2x.jpg 2x">
+                    <source media="(min-width: 768px)" srcset="img/review-1-tablet@1x.jpg 1x, img/review-1-tablet@2x.jpg 2x">
+                    <img class="card__photo" src="img/review-1-mobile@1x.jpg" srcset="img/review-1-mobile@2x.jpg 2x" width="80" height="80" alt="Фото Фролов Александр">
+                  </picture>
                   <div class="card__author">
                     <h3 class="card__name">Фролов Александр</h3>
                     <p class="card__meta">38 лет, Москва</p>
@@ -555,11 +686,18 @@
               </article>
             </div>
 
-            <!-- Review Card 2 (Placeholder) -->
+            <!-- Review Card 2 -->
             <div class="swiper-slide">
               <article class="card reviews__card">
                 <div class="card__header">
-                  <img class="card__photo" src="https://via.placeholder.com/80x80/0266C1/FFFFFF?text=Photo" width="80" height="80" alt="Фото Иванова Мария">
+                  <picture>
+                    <source type="image/webp" media="(min-width: 1440px)" srcset="img/review-2-desktop@1x.webp 1x, img/review-2-desktop@2x.webp 2x">
+                    <source type="image/webp" media="(min-width: 768px)" srcset="img/review-2-tablet@1x.webp 1x, img/review-2-tablet@2x.webp 2x">
+                    <source type="image/webp" srcset="img/review-2-mobile@1x.webp 1x, img/review-2-mobile@2x.webp 2x">
+                    <source media="(min-width: 1440px)" srcset="img/review-2-desktop@1x.jpg 1x, img/review-2-desktop@2x.jpg 2x">
+                    <source media="(min-width: 768px)" srcset="img/review-2-tablet@1x.jpg 1x, img/review-2-tablet@2x.jpg 2x">
+                    <img class="card__photo" src="img/review-2-mobile@1x.jpg" srcset="img/review-2-mobile@2x.jpg 2x" width="80" height="80" alt="Фото Иванова Мария">
+                  </picture>
                   <div class="card__author">
                     <h3 class="card__name">Иванова Мария</h3>
                     <p class="card__meta">29 лет, Санкт-Петербург</p>
@@ -572,11 +710,18 @@
               </article>
             </div>
 
-            <!-- Review Card 3 (Placeholder) -->
+            <!-- Review Card 3 -->
             <div class="swiper-slide">
               <article class="card reviews__card">
                 <div class="card__header">
-                  <img class="card__photo" src="https://via.placeholder.com/80x80/0266C1/FFFFFF?text=Photo" width="80" height="80" alt="Фото Петров Дмитрий">
+                  <picture>
+                    <source type="image/webp" media="(min-width: 1440px)" srcset="img/review-3-desktop@1x.webp 1x, img/review-3-desktop@2x.webp 2x">
+                    <source type="image/webp" media="(min-width: 768px)" srcset="img/review-3-tablet@1x.webp 1x, img/review-3-tablet@2x.webp 2x">
+                    <source type="image/webp" srcset="img/review-3-mobile@1x.webp 1x, img/review-3-mobile@2x.webp 2x">
+                    <source media="(min-width: 1440px)" srcset="img/review-3-desktop@1x.jpg 1x, img/review-3-desktop@2x.jpg 2x">
+                    <source media="(min-width: 768px)" srcset="img/review-3-tablet@1x.jpg 1x, img/review-3-tablet@2x.jpg 2x">
+                    <img class="card__photo" src="img/review-3-mobile@1x.jpg" srcset="img/review-3-mobile@2x.jpg 2x" width="80" height="80" alt="Фото Петров Дмитрий">
+                  </picture>
                   <div class="card__author">
                     <h3 class="card__name">Петров Дмитрий</h3>
                     <p class="card__meta">42 года, Екатеринбург</p>
@@ -585,6 +730,30 @@
 
                 <div class="card__content">
                   <p>Профессиональный подход к организации, внимательные инструкторы, отличное снаряжение. Рекомендую всем любителям гор!</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Review Card 4 -->
+            <div class="swiper-slide">
+              <article class="card reviews__card">
+                <div class="card__header">
+                  <picture>
+                    <source type="image/webp" media="(min-width: 1440px)" srcset="img/review-4-desktop@1x.webp 1x, img/review-4-desktop@2x.webp 2x">
+                    <source type="image/webp" media="(min-width: 768px)" srcset="img/review-4-tablet@1x.webp 1x, img/review-4-tablet@2x.webp 2x">
+                    <source type="image/webp" srcset="img/review-4-mobile@1x.webp 1x, img/review-4-mobile@2x.webp 2x">
+                    <source media="(min-width: 1440px)" srcset="img/review-4-desktop@1x.jpg 1x, img/review-4-desktop@2x.jpg 2x">
+                    <source media="(min-width: 768px)" srcset="img/review-4-tablet@1x.jpg 1x, img/review-4-tablet@2x.jpg 2x">
+                    <img class="card__photo" src="img/review-4-mobile@1x.jpg" srcset="img/review-4-mobile@2x.jpg 2x" width="80" height="80" alt="Фото Сидорова Анна">
+                  </picture>
+                  <div class="card__author">
+                    <h3 class="card__name">Сидорова Анна</h3>
+                    <p class="card__meta">35 лет, Новосибирск</p>
+                  </div>
+                </div>
+
+                <div class="card__content">
+                  <p>Потрясающий опыт! Инструкторы создали атмосферу безопасности и комфорта. Рекомендую всем, кто мечтает о горах!</p>
                 </div>
               </article>
             </div>
@@ -693,8 +862,8 @@
             <!-- Gallery Item 1 -->
             <div class="gallery__item swiper-slide">
               <picture>
-                <source srcset="img/gallery/photo-1.webp 1x, img/gallery/photo-1@2x.webp 2x" type="image/webp">
-                <img class="gallery__image" src="img/gallery/photo-1.jpg" srcset="img/gallery/photo-1@2x.jpg 2x" width="285" height="400" alt="Горная вершина в снегу">
+                <source type="image/webp" srcset="img/gallery-1@1x.webp 1x, img/gallery-1@2x.webp 2x">
+                <img class="gallery__image" src="img/gallery-1@1x.jpg" srcset="img/gallery-1@2x.jpg 2x" width="285" height="400" alt="Горная вершина в снегу">
               </picture>
               <!-- Контентная область БЕЗ классов -->
               <p class="gallery__caption">Вершина Казбек</p>
@@ -703,8 +872,8 @@
             <!-- Gallery Item 2 -->
             <div class="gallery__item swiper-slide">
               <picture>
-                <source srcset="img/gallery/photo-2.webp 1x, img/gallery/photo-2@2x.webp 2x" type="image/webp">
-                <img class="gallery__image" src="img/gallery/photo-2.jpg" srcset="img/gallery/photo-2@2x.jpg 2x" width="285" height="400" alt="Группа туристов на маршруте">
+                <source type="image/webp" srcset="img/gallery-2@1x.webp 1x, img/gallery-2@2x.webp 2x">
+                <img class="gallery__image" src="img/gallery-2@1x.jpg" srcset="img/gallery-2@2x.jpg 2x" width="285" height="400" alt="Группа туристов на маршруте">
               </picture>
               <p class="gallery__caption">Наша команда</p>
             </div>
@@ -712,8 +881,8 @@
             <!-- Gallery Item 3 -->
             <div class="gallery__item swiper-slide">
               <picture>
-                <source srcset="img/gallery/photo-3.webp 1x, img/gallery/photo-3@2x.webp 2x" type="image/webp">
-                <img class="gallery__image" src="img/gallery/photo-3.jpg" srcset="img/gallery/photo-3@2x.jpg 2x" width="285" height="400" alt="Закат в горах">
+                <source type="image/webp" srcset="img/gallery-3@1x.webp 1x, img/gallery-3@2x.webp 2x">
+                <img class="gallery__image" src="img/gallery-3@1x.jpg" srcset="img/gallery-3@2x.jpg 2x" width="285" height="400" alt="Закат в горах">
               </picture>
               <p class="gallery__caption">Закат в горах</p>
             </div>
@@ -721,16 +890,37 @@
             <!-- Gallery Item 4 -->
             <div class="gallery__item swiper-slide">
               <picture>
-                <source srcset="img/gallery/photo-4.webp 1x, img/gallery/photo-4@2x.webp 2x" type="image/webp">
-                <img class="gallery__image" src="img/gallery/photo-4.jpg" srcset="img/gallery/photo-4@2x.jpg 2x" width="285" height="400" alt="Палаточный лагерь">
+                <source type="image/webp" srcset="img/gallery-4@1x.webp 1x, img/gallery-4@2x.webp 2x">
+                <img class="gallery__image" src="img/gallery-4@1x.jpg" srcset="img/gallery-4@2x.jpg 2x" width="285" height="400" alt="Палаточный лагерь">
               </picture>
               <p class="gallery__caption">Наш лагерь</p>
             </div>
 
-            <!-- Gallery Item 5 (Placeholder) -->
+            <!-- Gallery Item 5 -->
             <div class="gallery__item swiper-slide">
-              <img class="gallery__image" src="https://via.placeholder.com/285x400/0266C1/FFFFFF?text=Photo+5" width="285" height="400" alt="Фото 5">
-              <p class="gallery__caption">Подпись к фото 5</p>
+              <picture>
+                <source type="image/webp" srcset="img/gallery-5@1x.webp 1x, img/gallery-5@2x.webp 2x">
+                <img class="gallery__image" src="img/gallery-5@1x.jpg" srcset="img/gallery-5@2x.jpg 2x" width="285" height="400" alt="Горное озеро">
+              </picture>
+              <p class="gallery__caption">Горное озеро</p>
+            </div>
+
+            <!-- Gallery Item 6 -->
+            <div class="gallery__item swiper-slide">
+              <picture>
+                <source type="image/webp" srcset="img/gallery-6@1x.webp 1x, img/gallery-6@2x.webp 2x">
+                <img class="gallery__image" src="img/gallery-6@1x.jpg" srcset="img/gallery-6@2x.jpg 2x" width="285" height="400" alt="Восход солнца в горах">
+              </picture>
+              <p class="gallery__caption">Восход солнца</p>
+            </div>
+
+            <!-- Gallery Item 7 -->
+            <div class="gallery__item swiper-slide">
+              <picture>
+                <source type="image/webp" srcset="img/gallery-7@1x.webp 1x, img/gallery-7@2x.webp 2x">
+                <img class="gallery__image" src="img/gallery-7@1x.jpg" srcset="img/gallery-7@2x.jpg 2x" width="285" height="400" alt="Горный перевал">
+              </picture>
+              <p class="gallery__caption">Горный перевал</p>
             </div>
 
           </div>
@@ -794,7 +984,7 @@
         <!-- Brand Column -->
         <div class="footer__brand">
           <a class="logo footer__logo" href="#hero">
-            <img class="logo__image" src="/__spritemap#sprite-logotype-view" width="142" height="42" alt="Lifetour">
+            <img class="logo__image" src="/__spritemap#sprite-logo" width="142" height="42" alt="Lifetour">
           </a>
           <p class="footer__description">Путешествия и походы в горы</p>
         </div>
@@ -836,8 +1026,12 @@
         <!-- Map Column -->
         <div class="footer__map">
           <picture>
-            <source srcset="https://via.placeholder.com/380x200/0266C1/FFFFFF?text=Map 1x, https://via.placeholder.com/760x400/0266C1/FFFFFF?text=Map 2x" type="image/webp">
-            <img class="footer__map-image" src="https://via.placeholder.com/380x200/0266C1/FFFFFF?text=Map" srcset="https://via.placeholder.com/760x400/0266C1/FFFFFF?text=Map 2x" width="380" height="200" alt="Карта с местоположением офиса">
+            <source type="image/webp" media="(min-width: 1440px)" srcset="img/map-desktop@1x.webp 1x, img/map-desktop@2x.webp 2x">
+            <source type="image/webp" media="(min-width: 768px)" srcset="img/map-tablet@1x.webp 1x, img/map-tablet@2x.webp 2x">
+            <source type="image/webp" srcset="img/map-mobile@1x.webp 1x, img/map-mobile@2x.webp 2x">
+            <source media="(min-width: 1440px)" srcset="img/map-desktop@1x.jpg 1x, img/map-desktop@2x.jpg 2x">
+            <source media="(min-width: 768px)" srcset="img/map-tablet@1x.jpg 1x, img/map-tablet@2x.jpg 2x">
+            <img class="footer__map-image" src="img/map-mobile@1x.jpg" srcset="img/map-mobile@2x.jpg 2x" width="380" height="200" alt="Карта с местоположением офиса">
           </picture>
         </div>
 
