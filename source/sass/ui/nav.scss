@@ -10,6 +10,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: $spacing-m;
+
     // TODO: добавить адаптивные стили для мобильного меню
   }
 
@@ -19,6 +20,7 @@
 
   &__link {
     display: block;
+
     // TODO: добавить размеры шрифта, отступы из дизайн-системы
 
     &:hover {

@@ -29,7 +29,7 @@
         </a>
 
         <!-- Navigation (Desktop) -->
-        <nav class="nav header__nav">
+        <nav class="nav header__nav" aria-label="Основная навигация">
           <ul class="nav__list">
             <li class="nav__item">
               <a class="nav__link" href="#tours">Туры</a>
@@ -59,13 +59,13 @@
         </a>
 
         <!-- Burger Button (Mobile/Tablet) -->
-        <button class="header__burger" type="button" data-burger aria-label="Открыть меню">
+        <button class="header__burger" type="button" data-burger="toggle" aria-label="Открыть меню">
           <span class="visually-hidden">Открыть меню</span>
         </button>
 
         <!-- Mobile Menu Overlay -->
-        <div class="header__menu" data-menu>
-          <nav class="nav header__menu-nav">
+        <div class="header__menu" data-menu="mobile">
+          <nav class="nav header__menu-nav" aria-label="Мобильное меню">
             <ul class="nav__list">
               <li class="nav__item">
                 <a class="nav__link" href="#tours">Туры</a>
@@ -98,20 +98,22 @@
 
     <!-- ===== HERO SECTION ===== -->
     <section class="hero" id="hero" data-test="hero">
+      <h1 class="visually-hidden">Lifetour - Организация походов и туров в горы</h1>
+
       <div class="hero__slider swiper" data-slider="hero">
         <div class="swiper-wrapper">
 
           <!-- Hero Slide 1 -->
           <div class="hero__slide swiper-slide">
             <picture>
-              <source type="image/webp" srcset="img/hero-1@1x.webp 1x, img/hero-1@2x.webp 2x">
-              <img class="hero__bg" src="img/hero-1@1x.png" srcset="img/hero-1@2x.png 2x" width="320" height="568" alt="Захватывающие вершины Кавказа" role="presentation">
+              <source type="image/webp" srcset="img/hero-1@1x.webp 1x, img/hero-1@2x.webp 2x" width="320" height="568">
+              <img class="hero__bg" src="img/hero-1@1x.png" srcset="img/hero-1@2x.png 2x" width="320" height="568" alt="Захватывающие вершины Кавказа">
             </picture>
 
             <div class="container">
               <div class="hero__content">
-                <!-- Content area WITHOUT classes (cascading styling)-->
-                <h1>Захватывающие вершины Кавказа</h1>
+                <!-- Content area WITHOUT classes (cascading styling) -->
+                <h2>Захватывающие вершины Кавказа</h2>
                 <p>В сопровождении опытных гидов вы пройдёте через потрясающие ландшафты и совершите восход на вершину горы Чегет.</p>
                 <a class="button hero__button" href="#tours">Смотреть тур</a>
               </div>
@@ -121,13 +123,14 @@
           <!-- Hero Slide 2 -->
           <div class="hero__slide swiper-slide">
             <picture>
-              <source type="image/webp" srcset="img/hero-2@1x.webp 1x, img/hero-2@2x.webp 2x">
-              <img class="hero__bg" src="img/hero-2@1x.jpg" srcset="img/hero-2@2x.jpg 2x" width="320" height="568" alt="Невероятная природа Камчатки" role="presentation">
+              <source type="image/webp" srcset="img/hero-2@1x.webp 1x, img/hero-2@2x.webp 2x" width="320" height="568">
+              <img class="hero__bg" src="img/hero-2@1x.jpg" srcset="img/hero-2@2x.jpg 2x" width="320" height="568" alt="Невероятная природа Камчатки">
             </picture>
 
             <div class="container">
               <div class="hero__content">
-                <h1>Невероятная природа Камчатки</h1>
+                <!-- Content area WITHOUT classes (cascading styling) -->
+                <h2>Невероятная природа Камчатки</h2>
                 <p>Незабываемое приключение, во время которого вы отправитесь в путешествие по одному из самых нетронутых уголков дикой природы в мире.</p>
                 <a class="button hero__button" href="#tours">Смотреть тур</a>
               </div>
@@ -137,16 +140,18 @@
           <!-- Hero Slide 3 -->
           <div class="hero__slide swiper-slide">
             <picture>
-              <source type="image/webp" srcset="img/hero-3@1x.webp 1x, img/hero-3@2x.webp 2x">
-              <img class="hero__bg" src="img/hero-3@1x.png" srcset="img/hero-3@2x.png 2x" width="320" height="568" alt="Магические пейзажи Алтайского Края" role="presentation">
+              <source type="image/webp" srcset="img/hero-3@1x.webp 1x, img/hero-3@2x.webp 2x" width="320" height="568">
+              <img class="hero__bg" src="img/hero-3@1x.png" srcset="img/hero-3@2x.png 2x" width="320" height="568" alt="Магические пейзажи Алтайского Края">
             </picture>
 
             <div class="container">
               <div class="hero__content">
-                <h1>Магические пейзажи Алтайского Края</h1>
+                <!-- Content area WITHOUT classes (cascading styling) -->
+                <h2>Магические пейзажи Алтайского Края</h2>
                 <p>Алтайский трекинг-тур— это захватывающее приключение с посещением магических и захватывающих душу ландшафтов Алтайских гор.</p>
                 <a class="button hero__button" href="#tours">Смотреть тур</a>
               </div>
+            </div>
           </div>
 
         </div>
@@ -180,7 +185,7 @@
               <article class="card tours__card">
                 <div class="card__image-wrapper">
                   <picture>
-                    <source type="image/webp" srcset="img/tour-1@1x.webp 1x, img/tour-1@2x.webp 2x">
+                    <source type="image/webp" srcset="img/tour-1@1x.webp 1x, img/tour-1@2x.webp 2x" width="290" height="416">
                     <img class="card__image" src="img/tour-1@1x.png" srcset="img/tour-1@2x.png 2x" width="290" height="416" alt="Путешествие вокруг Эльбруса">
                   </picture>
                 </div>
@@ -249,7 +254,7 @@
               <article class="card tours__card">
                 <div class="card__image-wrapper">
                   <picture>
-                    <source type="image/webp" srcset="img/tour-2@1x.webp 1x, img/tour-2@2x.webp 2x">
+                    <source type="image/webp" srcset="img/tour-2@1x.webp 1x, img/tour-2@2x.webp 2x" width="290" height="416">
                     <img class="card__image" src="img/tour-2@1x.png" srcset="img/tour-2@2x.png 2x" width="290" height="416" alt="Путь к подножию Белухи">
                   </picture>
                 </div>
@@ -318,7 +323,7 @@
               <article class="card tours__card">
                 <div class="card__image-wrapper">
                   <picture>
-                    <source type="image/webp" srcset="img/tour-3@1x.webp 1x, img/tour-3@2x.webp 2x">
+                    <source type="image/webp" srcset="img/tour-3@1x.webp 1x, img/tour-3@2x.webp 2x" width="290" height="416">
                     <img class="card__image" src="img/tour-3@1x.png" srcset="img/tour-3@2x.png 2x" width="290" height="416" alt="Через Фишт к Чёрному морю и обратно">
                   </picture>
                 </div>
@@ -387,7 +392,7 @@
               <article class="card tours__card">
                 <div class="card__image-wrapper">
                   <picture>
-                    <source type="image/webp" srcset="img/tour-4@1x.webp 1x, img/tour-4@2x.webp 2x">
+                    <source type="image/webp" srcset="img/tour-4@1x.webp 1x, img/tour-4@2x.webp 2x" width="290" height="416">
                     <img class="card__image" src="img/tour-4@1x.png" srcset="img/tour-4@2x.png 2x" width="290" height="416" alt="Восхождение Манарага">
                   </picture>
                 </div>
@@ -476,7 +481,7 @@
         <div class="title training__title-wrapper">
           <h2 class="title__main">Обучение</h2>
           <span class="title__decoration" aria-hidden="true">Обучение</span>
-           <!-- Content area WITHOUT classes (cascading styling)-->
+          <!-- Content area WITHOUT classes (cascading styling) -->
           <p>Обучение проводится квалифицированными специалистами, за плечами которых десятки пройденных маршрутов Кавказа, Крыма, Гималаев, Эльбруса, Алтая, Карелии, Адыгеи и других.</p>
         </div>
 
@@ -496,13 +501,13 @@
             <div class="swiper-slide">
               <article class="card training__card">
                 <picture>
-                  <source type="image/webp" srcset="img/trainer-1@1x.webp 1x, img/trainer-1@2x.webp 2x">
+                  <source type="image/webp" srcset="img/trainer-1@1x.webp 1x, img/trainer-1@2x.webp 2x" width="260" height="200">
                   <img class="card__image" src="img/trainer-1@1x.jpg" srcset="img/trainer-1@2x.jpg 2x" width="260" height="200" alt="Инструктор Александр Прокофьев">
                 </picture>
 
                 <div class="card__content">
                   <div class="card__header">
-                    <!-- Content area WITHOUT classes (cascading styling)-->
+                    <!-- Content area WITHOUT classes (cascading styling) -->
                     <h3>Александр Прокофьев</h3>
                     <a class="card__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте Александра Прокофьева">
                       <svg class="icon" width="14" height="8" aria-hidden="true">
@@ -519,13 +524,13 @@
             <div class="swiper-slide">
               <article class="card training__card">
                 <picture>
-                  <source type="image/webp" srcset="img/trainer-2@1x.webp 1x, img/trainer-2@2x.webp 2x">
+                  <source type="image/webp" srcset="img/trainer-2@1x.webp 1x, img/trainer-2@2x.webp 2x" width="260" height="200">
                   <img class="card__image" src="img/trainer-2@1x.jpg" srcset="img/trainer-2@2x.jpg 2x" width="260" height="200" alt="Инструктор Светлана Афиногенова">
                 </picture>
 
                 <div class="card__content">
                   <div class="card__header">
-                    <!-- Content area WITHOUT classes (cascading styling)-->
+                    <!-- Content area WITHOUT classes (cascading styling) -->
                     <h3>Светлана Афиногенова</h3>
                     <a class="card__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте Светланы Афиногеновой">
                       <svg class="icon" width="14" height="8" aria-hidden="true">
@@ -542,13 +547,13 @@
             <div class="swiper-slide">
               <article class="card training__card">
                 <picture>
-                  <source type="image/webp" srcset="img/trainer-3@1x.webp 1x, img/trainer-3@2x.webp 2x">
+                  <source type="image/webp" srcset="img/trainer-3@1x.webp 1x, img/trainer-3@2x.webp 2x" width="260" height="200">
                   <img class="card__image" src="img/trainer-3@1x.jpg" srcset="img/trainer-3@2x.jpg 2x" width="260" height="200" alt="Инструктор Надежда Колесниченко">
                 </picture>
 
                 <div class="card__content">
                   <div class="card__header">
-                    <!-- Content area WITHOUT classes (cascading styling)-->
+                    <!-- Content area WITHOUT classes (cascading styling) -->
                     <h3>Надежда Колесниченко</h3>
                     <a class="card__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте Надежды Колесниченко">
                       <svg class="icon" width="14" height="8" aria-hidden="true">
@@ -565,13 +570,13 @@
             <div class="swiper-slide">
               <article class="card training__card">
                 <picture>
-                  <source type="image/webp" srcset="img/trainer-4@1x.webp 1x, img/trainer-4@2x.webp 2x">
+                  <source type="image/webp" srcset="img/trainer-4@1x.webp 1x, img/trainer-4@2x.webp 2x" width="260" height="200">
                   <img class="card__image" src="img/trainer-4@1x.jpg" srcset="img/trainer-4@2x.jpg 2x" width="260" height="200" alt="Инструктор Федор Кайгородов">
                 </picture>
 
                 <div class="card__content">
                   <div class="card__header">
-                    <!-- Content area WITHOUT classes (cascading styling)-->
+                    <!-- Content area WITHOUT classes (cascading styling) -->
                     <h3>Федор Кайгородов</h3>
                     <a class="card__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте Федора Кайгородова">
                       <svg class="icon" width="14" height="8" aria-hidden="true">
@@ -588,13 +593,13 @@
             <div class="swiper-slide">
               <article class="card training__card">
                 <picture>
-                  <source type="image/webp" srcset="img/trainer-5@1x.webp 1x, img/trainer-5@2x.webp 2x">
+                  <source type="image/webp" srcset="img/trainer-5@1x.webp 1x, img/trainer-5@2x.webp 2x" width="260" height="200">
                   <img class="card__image" src="img/trainer-5@1x.jpg" srcset="img/trainer-5@2x.jpg 2x" width="260" height="200" alt="Инструктор Даниэль Васнецов">
                 </picture>
 
                 <div class="card__content">
                   <div class="card__header">
-                    <!-- Content area WITHOUT classes (cascading styling)-->
+                    <!-- Content area WITHOUT classes (cascading styling) -->
                     <h3>Даниэль Васнецов</h3>
                     <a class="card__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте Даниэля Васнецова">
                       <svg class="icon" width="14" height="8" aria-hidden="true">
@@ -668,7 +673,7 @@
 
         <div class="about__wrapper">
           <div class="about__content">
-            <!-- Content area WITHOUT classes (cascading styling)-->
+            <!-- Content area WITHOUT classes (cascading styling) -->
             <h3>История компании</h3>
             <p>В далёком 2000 году мы начали заниматься туризмом — походы, поездки, восхождения, нам это настолько понравилось, что мы этим стали жить. Спустя 5 лет, в 2005 году мы основали компанию, чтобы показывать людям удивительные места нашей страны.</p>
 
@@ -679,7 +684,7 @@
           <!-- Image with Retina Support -->
           <div class="about__image-wrapper">
             <picture>
-              <source type="image/webp" srcset="img/about@1x.webp 1x, img/about@2x.webp 2x">
+              <source type="image/webp" srcset="img/about@1x.webp 1x, img/about@2x.webp 2x" width="320" height="400">
               <img class="about__image" src="img/about@1x.jpg" srcset="img/about@2x.jpg 2x" width="320" height="400" alt="Группа туристов спускается с вершины горы с видом на озеро">
             </picture>
           </div>
@@ -706,17 +711,17 @@
             <div class="swiper-slide">
               <article class="card reviews__card">
                 <picture class="card__photo">
-                  <source type="image/webp" media="(min-width: 1440px)" srcset="img/review-1-desktop@1x.webp 1x, img/review-1-desktop@2x.webp 2x">
-                  <source type="image/webp" media="(min-width: 768px)" srcset="img/review-1-tablet@1x.webp 1x, img/review-1-tablet@2x.webp 2x">
-                  <source type="image/webp" srcset="img/review-1-mobile@1x.webp 1x, img/review-1-mobile@2x.webp 2x">
-                  <source media="(min-width: 1440px)" srcset="img/review-1-desktop@1x.jpg 1x, img/review-1-desktop@2x.jpg 2x">
-                  <source media="(min-width: 768px)" srcset="img/review-1-tablet@1x.jpg 1x, img/review-1-tablet@2x.jpg 2x">
+                  <source type="image/webp" media="(min-width: 1440px)" srcset="img/review-1-desktop@1x.webp 1x, img/review-1-desktop@2x.webp 2x" width="258" height="253">
+                  <source type="image/webp" media="(min-width: 768px)" srcset="img/review-1-tablet@1x.webp 1x, img/review-1-tablet@2x.webp 2x" width="186" height="237">
+                  <source type="image/webp" srcset="img/review-1-mobile@1x.webp 1x, img/review-1-mobile@2x.webp 2x" width="250" height="169">
+                  <source type="image/jpeg" media="(min-width: 1440px)" srcset="img/review-1-desktop@1x.jpg 1x, img/review-1-desktop@2x.jpg 2x" width="258" height="253">
+                  <source type="image/jpeg" media="(min-width: 768px)" srcset="img/review-1-tablet@1x.jpg 1x, img/review-1-tablet@2x.jpg 2x" width="186" height="237">
                   <img src="img/review-1-mobile@1x.jpg" srcset="img/review-1-mobile@2x.jpg 2x" width="250" height="169" alt="Фото Фролов Александр">
                 </picture>
 
                 <div class="card__body">
                   <div class="card__content">
-                    <!-- Content area WITHOUT classes (cascading styling)-->
+                    <!-- Content area WITHOUT classes (cascading styling) -->
                     <p>Осенью ходили в поход на Алтай с друзьями. Впечатления потрясающие! Инструкторы, настоящие эксперты, всему научили, все показали. Делились историями о местах, людях, культуре места.</p>
                     <p>С уверенностью могу сказать, что жизнь разделилась на до этого и после. Ещё никогда не отдыхал так душой и телом. Всем очень рекомендую!</p>
                   </div>
@@ -733,18 +738,18 @@
             <div class="swiper-slide">
               <article class="card reviews__card">
                 <picture class="card__photo">
-                  <source type="image/webp" media="(min-width: 1440px)" srcset="img/review-2-desktop@1x.webp 1x, img/review-2-desktop@2x.webp 2x">
-                  <source type="image/webp" media="(min-width: 768px)" srcset="img/review-2-tablet@1x.webp 1x, img/review-2-tablet@2x.webp 2x">
-                  <source type="image/webp" srcset="img/review-2-mobile@1x.webp 1x, img/review-2-mobile@2x.webp 2x">
-                  <source media="(min-width: 1440px)" srcset="img/review-2-desktop@1x.jpg 1x, img/review-2-desktop@2x.jpg 2x">
-                  <source media="(min-width: 768px)" srcset="img/review-2-tablet@1x.jpg 1x, img/review-2-tablet@2x.jpg 2x">
+                  <source type="image/webp" media="(min-width: 1440px)" srcset="img/review-2-desktop@1x.webp 1x, img/review-2-desktop@2x.webp 2x" width="258" height="253">
+                  <source type="image/webp" media="(min-width: 768px)" srcset="img/review-2-tablet@1x.webp 1x, img/review-2-tablet@2x.webp 2x" width="186" height="237">
+                  <source type="image/webp" srcset="img/review-2-mobile@1x.webp 1x, img/review-2-mobile@2x.webp 2x" width="250" height="169">
+                  <source type="image/jpeg" media="(min-width: 1440px)" srcset="img/review-2-desktop@1x.jpg 1x, img/review-2-desktop@2x.jpg 2x" width="258" height="253">
+                  <source type="image/jpeg" media="(min-width: 768px)" srcset="img/review-2-tablet@1x.jpg 1x, img/review-2-tablet@2x.jpg 2x" width="186" height="237">
                   <img src="img/review-2-mobile@1x.jpg" srcset="img/review-2-mobile@2x.jpg 2x" width="250" height="169" alt="Фото Иван Соловьев">
                 </picture>
 
                 <div class="card__body">
                   <div class="card__content">
-                    <!-- Content area WITHOUT classes (cascading styling)-->
-                    <p>Хороший полноценный поход с разнообразными локациями. В начале дорога идёт по лыжне, далее прошли мимо полигона, по болотам, у озёр и лесных ручьёв, остатков дач конца 19 века. Было очень интересно! </p>
+                    <!-- Content area WITHOUT classes (cascading styling) -->
+                    <p>Хороший полноценный поход с разнообразными локациями. В начале дорога идёт по лыжне, далее прошли мимо полигона, по болотам, у озёр и лесных ручьёв, остатков дач конца 19 века. Было очень интересно!</p>
                     <p>Инструктор Федор дружелюбный, внимательный к технике безопасности и своим туристам. Всем советую этот тур.</p>
                   </div>
 
@@ -760,17 +765,17 @@
             <div class="swiper-slide">
               <article class="card reviews__card">
                 <picture class="card__photo">
-                  <source type="image/webp" media="(min-width: 1440px)" srcset="img/review-3-desktop@1x.webp 1x, img/review-3-desktop@2x.webp 2x">
-                  <source type="image/webp" media="(min-width: 768px)" srcset="img/review-3-tablet@1x.webp 1x, img/review-3-tablet@2x.webp 2x">
-                  <source type="image/webp" srcset="img/review-3-mobile@1x.webp 1x, img/review-3-mobile@2x.webp 2x">
-                  <source media="(min-width: 1440px)" srcset="img/review-3-desktop@1x.jpg 1x, img/review-3-desktop@2x.jpg 2x">
-                  <source media="(min-width: 768px)" srcset="img/review-3-tablet@1x.jpg 1x, img/review-3-tablet@2x.jpg 2x">
+                  <source type="image/webp" media="(min-width: 1440px)" srcset="img/review-3-desktop@1x.webp 1x, img/review-3-desktop@2x.webp 2x" width="258" height="253">
+                  <source type="image/webp" media="(min-width: 768px)" srcset="img/review-3-tablet@1x.webp 1x, img/review-3-tablet@2x.webp 2x" width="186" height="237">
+                  <source type="image/webp" srcset="img/review-3-mobile@1x.webp 1x, img/review-3-mobile@2x.webp 2x" width="250" height="169">
+                  <source type="image/jpeg" media="(min-width: 1440px)" srcset="img/review-3-desktop@1x.jpg 1x, img/review-3-desktop@2x.jpg 2x" width="258" height="253">
+                  <source type="image/jpeg" media="(min-width: 768px)" srcset="img/review-3-tablet@1x.jpg 1x, img/review-3-tablet@2x.jpg 2x" width="186" height="237">
                   <img src="img/review-3-mobile@1x.jpg" srcset="img/review-3-mobile@2x.jpg 2x" width="250" height="169" alt="Фото Евгения Баженова">
                 </picture>
 
                 <div class="card__body">
                   <div class="card__content">
-                    <!-- Content area WITHOUT classes (cascading styling)-->
+                    <!-- Content area WITHOUT classes (cascading styling) -->
                     <p>Ранее не ходила на такие длинные дистанции. В первый день прошли около 30 км, физически я устала на 18 км, поэтому не была уверена, пройду ли до конца. Но я справилась. Второй день прошел легче, чем ожидала, видимо организм уже привык.</p>
                     <p>Спасибо ребятам, инструкторам за помощь и поддержку! Я была рада быть в такой компании.</p>
                   </div>
@@ -787,17 +792,17 @@
             <div class="swiper-slide">
               <article class="card reviews__card">
                 <picture class="card__photo">
-                  <source type="image/webp" media="(min-width: 1440px)" srcset="img/review-4-desktop@1x.webp 1x, img/review-4-desktop@2x.webp 2x">
-                  <source type="image/webp" media="(min-width: 768px)" srcset="img/review-4-tablet@1x.webp 1x, img/review-4-tablet@2x.webp 2x">
-                  <source type="image/webp" srcset="img/review-4-mobile@1x.webp 1x, img/review-4-mobile@2x.webp 2x">
-                  <source media="(min-width: 1440px)" srcset="img/review-4-desktop@1x.jpg 1x, img/review-4-desktop@2x.jpg 2x">
-                  <source media="(min-width: 768px)" srcset="img/review-4-tablet@1x.jpg 1x, img/review-4-tablet@2x.jpg 2x">
+                  <source type="image/webp" media="(min-width: 1440px)" srcset="img/review-4-desktop@1x.webp 1x, img/review-4-desktop@2x.webp 2x" width="258" height="253">
+                  <source type="image/webp" media="(min-width: 768px)" srcset="img/review-4-tablet@1x.webp 1x, img/review-4-tablet@2x.webp 2x" width="186" height="237">
+                  <source type="image/webp" srcset="img/review-4-mobile@1x.webp 1x, img/review-4-mobile@2x.webp 2x" width="250" height="169">
+                  <source type="image/jpeg" media="(min-width: 1440px)" srcset="img/review-4-desktop@1x.jpg 1x, img/review-4-desktop@2x.jpg 2x" width="258" height="253">
+                  <source type="image/jpeg" media="(min-width: 768px)" srcset="img/review-4-tablet@1x.jpg 1x, img/review-4-tablet@2x.jpg 2x" width="186" height="237">
                   <img src="img/review-4-mobile@1x.jpg" srcset="img/review-4-mobile@2x.jpg 2x" width="250" height="169" alt="Фото Елена Пирогова">
                 </picture>
 
                 <div class="card__body">
                   <div class="card__content">
-                    <!-- Content area WITHOUT classes (cascading styling)-->
+                    <!-- Content area WITHOUT classes (cascading styling) -->
                     <p>Это был опыт, изменивший мою жизнь! Думала, не справлюсь, но все получилось! Дух захватывает, когда наконец‑то, преодолев все трудности и препятствия, взбираешься на вершину.</p>
                     <p>У нас собралась потрясающая команда. Все друг друга поддерживали, по вечерам мы сидели вместе у костра и пели песни. Обязательно повторю такое приключение!</p>
                   </div>
@@ -844,7 +849,7 @@
                 <svg class="advantages__icon icon" width="24" height="24" aria-hidden="true">
                   <use href="/__spritemap#sprite-shield"></use>
                 </svg>
-                <!-- Content area WITHOUT classes (cascading styling)-->
+                <!-- Content area WITHOUT classes (cascading styling) -->
                 <h3>Безопасность</h3>
                 <p>Уделяем внимание безопасности клиентов, внедряя строгие процедуры и протоколы безопасности. Имеем планы действий на случай непредвиденных обстоятельств и даём гарантию полной безопасности во время всего тура.</p>
               </div>
@@ -856,7 +861,7 @@
                 <svg class="advantages__icon icon" width="24" height="24" aria-hidden="true">
                   <use href="/__spritemap#sprite-crown"></use>
                 </svg>
-                <!-- Content area WITHOUT classes (cascading styling)-->
+                <!-- Content area WITHOUT classes (cascading styling) -->
                 <h3>Экспертиза и знания</h3>
                 <p>Наша команда опытных гидов имеет обширные знания о местности, погодных условиях и технике безопасности. Это гарантирует, что наши клиенты находятся в надёжных руках и могут в полной мере насладиться опытом без опасений.</p>
               </div>
@@ -868,7 +873,7 @@
                 <svg class="advantages__icon icon" width="24" height="24" aria-hidden="true">
                   <use href="/__spritemap#sprite-boots"></use>
                 </svg>
-                <!-- Content area WITHOUT classes (cascading styling)-->
+                <!-- Content area WITHOUT classes (cascading styling) -->
                 <h3>Оборудование и снаряжение</h3>
                 <p>Мы предоставляем клиентам все необходимое оборудование, необходимое для путешествия. Это избавляет клиентов от необходимости покупать, брать с собой снаряжение, что делает путешествие более удобным и экономически выгодным.</p>
               </div>
@@ -880,7 +885,7 @@
                 <svg class="advantages__icon icon" width="24" height="24" aria-hidden="true">
                   <use href="/__spritemap#sprite-path"></use>
                 </svg>
-                <!-- Content area WITHOUT classes (cascading styling)-->
+                <!-- Content area WITHOUT classes (cascading styling) -->
                 <h3>Индивидуальные маршруты</h3>
                 <p>Предлагаем широкий выбор туров, отвечающих различным уровням мастерства и интересам. Мы также можем адаптировать маршруты к вашим конкретным потребностям и предпочтениям, чтобы вы получили индивидуальный опыт.</p>
               </div>
@@ -892,7 +897,7 @@
                 <svg class="advantages__icon icon" width="24" height="24" aria-hidden="true">
                   <use href="/__spritemap#sprite-leaf"></use>
                 </svg>
-                <!-- Content area WITHOUT classes (cascading styling)-->
+                <!-- Content area WITHOUT classes (cascading styling) -->
                 <h3>Бережное отношение к природе</h3>
                 <p>Уделяем первостепенное внимание охране окружающей среды и гарантируем, что туры оказывают минимальное воздействие на природную среду. Наша компания следует принципу «Не оставлять следов».</p>
               </div>
@@ -923,7 +928,7 @@
         </div>
 
         <div class="gallery__intro">
-          <!-- Content area WITHOUT classes (cascading styling)-->
+          <!-- Content area WITHOUT classes (cascading styling) -->
           <p>Добавляйте фото с хэштегом #лайфтур, а также отмечайте нас на фото. Лучшие фотографии украсят этот раздел нашего сайта.</p>
         </div>
 
@@ -934,7 +939,7 @@
             <!-- Gallery Item 1 -->
             <div class="gallery__item swiper-slide">
               <picture>
-                <source type="image/webp" srcset="img/gallery-1@1x.webp 1x, img/gallery-1@2x.webp 2x">
+                <source type="image/webp" srcset="img/gallery-1@1x.webp 1x, img/gallery-1@2x.webp 2x" width="158" height="266">
                 <img class="gallery__image" src="img/gallery-1@1x.jpg" srcset="img/gallery-1@2x.jpg 2x" width="158" height="266" alt="Турист со рюкзаком стоит спиной на вершине горы и смотрит на горный хребет под голубым небом.">
               </picture>
             </div>
@@ -942,7 +947,7 @@
             <!-- Gallery Item 2 -->
             <div class="gallery__item swiper-slide">
               <picture>
-                <source type="image/webp" srcset="img/gallery-2@1x.webp 1x, img/gallery-2@2x.webp 2x">
+                <source type="image/webp" srcset="img/gallery-2@1x.webp 1x, img/gallery-2@2x.webp 2x" width="157" height="149">
                 <img class="gallery__image" src="img/gallery-2@1x.jpg" srcset="img/gallery-2@2x.jpg 2x" width="157" height="149" alt="Группа туристов сидят у костра на ночной стоянке в лесу.">
               </picture>
             </div>
@@ -950,7 +955,7 @@
             <!-- Gallery Item 3 -->
             <div class="gallery__item swiper-slide">
               <picture>
-                <source type="image/webp" srcset="img/gallery-3@1x.webp 1x, img/gallery-3@2x.webp 2x">
+                <source type="image/webp" srcset="img/gallery-3@1x.webp 1x, img/gallery-3@2x.webp 2x" width="157" height="149">
                 <img class="gallery__image" src="img/gallery-3@1x.jpg" srcset="img/gallery-3@2x.jpg 2x" width="157" height="149" alt="Рука с компасом на фоне горного хребта под пасмурным небом.">
               </picture>
             </div>
@@ -958,7 +963,7 @@
             <!-- Gallery Item 4 -->
             <div class="gallery__item swiper-slide">
               <picture>
-                <source type="image/webp" srcset="img/gallery-4@1x.webp 1x, img/gallery-4@2x.webp 2x">
+                <source type="image/webp" srcset="img/gallery-4@1x.webp 1x, img/gallery-4@2x.webp 2x" width="158" height="266">
                 <img class="gallery__image" src="img/gallery-4@1x.jpg" srcset="img/gallery-4@2x.jpg 2x" width="158" height="266" alt="Туристы спускаются по горному склону по закреплённой верёвке, на фоне виден высокий конусообразный вулкан">
               </picture>
             </div>
@@ -966,7 +971,7 @@
             <!-- Gallery Item 5 -->
             <div class="gallery__item swiper-slide">
               <picture>
-                <source type="image/webp" srcset="img/gallery-5@1x.webp 1x, img/gallery-5@2x.webp 2x">
+                <source type="image/webp" srcset="img/gallery-5@1x.webp 1x, img/gallery-5@2x.webp 2x" width="157" height="149">
                 <img class="gallery__image" src="img/gallery-5@1x.jpg" srcset="img/gallery-5@2x.jpg 2x" width="157" height="149" alt="Группа альпинистов в яркой одежде и касках идет по леднику рядом с бирюзовым ледниковым озером.">
               </picture>
             </div>
@@ -974,7 +979,7 @@
             <!-- Gallery Item 6 -->
             <div class="gallery__item swiper-slide">
               <picture>
-                <source type="image/webp" srcset="img/gallery-6@1x.webp 1x, img/gallery-6@2x.webp 2x">
+                <source type="image/webp" srcset="img/gallery-6@1x.webp 1x, img/gallery-6@2x.webp 2x" width="157" height="149">
                 <img class="gallery__image" src="img/gallery-6@1x.jpg" srcset="img/gallery-6@2x.jpg 2x" width="157" height="149" alt="Ярко-синяя туристическая палатка освещена изнутри в поле под впечатляющим, усыпанным звездами небом с видимым Млечным Путем.">
               </picture>
             </div>
@@ -982,7 +987,7 @@
             <!-- Gallery Item 7 -->
             <div class="gallery__item swiper-slide">
               <picture>
-                <source type="image/webp" srcset="img/gallery-7@1x.webp 1x, img/gallery-7@2x.webp 2x">
+                <source type="image/webp" srcset="img/gallery-7@1x.webp 1x, img/gallery-7@2x.webp 2x" width="158" height="266">
                 <img class="gallery__image" src="img/gallery-7@1x.jpg" srcset="img/gallery-7@2x.jpg 2x" width="158" height="266" alt="Туристы на привале разводят костер на берегу реки в лесу.">
               </picture>
             </div>
@@ -1005,14 +1010,14 @@
     <section class="form-section" id="form" data-test="form">
       <div class="container">
 
-        <!-- Content area WITHOUT classes (cascading styling)-->
+        <!-- Content area WITHOUT classes (cascading styling) -->
         <div class="form-section__content">
           <h2>Остались вопросы?</h2>
           <p>Заполните форму и наш оператор свяжется с вами для консультации.</p>
         </div>
 
         <!-- Form -->
-        <form class="form" action="https://echo.htmlacademy.ru" method="POST" data-form>
+        <form class="form" action="https://echo.htmlacademy.ru" method="POST" data-form="contact">
 
           <!-- Phone Field -->
           <div class="form__field">
@@ -1050,7 +1055,7 @@
         </div>
 
         <div class="footer__contacts-content">
-          <!-- Content area WITHOUT classes (cascading styling)-->
+          <!-- Content area WITHOUT classes (cascading styling) -->
           <p>Свяжитесь с нами любым удобным для вас способом или приходите к нам в гости. Мы будем рады поделиться увлекательными историями и подобрать для вас тур.</p>
         </div>
 
@@ -1090,11 +1095,11 @@
         <!-- Map -->
         <div class="footer__map">
           <picture>
-            <source type="image/webp" media="(min-width: 1440px)" srcset="img/map-desktop@1x.webp 1x, img/map-desktop@2x.webp 2x">
-            <source type="image/webp" media="(min-width: 768px)" srcset="img/map-tablet@1x.webp 1x, img/map-tablet@2x.webp 2x">
-            <source type="image/webp" srcset="img/map-mobile@1x.webp 1x, img/map-mobile@2x.webp 2x">
-            <source media="(min-width: 1440px)" srcset="img/map-desktop@1x.jpg 1x, img/map-desktop@2x.jpg 2x">
-            <source media="(min-width: 768px)" srcset="img/map-tablet@1x.jpg 1x, img/map-tablet@2x.jpg 2x">
+            <source type="image/webp" media="(min-width: 1440px)" srcset="img/map-desktop@1x.webp 1x, img/map-desktop@2x.webp 2x" width="600" height="324">
+            <source type="image/webp" media="(min-width: 768px)" srcset="img/map-tablet@1x.webp 1x, img/map-tablet@2x.webp 2x" width="768" height="340">
+            <source type="image/webp" srcset="img/map-mobile@1x.webp 1x, img/map-mobile@2x.webp 2x" width="320" height="343">
+            <source type="image/jpeg" media="(min-width: 1440px)" srcset="img/map-desktop@1x.jpg 1x, img/map-desktop@2x.jpg 2x" width="600" height="324">
+            <source type="image/jpeg" media="(min-width: 768px)" srcset="img/map-tablet@1x.jpg 1x, img/map-tablet@2x.jpg 2x" width="768" height="340">
             <img class="footer__map-image" src="img/map-mobile@1x.jpg" srcset="img/map-mobile@2x.jpg 2x" width="320" height="343" alt="Карта с местоположением офиса">
           </picture>
         </div>
@@ -1105,8 +1110,8 @@
       <div class="footer__bottom">
 
         <!-- Logo -->
-        <a class="logo footer__logo" href="#hero">
-          <svg class="logo__image" width="142" height="42" aria-label="Lifetour - Организация походов в горы">
+        <a class="logo footer__logo" href="#hero" aria-label="Lifetour - Организация походов в горы">
+          <svg class="logo__image" width="142" height="42" aria-hidden="true">
             <use href="/__spritemap#sprite-logo"></use>
           </svg>
         </a>
