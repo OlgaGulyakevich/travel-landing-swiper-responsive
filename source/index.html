@@ -1005,12 +1005,10 @@
     <section class="form-section" id="form" data-test="form">
       <div class="container">
 
-        <!-- Title -->
-        <h2 class="form-section__title">Остались вопросы?</h2>
-
-        <!-- Content Area (Cascade Styling) -->
+        <!-- Content area WITHOUT classes (cascading styling)-->
         <div class="form-section__content">
-          <p>Заполните форму ниже, и мы свяжемся с вами в ближайшее время для консультации.</p>
+          <h2>Остались вопросы?</h2>
+          <p>Заполните форму и наш оператор свяжется с вами для консультации.</p>
         </div>
 
         <!-- Form -->
@@ -1018,14 +1016,14 @@
 
           <!-- Phone Field -->
           <div class="form__field">
-            <label class="form__label" for="phone">Телефон</label>
-            <input class="form__input" type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" pattern="[0-9\s\-\+\(\)]+" required>
+            <label class="visually-hidden" for="phone">Телефон</label>
+            <input class="form__input" type="tel" id="phone" name="phone" placeholder="Телефон" pattern="[0-9\s\-\+\(\)]+" required>
           </div>
 
           <!-- Email Field -->
           <div class="form__field">
-            <label class="form__label" for="email">Email</label>
-            <input class="form__input" type="email" id="email" name="email" placeholder="example@email.com" required>
+            <label class="visually-hidden" for="email">Электронная почта</label>
+            <input class="form__input" type="email" id="email" name="email" placeholder="Email" required>
           </div>
 
           <!-- Submit Button -->
