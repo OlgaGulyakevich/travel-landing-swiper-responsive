@@ -7,6 +7,7 @@
 
 .logo {
   display: block;
+
   // TODO: добавить размеры из макета
 
   &:hover {
@@ -14,8 +15,7 @@
   }
 
   &:focus-visible {
-    outline: $focus-outline;
-    outline-offset: 2px;
+   /* TODO: добавить focus эффект (если есть) */
   }
 
   &__image {

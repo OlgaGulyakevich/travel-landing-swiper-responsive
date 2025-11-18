@@ -9,7 +9,8 @@
   &__list {
     display: flex;
     flex-wrap: wrap;
-    gap: $spacing-m;
+    gap: 10px;
+
     // TODO: добавить адаптивные стили для мобильного меню
   }
 
@@ -19,6 +20,7 @@
 
   &__link {
     display: block;
+
     // TODO: добавить размеры шрифта, отступы из дизайн-системы
 
     &:hover {
@@ -30,8 +32,7 @@
     }
 
     &:focus-visible {
-      outline: $focus-outline;
-      outline-offset: 2px;
+     /* TODO: добавить focus эффект (если есть) */
     }
 
     // Активная страница / текущий раздел

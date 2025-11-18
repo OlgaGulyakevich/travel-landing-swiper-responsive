@@ -7,7 +7,213 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: $color-primary;
+  background-color: $color-primary-blue;
   color: $color-text-inverse;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 50px;
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
+
+    @include tablet {
+      min-height: 60px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    @include desktop {
+      min-height: 100px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      justify-content: flex-start;
+      gap: 60px;
+    }
+  }
+
+  &__logo {
+    // Mobile: по центру (через order)
+    order: 2;
+
+    @include tablet {
+      order: 1;
+    }
+
+    @include desktop {
+      flex-shrink: 0;
+    }
+  }
+
+  &__nav {
+    // Desktop: показываем навигацию
+    display: none;
+
+    @include desktop {
+      display: block;
+      flex-grow: 1;
+      order: 2;
+    }
+  }
+
+  &__phone {
+    color: $color-text-inverse;
+    font-weight: $font-weight-semibold;
+    font-size: 16px;
+    line-height: 1.2;
+    text-decoration: none;
+    order: 3;
+    transition: opacity $transition;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-text-inverse;
+      outline-offset: 4px;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+
+    @include tablet {
+      font-size: 18px;
+    }
+  }
+
+  &__burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    order: 1;
+    position: relative;
+    transition: opacity $transition;
+
+    @include tablet {
+      order: 1;
+    }
+
+    @include desktop {
+      display: none;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-text-inverse;
+      outline-offset: 2px;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+
+    // Burger icon (3 lines)
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 2px;
+      background-color: $color-text-inverse;
+      transition: all $transition;
+    }
+
+    &::before {
+      top: 14px;
+    }
+
+    &::after {
+      bottom: 14px;
+    }
+
+    // Middle line (через псевдоэлемент внутреннего span)
+    span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 2px;
+      background-color: $color-text-inverse;
+      transition: all $transition;
+
+      &:not(.visually-hidden) {
+        clip: rect(0, 0, 0, 0);
+        clip-path: inset(50%);
+      }
+    }
+
+    // Opened state (когда меню открыто)
+    &[aria-expanded="true"] {
+      &::before {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &::after {
+        bottom: 50%;
+        transform: translate(-50%, 50%) rotate(-45deg);
+      }
+
+      span:not(.visually-hidden) {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__menu {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-primary-blue;
+    z-index: 99;
+    overflow-y: auto;
+    padding: $spacing-xl $container-padding-mobile;
+
+    @include tablet {
+      top: 60px;
+      padding: $spacing-xxl $container-padding-tablet;
+    }
+
+    @include desktop {
+      display: none !important; // Не показываем на desktop вообще
+    }
+
+    // Opened state
+    &[data-menu-opened] {
+      display: block;
+    }
+  }
+
+  &__menu-nav {
+    .nav__list {
+      flex-direction: column;
+      gap: $spacing-lg;
+    }
+
+    .nav__link {
+      font-size: 20px;
+
+      @include tablet {
+        font-size: 24px;
+      }
+    }
+  }
 }

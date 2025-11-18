@@ -1,12 +1,13 @@
 // Colors - Primary
 $color-primary: #2d383f;
 $color-primary-blue: #0266c1;
+$color-primary-dark: #024b99;
 $color-primary-active: #1c3374;
 
 // Colors - Additional
 $color-additional-100: #0266c1;
-$color-additional-20: rgba(2, 102, 193, 0.2);
-$color-additional-10: rgba(2, 102, 193, 0.1);
+$color-additional-20: rgb(2, 102, 193, 0.2);
+$color-additional-10: rgb(2, 102, 193, 0.1);
 
 // Colors - Text
 $color-text-primary: #2d383f;
@@ -20,26 +21,26 @@ $color-bg-dark: #404040;
 $color-bg-light-gray: #d9d9d9;
 
 // Colors - Border
-$color-border-default: #d9d9d9;
+$color-border-default: rgba(2, 102, 193, 0.1);
 $color-border-primary: #2d383f;
 $color-border-active: #0266c1;
-$color-border-stroke: #2d383f;
+$color-border-focus: #2D383F;
 
 // Colors - Status
 $color-error: #ed4343;
 $color-error-stroke: #ff121f;
 $color-error-light: #e19a9a;
 $color-error-dark: #975c5c;
-$color-disabled: #999;
+$color-disabled: #999999;
 $color-accent-purple: #ca20e5;
 $color-accent-purple-stroke: #9747ff;
 
 // Colors - White variations
-$color-white-100: #fff;
-$color-white-50: rgba(255, 255, 255, 0.5);
+$color-white-100: #ffffff;
+$color-white-50: rgb(255, 255, 255, 0.5);
 
 // Typography
-$font-family: "Montserrat", Arial, sans-serif;
+$font-family: "Montserrat", arial, sans-serif;
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
@@ -62,6 +63,10 @@ $container-mobile: 320px;
 $container-padding-desktop: 40px;
 $container-padding-tablet: 45px;
 $container-padding-mobile: 15px;
+
+// Breakpoints
+$tablet-min: 768px;
+$desktop-min: 1440px;
 
 // Transitions
 $transition: 0.3s ease;

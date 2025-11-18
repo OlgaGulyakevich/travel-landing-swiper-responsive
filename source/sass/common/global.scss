@@ -64,7 +64,7 @@ a {
   text-decoration: none;
 
   &:focus-visible {
-    outline: $focus-outline;
+    outline: 2px solid #2D383F;
     outline-offset: 2px;
   }
 }
@@ -88,7 +88,7 @@ button {
   cursor: pointer;
 
   &:focus-visible {
-    outline: $focus-outline;
+    outline: #FFFFFF;
     outline-offset: 2px;
   }
 }
@@ -102,7 +102,7 @@ select {
   color: inherit;
 
   &:focus-visible {
-    outline: $focus-outline;
+    outline: #2D383F;
     outline-offset: 2px;
   }
 }
