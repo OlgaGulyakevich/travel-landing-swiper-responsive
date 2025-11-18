@@ -20,8 +20,7 @@
   }
 
   &:focus-visible {
-    outline: $focus-outline;
-    outline-offset: 2px;
+   /* TODO: добавить focus эффект (если есть) */
   }
 
   &.swiper-button-disabled {

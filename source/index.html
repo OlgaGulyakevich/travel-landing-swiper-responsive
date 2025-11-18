@@ -9,8 +9,8 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0266c1">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
-  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="/fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="stylesheet" href="sass/style.scss">
@@ -24,8 +24,10 @@
       <div class="header__wrapper">
 
         <!-- Logo -->
-        <a class="logo header__logo" href="#hero">
-          <img class="logo__image" src="/__spritemap#sprite-logo" width="142" height="42" alt="Lifetour">
+        <a class="logo header__logo" href="#hero" aria-label="Lifetour - Организация походов в горы">
+          <svg class="logo__image" width="142" height="42" aria-hidden="true">
+            <use href="/__spritemap#sprite-logo"></use>
+          </svg>
         </a>
 
         <!-- Navigation (Desktop) -->
@@ -116,6 +118,22 @@
                 <h2>Захватывающие вершины Кавказа</h2>
                 <p>В сопровождении опытных гидов вы пройдёте через потрясающие ландшафты и совершите восход на вершину горы Чегет.</p>
                 <a class="button hero__button" href="#tours">Смотреть тур</a>
+
+                <!-- Tour details (desktop only) -->
+                <div class="hero__details">
+                  <span class="hero__detail">
+                    <svg class="icon" width="12" height="12" aria-hidden="true">
+                      <use href="/__spritemap#sprite-moon"></use>
+                    </svg>
+                    6 дней/5 ночей
+                  </span>
+                  <span class="hero__detail">
+                    <svg class="icon" width="12" height="12" aria-hidden="true">
+                      <use href="/__spritemap#sprite-level"></use>
+                    </svg>
+                    Высокая сложность
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -133,6 +151,22 @@
                 <h2>Невероятная природа Камчатки</h2>
                 <p>Незабываемое приключение, во время которого вы отправитесь в путешествие по одному из самых нетронутых уголков дикой природы в мире.</p>
                 <a class="button hero__button" href="#tours">Смотреть тур</a>
+
+                <!-- Tour details (desktop only) -->
+                <div class="hero__details">
+                  <span class="hero__detail">
+                    <svg class="icon" width="12" height="12" aria-hidden="true">
+                      <use href="/__spritemap#sprite-moon"></use>
+                    </svg>
+                    9 дней/19 ночей
+                  </span>
+                  <span class="hero__detail">
+                    <svg class="icon" width="12" height="12" aria-hidden="true">
+                      <use href="/__spritemap#sprite-level"></use>
+                    </svg>
+                  Средняя сложность
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -150,6 +184,22 @@
                 <h2>Магические пейзажи Алтайского Края</h2>
                 <p>Алтайский трекинг-тур— это захватывающее приключение с посещением магических и захватывающих душу ландшафтов Алтайских гор.</p>
                 <a class="button hero__button" href="#tours">Смотреть тур</a>
+
+                <!-- Tour details (desktop only) -->
+                <div class="hero__details">
+                  <span class="hero__detail">
+                    <svg class="icon" width="12" height="12" aria-hidden="true">
+                      <use href="/__spritemap#sprite-moon"></use>
+                    </svg>
+                    8 дней/7 ночей
+                  </span>
+                  <span class="hero__detail">
+                    <svg class="icon" width="12" height="12" aria-hidden="true">
+                      <use href="/__spritemap#sprite-level"></use>
+                    </svg>
+                    Легкая сложность
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -1082,7 +1132,7 @@
           </li>
 
           <li class="footer__contact-item">
-            <svg class="footer__contact-icon icon" width="16" height="16" aria-hidden="true">
+            <svg class="footer__contact-icon icon" width="26" height="26" aria-hidden="true">
               <use href="/__spritemap#sprite-pin-stroke"></use>
             </svg>
             <div class="footer__contact-info">

@@ -1,6 +1,7 @@
 // Colors - Primary
 $color-primary: #2d383f;
 $color-primary-blue: #0266c1;
+$color-primary-dark: #024b99;
 $color-primary-active: #1c3374;
 
 // Colors - Additional
@@ -20,10 +21,10 @@ $color-bg-dark: #404040;
 $color-bg-light-gray: #d9d9d9;
 
 // Colors - Border
-$color-border-default: #d9d9d9;
+$color-border-default: rgba(2, 102, 193, 0.1);
 $color-border-primary: #2d383f;
 $color-border-active: #0266c1;
-$color-border-stroke: #2d383f;
+$color-border-focus: #2D383F;
 
 // Colors - Status
 $color-error: #ed4343;
@@ -62,6 +63,10 @@ $container-mobile: 320px;
 $container-padding-desktop: 40px;
 $container-padding-tablet: 45px;
 $container-padding-mobile: 15px;
+
+// Breakpoints
+$tablet-min: 768px;
+$desktop-min: 1440px;
 
 // Transitions
 $transition: 0.3s ease;
