@@ -916,10 +916,15 @@
     <section class="gallery" id="gallery" data-test="gallery">
       <div class="container">
 
-        <!-- Title with Decoration -->
+        <!-- Title with Decoration (UI Component) -->
         <div class="title gallery__title-wrapper">
           <h2 class="title__main">Фотографии</h2>
           <span class="title__decoration" aria-hidden="true">Фотографии</span>
+        </div>
+
+        <div class="gallery__intro">
+          <!-- Content area WITHOUT classes (cascading styling)-->
+          <p>Добавляйте фото с хэштегом #лайфтур, а также отмечайте нас на фото. Лучшие фотографии украсят этот раздел нашего сайта.</p>
         </div>
 
         <!-- Gallery Container (Slider on mobile/tablet, Grid on desktop) -->
@@ -930,64 +935,56 @@
             <div class="gallery__item swiper-slide">
               <picture>
                 <source type="image/webp" srcset="img/gallery-1@1x.webp 1x, img/gallery-1@2x.webp 2x">
-                <img class="gallery__image" src="img/gallery-1@1x.jpg" srcset="img/gallery-1@2x.jpg 2x" width="285" height="400" alt="Горная вершина в снегу">
+                <img class="gallery__image" src="img/gallery-1@1x.jpg" srcset="img/gallery-1@2x.jpg 2x" width="158" height="266" alt="Турист со рюкзаком стоит спиной на вершине горы и смотрит на горный хребет под голубым небом.">
               </picture>
-              <!-- Content area WITHOUT classes (cascading styling)-->
-              <p class="gallery__caption">Вершина Казбек</p>
             </div>
 
             <!-- Gallery Item 2 -->
             <div class="gallery__item swiper-slide">
               <picture>
                 <source type="image/webp" srcset="img/gallery-2@1x.webp 1x, img/gallery-2@2x.webp 2x">
-                <img class="gallery__image" src="img/gallery-2@1x.jpg" srcset="img/gallery-2@2x.jpg 2x" width="285" height="400" alt="Группа туристов на маршруте">
+                <img class="gallery__image" src="img/gallery-2@1x.jpg" srcset="img/gallery-2@2x.jpg 2x" width="157" height="149" alt="Группа туристов сидят у костра на ночной стоянке в лесу.">
               </picture>
-              <p class="gallery__caption">Наша команда</p>
             </div>
 
             <!-- Gallery Item 3 -->
             <div class="gallery__item swiper-slide">
               <picture>
                 <source type="image/webp" srcset="img/gallery-3@1x.webp 1x, img/gallery-3@2x.webp 2x">
-                <img class="gallery__image" src="img/gallery-3@1x.jpg" srcset="img/gallery-3@2x.jpg 2x" width="285" height="400" alt="Закат в горах">
+                <img class="gallery__image" src="img/gallery-3@1x.jpg" srcset="img/gallery-3@2x.jpg 2x" width="157" height="149" alt="Рука с компасом на фоне горного хребта под пасмурным небом.">
               </picture>
-              <p class="gallery__caption">Закат в горах</p>
             </div>
 
             <!-- Gallery Item 4 -->
             <div class="gallery__item swiper-slide">
               <picture>
                 <source type="image/webp" srcset="img/gallery-4@1x.webp 1x, img/gallery-4@2x.webp 2x">
-                <img class="gallery__image" src="img/gallery-4@1x.jpg" srcset="img/gallery-4@2x.jpg 2x" width="285" height="400" alt="Палаточный лагерь">
+                <img class="gallery__image" src="img/gallery-4@1x.jpg" srcset="img/gallery-4@2x.jpg 2x" width="158" height="266" alt="Туристы спускаются по горному склону по закреплённой верёвке, на фоне виден высокий конусообразный вулкан">
               </picture>
-              <p class="gallery__caption">Наш лагерь</p>
             </div>
 
             <!-- Gallery Item 5 -->
             <div class="gallery__item swiper-slide">
               <picture>
                 <source type="image/webp" srcset="img/gallery-5@1x.webp 1x, img/gallery-5@2x.webp 2x">
-                <img class="gallery__image" src="img/gallery-5@1x.jpg" srcset="img/gallery-5@2x.jpg 2x" width="285" height="400" alt="Горное озеро">
+                <img class="gallery__image" src="img/gallery-5@1x.jpg" srcset="img/gallery-5@2x.jpg 2x" width="157" height="149" alt="Группа альпинистов в яркой одежде и касках идет по леднику рядом с бирюзовым ледниковым озером.">
               </picture>
-              <p class="gallery__caption">Горное озеро</p>
             </div>
 
             <!-- Gallery Item 6 -->
             <div class="gallery__item swiper-slide">
               <picture>
                 <source type="image/webp" srcset="img/gallery-6@1x.webp 1x, img/gallery-6@2x.webp 2x">
-                <img class="gallery__image" src="img/gallery-6@1x.jpg" srcset="img/gallery-6@2x.jpg 2x" width="285" height="400" alt="Восход солнца в горах">
+                <img class="gallery__image" src="img/gallery-6@1x.jpg" srcset="img/gallery-6@2x.jpg 2x" width="157" height="149" alt="Ярко-синяя туристическая палатка освещена изнутри в поле под впечатляющим, усыпанным звездами небом с видимым Млечным Путем.">
               </picture>
-              <p class="gallery__caption">Восход солнца</p>
             </div>
 
             <!-- Gallery Item 7 -->
             <div class="gallery__item swiper-slide">
               <picture>
                 <source type="image/webp" srcset="img/gallery-7@1x.webp 1x, img/gallery-7@2x.webp 2x">
-                <img class="gallery__image" src="img/gallery-7@1x.jpg" srcset="img/gallery-7@2x.jpg 2x" width="285" height="400" alt="Горный перевал">
+                <img class="gallery__image" src="img/gallery-7@1x.jpg" srcset="img/gallery-7@2x.jpg 2x" width="158" height="266" alt="Туристы на привале разводят костер на берегу реки в лесу.">
               </picture>
-              <p class="gallery__caption">Горный перевал</p>
             </div>
 
           </div>
