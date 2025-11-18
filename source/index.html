@@ -1040,52 +1040,54 @@
   <footer class="footer" id="footer" data-test="footer">
     <div class="container">
 
-      <!-- Footer Main -->
-      <div class="footer__main">
+      <!-- Contacts Section -->
+      <section class="footer__contacts-section">
 
-        <!-- Brand Column -->
-        <div class="footer__brand">
-          <a class="logo footer__logo" href="#hero">
-            <img class="logo__image" src="/__spritemap#sprite-logo" width="142" height="42" alt="Lifetour">
-          </a>
-          <p class="footer__description">Путешествия и походы в горы</p>
+        <!-- Title with Decoration (UI Component) -->
+        <div class="title footer__title-wrapper">
+          <h2 class="title__main">Контакты</h2>
+          <span class="title__decoration" aria-hidden="true">Контакты</span>
         </div>
 
-        <!-- Contacts Column -->
-        <div class="footer__contacts">
-          <h2 class="footer__contacts-title">Контакты</h2>
+        <div class="footer__contacts-content">
+          <!-- Content area WITHOUT classes (cascading styling)-->
+          <p>Свяжитесь с нами любым удобным для вас способом или приходите к нам в гости. Мы будем рады поделиться увлекательными историями и подобрать для вас тур.</p>
+        </div>
 
-          <div class="footer__contact-item">
-            <svg class="icon" width="16" height="16" aria-hidden="true">
+        <!-- Contacts Info -->
+        <ul class="footer__contacts-list">
+          <li class="footer__contact-item">
+            <svg class="footer__contact-icon icon" width="26" height="26" aria-hidden="true">
               <use href="/__spritemap#sprite-phone"></use>
             </svg>
-            <a class="footer__phone" href="tel:+79837454545">
-              <span class="visually-hidden">Позвонить по номеру:</span>
-              +7 983 745-45-45
-            </a>
-          </div>
+            <div class="footer__contact-info">
+              <h3 class="footer__contact-title">Телефон</h3>
+              <a class="footer__contact-link" href="tel:+79837454545">+7 983 745-45-45</a>
+            </div>
+          </li>
 
-          <div class="footer__contact-item">
-            <svg class="icon" width="16" height="16" aria-hidden="true">
+          <li class="footer__contact-item">
+            <svg class="footer__contact-icon icon" width="26" height="26" aria-hidden="true">
               <use href="/__spritemap#sprite-mail"></use>
             </svg>
-            <a class="footer__email" href="mailto:info@lifetour.com">
-              <span class="visually-hidden">Написать на почту:</span>
-              info@lifetour.com
-            </a>
-          </div>
+            <div class="footer__contact-info">
+              <h3 class="footer__contact-title">Email</h3>
+              <a class="footer__contact-link" href="mailto:info@lifetour.com">info@lifetour.com</a>
+            </div>
+          </li>
 
-          <div class="footer__contact-item">
-            <svg class="icon" width="16" height="16" aria-hidden="true">
-              <use href="/__spritemap#sprite-pin-filled"></use>
+          <li class="footer__contact-item">
+            <svg class="footer__contact-icon icon" width="16" height="16" aria-hidden="true">
+              <use href="/__spritemap#sprite-pin-stroke"></use>
             </svg>
-            <address class="footer__address">
-              г. Москва, пр-т Мира, д. 14, офис 101
-            </address>
-          </div>
-        </div>
+            <div class="footer__contact-info">
+              <h3 class="footer__contact-title">Адрес</h3>
+              <address class="footer__contact-address">г. Москва, пр-т Мира, д. 14, офис 101</address>
+            </div>
+          </li>
+        </ul>
 
-        <!-- Map Column -->
+        <!-- Map -->
         <div class="footer__map">
           <picture>
             <source type="image/webp" media="(min-width: 1440px)" srcset="img/map-desktop@1x.webp 1x, img/map-desktop@2x.webp 2x">
@@ -1093,66 +1095,68 @@
             <source type="image/webp" srcset="img/map-mobile@1x.webp 1x, img/map-mobile@2x.webp 2x">
             <source media="(min-width: 1440px)" srcset="img/map-desktop@1x.jpg 1x, img/map-desktop@2x.jpg 2x">
             <source media="(min-width: 768px)" srcset="img/map-tablet@1x.jpg 1x, img/map-tablet@2x.jpg 2x">
-            <img class="footer__map-image" src="img/map-mobile@1x.jpg" srcset="img/map-mobile@2x.jpg 2x" width="380" height="200" alt="Карта с местоположением офиса">
+            <img class="footer__map-image" src="img/map-mobile@1x.jpg" srcset="img/map-mobile@2x.jpg 2x" width="320" height="343" alt="Карта с местоположением офиса">
           </picture>
         </div>
 
-      </div>
+      </section>
 
       <!-- Footer Bottom -->
       <div class="footer__bottom">
 
-        <!-- Secondary Navigation -->
-        <nav class="nav footer__nav">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a class="nav__link" href="#tours">Туры</a>
+        <!-- Logo -->
+        <a class="logo footer__logo" href="#hero">
+          <svg class="logo__image" width="142" height="42" aria-label="Lifetour - Организация походов в горы">
+            <use href="/__spritemap#sprite-logo"></use>
+          </svg>
+        </a>
+
+        <!-- Navigation -->
+        <nav class="footer__nav" aria-label="Навигация футера">
+          <ul class="footer__nav-list">
+            <li class="footer__nav-item">
+              <a class="footer__nav-link" href="#tours">Туры</a>
             </li>
-            <li class="nav__item">
-              <a class="nav__link" href="#training">Обучение</a>
+            <li class="footer__nav-item">
+              <a class="footer__nav-link" href="#training">Обучение</a>
             </li>
-            <li class="nav__item">
-              <a class="nav__link" href="#about">О нас</a>
+            <li class="footer__nav-item">
+              <a class="footer__nav-link" href="#about">О нас</a>
             </li>
-            <li class="nav__item">
-              <a class="nav__link" href="#reviews">Отзывы</a>
+            <li class="footer__nav-item">
+              <a class="footer__nav-link" href="#reviews">Отзывы</a>
             </li>
-            <li class="nav__item">
-              <a class="nav__link" href="#gallery">Фотографии</a>
+            <li class="footer__nav-item">
+              <a class="footer__nav-link" href="#gallery">Фотографии</a>
             </li>
-            <li class="nav__item">
-              <a class="nav__link" href="#footer">Контакты</a>
+            <li class="footer__nav-item">
+              <a class="footer__nav-link" href="#footer">Контакты</a>
             </li>
           </ul>
         </nav>
 
+        <!-- Phone (Desktop only) -->
+        <a class="footer__phone-desktop" href="tel:88007253232">8 800 725-32-32</a>
+
         <!-- Social Links -->
         <div class="footer__social">
           <a class="footer__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="Мы в ВКонтакте">
-            <svg class="icon" width="24" height="24" aria-hidden="true">
+            <svg class="icon" width="16" height="9" aria-hidden="true">
               <use href="/__spritemap#sprite-vk"></use>
             </svg>
-            <span class="visually-hidden">ВКонтакте</span>
           </a>
 
           <a class="footer__social-link" href="https://ok.ru" target="_blank" rel="noopener noreferrer" aria-label="Мы в Одноклассниках">
-            <svg class="icon" width="24" height="24" aria-hidden="true">
+            <svg class="icon" width="9" height="16" aria-hidden="true">
               <use href="/__spritemap#sprite-ok"></use>
             </svg>
-            <span class="visually-hidden">Одноклассники</span>
           </a>
 
           <a class="footer__social-link" href="https://reddit.com" target="_blank" rel="noopener noreferrer" aria-label="Мы в Reddit">
-            <svg class="icon" width="24" height="24" aria-hidden="true">
+            <svg class="icon" width="14" height="15" aria-hidden="true">
               <use href="/__spritemap#sprite-reddit"></use>
             </svg>
-            <span class="visually-hidden">Reddit</span>
           </a>
-        </div>
-
-        <!-- Copyright -->
-        <div class="footer__copyright">
-          <p>8 800 725-32-32</p>
         </div>
 
         <!-- Privacy Policy -->
