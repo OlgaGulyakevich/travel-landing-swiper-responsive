@@ -1,17 +1,46 @@
 .input {
   width: 100%;
-  padding: 16px 20px;
+  padding: 17px 15px;
   font-family: $font-family;
   font-size: 16px;
+  font-weight: $font-weight-medium;
+  line-height: 16px;
   border: 1px solid $color-border-default;
+  border-radius: 2px;
   background-color: $color-bg-white;
 
-  &:focus {
-    outline: none;
-    border-color: $color-border-default;
+  &:hover {
+    border: 1px solid $color-primary-active;
   }
 
-  &:invalid {
-    border-color: $color-error;
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    border: 1px solid $color-border-focus;
   }
+
+  &:disabled {
+    border: 1px solid $color-border-disabled;
+  }
+
+  &::placeholder {
+    color: $color-text-disabled;
+    opacity: 1; // For Firefox
+  }
+
+
+  // Возможно решить через JS валидацию, так как сейчас перебивает все другие стили и инпут всегда с красной обводкой
+
+  // Invalid state - только когда НЕ в фокусе
+  // Когда в фокусе - приоритет у focus-стилей
+  // &:invalid:not(:focus):not(:focus-visible) {
+  //   border: 1px solid $color-error;
+  // }
+
+  // Альтернатива: :user-invalid (современный подход)
+  // Срабатывает только после взаимодействия пользователя с полем
+  // Раскомментируй, если нужна поддержка современных браузеров
+  // &:user-invalid {
+  //   border: 1px solid $color-error;
+  // }
 }

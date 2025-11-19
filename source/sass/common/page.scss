@@ -1,6 +1,22 @@
 // =============================================================================
 // PAGE WRAPPER STYLES
 // =============================================================================
+//
+// АРХИТЕКТУРА:
+// 1. .scroll-lock - утилита для блокировки скролла (модальные окна, меню)
+// 2. .page - специфичные стили страницы (sticky footer layout)
+// 3. :where(.page) - сброс стилей элементов с НИЗКОЙ специфичностью
+//
+// ЗАЧЕМ :where()?
+// - :where() имеет специфичность 0,0,0,0
+// - Это позволяет компонентам легко переопределять стили
+// - Пример: :where(.page) input (0,0,0,1) < .form__input (0,0,1,0)
+// - Соответствует HTML1-CSS-02 (не глобальные селекторы)
+// =============================================================================
+
+// =============================================================================
+// 1. PAGE UTILITIES
+// =============================================================================
 
 // Scroll lock (для мобильного меню)
 .scroll-lock {
@@ -8,6 +24,10 @@
   touch-action: none;
   -webkit-overflow-scrolling: auto;
 }
+
+// =============================================================================
+// 2. PAGE LAYOUT (высокая специфичность для layout-специфичных стилей)
+// =============================================================================
 
 .page {
   // Sticky footer layout
@@ -18,105 +38,110 @@
   .footer {
     flex-shrink: 0;
   }
+}
 
-  // Typography elements
-  // HTML1-TEST-04: Переполнение - длинные слова должны переноситься
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-    padding: 0;
-    font-weight: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    word-wrap: break-word; // Для старых браузеров
-    overflow-wrap: break-word; // Стандартное свойство
-    hyphens: auto; // Автоматическая расстановка дефисов
+// =============================================================================
+// 3. ELEMENT RESETS (низкая специфичность через :where)
+// =============================================================================
+// Используем :where() для снижения специфичности сброса стилей.
+// Это позволяет компонентам легко переопределять эти стили.
+
+// Typography elements
+// HTML1-TEST-04: Переполнение - длинные слова должны переноситься
+:where(.page) h1,
+:where(.page) h2,
+:where(.page) h3,
+:where(.page) h4,
+:where(.page) h5,
+:where(.page) h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  word-wrap: break-word; // Для старых браузеров
+  overflow-wrap: break-word; // Стандартное свойство
+  hyphens: auto; // Автоматическая расстановка дефисов
+}
+
+:where(.page) p {
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word; // Для старых браузеров
+  overflow-wrap: break-word; // Стандартное свойство
+  hyphens: auto; // Автоматическая расстановка дефисов
+}
+
+// Другие текстовые элементы
+:where(.page) span,
+:where(.page) div {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+// Links
+:where(.page) a {
+  color: inherit;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: 2px solid #2D383F;
+    outline-offset: 2px;
   }
+}
 
-  p {
-    margin: 0;
-    padding: 0;
-    word-wrap: break-word; // Для старых браузеров
-    overflow-wrap: break-word; // Стандартное свойство
-    hyphens: auto; // Автоматическая расстановка дефисов
+// Images (дополнительные стили к глобальным)
+:where(.page) img {
+  display: block;
+}
+
+// Buttons
+:where(.page) button {
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid #FFFFFF;
+    outline-offset: 2px;
   }
+}
 
-  // Другие текстовые элементы
-  span,
-  div {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+// Forms
+:where(.page) input,
+:where(.page) textarea,
+:where(.page) select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+
+  &:focus-visible {
+    outline: 2px solid #2D383F;
+    outline-offset: 2px;
   }
+}
 
-  // Links
-  a {
-    // color: inherit убран - мешает задавать цвет в компонентах
-    // Цвет будет наследоваться от body или задаваться в компонентах
-    text-decoration: none;
+// Lists
+:where(.page) ul,
+:where(.page) ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-    &:focus-visible {
-      outline: 2px solid #2D383F;
-      outline-offset: 2px;
-    }
-  }
+:where(.page) li {
+  margin: 0;
+  padding: 0;
+}
 
-  // Images (дополнительные стили к глобальным)
-  img {
-    display: block;
-  }
-
-  // Buttons
-  button {
-    padding: 0;
-    margin: 0;
-    font-family: inherit;
-    color: inherit;
-    background: none;
-    border: none;
-    cursor: pointer;
-
-    &:focus-visible {
-      outline: 2px solid #FFFFFF;
-      outline-offset: 2px;
-    }
-  }
-
-  // Forms
-  input,
-  textarea,
-  select {
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
-
-    &:focus-visible {
-      outline: 2px solid #2D383F;
-      outline-offset: 2px;
-    }
-  }
-
-  // Lists
-  ul,
-  ol {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  li {
-    margin: 0;
-    padding: 0;
-  }
-
-  // SVG
-  svg {
-    display: block;
-    fill: currentColor;
-    max-width: 100%;
-    height: auto;
-  }
+// SVG
+:where(.page) svg {
+  display: block;
+  fill: currentColor;
+  max-width: 100%;
+  height: auto;
 }

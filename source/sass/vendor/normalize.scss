@@ -1,17 +1,16 @@
 /* Simplified normalize.css - HTML Academy compatible */
-/* Только разрешенные глобальные селекторы (HTML1-CSS-02) */
+/* Only allowed global selectors (HTML1-CSS-02) */
 
 html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; // Prevent font size adjustment on iOS
 }
 
 body {
-  margin: 0;
+  margin: 0; // Remove default margin
 }
 
 img {
-  border-style: none;
+  border-style: none; // Remove border on images inside links in IE 10
 }
 
 /*

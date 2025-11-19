@@ -3,15 +3,5 @@
   // Размеры берутся из атрибутов width/height в HTML
   // Не задаем фиксированные размеры здесь
   color: currentColor;
-  flex-shrink: 0; // Предотвращаем сжатие иконок во flex-контейнерах
-
-  &--small {
-    width: 16px;
-    height: 16px;
-  }
-
-  &--large {
-    width: 48px;
-    height: 48px;
-  }
+  flex-shrink: 0; // Prevent icon from shrinking in flex containers (HTML2-CSS-04)
 }
