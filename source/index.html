@@ -9,10 +9,12 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0266c1">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- Preload fonts -->
   <link rel="preload" href="/fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/fonts/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="stylesheet" href="sass/style.scss">
 </head>
 
@@ -24,10 +26,8 @@
       <div class="header__wrapper">
 
         <!-- Logo -->
-        <a class="logo header__logo" href="#hero" aria-label="Lifetour - Организация походов в горы">
-          <svg class="logo__image" width="142" height="42" aria-hidden="true">
-            <use href="/__spritemap#sprite-logo"></use>
-          </svg>
+        <a class="logo header__logo" href="#hero">
+          <img class="logo__image" src="/img/sprite/logo.svg" width="142" height="42" alt="Lifetour - Организация походов в горы">
         </a>
 
         <!-- Navigation (Desktop) -->
@@ -62,34 +62,14 @@
 
         <!-- Burger Button (Mobile/Tablet) -->
         <button class="header__burger" type="button" data-burger="toggle" aria-label="Открыть меню">
+          <svg class="header__burger-icon header__burger-icon--open" width="24" height="24" aria-hidden="true">
+            <use href="/__spritemap#sprite-menu"></use>
+          </svg>
+          <svg class="header__burger-icon header__burger-icon--close" width="24" height="24" aria-hidden="true">
+            <use href="/__spritemap#sprite-close"></use>
+          </svg>
           <span class="visually-hidden">Открыть меню</span>
         </button>
-
-        <!-- Mobile Menu Overlay -->
-        <div class="header__menu" data-menu="mobile">
-          <nav class="nav header__menu-nav" aria-label="Мобильное меню">
-            <ul class="nav__list">
-              <li class="nav__item">
-                <a class="nav__link" href="#tours">Туры</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__link" href="#training">Обучение</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__link" href="#about">О нас</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__link" href="#reviews">Отзывы</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__link" href="#gallery">Фотографии</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__link" href="#footer">Контакты</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
 
       </div>
     </div>
@@ -1160,32 +1140,30 @@
       <div class="footer__bottom">
 
         <!-- Logo -->
-        <a class="logo footer__logo" href="#hero" aria-label="Lifetour - Организация походов в горы">
-          <svg class="logo__image" width="142" height="42" aria-hidden="true">
-            <use href="/__spritemap#sprite-logo"></use>
-          </svg>
+        <a class="logo footer__logo" href="#hero">
+          <img class="logo__image" src="/img/sprite/logo.svg" width="142" height="42" alt="Lifetour - Организация походов в горы">
         </a>
 
-        <!-- Navigation -->
-        <nav class="footer__nav" aria-label="Навигация футера">
-          <ul class="footer__nav-list">
-            <li class="footer__nav-item">
-              <a class="footer__nav-link" href="#tours">Туры</a>
+        <!-- Navigation (shared component with header) -->
+        <nav class="nav footer__nav" aria-label="Навигация футера">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="#tours">Туры</a>
             </li>
-            <li class="footer__nav-item">
-              <a class="footer__nav-link" href="#training">Обучение</a>
+            <li class="nav__item">
+              <a class="nav__link" href="#training">Обучение</a>
             </li>
-            <li class="footer__nav-item">
-              <a class="footer__nav-link" href="#about">О нас</a>
+            <li class="nav__item">
+              <a class="nav__link" href="#about">О нас</a>
             </li>
-            <li class="footer__nav-item">
-              <a class="footer__nav-link" href="#reviews">Отзывы</a>
+            <li class="nav__item">
+              <a class="nav__link" href="#reviews">Отзывы</a>
             </li>
-            <li class="footer__nav-item">
-              <a class="footer__nav-link" href="#gallery">Фотографии</a>
+            <li class="nav__item">
+              <a class="nav__link" href="#gallery">Фотографии</a>
             </li>
-            <li class="footer__nav-item">
-              <a class="footer__nav-link" href="#footer">Контакты</a>
+            <li class="nav__item">
+              <a class="nav__link" href="#footer">Контакты</a>
             </li>
           </ul>
         </nav>

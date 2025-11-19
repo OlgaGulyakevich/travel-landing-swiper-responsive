@@ -7,8 +7,7 @@
 
 .logo {
   display: block;
-
-  // TODO: добавить размеры из макета
+  width: 142px; // Фиксированная ширина из атрибутов img
 
   &:hover {
     // TODO: добавить hover эффект (если есть)
@@ -19,8 +18,8 @@
   }
 
   &__image {
-    display: block;
-    width: 100%;
+    // display: block уже в .page img
+    width: 100%; // 100% от родителя .logo (142px)
     height: auto;
   }
 }

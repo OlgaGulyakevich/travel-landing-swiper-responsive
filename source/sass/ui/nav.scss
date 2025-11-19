@@ -11,33 +11,36 @@
     flex-wrap: wrap;
     gap: 10px;
 
-    // TODO: добавить адаптивные стили для мобильного меню
+    // Направление раскладки (column/row) и gap задаются контекстно в блоках
   }
 
   &__item {
-    // TODO: добавить стили элемента списка
+    // Стили элемента списка добавляются по необходимости в контекстных блоках
   }
 
   &__link {
     display: block;
+    // color: inherit и text-decoration: none уже в .page a
+    transition: opacity $transition;
 
-    // TODO: добавить размеры шрифта, отступы из дизайн-системы
+    // Размеры шрифта и отступы задаются контекстно в блоках (header, footer)
 
     &:hover {
-      // TODO: добавить hover эффект
+      opacity: 0.8;
     }
 
     &:active {
-      // TODO: добавить active эффект
+      opacity: 0.6;
     }
 
     &:focus-visible {
-     /* TODO: добавить focus эффект (если есть) */
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
     }
 
     // Активная страница / текущий раздел
     &--current {
-      // TODO: добавить стили для текущего раздела
+      // TODO: добавить стили для текущего раздела (если потребуется)
     }
   }
 }

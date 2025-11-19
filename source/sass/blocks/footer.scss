@@ -1,3 +1,16 @@
 .footer {
   padding: 60px 0;
+
+  // Контекстные стили для навигации (общий компонент .nav)
+  &__nav {
+    .nav__list {
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .nav__link {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
 }

@@ -1,0 +1,122 @@
+// =============================================================================
+// PAGE WRAPPER STYLES
+// =============================================================================
+
+// Scroll lock (для мобильного меню)
+.scroll-lock {
+  overflow: hidden;
+  touch-action: none;
+  -webkit-overflow-scrolling: auto;
+}
+
+.page {
+  // Sticky footer layout
+  .main {
+    flex: 1 0 auto;
+  }
+
+  .footer {
+    flex-shrink: 0;
+  }
+
+  // Typography elements
+  // HTML1-TEST-04: Переполнение - длинные слова должны переноситься
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    word-wrap: break-word; // Для старых браузеров
+    overflow-wrap: break-word; // Стандартное свойство
+    hyphens: auto; // Автоматическая расстановка дефисов
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word; // Для старых браузеров
+    overflow-wrap: break-word; // Стандартное свойство
+    hyphens: auto; // Автоматическая расстановка дефисов
+  }
+
+  // Другие текстовые элементы
+  span,
+  div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  // Links
+  a {
+    // color: inherit убран - мешает задавать цвет в компонентах
+    // Цвет будет наследоваться от body или задаваться в компонентах
+    text-decoration: none;
+
+    &:focus-visible {
+      outline: 2px solid #2D383F;
+      outline-offset: 2px;
+    }
+  }
+
+  // Images (дополнительные стили к глобальным)
+  img {
+    display: block;
+  }
+
+  // Buttons
+  button {
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+    }
+  }
+
+  // Forms
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+
+    &:focus-visible {
+      outline: 2px solid #2D383F;
+      outline-offset: 2px;
+    }
+  }
+
+  // Lists
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  // SVG
+  svg {
+    display: block;
+    fill: currentColor;
+    max-width: 100%;
+    height: auto;
+  }
+}

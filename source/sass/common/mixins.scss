@@ -24,11 +24,18 @@
 }
 
 // -----------------------------------------------------------------------------
-// Overflow Prevention
+// Overflow Prevention (HTML1-TEST-04)
 // -----------------------------------------------------------------------------
 
 // Prevents flex children from overflowing container
 // Use on flex containers to add min-width: 0 to all direct children
+// HTML1-TEST-04: При добавлении новых элементов они не должны выходить за пределы
+//
+// Example:
+// .container {
+//   display: flex;
+//   @include flex-no-overflow; // Добавляет min-width: 0 к детям
+// }
 @mixin flex-no-overflow {
   > * {
     min-width: 0;
@@ -37,6 +44,13 @@
 
 // Prevents grid children from overflowing container
 // Use on grid containers to add min-width: 0 to all direct children
+// HTML1-TEST-04: При добавлении новых элементов они не должны выходить за пределы
+//
+// Example:
+// .grid {
+//   display: grid;
+//   @include grid-no-overflow; // Добавляет min-width: 0 к детям
+// }
 @mixin grid-no-overflow {
   > * {
     min-width: 0;

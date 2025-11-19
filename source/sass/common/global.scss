@@ -1,6 +1,11 @@
 // =============================================================================
 // GLOBAL STYLES
 // =============================================================================
+// ALLOWED SELECTORS:
+// - *, *::before, *::after for box-sizing
+// - html and body
+// - img only for max-width and object-fit (without display)
+// - :root only for CSS variables
 
 *,
 *::before,
@@ -13,11 +18,17 @@ html {
   scroll-behavior: smooth;
 }
 
+// HTML1-TEST-03: Minimum width of the page
+// - min-width: minimum width of the frame
+// - margin/padding: 0 for resetting margins and paddings
+// - Centering the content through .container (margin: 0 auto)
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100%; // consider using 100vh instead of 100% for correct behavior
+  min-width: 320px; // minimum width of the frame (HTML1-TEST-03)
+  min-height: 100vh; // consider using 100vh instead of 100% for correct behavior
   margin: 0;
+  padding: 0;
   font-family: $font-family;
   font-size: 14px;
   font-weight: $font-weight-regular;
@@ -28,102 +39,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-// Sticky footer layout
-main {
-  flex: 1 0 auto;
-}
-
-footer {
-  flex-shrink: 0;
-}
-
-// Typography elements
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 0;
-  font-weight: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  overflow-wrap: break-word;
-}
-
-p {
-  margin: 0;
-  padding: 0;
-  overflow-wrap: break-word;
-}
-
-// Links
-a {
-  color: inherit;
-  text-decoration: none;
-
-  &:focus-visible {
-    outline: 2px solid #2D383F;
-    outline-offset: 2px;
-  }
-}
-
-// Images
+// Images normalization (only max-width and object-fit)
 img {
   max-width: 100%;
   height: auto;
-  display: block;
   object-fit: cover;
-}
-
-// Buttons
-button {
-  padding: 0;
-  margin: 0;
-  font-family: inherit;
-  color: inherit;
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  &:focus-visible {
-    outline: #FFFFFF;
-    outline-offset: 2px;
-  }
-}
-
-// Forms
-input,
-textarea,
-select {
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-
-  &:focus-visible {
-    outline: #2D383F;
-    outline-offset: 2px;
-  }
-}
-
-// Lists
-ul,
-ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-li {
-  margin: 0;
-  padding: 0;
-}
-
-// SVG
-svg {
-  display: block;
-  fill: currentColor;
-  max-width: 100%;
-  height: auto;
 }

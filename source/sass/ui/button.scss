@@ -1,18 +1,47 @@
 .button {
   display: inline-block;
-  padding: 16px 32px;
-  font-weight: $font-weight-bold;
+  padding: 20px 20px;
+  font-weight: $font-weight-medium;
   font-size: 16px;
+  line-height: 16px;
   color: $color-text-inverse;
-  background-color: $color-primary;
+  background-color: $color-primary-blue;
   transition: background-color $transition;
 
   &:hover {
-    background-color: $color-primary-dark;
+    background-color: $color-text-inverse;
+    border: 1px solid $color-primary-active;
+    color: $color-primary-active;
   }
 
-  &:disabled {
-    background-color: #cccccc;
+
+  &:focus, &:focus-visible {
+    background-color: transparent;
+    border: none;
+    color: $color-primary-active;
+  }
+
+  &:active {
+    background-color: $color-primary-active;
+    color:  $color-text-inverse;
+  }
+
+
+  // Disabled state for <button> and <a>
+  &:disabled,
+  &.is-disabled,
+  &[aria-disabled="true"] {
+    background-color: $color-text-disabled;
+    color: $color-text-inverse;
     cursor: not-allowed;
+    pointer-events: none; // disable all events (clicks, hover)
+
+    &:hover,
+    &:focus,
+    &:active {
+      // Block interactive states
+      background-color: $color-text-disabled;
+      color: $color-text-inverse;
+    }
   }
 }

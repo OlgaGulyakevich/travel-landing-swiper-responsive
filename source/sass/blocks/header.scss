@@ -47,13 +47,72 @@
   }
 
   &__nav {
-    // Desktop: показываем навигацию
+    // Mobile/Tablet: скрыто по умолчанию, fullscreen overlay когда открыто
     display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-primary-blue;
+    z-index: 99;
+    overflow-y: auto;
+    padding: $spacing-xl $container-padding-mobile;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+
+    @include tablet {
+      top: 60px;
+      padding: $spacing-xxl $container-padding-tablet;
+    }
 
     @include desktop {
+      // Desktop: сбрасываем mobile overlay стили, показываем inline
       display: block;
+      position: static;
+      background-color: transparent;
+      padding: 0;
+      opacity: 1;
+      visibility: visible;
       flex-grow: 1;
       order: 2;
+    }
+
+    // Mobile/Tablet: opened state
+    &.is-open {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+
+      @include desktop {
+        // На desktop класс .is-open не влияет
+        display: block;
+      }
+    }
+
+    // Mobile/Tablet: вертикальная раскладка с большими отступами
+    .nav__list {
+      flex-direction: column;
+      gap: $spacing-lg;
+
+      @include desktop {
+        // Desktop: горизонтальная раскладка
+        flex-direction: row;
+        gap: 20px;
+      }
+    }
+
+    .nav__link {
+      font-size: 20px;
+
+      @include tablet {
+        font-size: 24px;
+      }
+
+      @include desktop {
+        font-size: 16px;
+      }
     }
   }
 
@@ -62,7 +121,7 @@
     font-weight: $font-weight-semibold;
     font-size: 16px;
     line-height: 1.2;
-    text-decoration: none;
+    // text-decoration: none уже в .page a
     order: 3;
     transition: opacity $transition;
 
@@ -90,10 +149,7 @@
     justify-content: center;
     width: 44px;
     height: 44px;
-    padding: 0;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+    // padding, background, border, cursor уже в .page button
     order: 1;
     position: relative;
     transition: opacity $transition;
@@ -119,101 +175,37 @@
       opacity: 0.6;
     }
 
-    // Burger icon (3 lines)
-    &::before,
-    &::after {
-      content: "";
+    // SVG иконки (menu.svg и close.svg)
+    &-icon {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20px;
-      height: 2px;
-      background-color: $color-text-inverse;
-      transition: all $transition;
-    }
-
-    &::before {
-      top: 14px;
-    }
-
-    &::after {
-      bottom: 14px;
-    }
-
-    // Middle line (через псевдоэлемент внутреннего span)
-    span {
-      position: absolute;
-      left: 50%;
       top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
-      width: 20px;
-      height: 2px;
-      background-color: $color-text-inverse;
-      transition: all $transition;
+      color: $color-text-inverse;
+      transition: opacity 0.3s ease, transform 0.3s ease;
 
-      &:not(.visually-hidden) {
-        clip: rect(0, 0, 0, 0);
-        clip-path: inset(50%);
+      // По умолчанию показываем menu, скрываем close
+      &--open {
+        opacity: 1;
+      }
+
+      &--close {
+        opacity: 0;
       }
     }
 
     // Opened state (когда меню открыто)
-    &[aria-expanded="true"] {
-      &::before {
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(45deg);
-      }
-
-      &::after {
-        bottom: 50%;
-        transform: translate(-50%, 50%) rotate(-45deg);
-      }
-
-      span:not(.visually-hidden) {
+    &.is-active {
+      .header__burger-icon--open {
         opacity: 0;
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+
+      .header__burger-icon--close {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(0deg);
       }
     }
   }
 
-  &__menu {
-    display: none;
-    position: fixed;
-    top: 50px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: $color-primary-blue;
-    z-index: 99;
-    overflow-y: auto;
-    padding: $spacing-xl $container-padding-mobile;
-
-    @include tablet {
-      top: 60px;
-      padding: $spacing-xxl $container-padding-tablet;
-    }
-
-    @include desktop {
-      display: none !important; // Не показываем на desktop вообще
-    }
-
-    // Opened state
-    &[data-menu-opened] {
-      display: block;
-    }
-  }
-
-  &__menu-nav {
-    .nav__list {
-      flex-direction: column;
-      gap: $spacing-lg;
-    }
-
-    .nav__link {
-      font-size: 20px;
-
-      @include tablet {
-        font-size: 24px;
-      }
-    }
-  }
 }

@@ -5,7 +5,7 @@
 
 export const initBurgerMenu = () => {
   const burger = document.querySelector('[data-burger]');
-  const menu = document.querySelector('[data-menu]');
+  const menu = document.querySelector('.header__nav');
   const menuLinks = menu?.querySelectorAll('a');
 
   if (!burger || !menu) return;

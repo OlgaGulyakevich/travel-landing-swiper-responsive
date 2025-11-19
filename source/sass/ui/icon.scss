@@ -1,8 +1,9 @@
 .icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  // Размеры берутся из атрибутов width/height в HTML
+  // Не задаем фиксированные размеры здесь
   color: currentColor;
+  flex-shrink: 0; // Предотвращаем сжатие иконок во flex-контейнерах
 
   &--small {
     width: 16px;
