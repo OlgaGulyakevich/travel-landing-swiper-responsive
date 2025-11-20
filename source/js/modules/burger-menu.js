@@ -12,11 +12,17 @@ export const initBurgerMenu = () => {
 
   const toggleMenu = () => {
     const isOpen = menu.classList.contains('is-open');
-    
+
+    // Calculate and set scrollbar width before locking scroll
+    if (!isOpen) {
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+    }
+
     menu.classList.toggle('is-open');
     burger.classList.toggle('is-active');
     document.body.classList.toggle('scroll-lock');
-    
+
     burger.setAttribute('aria-expanded', !isOpen);
   };
 

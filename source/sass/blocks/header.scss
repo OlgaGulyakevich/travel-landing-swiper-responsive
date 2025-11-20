@@ -86,10 +86,10 @@
   }
 
   &__nav {
-    // Mobile/Tablet: скрыто по умолчанию, fullscreen overlay когда открыто
+    // Mobile/Tablet: hidden by default, fullscreen overlay when open
     display: none;
     position: fixed;
-    top: 100px; // Начинаем под header, чтобы не перекрывать кнопку close
+    top: 98px; // Start under header, to not overlap close button
     left: 0;
     right: 0;
     bottom: 0;
@@ -100,12 +100,17 @@
     opacity: 0;
     visibility: hidden;
 
+    // Scrollbar compensation for fixed element
+    .scroll-lock & {
+      right: var(--scrollbar-width, 0);
+    }
+
     @include tablet {
-      top: 82px; // Под header на tablet
+      top: 80px; // Start under header on tablet
     }
 
     @include desktop {
-      // Desktop: сбрасываем mobile overlay стили, показываем inline
+      // Desktop: reset mobile overlay styles, show inline
       // Explicitly place nav in second column
       grid-column: 2;
       display: block;
@@ -128,17 +133,17 @@
       }
     }
 
-    // Mobile/Tablet: синий контейнер для меню с ограниченной высотой
+    // Mobile/Tablet: blue container for menu with limited height
     .nav__list {
       flex-direction: column;
       gap: 22px;
       background-color: $color-primary-blue;
-      margin-top: 0; // Убираем margin, backdrop уже начинается под header
+      margin-top: 0; // Remove margin, backdrop starts under header
       padding: 0 15px;
       padding-top: 30px;
       padding-bottom: 50px;
-      max-height: calc(100vh - 100px); // Ограничение по высоте = экран минус header
-      overflow-y: auto; // Прокрутка если элементов много
+      max-height: calc(100vh - 100px); // Limit height = screen minus header
+      overflow-y: auto; // Scroll if there are many elements
 
       @include tablet {
         gap: 26px;
@@ -150,7 +155,7 @@
       }
 
       @include desktop {
-        // Desktop: сбрасываем mobile стили
+        // Desktop: reset mobile styles
         flex-direction: row;
         gap: 30px;
         background-color: transparent;
@@ -167,7 +172,6 @@
         font-weight: $font-weight-bold;
         line-height: 14px;
         letter-spacing: 0.56px;
-        // padding: 3px 5px;
         text-transform: uppercase;
 
 
@@ -209,7 +213,6 @@
     font-size: 14px;
     line-height: 14px;
     letter-spacing: 1px;
-    // text-decoration: none уже в .page a
     transition: color $transition;
 
     @include tablet {
@@ -255,13 +258,10 @@
 
     @include desktop {
       align-self: center;
-    }
-
-    @include desktop {
       display: none;
     }
 
-    // Интерактивные состояния через изменение цвета иконок внутри
+    // Interactive states via changing color of icons inside
     &:hover {
       .header__burger-icon {
         color: $color-white-50;
@@ -282,7 +282,7 @@
       }
     }
 
-    // SVG иконки (menu.svg и close.svg)
+    // SVG icons (menu.svg and close.svg)
     &-icon {
       position: absolute;
       top: 50%;
@@ -291,7 +291,7 @@
       color: $color-text-inverse;
       transition: opacity 0.3s ease, transform 0.3s ease;
 
-      // По умолчанию показываем menu, скрываем close
+      // By default show menu, hide close
       &--open {
         opacity: 1;
       }
@@ -301,7 +301,7 @@
       }
     }
 
-    // Opened state (когда меню открыто)
+    // Opened state (when menu is open)
     &.is-active {
       .header__burger-icon--open {
         opacity: 0;
