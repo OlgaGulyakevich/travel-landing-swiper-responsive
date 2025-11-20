@@ -27,6 +27,8 @@
 // Scroll lock (for open burger menu)
 .scroll-lock {
   overflow: hidden;
+  touch-action: none;
+  -webkit-overflow-scrolling: auto;
   padding-right: var(--scrollbar-width, 0);
 }
 
@@ -46,17 +48,9 @@
 
 // Open state (for burger menu)
 .is-open {
-  // Добавляется JavaScript к мобильному меню
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
-}
-
-// Invalid state (for form fields)
-.is-invalid {
-  // Добавляется JavaScript к невалидным полям формы
-  border-color: #ff0000;
-  outline-color: #ff0000;
 }
 
 // -----------------------------------------------------------------------------
@@ -66,5 +60,14 @@
 // Removes outline on click with mouse, but keeps for keyboard
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
+}
+
+// -----------------------------------------------------------------------------
+// Validation States
+// -----------------------------------------------------------------------------
+
+// Invalid state (added via JS validation)
+.is-invalid {
+  border-color: $color-error-stroke;
 }
 

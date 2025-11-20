@@ -4,3 +4,12 @@
   background-size: cover;
   background-position: center;
 }
+
+
+// button.scss - ✅ правильно:
+// - Базовые стили (padding, font-size) остаются в ui/button.scss
+// - Конкретные размеры для hero__button добавятся в blocks/hero.scss:
+// .hero__button {
+//   width: 100%;
+//   max-width: 300px; // или другие размеры по макету
+// }
