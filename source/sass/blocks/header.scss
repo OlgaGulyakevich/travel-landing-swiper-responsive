@@ -89,21 +89,19 @@
     // Mobile/Tablet: скрыто по умолчанию, fullscreen overlay когда открыто
     display: none;
     position: fixed;
-    top: 100px;
+    top: 100px; // Начинаем под header, чтобы не перекрывать кнопку close
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: $color-primary-blue;
+    background-color: rgba(0, 0, 0, 0.3); // Полупрозрачный backdrop
     z-index: 99;
-    overflow-y: auto;
-    padding: 30px 15px;
+    padding: 0;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     opacity: 0;
     visibility: hidden;
 
     @include tablet {
-      top: 82px;
-      padding: 50px 45px;
+      top: 82px; // Под header на tablet
     }
 
     @include desktop {
@@ -130,19 +128,36 @@
       }
     }
 
-    // Mobile/Tablet: вертикальная раскладка с большими отступами
+    // Mobile/Tablet: синий контейнер для меню с ограниченной высотой
     .nav__list {
       flex-direction: column;
       gap: 22px;
+      background-color: $color-primary-blue;
+      margin-top: 0; // Убираем margin, backdrop уже начинается под header
+      padding: 0 15px;
+      padding-top: 30px;
+      padding-bottom: 50px;
+      max-height: calc(100vh - 100px); // Ограничение по высоте = экран минус header
+      overflow-y: auto; // Прокрутка если элементов много
 
       @include tablet {
         gap: 26px;
+        margin-top: 0;
+        padding: 0 45px;
+        padding-top: 50px;
+        padding-bottom: 70px;
+        max-height: calc(100vh - 82px);
       }
 
       @include desktop {
-        // Desktop: горизонтальная раскладка
+        // Desktop: сбрасываем mobile стили
         flex-direction: row;
         gap: 30px;
+        background-color: transparent;
+        margin-top: 0;
+        padding: 0;
+        max-height: none;
+        overflow-y: visible;
       }
     }
 
@@ -152,7 +167,7 @@
         font-weight: $font-weight-bold;
         line-height: 14px;
         letter-spacing: 0.56px;
-        padding: 3px 5px;
+        // padding: 3px 5px;
         text-transform: uppercase;
 
 

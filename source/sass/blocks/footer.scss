@@ -23,7 +23,7 @@
   &__nav {
     .nav__list {
       flex-direction: column;
-      gap: 13px;
+      gap: 15px;
     }
 
     .nav__link {
@@ -32,7 +32,7 @@
       font-weight: $font-weight-regular;
       line-height: 14px;
       text-align: center;
-      padding: 1px 5px;
+      // padding: 1px 5px;
 
       @include desktop {
         font-size: 16px;
