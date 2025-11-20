@@ -53,6 +53,13 @@
   pointer-events: auto;
 }
 
+// Disabled state (for links and other interactive elements)
+.is-disabled {
+  color: $color-text-disabled;
+  pointer-events: none;
+  cursor: default;
+}
+
 // -----------------------------------------------------------------------------
 // Focus Management
 // -----------------------------------------------------------------------------

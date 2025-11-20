@@ -25,12 +25,32 @@
     <div class="container">
       <div class="header__wrapper">
 
-        <!-- Logo -->
-        <a class="logo header__logo" href="#hero">
-          <img class="logo__image" src="/img/sprite/logo.svg" width="142" height="42" alt="Lifetour - Организация походов в горы">
-        </a>
+        <!-- Burger Button (Mobile/Tablet) -->
+        <button class="header__burger" type="button" data-burger="toggle" aria-label="Открыть меню">
+          <svg class="header__burger-icon header__burger-icon--open" width="26" height="26" aria-hidden="true">
+            <use href="/__spritemap#sprite-menu"></use>
+          </svg>
+          <svg class="header__burger-icon header__burger-icon--close" width="26" height="26" aria-hidden="true">
+            <use href="/__spritemap#sprite-close"></use>
+          </svg>
+          <span class="visually-hidden">Открыть меню</span>
+        </button>
 
-        <!-- Navigation (Desktop) -->
+        <!-- Right Group: Logo + Phone -->
+        <div class="header__right-group">
+          <!-- Logo -->
+          <a class="logo header__logo" href="#hero">
+            <img class="logo__image" src="/img/sprite/logo.svg" width="142" height="42" alt="Lifetour - Организация походов в горы">
+          </a>
+
+          <!-- Phone -->
+          <a class="header__phone" href="tel:+78000000000">
+            <span class="visually-hidden">Позвонить по номеру:</span>
+            8 800 000-00-00
+          </a>
+        </div>
+
+        <!-- Navigation -->
         <nav class="nav header__nav" aria-label="Основная навигация">
           <ul class="nav__list">
             <li class="nav__item">
@@ -53,23 +73,6 @@
             </li>
           </ul>
         </nav>
-
-        <!-- Phone -->
-        <a class="header__phone" href="tel:+78000000000">
-          <span class="visually-hidden">Позвонить по номеру:</span>
-          8 800 000-00-00
-        </a>
-
-        <!-- Burger Button (Mobile/Tablet) -->
-        <button class="header__burger" type="button" data-burger="toggle" aria-label="Открыть меню">
-          <svg class="header__burger-icon header__burger-icon--open" width="24" height="24" aria-hidden="true">
-            <use href="/__spritemap#sprite-menu"></use>
-          </svg>
-          <svg class="header__burger-icon header__burger-icon--close" width="24" height="24" aria-hidden="true">
-            <use href="/__spritemap#sprite-close"></use>
-          </svg>
-          <span class="visually-hidden">Открыть меню</span>
-        </button>
 
       </div>
     </div>

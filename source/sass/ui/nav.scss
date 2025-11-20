@@ -1,46 +1,22 @@
 // =============================================================================
 // NAVIGATION
-// Навигационное меню
+// Navigation menu
 // =============================================================================
 
-// Используется в блоках: header (главное меню), footer (вторичное меню)
+// Used in blocks: header (main menu), footer (secondary menu)
 
 .nav {
   &__list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
 
-    // Направление раскладки (column/row) и gap задаются контекстно в блоках
-  }
-
-  &__item {
-    // Стили элемента списка добавляются по необходимости в контекстных блоках
+    // Direction of layout (column/row) and gap are set contextually in blocks
   }
 
   &__link {
     display: block;
-    // color: inherit и text-decoration: none уже в .page a
-    transition: opacity $transition;
-
-    // Размеры шрифта и отступы задаются контекстно в блоках (header, footer)
-
-    &:hover {
-      opacity: 0.8;
-    }
-
-    &:active {
-      opacity: 0.6;
-    }
-
-    &:focus-visible {
-      outline: 2px solid currentColor;
-      outline-offset: 2px;
-    }
-
-    // Активная страница / текущий раздел
-    &--current {
-      // TODO: добавить стили для текущего раздела (если потребуется)
-    }
+    // color: inherit and text-decoration: none are already in .page a
+    // Font sizes and margins are set contextually in blocks (header, footer)
+    // Interactive states (hover, focus, active, disabled) are defined in blocks
   }
 }

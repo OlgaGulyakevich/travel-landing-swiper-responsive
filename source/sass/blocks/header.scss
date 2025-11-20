@@ -11,38 +11,77 @@
   color: $color-text-inverse;
 
   &__wrapper {
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: space-between;
-    min-height: 50px;
-    padding-top: $spacing-md;
-    padding-bottom: $spacing-md;
+    min-height: 100px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    // Mobile: 2 columns (burger | right-group with logo+phone stacked)
+    grid-template-columns: auto 1fr;
 
     @include tablet {
-      min-height: 60px;
+      min-height: 82px;
       padding-top: 20px;
       padding-bottom: 20px;
+      // Tablet: 3 columns (burger | logo | phone)
+      // right-group unwraps via display: contents
+      grid-template-columns: auto 1fr auto;
+      gap: 16px;
     }
 
     @include desktop {
-      min-height: 100px;
-      padding-top: 30px;
-      padding-bottom: 30px;
-      justify-content: flex-start;
-      gap: 60px;
+      min-height: 126px;
+      padding-top: 32px;
+      padding-bottom: 32px;
+      // Desktop: 3 columns (logo | nav | phone)
+      // burger hidden, right-group unwraps via display: contents
+      grid-template-columns: auto 1fr auto;
+      grid-auto-flow: column;
+      gap: 133px;
+    }
+  }
+
+  &__right-group {
+    // Mobile: flex container for logo + phone stacked vertically
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 14px;
+
+    @include tablet {
+      // Tablet/Desktop: unwrap to allow logo and phone to be direct grid items
+      display: contents;
     }
   }
 
   &__logo {
-    // Mobile: по центру (через order)
-    order: 2;
+    filter: brightness(0) invert(1); // Invert color to white
+    transition: opacity $transition;
 
     @include tablet {
-      order: 1;
+      // Tablet: center logo in middle column
+      justify-self: center;
     }
 
     @include desktop {
-      flex-shrink: 0;
+      // Desktop: explicitly place logo in first column
+      grid-column: 1;
+      justify-self: start;
+    }
+
+    // Interactive states via opacity
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-text-inverse;
+      outline-offset: 4px;
+    }
+
+    &:active {
+      opacity: 0.7;
     }
   }
 
@@ -50,33 +89,33 @@
     // Mobile/Tablet: скрыто по умолчанию, fullscreen overlay когда открыто
     display: none;
     position: fixed;
-    top: 50px;
+    top: 100px;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: $color-primary-blue;
     z-index: 99;
     overflow-y: auto;
-    padding: $spacing-xl $container-padding-mobile;
+    padding: 30px 15px;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     opacity: 0;
     visibility: hidden;
 
     @include tablet {
-      top: 60px;
-      padding: $spacing-xxl $container-padding-tablet;
+      top: 82px;
+      padding: 50px 45px;
     }
 
     @include desktop {
       // Desktop: сбрасываем mobile overlay стили, показываем inline
+      // Explicitly place nav in second column
+      grid-column: 2;
       display: block;
       position: static;
       background-color: transparent;
       padding: 0;
       opacity: 1;
       visibility: visible;
-      flex-grow: 1;
-      order: 2;
     }
 
     // Mobile/Tablet: opened state
@@ -86,7 +125,7 @@
       visibility: visible;
 
       @include desktop {
-        // На desktop класс .is-open не влияет
+        // On desktop class .is-open does not affect
         display: block;
       }
     }
@@ -94,85 +133,138 @@
     // Mobile/Tablet: вертикальная раскладка с большими отступами
     .nav__list {
       flex-direction: column;
-      gap: $spacing-lg;
+      gap: 22px;
+
+      @include tablet {
+        gap: 26px;
+      }
 
       @include desktop {
         // Desktop: горизонтальная раскладка
         flex-direction: row;
-        gap: 20px;
+        gap: 30px;
       }
     }
 
     .nav__link {
-      font-size: 20px;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: $font-weight-bold;
+        line-height: 14px;
+        letter-spacing: 0.56px;
+        padding: 3px 5px;
+        text-transform: uppercase;
+
 
       @include tablet {
-        font-size: 24px;
+        font-size: 16px;
+        line-height: 16px;
+        letter-spacing: 0.64px;
       }
 
       @include desktop {
-        font-size: 16px;
+        font-weight: $font-weight-regular;
+        text-transform: none;
       }
+
+      // Interactive states for navigation in header
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      &:focus-visible {
+        border: 1px solid $color-text-inverse;
+        outline: none;
+      }
+
+      &:active {
+        color: $color-primary-active;
+        text-decoration: none;
+      }
+
+      // Disabled state via .is-disabled class (utility.scss)
+      // HTML: <a href="#" class="nav__link is-disabled">Link</a>
     }
   }
 
   &__phone {
     color: $color-text-inverse;
     font-weight: $font-weight-semibold;
-    font-size: 16px;
-    line-height: 1.2;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 1px;
     // text-decoration: none уже в .page a
-    order: 3;
-    transition: opacity $transition;
+    transition: color $transition;
 
-    &:hover {
-      opacity: 0.8;
+    @include tablet {
+      font-size: 16px;
+      line-height: 16px;
+      // Tablet/Desktop: align phone to right
+      justify-self: end;
     }
 
-    &:focus-visible {
-      outline: 2px solid $color-text-inverse;
-      outline-offset: 4px;
+    @include desktop {
+      font-size: 18px;
+      line-height: 18px;
+      // Desktop: explicitly place phone in third column
+      grid-column: 3;
+    }
+
+    &:hover {
+    color: $color-white-50;
+    }
+
+    &:focus {
+      color: $color-text-primary;
     }
 
     &:active {
-      opacity: 0.6;
-    }
-
-    @include tablet {
-      font-size: 18px;
+      color: $color-primary-active;
     }
   }
 
   &__burger {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
+    align-self: start;
+    width: 26px;
+    height: 26px;
     // padding, background, border, cursor уже в .page button
-    order: 1;
     position: relative;
     transition: opacity $transition;
 
     @include tablet {
-      order: 1;
+      align-self: center;
+    }
+
+    @include desktop {
+      align-self: center;
     }
 
     @include desktop {
       display: none;
     }
 
+    // Интерактивные состояния через изменение цвета иконок внутри
     &:hover {
-      opacity: 0.8;
+      .header__burger-icon {
+        color: $color-white-50;
+      }
     }
 
     &:focus-visible {
+      .header__burger-icon {
+        color: $color-text-primary;
+      }
       outline: 2px solid $color-text-inverse;
       outline-offset: 2px;
     }
 
     &:active {
-      opacity: 0.6;
+      .header__burger-icon {
+        color: $color-primary-active;
+      }
     }
 
     // SVG иконки (menu.svg и close.svg)

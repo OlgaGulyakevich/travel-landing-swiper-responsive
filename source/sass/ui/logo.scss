@@ -1,25 +1,18 @@
 // =============================================================================
 // LOGO
-// Логотип компании
 // =============================================================================
 
-// Используется в блоках: header, footer
+// Used in blocks: header, footer
+// Color manipulation via CSS filter in blocks (header: white, footer: dark)
+// Interactive states via opacity in blocks
 
 .logo {
   display: block;
-  width: 142px; // Фиксированная ширина из атрибутов img
-
-  &:hover {
-    // TODO: добавить hover эффект (если есть)
-  }
-
-  &:focus-visible {
-   /* TODO: добавить focus эффект (если есть) */
-  }
+  width: 142px;
 
   &__image {
-    // display: block уже в .page img
-    width: 100%; // 100% от родителя .logo (142px)
+    // display: block already in .page img
+    width: 100%; // 100% from parent .logo (142px)
     height: auto;
   }
 }
