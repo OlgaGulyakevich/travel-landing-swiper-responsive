@@ -5,11 +5,15 @@
   background-position: center;
 }
 
+// Pagination positioning in hero slider
+.hero__pagination {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 
-// button.scss - ✅ правильно:
-// - Базовые стили (padding, font-size) остаются в ui/button.scss
-// - Конкретные размеры для hero__button добавятся в blocks/hero.scss:
-// .hero__button {
-//   width: 100%;
-//   max-width: 300px; // или другие размеры по макету
-// }
+  @include desktop {
+    bottom: 92px;
+  }
+}

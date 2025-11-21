@@ -5,6 +5,9 @@
 
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export const initSliders = () => {
   // Hero Slider
@@ -16,6 +19,46 @@ export const initSliders = () => {
     },
     loop: true,
     autoplay: false,
+    on: {
+      init: function() {
+        // Make pagination bullets keyboard accessible
+        const bullets = this.pagination.bullets;
+        if (bullets) {
+          bullets.forEach((bullet) => {
+            bullet.setAttribute('tabindex', '0');
+            bullet.setAttribute('role', 'button');
+
+            // Add keyboard navigation
+            bullet.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                bullet.click();
+              }
+            });
+          });
+        }
+      },
+      paginationUpdate: function() {
+        // Update tabindex when pagination updates
+        const bullets = this.pagination.bullets;
+        if (bullets) {
+          bullets.forEach((bullet) => {
+            if (!bullet.hasAttribute('tabindex')) {
+              bullet.setAttribute('tabindex', '0');
+              bullet.setAttribute('role', 'button');
+
+              // Add keyboard navigation
+              bullet.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  bullet.click();
+                }
+              });
+            }
+          });
+        }
+      }
+    }
   });
 
   // Tours Slider
