@@ -17,8 +17,9 @@
   }
 }
 
-.swiper-button-prev,
-.swiper-button-next {
+// Increase specificity by repeating class to override Swiper default styles
+.swiper-button-prev.swiper-button-prev,
+.swiper-button-next.swiper-button-next {
   // Basic button styles
   display: flex;
   width: 37px;
@@ -41,34 +42,34 @@
 }
 
 // Hover state
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
+.swiper-button-prev.swiper-button-prev:hover,
+.swiper-button-next.swiper-button-next:hover {
   border-color: $color-primary-active;
   background-color: $color-bg-white;
   color: $color-primary-active;
 }
 
 // Active state
-.swiper-button-prev:active,
-.swiper-button-next:active {
+.swiper-button-prev.swiper-button-prev:active,
+.swiper-button-next.swiper-button-next:active {
   background-color: $color-primary-active;
   color: $color-text-inverse;
   border-color: transparent;
 }
 
 // Focus state and focus visible state
-.swiper-button-prev:focus,
-.swiper-button-prev:focus-visible,
-.swiper-button-next:focus,
-.swiper-button-next:focus-visible {
+.swiper-button-prev.swiper-button-prev:focus,
+.swiper-button-prev.swiper-button-prev:focus-visible,
+.swiper-button-next.swiper-button-next:focus,
+.swiper-button-next.swiper-button-next:focus-visible {
   outline: none;
   color: $color-primary-active;
   background-color: $color-bg-white;
 }
 
 // Disabled state in extreme positions
-.swiper-button-prev.swiper-button-disabled,
-.swiper-button-next.swiper-button-disabled {
+.swiper-button-prev.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-next.swiper-button-disabled {
   color: $color-text-inverse;
   background-color: $color-disabled;
   border-color: transparent;
@@ -77,8 +78,8 @@
 }
 
 // Icon inside button (SVG sprite)
-.swiper-button-prev svg,
-.swiper-button-next svg {
+.swiper-button-prev.swiper-button-prev svg,
+.swiper-button-next.swiper-button-next svg {
   width: 17px;
   height: 12px;
   fill: currentColor;
