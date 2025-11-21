@@ -24,3 +24,59 @@
     // }
   }
 }
+
+.tours__link {
+  display: inline-flex;  // inline-flex вместо flex - не растягивается на всю ширину
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  line-height: 14px;
+  letter-spacing: 0.56px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition: background-color $transition, color $transition, border-color $transition;
+  max-width: 100%;  // На случай длинного текста - не выходит за родителя
+  white-space: nowrap;  // Текст в одну строку (для коротких ссылок)
+
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0.64px;
+  }
+}
+
+// Hover state
+.tours__link:hover {
+  color: $color-additional-10;
+}
+
+// Active state
+.tours__link:active {
+  color: $color-primary-active;
+}
+
+// Focus state and focus visible state
+.tours__link:focus,
+ .tours__link:focus-visible {
+  color: $color-additional-100;
+  outline: none;
+}
+
+// Disabled state through utility class is-disabled
+
+.tours__link-icon {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  flex-shrink: 0;
+
+  @include tablet {
+    width: 16px;
+    height: 16px;
+  }
+}

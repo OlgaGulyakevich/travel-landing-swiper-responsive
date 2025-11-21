@@ -11,6 +11,7 @@
   opacity: 0.7; // Легкая прозрачность
 }
 
+.footer__logo:focus,
 .footer__logo:focus-visible {
   outline: 2px solid $color-primary-blue;
   outline-offset: 4px;
@@ -46,6 +47,7 @@
   text-underline-offset: 2px;
 }
 
+.footer__nav .nav__link:focus,
 .footer__nav .nav__link:focus-visible {
   border: 1px solid #2d383f;
   outline: none;
@@ -82,10 +84,33 @@
   color: $color-additional-10;
 }
 
-.footer__phone-desktop:focus {
+.footer__phone-desktop:focus,
+.footer__phone-desktop:focus-visible {
   color: $color-primary-blue;
 }
 
 .footer__phone-desktop:active {
   color: $color-primary-active;
+}
+
+// Social links
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity $transition;
+}
+
+.footer__social-link:hover {
+  opacity: 0.7;
+}
+
+.footer__social-link:focus,
+.footer__social-link:focus-visible {
+  outline: 2px solid $color-primary-blue;
+  outline-offset: 2px;
+}
+
+.footer__social-link:active {
+  opacity: 0.5;
 }

@@ -85,6 +85,7 @@
   opacity: 0.5;
 }
 
+.header__logo:focus,
 .header__logo:focus-visible {
   outline: 2px solid $color-text-inverse;
   outline-offset: 4px;
@@ -205,6 +206,7 @@
   text-underline-offset: 2px;
 }
 
+.header__nav .nav__link:focus,
 .header__nav .nav__link:focus-visible {
   border: 1px solid $color-text-inverse;
   outline: none;
@@ -248,7 +250,8 @@
   color: $color-white-50;
 }
 
-.header__phone:focus {
+.header__phone:focus,
+.header__phone:focus-visible {
   color: $color-text-primary;
 }
 
@@ -283,11 +286,13 @@
   color: $color-white-50;
 }
 
+.header__burger:focus,
 .header__burger:focus-visible {
   outline: 2px solid $color-text-inverse;
   outline-offset: 2px;
 }
 
+.header__burger:focus .header__burger-icon,
 .header__burger:focus-visible .header__burger-icon {
   color: $color-text-primary;
 }

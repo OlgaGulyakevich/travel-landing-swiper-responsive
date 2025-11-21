@@ -32,6 +32,29 @@ export const initSliders = () => {
       768: { slidesPerView: 2 },
       1440: { slidesPerView: 3 },
     },
+    on: {
+      init: function() {
+        // Add SVG icons to navigation buttons
+        const prevBtn = this.navigation.prevEl;
+        const nextBtn = this.navigation.nextEl;
+
+        if (prevBtn) {
+          prevBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-left"></use>
+            </svg>
+          `;
+        }
+
+        if (nextBtn) {
+          nextBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-right"></use>
+            </svg>
+          `;
+        }
+      }
+    }
   });
 
   // Training Slider
@@ -54,6 +77,29 @@ export const initSliders = () => {
         initialSlide: 0,
       },
     },
+    on: {
+      init: function() {
+        // Add SVG icons to navigation buttons
+        const prevBtn = this.navigation.prevEl;
+        const nextBtn = this.navigation.nextEl;
+
+        if (prevBtn) {
+          prevBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-left"></use>
+            </svg>
+          `;
+        }
+
+        if (nextBtn) {
+          nextBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-right"></use>
+            </svg>
+          `;
+        }
+      }
+    }
   });
 
   // Reviews Slider
@@ -65,6 +111,29 @@ export const initSliders = () => {
     },
     slidesPerView: 1,
     spaceBetween: 30,
+    on: {
+      init: function() {
+        // Add SVG icons to navigation buttons
+        const prevBtn = this.navigation.prevEl;
+        const nextBtn = this.navigation.nextEl;
+
+        if (prevBtn) {
+          prevBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-left"></use>
+            </svg>
+          `;
+        }
+
+        if (nextBtn) {
+          nextBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-right"></use>
+            </svg>
+          `;
+        }
+      }
+    }
   });
 
   // Advantages Slider (desktop only)
@@ -81,6 +150,29 @@ export const initSliders = () => {
       1440: { enabled: true },
       320: { enabled: false },
     },
+    on: {
+      init: function() {
+        // Add SVG icons to navigation buttons
+        const prevBtn = this.navigation.prevEl;
+        const nextBtn = this.navigation.nextEl;
+
+        if (prevBtn) {
+          prevBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-left"></use>
+            </svg>
+          `;
+        }
+
+        if (nextBtn) {
+          nextBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-right"></use>
+            </svg>
+          `;
+        }
+      }
+    }
   });
 
   // Gallery Slider (mobile/tablet only)
@@ -96,5 +188,28 @@ export const initSliders = () => {
       768: { slidesPerView: 3 },
       1440: { enabled: false },
     },
+    on: {
+      init: function() {
+        // Add SVG icons to navigation buttons
+        const prevBtn = this.navigation.prevEl;
+        const nextBtn = this.navigation.nextEl;
+
+        if (prevBtn) {
+          prevBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-left"></use>
+            </svg>
+          `;
+        }
+
+        if (nextBtn) {
+          nextBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-right"></use>
+            </svg>
+          `;
+        }
+      }
+    }
   });
 };

@@ -1,33 +1,84 @@
 // =============================================================================
 // NAVIGATION ARROWS
-// Стрелки навигации для слайдеров (Swiper navigation)
+// Navigation arrows for sliders (Swiper navigation)
 // =============================================================================
 
-// Используется в блоках: tours, training, reviews, gallery
-// Swiper добавляет классы .swiper-button-next и .swiper-button-prev
+// Used in blocks: tours, training, reviews, gallery
+// Swiper adds classes .swiper-button-next and .swiper-button-prev
+// Icons: arrow-left and arrow-right from SVG sprite
 
-.swiper-button-prev,
-.swiper-button-next {
-  // Базовые стили кнопок навигации
-  // TODO: добавить размеры, позиционирование, цвета из дизайн-системы
+// Navigation wrapper (groups prev + next buttons)
+.slider-navigation {
+  display: none;  // Hidden on mobile
 
-  &:hover {
-    // TODO: добавить hover эффект
-  }
-
-  &:active {
-    // TODO: добавить active эффект
-  }
-
-  &:focus-visible {
-    /* TODO: добавить focus эффект (если есть) */
+  @include tablet {
+    display: flex;
+    gap: 4px;  // Distance between buttons
   }
 }
 
-// Заблокированное состояние в крайних положениях
+.swiper-button-prev,
+.swiper-button-next {
+  // Basic button styles
+  display: flex;
+  width: 37px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-primary-blue;
+  color: $color-text-inverse;
+  border: 1px solid transparent;
+  transition: background-color $transition, color $transition, border-color $transition;
+
+  // Remove Swiper default arrow
+  &::after {
+    content: none;
+  }
+
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
+}
+
+// Hover state
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  border-color: $color-primary-active;
+  background-color: $color-bg-white;
+  color: $color-primary-active;
+}
+
+// Active state
+.swiper-button-prev:active,
+.swiper-button-next:active {
+  background-color: $color-primary-active;
+  color: $color-text-inverse;
+  border-color: transparent;
+}
+
+// Focus state and focus visible state
+.swiper-button-prev:focus,
+.swiper-button-prev:focus-visible,
+.swiper-button-next:focus,
+.swiper-button-next:focus-visible {
+  outline: none;
+  color: $color-primary-active;
+  background-color: $color-bg-white;
+}
+
+// Disabled state in extreme positions
 .swiper-button-prev.swiper-button-disabled,
 .swiper-button-next.swiper-button-disabled {
-  opacity: 0.3;
+  color: $color-text-inverse;
+  background-color: $color-disabled;
+  border-color: transparent;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+// Icon inside button (SVG sprite)
+.swiper-button-prev svg,
+.swiper-button-next svg {
+  width: 17px;
+  height: 12px;
+  fill: currentColor;
 }
