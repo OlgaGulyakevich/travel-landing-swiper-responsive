@@ -1,3 +1,20 @@
 .reviews {
-  padding: 60px 0;
+  // padding: 60px 0;
+}
+
+.reviews__title-wrapper {
+  margin-bottom: 32px;
+
+
+  @include tablet {
+    margin-bottom: 35px;
+  }
+
+  @include desktop {
+    margin-bottom: 38px;
+
+    .title__decoration {
+      top: -40px;
+    }
+  }
 }

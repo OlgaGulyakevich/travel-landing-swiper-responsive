@@ -1,24 +1,54 @@
 // =============================================================================
 // TITLE WITH DECORATION
-// Заголовки секций с декоративным текстом
+// Sections titles with decorative text
 // =============================================================================
 
-// Используется в блоках: tours, training, about, reviews, advantages, gallery
+// Used in blocks: tours, training, about, reviews, advantages, gallery
 
 .title {
-  // Обертка для заголовка с декорацией
+  // Wrapper for the title with decoration
   position: relative;
-
-  // TODO: добавить стили из дизайн-системы
 }
 
 .title__main {
-  // Основной заголовок (h2)
-  // TODO: добавить типографику из design-system
+  // Main title (h2)
+  font-size: 22px;
+  line-height: 22px;
+  font-weight: $font-weight-extrabold;
+  white-space: nowrap;
+
+  @include tablet {
+    font-size: 25px;
+    line-height: 25px;
+  }
+
+  @include desktop {
+    font-size: 35px;
+    line-height: 35px;
+  }
 }
 
 .title__decoration {
-  // Декоративный текст (полупрозрачный, крупный)
-  // ВАЖНО: должен быть скрыт от скринридеров
-  // TODO: добавить позиционирование, размер, прозрачность из макета
+  // Decorative text (semi-transparent, large)
+  // IMPORTANT: must be hidden from screen readers
+  position: absolute;
+  top: -16px;
+  left: 0;
+  font-size: 26px;
+  line-height: 26px;
+  font-weight: $font-weight-extrabold;
+  color: $color-text-secondary;
+  opacity: 0.03;
+
+  @include tablet {
+    top: -12px;
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  @include desktop {
+    top: -12px;
+    font-size: 55px;
+    line-height: 55px;
+  }
 }

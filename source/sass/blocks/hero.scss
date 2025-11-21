@@ -1,8 +1,17 @@
 .hero {
   position: relative;
-  min-height: 600px;
+  min-height: 568px;
   background-size: cover;
   background-position: center;
+  margin-bottom: 20px;
+
+  @include tablet {
+    margin-bottom: 40px;
+  }
+
+  @include desktop {
+    margin-bottom: 100px;
+  }
 }
 
 // Pagination positioning in hero slider

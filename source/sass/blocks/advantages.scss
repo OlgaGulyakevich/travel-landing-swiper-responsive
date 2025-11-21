@@ -1,3 +1,27 @@
 .advantages {
   padding: 60px 0;
 }
+
+.advantages__title-wrapper {
+  margin-bottom: 37px;
+  text-align: center;
+
+  .title__decoration {
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include desktop {
+      top: -26px;
+    }
+  }
+
+  @include tablet {
+    margin-bottom: 60px;
+  }
+
+  @include desktop {
+    margin-bottom: 50px;
+  }
+
+
+}

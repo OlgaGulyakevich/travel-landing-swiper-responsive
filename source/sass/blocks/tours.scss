@@ -1,5 +1,5 @@
 .tours {
-  padding: 60px 0;
+  // padding: 60px 0;
 
   // МОДИФИКАТОР: Общий фон для Tours и Training секций
   // Реализовать через ::before с image-set() для ретинизации
@@ -22,6 +22,18 @@
     //   background-position: center;
     //   z-index: -1;
     // }
+  }
+}
+
+.tours__title-wrapper {
+  margin-bottom: 42px;
+
+  @include tablet {
+    margin-bottom: 35px;
+  }
+
+  @include desktop {
+    margin-bottom: 53px;
   }
 }
 
