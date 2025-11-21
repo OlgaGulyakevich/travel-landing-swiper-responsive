@@ -1,14 +1,19 @@
+// =============================================================================
+// CARD
+// =============================================================================
+
+// Used in blocks: tours, training, reviews
+// Note: advantages uses advantages__card without .card base class
+
 .card {
+  // Only common properties shared by ALL card types
   background-color: $color-bg-white;
+  // Padding, border, shadow are context-specific and defined in blocks
+}
 
-  &--tour {
-    box-shadow: 0 4px 16px rgb(0, 0, 0, 0.1);
-  }
-
-  &--review {
-    padding: 32px;
-    box-shadow: 0 2px 8px rgb(0, 0, 0, 0.08);
-  }
+// Card content wrapper - used in tours, training, reviews
+.card__content {
+  display: grid;
 }
 
 // Social link in card (used in training cards)
@@ -16,19 +21,23 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: opacity $transition;
+  padding: 8px 5px;
+  border: 1px solid $color-bg-light-gray;
+  transition: background-color $transition, border-color $transition;
 }
 
 .card__social-link:hover {
-  opacity: 0.7;
+  border-color: $color-primary
 }
 
 .card__social-link:focus,
 .card__social-link:focus-visible {
-  outline: 2px solid $color-primary-blue;
-  outline-offset: 2px;
+  outline: none;
+  border-color: $color-white-100;
 }
 
 .card__social-link:active {
-  opacity: 0.5;
+  background-color: $color-primary-blue;
+  color: $color-text-inverse;
+  border-color: $color-primary-blue;
 }
