@@ -1,102 +1,91 @@
 .footer {
   padding: 60px 0;
-
-  // Интерактивные состояния для темного логотипа
-  &__logo {
-    transition: opacity $transition;
-
-    &:hover {
-      opacity: 0.7; // Легкая прозрачность
-    }
-
-    &:focus-visible {
-      outline: 2px solid $color-primary-blue;
-      outline-offset: 4px;
-    }
-
-    &:active {
-      opacity: 0.5;
-    }
-  }
-
-  // Contextual styles for navigation (common component .nav)
-  &__nav {
-    .nav__list {
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .nav__link {
-      display: inline-block;
-      font-size: 14px;
-      font-weight: $font-weight-regular;
-      line-height: 14px;
-      text-align: center;
-      // padding: 1px 5px;
-
-      @include desktop {
-        font-size: 16px;
-        line-height: 16px;
-      }
-
-
-      // Интерактивные состояния для навигации в footer
-      &:hover {
-        text-decoration: underline;
-        text-decoration-color: #2D383F;
-        text-underline-offset: 2px;
-      }
-
-      &:focus-visible {
-        border: 1px solid #2D383F;
-        outline: none;
-      }
-
-      &:active {
-        color: $color-primary-blue;
-        text-decoration: none;
-      }
-
-      // Disabled state via .is-disabled class (utility.scss)
-      // HTML: <a href="#" class="nav__link is-disabled">Link</a>
-    }
-  }
-
-  &__phone-desktop {
-    color: $color-text-primary;
-    font-weight: $font-weight-semibold;
-    font-size: 18px;
-    line-height: 18px;
-    // text-decoration: none уже в .page a
-    order: 3;
-    transition: color $transition;
-
-
-    &:hover {
-    color: $color-additional-10;
-    }
-
-    &:focus {
-      color: $color-primary-blue;
-    }
-
-    &:active {
-      color: $color-primary-active;
-    }
-
-    @include tablet {
-      display: none;
-    }
-
-    @include desktop {
-      display: block;
-    }
-  }
-
 }
 
-// Блок footer.scss - темный логотип
+// Интерактивные состояния для темного логотипа
+.footer__logo {
+  transition: opacity $transition;
+}
 
-// - hover: background-color: $color-additional-10 (легкий синий фон)
-// - focus: $color-primary-blue (#0266C1) + outline
-// - active: $color-primary-active (#1C3374)
+.footer__logo:hover {
+  opacity: 0.7; // Легкая прозрачность
+}
+
+.footer__logo:focus-visible {
+  outline: 2px solid $color-primary-blue;
+  outline-offset: 4px;
+}
+
+.footer__logo:active {
+  opacity: 0.5;
+}
+
+// Contextual styles for navigation (common component .nav)
+.footer__nav .nav__list {
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer__nav .nav__link {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  line-height: 14px;
+  text-align: center;
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+
+// Интерактивные состояния для навигации в footer
+.footer__nav .nav__link:hover {
+  text-decoration: underline;
+  text-decoration-color: #2d383f;
+  text-underline-offset: 2px;
+}
+
+.footer__nav .nav__link:focus-visible {
+  border: 1px solid #2d383f;
+  outline: none;
+}
+
+.footer__nav .nav__link:active {
+  color: $color-primary-blue;
+  text-decoration: none;
+}
+
+// Disabled state via .is-disabled class (utility.scss)
+// HTML: <a href="#" class="nav__link is-disabled">Link</a>
+
+.footer__phone-desktop {
+  color: $color-text-primary;
+  font-weight: $font-weight-semibold;
+  font-size: 18px;
+  line-height: 18px;
+
+  // text-decoration: none уже в .page a
+  order: 3;
+  transition: color $transition;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.footer__phone-desktop:hover {
+  color: $color-additional-10;
+}
+
+.footer__phone-desktop:focus {
+  color: $color-primary-blue;
+}
+
+.footer__phone-desktop:active {
+  color: $color-primary-active;
+}

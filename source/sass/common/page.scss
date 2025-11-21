@@ -1,11 +1,9 @@
 // =============================================================================
 // PAGE WRAPPER STYLES
 // =============================================================================
-//
 // АРХИТЕКТУРА:
 // 1. .page - специфичные стили страницы (sticky footer layout)
 // 2. :where(.page) - сброс стилей элементов с НИЗКОЙ специфичностью
-//
 // ЗАЧЕМ :where()?
 // - :where() имеет специфичность 0,0,0,0
 // - Это позволяет компонентам легко переопределять стили
@@ -46,16 +44,14 @@
   padding: 0;
   font-weight: inherit;
   font-size: inherit;
-  line-height: inherit;
-  word-wrap: break-word; // Для старых браузеров
+  line-height: inherit; // Для старых браузеров
   overflow-wrap: break-word; // Стандартное свойство
   hyphens: auto; // Автоматическая расстановка дефисов
 }
 
 :where(.page) p {
   margin: 0;
-  padding: 0;
-  word-wrap: break-word; // Для старых браузеров
+  padding: 0; // Для старых браузеров
   overflow-wrap: break-word; // Стандартное свойство
   hyphens: auto; // Автоматическая расстановка дефисов
 }
@@ -63,7 +59,6 @@
 // Другие текстовые элементы
 :where(.page) span,
 :where(.page) div {
-  word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
@@ -74,7 +69,7 @@
   transition: color 0.3s;
 
   &:focus-visible {
-    outline: 2px solid #2D383F;
+    outline: 2px solid #2d383f;
     outline-offset: 2px;
   }
 }
@@ -95,7 +90,7 @@
   cursor: pointer;
 
   &:focus-visible {
-    outline: 2px solid #FFFFFF;
+    outline: 2px solid #ffffff;
     outline-offset: 2px;
   }
 }
@@ -109,7 +104,7 @@
   color: inherit;
 
   &:focus-visible {
-    outline: 2px solid #2D383F;
+    outline: 2px solid #2d383f;
     outline-offset: 2px;
   }
 }

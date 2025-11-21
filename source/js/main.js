@@ -12,13 +12,13 @@ import { initSmoothScroll } from './modules/smooth-scroll.js';
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize burger menu
   initBurgerMenu();
-  
+
   // Initialize all sliders (Swiper)
   initSliders();
-  
+
   // Initialize form validation
   initFormValidation();
-  
+
   // Initialize smooth scroll for anchor links
   initSmoothScroll();
 });

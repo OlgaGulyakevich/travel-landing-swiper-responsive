@@ -1,21 +1,20 @@
 .form {
   padding: 60px 0;
+}
 
-  // Field wrapper - для отступов между полями и позиционирования
-  &__field {
-    // Добавь свои стили здесь (margin-bottom, width, etc.)
-    // Пример:
-    // margin-bottom: 20px;
-  }
+// Field wrapper - для отступов между полями и позиционирования
+.form__field {
+  // Добавь свои стили здесь (margin-bottom, width, etc.)
+  // Пример:
+  // margin-bottom: 20px;
+}
 
-  // Button - для специфичного позиционирования кнопки в форме
-  &__button {
-    // Добавь свои стили здесь (margin-top, width, align, etc.)
-    // Пример:
-    // margin-top: 30px;
-    // width: 100%;
-
-  }
+// Button - для специфичного позиционирования кнопки в форме
+.form__button {
+  // Добавь свои стили здесь (margin-top, width, align, etc.)
+  // Пример:
+  // margin-top: 30px;
+  // width: 100%;
 }
 
 // input.scss - ✅ правильно:

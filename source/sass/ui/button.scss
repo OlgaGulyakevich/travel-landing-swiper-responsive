@@ -1,6 +1,6 @@
 .button {
   display: inline-block;
-  padding: 20px 20px;
+  padding: 20px;
   font-weight: $font-weight-medium;
   font-size: 16px;
   line-height: 16px;
@@ -15,7 +15,8 @@
   }
 
 
-  &:focus, &:focus-visible {
+  &:focus,
+  &:focus-visible {
     background-color: transparent;
     border: none;
     color: $color-primary-active;
@@ -23,7 +24,7 @@
 
   &:active {
     background-color: $color-primary-active;
-    color:  $color-text-inverse;
+    color: $color-text-inverse;
   }
 
 

@@ -5,15 +5,17 @@
 
 export const initSmoothScroll = () => {
   const anchors = document.querySelectorAll('a[href^="#"]');
-  
-  anchors.forEach(anchor => {
+
+  anchors.forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
       const href = anchor.getAttribute('href');
-      
-      if (href === '#') return;
-      
+
+      if (href === '#') {
+        return;
+      }
+
       const target = document.querySelector(href);
-      
+
       if (target) {
         e.preventDefault();
         target.scrollIntoView({

@@ -5,18 +5,17 @@
 
 // Used in blocks: header (main menu), footer (secondary menu)
 
-.nav {
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
+.nav__list {
+  display: flex;
+  flex-wrap: wrap;
 
-    // Direction of layout (column/row) and gap are set contextually in blocks
-  }
+  // Direction of layout (column/row) and gap are set contextually in blocks
+}
 
-  &__link {
-    display: block;
-    // color: inherit and text-decoration: none are already in .page a
-    // Font sizes and margins are set contextually in blocks (header, footer)
-    // Interactive states (hover, focus, active, disabled) are defined in blocks
-  }
+.nav__link {
+  display: block;
+
+  // color: inherit and text-decoration: none are already in .page a
+  // Font sizes and margins are set contextually in blocks (header, footer)
+  // Interactive states (hover, focus, active, disabled) are defined in blocks
 }

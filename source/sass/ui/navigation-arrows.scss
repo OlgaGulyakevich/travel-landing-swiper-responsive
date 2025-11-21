@@ -20,13 +20,14 @@
   }
 
   &:focus-visible {
-   /* TODO: добавить focus эффект (если есть) */
+    /* TODO: добавить focus эффект (если есть) */
   }
+}
 
-  &.swiper-button-disabled {
-    // Заблокированное состояние в крайних положениях
-    opacity: 0.3;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
+// Заблокированное состояние в крайних положениях
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
 }

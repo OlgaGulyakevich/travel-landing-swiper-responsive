@@ -9,10 +9,10 @@
 .logo {
   display: block;
   width: 142px;
+}
 
-  &__image {
-    // display: block already in .page img
-    width: 100%; // 100% from parent .logo (142px)
-    height: auto;
-  }
+.logo__image {
+  // display: block already in .page img
+  width: 100%; // 100% from parent .logo (142px)
+  height: auto;
 }
