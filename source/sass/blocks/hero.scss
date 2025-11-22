@@ -1,5 +1,4 @@
 .hero {
-  // position: relative;  // не работает для content area так как у них родитель .container
   background-color: $color-bg-dark;
   margin-bottom: 20px;
 
@@ -12,18 +11,73 @@
   }
 }
 
-// Content area
-.hero__content {
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
-  // z-index: 10;
 
+// Each slide
+.hero__slide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 568px;
+
+  @include tablet {
+    min-height: 1034px;
+  }
+
+  @include desktop {
+    min-height: 800px;
+  }
+}
+
+// Background image
+.hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  z-index: 0;
+}
+
+// Container positioning
+.hero__slide .container {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 568px;
+  margin: 0;
+
+  @include tablet {
+    min-height: 1034px;
+  }
+
+  @include desktop {
+    min-height: 800px;
+    justify-content: flex-end;
+  }
+}
+
+// // Content area
+.hero__content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 160px;
+
+  @include tablet {
+    margin-bottom: 402px;
+  }
+
+  @include desktop {
+    align-items: flex-start;
+    margin-bottom: 80px;
+    justify-content: flex-end;
+  }
 }
 
 .hero__content h2 {
@@ -48,6 +102,7 @@
     line-height: 77px;
     text-align: left;
     padding-left: 0;
+    padding: 0;
     margin-right: auto;
     margin-bottom: 25px;
   }
@@ -59,19 +114,23 @@
   line-height: 20px;
   color: $color-text-inverse;
   text-align: center;
+  padding: 0 10px;
   margin-bottom: 60px;
 
   @include tablet {
-    max-width: 500px;
+    max-width: 493px;
     font-size: 17px;
     line-height: 24px;
     margin-bottom: 35px;
   }
 
   @include desktop {
-    max-width: 408px;
+    max-width: 430px;
     text-align: left;
     margin-right: auto;
+    padding-right: 10px;
+    padding-left: 0;
+    margin-bottom: 35px;
   }
 }
 
@@ -80,12 +139,6 @@
   width: 180px;
   min-height: 56px;
   text-align: center;
-  margin-bottom: 104px;
-
-
-  @include tablet {
-    margin-bottom: 324px;
-  }
 
   @include desktop {
     margin-right: auto;
@@ -106,7 +159,7 @@
 }
 
 .hero__detail {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 16px;
   color: $color-text-inverse;
   border: 1px solid $color-white-100;
@@ -118,10 +171,13 @@
 }
 
 
+// Slider should be positioned relatively to contain absolute pagination
+.hero__slider {
+  position: relative;
+}
+
 // Pagination positioning in hero slider
-.hero__slider,
-.swiper-pagination,
-.hero__pagination {
+.swiper-pagination.swiper-pagination.hero__pagination {
   position: absolute;
   left: 50%;
   bottom: 40px;
@@ -129,6 +185,7 @@
   z-index: 10;
 
   @include desktop {
-    bottom: 92px;
+    bottom: 93px;
+    left: 51%;
   }
 }
