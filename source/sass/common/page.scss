@@ -1,18 +1,18 @@
 // =============================================================================
 // PAGE WRAPPER STYLES
 // =============================================================================
-// АРХИТЕКТУРА:
-// 1. .page - специфичные стили страницы (sticky footer layout)
-// 2. :where(.page) - сброс стилей элементов с НИЗКОЙ специфичностью
-// ЗАЧЕМ :where()?
-// - :where() имеет специфичность 0,0,0,0
-// - Это позволяет компонентам легко переопределять стили
-// - Пример: :where(.page) input (0,0,0,1) < .form__input (0,0,1,0)
-// - Соответствует HTML1-CSS-02 (не глобальные селекторы)
+// ARCHITECTURE:
+// 1. .page - specific styles of the page (sticky footer layout)
+// 2. :where(.page) - reset styles of elements with LOW specificity
+// WHY :where()?
+// - :where() has specificity 0,0,0,0
+// - This allows components to easily override styles
+// - Example: :where(.page) input (0,0,0,1) < .form__input (0,0,1,0)
+// - Corresponds to HTML1-CSS-02 (not global selectors)
 // =============================================================================
 
 // =============================================================================
-// 1. PAGE LAYOUT (высокая специфичность для layout-специфичных стилей)
+// 1. PAGE LAYOUT (high specificity for layout-specific styles)
 // =============================================================================
 
 .page {
@@ -27,13 +27,13 @@
 }
 
 // =============================================================================
-// 2. ELEMENT RESETS (низкая специфичность через :where)
+// 2. ELEMENT RESETS (low specificity through :where)
 // =============================================================================
-// Используем :where() для снижения специфичности сброса стилей.
-// Это позволяет компонентам легко переопределять эти стили.
+// We use :where() to reduce specificity of style resets.
+// This allows components to easily override these styles.
 
 // Typography elements
-// HTML1-TEST-04: Переполнение - длинные слова должны переноситься
+// HTML1-TEST-04: Overflow - long words should be wrapped
 :where(.page) h1,
 :where(.page) h2,
 :where(.page) h3,
@@ -44,19 +44,17 @@
   padding: 0;
   font-weight: inherit;
   font-size: inherit;
-  line-height: inherit; // Для старых браузеров
-  overflow-wrap: break-word; // Стандартное свойство
-  hyphens: auto; // Автоматическая расстановка дефисов
+  line-height: inherit; // For old browsers
+  overflow-wrap: break-word;
 }
 
 :where(.page) p {
   margin: 0;
-  padding: 0; // Для старых браузеров
-  overflow-wrap: break-word; // Стандартное свойство
-  hyphens: auto; // Автоматическая расстановка дефисов
+  padding: 0; // For old browsers
+  overflow-wrap: break-word;
 }
 
-// Другие текстовые элементы
+// Other text elements (span, div)
 :where(.page) span,
 :where(.page) div {
   overflow-wrap: break-word;
@@ -74,7 +72,7 @@
   }
 }
 
-// Images (дополнительные стили к глобальным)
+// Images (additional styles to global)
 :where(.page) img {
   display: block;
 }

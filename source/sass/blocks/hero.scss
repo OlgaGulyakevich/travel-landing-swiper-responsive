@@ -1,8 +1,6 @@
 .hero {
-  position: relative;
-  min-height: 568px;
-  background-size: cover;
-  background-position: center;
+  // position: relative;  // не работает для content area так как у них родитель .container
+  background-color: $color-bg-dark;
   margin-bottom: 20px;
 
   @include tablet {
@@ -14,11 +12,119 @@
   }
 }
 
+// Content area
+.hero__content {
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  // z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__content h2 {
+  max-width: 290px;
+  font-size: 26px;
+  line-height: 26px;
+  font-weight: $font-weight-extrabold;
+  color: $color-text-inverse;
+  text-align: center;
+  padding: 0 15px;
+  margin-bottom: 15px;
+
+  @include tablet {
+    max-width: 670px;
+    font-size: 56px;
+    line-height: 56px;
+  }
+
+  @include desktop {
+    max-width:960px;
+    font-size: 77px;
+    line-height: 77px;
+    text-align: left;
+    padding-left: 0;
+    margin-right: auto;
+    margin-bottom: 25px;
+  }
+}
+
+.hero__content p {
+  max-width: 290px;
+  font-size: 15px;
+  line-height: 20px;
+  color: $color-text-inverse;
+  text-align: center;
+  margin-bottom: 60px;
+
+  @include tablet {
+    max-width: 500px;
+    font-size: 17px;
+    line-height: 24px;
+    margin-bottom: 35px;
+  }
+
+  @include desktop {
+    max-width: 408px;
+    text-align: left;
+    margin-right: auto;
+  }
+}
+
+// Button positioning in hero content
+.hero__button {
+  width: 180px;
+  min-height: 56px;
+  text-align: center;
+  margin-bottom: 104px;
+
+
+  @include tablet {
+    margin-bottom: 324px;
+  }
+
+  @include desktop {
+    margin-right: auto;
+    margin-bottom: 134px;
+  }
+}
+
+
+// Details positioning in hero content
+.hero__details {
+  display: none;
+
+  @include desktop {
+    display: flex;
+    gap: 10px;
+    margin-right: auto;
+  }
+}
+
+.hero__detail {
+  font-size: 14px;
+  line-height: 16px;
+  color: $color-text-inverse;
+  border: 1px solid $color-white-100;
+  padding: 14px 20px;
+}
+
+.hero__detail svg {
+  margin-right: 3px;
+}
+
+
 // Pagination positioning in hero slider
+.hero__slider,
+.swiper-pagination,
 .hero__pagination {
   position: absolute;
-  bottom: 40px;
   left: 50%;
+  bottom: 40px;
   transform: translateX(-50%);
   z-index: 10;
 
