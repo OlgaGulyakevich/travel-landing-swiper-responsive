@@ -28,6 +28,19 @@
   }
 }
 
+// Backdrop for better text readability (covers entire slide)
+.hero__slide::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  pointer-events: none; // Allow clicks through backdrop
+}
+
 // Background image
 .hero__bg {
   position: absolute;
@@ -38,12 +51,22 @@
   object-fit: cover;
   object-position: 50% 50%;
   z-index: 0;
+
+  // .hero__slide:nth-child(3) .hero__bg {
+    // object-position: 50% 30%;
+  // // }
+  // Значения object-position:
+  // - 50% 0% - самый верх картинки
+  // - 50% 30% - немного выше центра
+  // - 50% 50% - центр (по умолчанию)
+  // - 50% 100% - самый низ
+
 }
 
 // Container positioning
 .hero__slide .container {
   position: relative;
-  z-index: 1;
+  z-index: 3; // Above backdrop and decorative photos
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -87,13 +110,15 @@
   font-weight: $font-weight-extrabold;
   color: $color-text-inverse;
   text-align: center;
-  padding: 0 15px;
+  text-wrap: pretty;
+  padding: 0 9px;
   margin-bottom: 15px;
 
   @include tablet {
-    max-width: 670px;
+    max-width: 700px;
     font-size: 56px;
     line-height: 56px;
+    padding: 0 4px;
   }
 
   @include desktop {
@@ -114,7 +139,8 @@
   line-height: 20px;
   color: $color-text-inverse;
   text-align: center;
-  padding: 0 10px;
+  text-wrap: pretty;
+  padding: 0 6px;
   margin-bottom: 60px;
 
   @include tablet {
@@ -125,7 +151,7 @@
   }
 
   @include desktop {
-    max-width: 430px;
+    max-width: 470px;
     text-align: left;
     margin-right: auto;
     padding-right: 10px;
@@ -187,5 +213,53 @@
   @include desktop {
     bottom: 93px;
     left: 51%;
+  }
+}
+
+// Decorative photos (only on slide 2)
+.hero__decorative-photo {
+  position: absolute;
+  z-index: 2; // Above backdrop, below text content
+  display: none; // Hide on mobile
+
+  // Show on tablet and desktop
+  @include tablet {
+    display: block;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+// Photo 1 positioning - adjust these values based on mockup
+.hero__decorative-photo--1 {
+  @include tablet {
+    top: 80px;    // Adjust based on mockup
+    left: 40px;   // Adjust based on mockup
+    width: 150px; // Adjust based on mockup
+  }
+
+  @include desktop {
+    top: 100px;    // Adjust based on mockup
+    left: 50px;    // Adjust based on mockup
+    width: 200px;  // Adjust based on mockup
+  }
+}
+
+// Photo 2 positioning - adjust these values based on mockup
+.hero__decorative-photo--2 {
+  @include tablet {
+    bottom: 120px; // Adjust based on mockup
+    right: 60px;   // Adjust based on mockup
+    width: 130px;  // Adjust based on mockup
+  }
+
+  @include desktop {
+    bottom: 150px; // Adjust based on mockup
+    right: 80px;   // Adjust based on mockup
+    width: 180px;  // Adjust based on mockup
   }
 }
