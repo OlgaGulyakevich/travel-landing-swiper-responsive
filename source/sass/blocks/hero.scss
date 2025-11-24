@@ -18,13 +18,18 @@
   display: flex;
   flex-direction: column;
   min-height: 568px;
+  height: 568px;
+  overflow: hidden; // Prevent Safari rendering issues
+  @include flex-no-overflow;
 
   @include tablet {
     min-height: 1034px;
+    height: 1034px;
   }
 
   @include desktop {
     min-height: 800px;
+    height: 800px;
   }
 }
 
@@ -49,17 +54,14 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  -webkit-object-fit: cover; // Safari prefix
   object-position: 50% 50%;
+  -webkit-object-position: 50% 50%; // Safari prefix
   z-index: 0;
-
-  // .hero__slide:nth-child(3) .hero__bg {
-    // object-position: 50% 30%;
-  // // }
-  // Значения object-position:
-  // - 50% 0% - самый верх картинки
-  // - 50% 30% - немного выше центра
-  // - 50% 50% - центр (по умолчанию)
-  // - 50% 100% - самый низ
+  transform: translateZ(0); // Force GPU acceleration for Safari
+  -webkit-transform: translateZ(0); // Safari prefix
+  backface-visibility: hidden; // Prevent Safari flickering
+  -webkit-backface-visibility: hidden; // Safari prefix
 
 }
 
@@ -73,6 +75,7 @@
   justify-content: center;
   min-height: 568px;
   margin: 0;
+  @include flex-no-overflow;
 
   @include tablet {
     min-height: 1034px;
@@ -91,6 +94,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 160px;
+  @include flex-no-overflow;
 
   @include tablet {
     margin-bottom: 402px;
@@ -181,6 +185,7 @@
     display: flex;
     gap: 10px;
     margin-right: auto;
+    @include flex-no-overflow;
   }
 }
 
@@ -229,37 +234,35 @@
 
   img {
     display: block;
-    width: 100%;
-    height: auto;
   }
 }
 
-// Photo 1 positioning - adjust these values based on mockup
+// Photo 1 positioning in hero decorative photos (px for Firefox compatibility)
 .hero__decorative-photo--1 {
   @include tablet {
-    top: 80px;    // Adjust based on mockup
-    left: 40px;   // Adjust based on mockup
-    width: 150px; // Adjust based on mockup
+    bottom: 207px;
+    left: 161px;
+    width: 266px;
   }
 
   @include desktop {
-    top: 100px;    // Adjust based on mockup
-    left: 50px;    // Adjust based on mockup
-    width: 200px;  // Adjust based on mockup
+    bottom: 247px;
+    left: 914px;
+    width: 308px;
   }
 }
 
-// Photo 2 positioning - adjust these values based on mockup
+// Photo 2 positioning in hero decorative photos (px for Firefox compatibility)
 .hero__decorative-photo--2 {
   @include tablet {
-    bottom: 120px; // Adjust based on mockup
-    right: 60px;   // Adjust based on mockup
-    width: 130px;  // Adjust based on mockup
+    bottom: 196px;
+    right: 169px;
+    width: 231px;
   }
 
   @include desktop {
-    bottom: 150px; // Adjust based on mockup
-    right: 80px;   // Adjust based on mockup
-    width: 180px;  // Adjust based on mockup
+    bottom: 202px;
+    right: 134px;
+    width: 277px;
   }
 }
