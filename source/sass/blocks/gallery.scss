@@ -1,3 +1,139 @@
 .gallery {
   padding: 60px 0;
 }
+
+// Intro text + Navigation wrapper (tablet: flex layout with arrows on right)
+.gallery__intro {
+  margin-bottom: 30px;  // TODO: Placeholder - space before gallery
+
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  // Arrows align with text center
+    margin-bottom: 40px;  // TODO: Placeholder
+  }
+
+  @include desktop {
+    margin-bottom: 50px;  // TODO: Placeholder
+  }
+
+  // Content paragraph (cascading)
+  p {
+    margin: 0;  // Reset default margin
+    max-width: 500px;  // TODO: Placeholder - prevent too wide text
+
+    @include tablet {
+      max-width: 400px;  // TODO: Placeholder
+    }
+
+    @include desktop {
+      max-width: none;  // Remove on desktop
+    }
+  }
+
+  // Navigation (hidden on mobile, visible on tablet only, hidden on desktop)
+  .slider-navigation {
+    display: none;  // Hidden on mobile (swipe only)
+
+    @include tablet {
+      display: flex;  // Show on tablet
+      position: static;  // Override any absolute positioning
+    }
+
+    @include desktop {
+      display: none;  // Hide on desktop (slider disabled)
+    }
+  }
+
+  // Override Swiper default position: absolute for navigation buttons
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: static;  // Override Swiper's position: absolute to work with flex layout
+  }
+}
+
+// Gallery slide (swiper-slide wrapper)
+.gallery__slide {
+  width: 100%;  // Full width slide
+}
+
+// Slide 2: Visible on mobile, hidden on tablet/desktop
+.gallery__slide--tablet-hidden {
+  display: block;  // Show on mobile
+
+  @include tablet {
+    display: none;  // Hide on tablet+
+  }
+}
+
+// Slide 3: Hidden on mobile, visible on tablet only, hidden on desktop
+.gallery__slide--tablet-only {
+  display: none;  // Hidden on mobile
+
+  @include tablet {
+    display: block;  // Show on tablet
+  }
+
+  @include desktop {
+    display: none;  // Hide on desktop (slider disabled anyway)
+  }
+}
+
+// Gallery grid (inner grid layout)
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 157px);  // Mobile: 2 columns
+  grid-auto-rows: 149px;  // Mobile: row height
+  gap: 5px;
+  justify-content: center;
+  max-width: 100%;  // Prevent overflow on all breakpoints
+  margin: 0 auto;  // Center the grid
+
+  @include tablet {
+    grid-template-columns: repeat(3, 260px);  // Tablet: 3 columns
+    grid-auto-rows: 237px;  // Tablet: row height
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(5, minmax(0, 284px));  // Desktop: 5 flexible columns (max 284px)
+    grid-auto-rows: 253px;  // Desktop: row height
+    gap: 5px 7px;
+    max-width: 1450px;  // Max width for the grid
+  }
+}
+
+// Gallery items (photo containers)
+.gallery__item {
+  overflow: hidden;
+
+  // Tall images span 2 rows
+  &--tall {
+    grid-row: span 2;
+  }
+
+  // Photo 4: visible on tablet+ (hide on mobile)
+  &--tablet-visible {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  // Photos 5, 6, 7: visible on desktop only
+  &--desktop-visible {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+  }
+}
+
+// Gallery images
+.gallery__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

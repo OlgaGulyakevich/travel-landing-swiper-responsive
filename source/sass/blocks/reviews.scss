@@ -2,19 +2,35 @@
   // padding: 60px 0;
 }
 
-.reviews__title-wrapper {
+// Header wrapper: Title + Navigation (flex layout on tablet/desktop)
+.reviews__header {
   margin-bottom: 32px;
-
+  min-height: 50px;  // TODO: Placeholder - pixel-perfect height (allows growth if text wraps)
 
   @include tablet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  // Arrows align with title center
     margin-bottom: 35px;
+    min-height: 45px;  // TODO: Placeholder - pixel-perfect height
   }
 
   @include desktop {
     margin-bottom: 38px;
+    min-height: 50px;  // TODO: Placeholder - pixel-perfect height
 
     .title__decoration {
       top: -40px;
     }
   }
+}
+
+// Override Swiper default position: absolute for navigation in header
+.reviews__header .slider-navigation {
+  position: static;  // Override any absolute positioning from base styles
+}
+
+.reviews__header .swiper-button-prev,
+.reviews__header .swiper-button-next {
+  position: static;  // Override Swiper's position: absolute to work with flex layout
 }

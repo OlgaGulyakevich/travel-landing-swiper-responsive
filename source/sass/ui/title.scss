@@ -39,11 +39,13 @@
   font-weight: $font-weight-extrabold;
   color: $color-text-secondary;
   opacity: 0.03;
+  min-width: 290px;
 
   @include tablet {
     top: -12px;
     font-size: 40px;
     line-height: 40px;
+    min-width: 542px;
   }
 
   @include desktop {

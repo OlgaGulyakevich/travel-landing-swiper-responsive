@@ -1,3 +1,49 @@
 .training {
   padding: 60px 0;
 }
+
+// Header wrapper: Title + Navigation (flex layout on tablet/desktop)
+.training__header {
+  margin-bottom: 30px;  // TODO: Placeholder - space before slider
+  min-height: 40px;  // TODO: Placeholder - pixel-perfect height (allows growth if text wraps)
+
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  // Arrows align with title center
+    margin-bottom: 40px;  // TODO: Placeholder
+    min-height: 42px;  // TODO: Placeholder - pixel-perfect height
+  }
+
+  @include desktop {
+    margin-bottom: 50px;  // TODO: Placeholder
+    min-height: 45px;  // TODO: Placeholder - pixel-perfect height
+  }
+}
+
+// Override Swiper default position: absolute for navigation in header
+.training__header .slider-navigation {
+  position: static;  // Override any absolute positioning from base styles
+}
+
+.training__header .swiper-button-prev,
+.training__header .swiper-button-next {
+  position: static;  // Override Swiper's position: absolute to work with flex layout
+}
+
+// Instructors title (h3 without decorative title component)
+.training__instructors-title {
+  margin: 0;  // Reset default margin
+  font-size: 22px;  // TODO: Placeholder - check Figma
+  line-height: 1.2;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+
+  @include tablet {
+    font-size: 25px;  // TODO: Placeholder
+  }
+
+  @include desktop {
+    font-size: 28px;  // TODO: Placeholder
+  }
+}

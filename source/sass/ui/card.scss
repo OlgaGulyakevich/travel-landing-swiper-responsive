@@ -1,5 +1,5 @@
 // =============================================================================
-// CARD
+// CARD UI COMPONENT
 // =============================================================================
 
 // Used in blocks: tours, training, reviews
@@ -7,14 +7,125 @@
 
 .card {
   // Only common properties shared by ALL card types
-  background-color: $color-bg-white;
-  // Padding, border, shadow are context-specific and defined in blocks
+  background-color: $color-bg-dark;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-// Card content wrapper - used in tours, training, reviews
-.card__content {
-  display: grid;
+// Image wrapper (tours, training)
+.card__image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
+
+// Card image (background or content)
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+}
+
+// Content wrapper - used in tours, training, reviews
+.card__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+// TOURS CARD STYLES
+
+// Meta information (tours: location, days, nights)
+.card__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+  font-weight: $font-weight-medium;
+  line-height: 12px;
+  color: $color-text-inverse;
+  margin-bottom: 15px;
+  @include flex-no-overflow;
+
+  .card__meta-location {
+    display: inline-flex;
+    gap: 9px;
+    background-color: $color-primary-blue;
+    padding: 8px 16px;
+    margin-right: auto;
+  }
+
+  .card__meta-duration-wrapper {
+    display: flex;
+    gap: 14px;
+    background-color: transparent;
+    @include flex-no-overflow;
+  }
+
+  .card__meta-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0px;
+    @include flex-no-overflow;
+  }
+}
+
+// Card footer (tours: rating, dates, group)
+.card__footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: $color-text-inverse;
+  @include flex-no-overflow;
+
+  @include tablet {
+    gap: 20px;
+  }
+
+  @include desktop {
+    gap: 48px;
+  }
+}
+
+.card__rating,
+.card__dates,
+.card__group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+// Description text (labels in footer)
+.card__description {
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: $font-weight-light;
+}
+
+// Content text values in footer (dates, group info)
+.card__dates .card__dates-content,
+.card__group .card__group-content {
+  font-size: 13px;
+  line-height: 13px;
+  font-weight: $font-weight-bold;
+}
+
+// Stars rating
+.card__stars {
+  display: flex;
+  gap: 1px;
+}
+
+.card__stars .icon {
+  flex-shrink: 0;
+}
+
+// TRAINING CARD STYLES
 
 // Social link in card (used in training cards)
 .card__social-link {
@@ -27,7 +138,7 @@
 }
 
 .card__social-link:hover {
-  border-color: $color-primary
+  border-color: $color-primary;
 }
 
 .card__social-link:focus,
@@ -41,3 +152,6 @@
   color: $color-text-inverse;
   border-color: $color-primary-blue;
 }
+
+// REVIEW CARD STYLES
+

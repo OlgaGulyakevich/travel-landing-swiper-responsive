@@ -211,10 +211,23 @@
     <section class="tours tours--with-extended-background" id="tours" data-test="tours">
       <div class="container">
 
-        <!-- Title with Decoration (UI Component) -->
-        <div class="title tours__title-wrapper">
-          <h2 class="title__main">Ближайшие туры</h2>
-          <span class="title__decoration" aria-hidden="true">Ближайшие туры</span>
+        <!-- Header: Title + Navigation -->
+        <div class="tours__header">
+          <!-- Title with Decoration (UI Component) -->
+          <div class="title tours__title-wrapper">
+            <h2 class="title__main">Ближайшие туры</h2>
+            <span class="title__decoration" aria-hidden="true">Ближайшие туры</span>
+          </div>
+
+          <!-- Navigation Arrows (Tablet/Desktop only) -->
+          <div class="slider-navigation tours__navigation">
+            <button class="swiper-button-prev tours__button-prev" type="button" aria-label="Предыдущий слайд">
+              <span class="visually-hidden">Предыдущий тур</span>
+            </button>
+            <button class="swiper-button-next tours__button-next" type="button" aria-label="Следующий слайд">
+              <span class="visually-hidden">Следующий тур</span>
+            </button>
+          </div>
         </div>
 
         <!-- Tours Slider -->
@@ -238,31 +251,34 @@
 
                 <div class="card__content">
                   <div class="card__meta">
-                    <span class="card__meta-item">
+                    <span class="card__meta-location">
                       <svg class="icon" width="9" height="12" aria-hidden="true">
                         <use href="/__spritemap#sprite-pin-fill"></use>
                       </svg>
                       Кавказ
                     </span>
-                    <span class="card__meta-item">
-                      <svg class="icon" width="20" height="20" aria-hidden="true">
-                        <use href="/__spritemap#sprite-sun"></use>
-                      </svg>
-                      4 дня
-                    </span>
-                    <span class="card__meta-item">
-                      <svg class="icon" width="16" height="16" aria-hidden="true">
-                        <use href="/__spritemap#sprite-moon"></use>
-                      </svg>
-                      3 ночи
-                    </span>
+                    <div class="card__meta-duration-wrapper">
+                      <span class="card__meta-duration">
+                        <svg class="icon" width="20" height="20" aria-hidden="true">
+                          <use href="/__spritemap#sprite-sun"></use>
+                        </svg>
+                        4 дня
+                      </span>
+                      <span class="card__meta-duration">
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-moon"></use>
+                        </svg>
+                        3 ночи
+                      </span>
+                    </div>
+
                   </div>
 
                   <h3 class="card__title">Путешествие вокруг Эльбруса</h3>
 
                   <div class="card__footer">
                     <div class="card__rating">
-                      <span class="card__description">Cложность</span>
+                      <span class="card__description">Cложность:</span>
                       <span class="visually-hidden">Рейтинг: 4 из 5</span>
                       <div class="card__stars">
                         <svg class="icon" width="16" height="16" aria-hidden="true">
@@ -283,12 +299,12 @@
                       </div>
                     </div>
                     <div class="card__dates">
-                      <span class="card__description">Даты набора</span>
-                      <span class="card__content">12.06-19.06</span>
+                      <span class="card__description">Даты набора:</span>
+                      <span class="card__dates-content">12.06-19.06</span>
                     </div>
                     <div class="card__group">
-                      <span class="card__description">Группа</span>
-                      <span class="card__content">до 15 чел.</span>
+                      <span class="card__description">Группа:</span>
+                      <span class="card__group-content">до 15 чел.</span>
                     </div>
                   </div>
                 </div>
@@ -307,31 +323,33 @@
 
                 <div class="card__content">
                   <div class="card__meta">
-                    <span class="card__meta-item">
+                    <span class="card__meta-location">
                       <svg class="icon" width="9" height="12" aria-hidden="true">
                         <use href="/__spritemap#sprite-pin-fill"></use>
                       </svg>
                       Алтай
                     </span>
-                    <span class="card__meta-item">
-                      <svg class="icon" width="20" height="20" aria-hidden="true">
-                        <use href="/__spritemap#sprite-sun"></use>
-                      </svg>
-                      14 дней
-                    </span>
-                    <span class="card__meta-item">
-                      <svg class="icon" width="16" height="16" aria-hidden="true">
-                        <use href="/__spritemap#sprite-moon"></use>
-                      </svg>
-                      13 ночей
-                    </span>
+                    <div class="card__meta-duration-wrapper">
+                      <span class="card__meta-duration">
+                        <svg class="icon" width="20" height="20" aria-hidden="true">
+                          <use href="/__spritemap#sprite-sun"></use>
+                        </svg>
+                        14 дней
+                      </span>
+                      <span class="card__meta-duration">
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-moon"></use>
+                        </svg>
+                        13 ночей
+                      </span>
+                    </div>
                   </div>
 
                   <h3 class="card__title">Путь к подножию Белухи</h3>
 
                   <div class="card__footer">
                     <div class="card__rating">
-                      <span class="card__description">Cложность</span>
+                      <span class="card__description">Cложность:</span>
                       <span class="visually-hidden">Рейтинг: 4 из 5</span>
                       <div class="card__stars">
                         <svg class="icon" width="16" height="16" aria-hidden="true">
@@ -352,12 +370,12 @@
                       </div>
                     </div>
                     <div class="card__dates">
-                      <span class="card__description">Даты набора</span>
-                      <span class="card__content">14.06-23.06</span>
+                      <span class="card__description">Даты набора:</span>
+                      <span class="card__dates-content">14.06-23.06</span>
                     </div>
                     <div class="card__group">
-                      <span class="card__description">Группа</span>
-                      <span class="card__content">до 25 чел.</span>
+                      <span class="card__description">Группа:</span>
+                      <span class="card__group-content">до 25 чел.</span>
                     </div>
                   </div>
                 </div>
@@ -376,31 +394,33 @@
 
                 <div class="card__content">
                   <div class="card__meta">
-                    <span class="card__meta-item">
+                    <span class="card__meta-location">
                       <svg class="icon" width="9" height="12" aria-hidden="true">
                         <use href="/__spritemap#sprite-pin-fill"></use>
                       </svg>
                       Адыгея
                     </span>
-                    <span class="card__meta-item">
-                      <svg class="icon" width="20" height="20" aria-hidden="true">
-                        <use href="/__spritemap#sprite-sun"></use>
-                      </svg>
-                      7 дней
-                    </span>
-                    <span class="card__meta-item">
-                      <svg class="icon" width="16" height="16" aria-hidden="true">
-                        <use href="/__spritemap#sprite-moon"></use>
-                      </svg>
-                      6 ночей
-                    </span>
+                    <div class="card__meta-duration-wrapper">
+                      <span class="card__meta-duration">
+                        <svg class="icon" width="20" height="20" aria-hidden="true">
+                          <use href="/__spritemap#sprite-sun"></use>
+                        </svg>
+                        7 дней
+                      </span>
+                      <span class="card__meta-duration">
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-moon"></use>
+                        </svg>
+                        6 ночей
+                      </span>
+                    </div>
                   </div>
 
                   <h3 class="card__title">Через Фишт к Чёрному морю и обратно</h3>
 
                   <div class="card__footer">
                     <div class="card__rating">
-                      <span class="card__description">Cложность</span>
+                      <span class="card__description">Cложность:</span>
                       <span class="visually-hidden">Рейтинг: 4 из 5</span>
                       <div class="card__stars">
                         <svg class="icon" width="16" height="16" aria-hidden="true">
@@ -421,12 +441,12 @@
                       </div>
                     </div>
                     <div class="card__dates">
-                      <span class="card__description">Даты набора</span>
-                      <span class="card__content">15.07-19.07</span>
+                      <span class="card__description">Даты набора:</span>
+                      <span class="card__dates-content">15.07-19.07</span>
                     </div>
                     <div class="card__group">
-                      <span class="card__description">Группа</span>
-                      <span class="card__content">до 22 чел.</span>
+                      <span class="card__description">Группа:</span>
+                      <span class="card__group-content">до 22 чел.</span>
                     </div>
                   </div>
                 </div>
@@ -445,31 +465,33 @@
 
                 <div class="card__content">
                   <div class="card__meta">
-                    <span class="card__meta-item">
+                    <span class="card__meta-location">
                       <svg class="icon" width="9" height="12" aria-hidden="true">
                         <use href="/__spritemap#sprite-pin-fill"></use>
                       </svg>
                       Урал
                     </span>
-                    <span class="card__meta-item">
-                      <svg class="icon" width="20" height="20" aria-hidden="true">
-                        <use href="/__spritemap#sprite-sun"></use>
-                      </svg>
-                      9 дней
-                    </span>
-                    <span class="card__meta-item">
-                      <svg class="icon" width="16" height="16" aria-hidden="true">
-                        <use href="/__spritemap#sprite-moon"></use>
-                      </svg>
-                      10 ночей
-                    </span>
+                    <div class="card__meta-duration-wrapper">
+                      <span class="card__meta-duration">
+                        <svg class="icon" width="20" height="20" aria-hidden="true">
+                          <use href="/__spritemap#sprite-sun"></use>
+                        </svg>
+                        9 дней
+                      </span>
+                      <span class="card__meta-duration">
+                        <svg class="icon" width="16" height="16" aria-hidden="true">
+                          <use href="/__spritemap#sprite-moon"></use>
+                        </svg>
+                        10 ночей
+                      </span>
+                    </div>
                   </div>
 
                   <h3 class="card__title">Восхождение Манарага</h3>
 
                   <div class="card__footer">
                     <div class="card__rating">
-                      <span class="card__description">Cложность</span>
+                      <span class="card__description">Cложность:</span>
                       <span class="visually-hidden">Рейтинг: 5 из 5</span>
                       <div class="card__stars">
                         <svg class="icon" width="16" height="16" aria-hidden="true">
@@ -490,28 +512,18 @@
                       </div>
                     </div>
                     <div class="card__dates">
-                      <span class="card__description">Даты набора</span>
-                      <span class="card__content">12.07-19.07</span>
+                      <span class="card__description">Даты набора:</span>
+                      <span class="card__dates-content">12.07-19.07</span>
                     </div>
                     <div class="card__group">
-                      <span class="card__description">Группа</span>
-                      <span class="card__content">до 7 чел.</span>
+                      <span class="card__description">Группа:</span>
+                      <span class="card__group-content">до 7 чел.</span>
                     </div>
                   </div>
                 </div>
               </article>
             </div>
 
-          </div>
-
-          <!-- Navigation Arrows -->
-          <div class="slider-navigation">
-            <button class="swiper-button-prev tours__button-prev" type="button" aria-label="Предыдущий слайд">
-              <span class="visually-hidden">Предыдущий тур</span>
-            </button>
-            <button class="swiper-button-next tours__button-next" type="button" aria-label="Следующий слайд">
-              <span class="visually-hidden">Следующий тур</span>
-            </button>
           </div>
         </div>
 
@@ -537,9 +549,21 @@
           <p>Обучение проводится квалифицированными специалистами, за плечами которых десятки пройденных маршрутов Кавказа, Крыма, Гималаев, Эльбруса, Алтая, Карелии, Адыгеи и других.</p>
         </div>
 
+        <!-- Header: Instructors Title + Navigation -->
+        <div class="training__header">
+          <!-- Instructors Title -->
+          <h3 class="training__instructors-title">Наши инструкторы</h3>
 
-        <!-- Instructors Title -->
-        <h3 class="training__instructors-title">Наши инструкторы</h3>
+          <!-- Navigation Arrows (Tablet/Desktop only) -->
+          <div class="slider-navigation training__navigation">
+            <button class="swiper-button-prev training__button-prev" type="button" aria-label="Предыдущий инструктор">
+              <span class="visually-hidden">Предыдущий инструктор</span>
+            </button>
+            <button class="swiper-button-next training__button-next" type="button" aria-label="Следующий инструктор">
+              <span class="visually-hidden">Следующий инструктор</span>
+            </button>
+          </div>
+        </div>
 
         <!-- Training Slider (Instructors) -->
         <!-- IMPORTANT FOR PIXEL-PERFECT: The order of slides must match the layout -->
@@ -560,7 +584,7 @@
                 <div class="card__content">
                   <div class="card__header">
                     <!-- Content area WITHOUT classes (cascading styling) -->
-                    <h3>Александр Прокофьев</h3>
+                    <h4>Александр Прокофьев</h4>
                     <a class="card__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте Александра Прокофьева">
                       <svg class="icon" width="14" height="8" aria-hidden="true">
                         <use href="/__spritemap#sprite-vk"></use>
@@ -583,7 +607,7 @@
                 <div class="card__content">
                   <div class="card__header">
                     <!-- Content area WITHOUT classes (cascading styling) -->
-                    <h3>Светлана Афиногенова</h3>
+                    <h4>Светлана Афиногенова</h4>
                     <a class="card__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте Светланы Афиногеновой">
                       <svg class="icon" width="14" height="8" aria-hidden="true">
                         <use href="/__spritemap#sprite-vk"></use>
@@ -606,7 +630,7 @@
                 <div class="card__content">
                   <div class="card__header">
                     <!-- Content area WITHOUT classes (cascading styling) -->
-                    <h3>Надежда Колесниченко</h3>
+                    <h4>Надежда Колесниченко</h4>
                     <a class="card__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте Надежды Колесниченко">
                       <svg class="icon" width="14" height="8" aria-hidden="true">
                         <use href="/__spritemap#sprite-vk"></use>
@@ -629,7 +653,7 @@
                 <div class="card__content">
                   <div class="card__header">
                     <!-- Content area WITHOUT classes (cascading styling) -->
-                    <h3>Федор Кайгородов</h3>
+                    <h4>Федор Кайгородов</h4>
                     <a class="card__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте Федора Кайгородова">
                       <svg class="icon" width="14" height="8" aria-hidden="true">
                         <use href="/__spritemap#sprite-vk"></use>
@@ -652,7 +676,7 @@
                 <div class="card__content">
                   <div class="card__header">
                     <!-- Content area WITHOUT classes (cascading styling) -->
-                    <h3>Даниэль Васнецов</h3>
+                    <h4>Даниэль Васнецов</h4>
                     <a class="card__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте Даниэля Васнецова">
                       <svg class="icon" width="14" height="8" aria-hidden="true">
                         <use href="/__spritemap#sprite-vk"></use>
@@ -664,16 +688,6 @@
               </article>
             </div>
 
-          </div>
-
-          <!-- Navigation Arrows -->
-          <div class="slider-navigation">
-            <button class="swiper-button-prev training__button-prev" type="button" aria-label="Предыдущий инструктор">
-              <span class="visually-hidden">Предыдущий инструктор</span>
-            </button>
-            <button class="swiper-button-next training__button-next" type="button" aria-label="Следующий инструктор">
-              <span class="visually-hidden">Следующий инструктор</span>
-            </button>
           </div>
         </div>
 
@@ -751,10 +765,23 @@
     <section class="reviews" id="reviews" data-test="reviews">
       <div class="container">
 
-        <!-- Title with Decoration -->
-        <div class="title reviews__title-wrapper">
-          <h2 class="title__main">Отзывы</h2>
-          <span class="title__decoration" aria-hidden="true">Отзывы</span>
+        <!-- Header: Title + Navigation -->
+        <div class="reviews__header">
+          <!-- Title with Decoration -->
+          <div class="title reviews__title-wrapper">
+            <h2 class="title__main">Отзывы</h2>
+            <span class="title__decoration" aria-hidden="true">Отзывы</span>
+          </div>
+
+          <!-- Navigation Arrows (Tablet/Desktop only) -->
+          <div class="slider-navigation reviews__navigation">
+            <button class="swiper-button-prev reviews__button-prev" type="button" aria-label="Предыдущий отзыв">
+              <span class="visually-hidden">Предыдущий отзыв</span>
+            </button>
+            <button class="swiper-button-next reviews__button-next" type="button" aria-label="Следующий отзыв">
+              <span class="visually-hidden">Следующий отзыв</span>
+            </button>
+          </div>
         </div>
 
         <!-- Reviews Slider -->
@@ -870,16 +897,6 @@
             </div>
 
           </div>
-
-          <!-- Navigation Arrows -->
-          <div class="slider-navigation">
-            <button class="swiper-button-prev reviews__button-prev" type="button" aria-label="Предыдущий отзыв">
-              <span class="visually-hidden">Предыдущий отзыв</span>
-            </button>
-            <button class="swiper-button-next reviews__button-next" type="button" aria-label="Следующий отзыв">
-              <span class="visually-hidden">Следующий отзыв</span>
-            </button>
-          </div>
         </div>
 
       </div>
@@ -985,81 +1002,147 @@
           <span class="title__decoration" aria-hidden="true">Фотографии</span>
         </div>
 
+        <!-- Intro text + Navigation (Tablet: flex layout with arrows on right) -->
         <div class="gallery__intro">
           <!-- Content area WITHOUT classes (cascading styling) -->
           <p>Добавляйте фото с хэштегом #лайфтур, а также отмечайте нас на фото. Лучшие фотографии украсят этот раздел нашего сайта.</p>
-        </div>
 
-        <!-- Gallery Container (Slider on mobile/tablet, Grid on desktop) -->
-        <div class="gallery__container swiper" data-slider="gallery">
-          <div class="swiper-wrapper">
-
-            <!-- Gallery Item 1 -->
-            <div class="gallery__item swiper-slide">
-              <picture>
-                <source type="image/webp" srcset="img/gallery-1@1x.webp 1x, img/gallery-1@2x.webp 2x" width="158" height="266">
-                <img class="gallery__image" src="img/gallery-1@1x.jpg" srcset="img/gallery-1@2x.jpg 2x" width="158" height="266" alt="Турист со рюкзаком стоит спиной на вершине горы и смотрит на горный хребет под голубым небом.">
-              </picture>
-            </div>
-
-            <!-- Gallery Item 2 -->
-            <div class="gallery__item swiper-slide">
-              <picture>
-                <source type="image/webp" srcset="img/gallery-2@1x.webp 1x, img/gallery-2@2x.webp 2x" width="157" height="149">
-                <img class="gallery__image" src="img/gallery-2@1x.jpg" srcset="img/gallery-2@2x.jpg 2x" width="157" height="149" alt="Группа туристов сидят у костра на ночной стоянке в лесу.">
-              </picture>
-            </div>
-
-            <!-- Gallery Item 3 -->
-            <div class="gallery__item swiper-slide">
-              <picture>
-                <source type="image/webp" srcset="img/gallery-3@1x.webp 1x, img/gallery-3@2x.webp 2x" width="157" height="149">
-                <img class="gallery__image" src="img/gallery-3@1x.jpg" srcset="img/gallery-3@2x.jpg 2x" width="157" height="149" alt="Рука с компасом на фоне горного хребта под пасмурным небом.">
-              </picture>
-            </div>
-
-            <!-- Gallery Item 4 -->
-            <div class="gallery__item swiper-slide">
-              <picture>
-                <source type="image/webp" srcset="img/gallery-4@1x.webp 1x, img/gallery-4@2x.webp 2x" width="158" height="266">
-                <img class="gallery__image" src="img/gallery-4@1x.jpg" srcset="img/gallery-4@2x.jpg 2x" width="158" height="266" alt="Туристы спускаются по горному склону по закреплённой верёвке, на фоне виден высокий конусообразный вулкан">
-              </picture>
-            </div>
-
-            <!-- Gallery Item 5 -->
-            <div class="gallery__item swiper-slide">
-              <picture>
-                <source type="image/webp" srcset="img/gallery-5@1x.webp 1x, img/gallery-5@2x.webp 2x" width="157" height="149">
-                <img class="gallery__image" src="img/gallery-5@1x.jpg" srcset="img/gallery-5@2x.jpg 2x" width="157" height="149" alt="Группа альпинистов в яркой одежде и касках идет по леднику рядом с бирюзовым ледниковым озером.">
-              </picture>
-            </div>
-
-            <!-- Gallery Item 6 -->
-            <div class="gallery__item swiper-slide">
-              <picture>
-                <source type="image/webp" srcset="img/gallery-6@1x.webp 1x, img/gallery-6@2x.webp 2x" width="157" height="149">
-                <img class="gallery__image" src="img/gallery-6@1x.jpg" srcset="img/gallery-6@2x.jpg 2x" width="157" height="149" alt="Ярко-синяя туристическая палатка освещена изнутри в поле под впечатляющим, усыпанным звездами небом с видимым Млечным Путем.">
-              </picture>
-            </div>
-
-            <!-- Gallery Item 7 -->
-            <div class="gallery__item swiper-slide">
-              <picture>
-                <source type="image/webp" srcset="img/gallery-7@1x.webp 1x, img/gallery-7@2x.webp 2x" width="158" height="266">
-                <img class="gallery__image" src="img/gallery-7@1x.jpg" srcset="img/gallery-7@2x.jpg 2x" width="158" height="266" alt="Туристы на привале разводят костер на берегу реки в лесу.">
-              </picture>
-            </div>
-
-          </div>
-
-          <!-- Navigation Arrows (Mobile/Tablet only) -->
-          <div class="slider-navigation">
+          <!-- Navigation Arrows (Mobile/Tablet only, Desktop hidden) -->
+          <div class="slider-navigation gallery__navigation">
             <button class="swiper-button-prev gallery__button-prev" type="button" aria-label="Предыдущее фото">
               <span class="visually-hidden">Предыдущее фото</span>
             </button>
             <button class="swiper-button-next gallery__button-next" type="button" aria-label="Следующее фото">
               <span class="visually-hidden">Следующее фото</span>
             </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Gallery Container (Slider on mobile/tablet, Grid on desktop) -->
+      <div class="gallery__container swiper" data-slider="gallery">
+          <div class="swiper-wrapper">
+
+            <!-- Slide 1: Photos 1, 2, 3 (Mobile + Tablet) | All 7 photos (Desktop) -->
+            <div class="swiper-slide gallery__slide">
+              <div class="gallery__grid">
+                <!-- Photo 1 (tall) -->
+                <div class="gallery__item gallery__item--tall">
+                  <picture>
+                    <source type="image/webp" srcset="img/gallery-1@1x.webp 1x, img/gallery-1@2x.webp 2x" width="158" height="266">
+                    <img class="gallery__image" src="img/gallery-1@1x.jpg" srcset="img/gallery-1@2x.jpg 2x" width="158" height="266" alt="Турист со рюкзаком стоит спиной на вершине горы и смотрит на горный хребет под голубым небом.">
+                  </picture>
+                </div>
+
+                <!-- Photo 2 (square) -->
+                <div class="gallery__item">
+                  <picture>
+                    <source type="image/webp" srcset="img/gallery-2@1x.webp 1x, img/gallery-2@2x.webp 2x" width="157" height="149">
+                    <img class="gallery__image" src="img/gallery-2@1x.jpg" srcset="img/gallery-2@2x.jpg 2x" width="157" height="149" alt="Группа туристов сидят у костра на ночной стоянке в лесу.">
+                  </picture>
+                </div>
+
+                <!-- Photo 3 (square) -->
+                <div class="gallery__item">
+                  <picture>
+                    <source type="image/webp" srcset="img/gallery-3@1x.webp 1x, img/gallery-3@2x.webp 2x" width="157" height="149">
+                    <img class="gallery__image" src="img/gallery-3@1x.jpg" srcset="img/gallery-3@2x.jpg 2x" width="157" height="149" alt="Рука с компасом на фоне горного хребта под пасмурным небом.">
+                  </picture>
+                </div>
+
+                <!-- Photo 4 (tall) - visible on desktop only in Slide 1 -->
+                <div class="gallery__item gallery__item--tall gallery__item--desktop-visible">
+                  <picture>
+                    <source type="image/webp" srcset="img/gallery-4@1x.webp 1x, img/gallery-4@2x.webp 2x" width="158" height="266">
+                    <img class="gallery__image" src="img/gallery-4@1x.jpg" srcset="img/gallery-4@2x.jpg 2x" width="158" height="266" alt="Туристы спускаются по горному склону по закреплённой верёвке, на фоне виден высокий конусообразный вулкан">
+                  </picture>
+                </div>
+
+                <!-- Photo 5 (square) - visible on desktop only -->
+                <div class="gallery__item gallery__item--desktop-visible">
+                  <picture>
+                    <source type="image/webp" srcset="img/gallery-5@1x.webp 1x, img/gallery-5@2x.webp 2x" width="157" height="149">
+                    <img class="gallery__image" src="img/gallery-5@1x.jpg" srcset="img/gallery-5@2x.jpg 2x" width="157" height="149" alt="Группа альпинистов в яркой одежде и касках идет по леднику рядом с бирюзовым ледниковым озером.">
+                  </picture>
+                </div>
+
+                <!-- Photo 6 (square) - visible on desktop only -->
+                <div class="gallery__item gallery__item--desktop-visible">
+                  <picture>
+                    <source type="image/webp" srcset="img/gallery-6@1x.webp 1x, img/gallery-6@2x.webp 2x" width="157" height="149">
+                    <img class="gallery__image" src="img/gallery-6@1x.jpg" srcset="img/gallery-6@2x.jpg 2x" width="157" height="149" alt="Ярко-синяя туристическая палатка освещена изнутри в поле под впечатляющим, усыпанным звездами небом с видимым Млечным Путем.">
+                  </picture>
+                </div>
+
+                <!-- Photo 7 (tall) - visible on desktop only -->
+                <div class="gallery__item gallery__item--tall gallery__item--desktop-visible">
+                  <picture>
+                    <source type="image/webp" srcset="img/gallery-7@1x.webp 1x, img/gallery-7@2x.webp 2x" width="158" height="266">
+                    <img class="gallery__image" src="img/gallery-7@1x.jpg" srcset="img/gallery-7@2x.jpg 2x" width="158" height="266" alt="Туристы на привале разводят костер на берегу реки в лесу.">
+                  </picture>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Photos 3, 1, 2 (Mobile) | Hidden on Tablet/Desktop -->
+            <div class="swiper-slide gallery__slide gallery__slide--tablet-hidden">
+              <div class="gallery__grid">
+                <!-- Photo 3 (square) -->
+                <div class="gallery__item">
+                  <picture>
+                    <source type="image/webp" srcset="img/gallery-3@1x.webp 1x, img/gallery-3@2x.webp 2x" width="157" height="149">
+                    <img class="gallery__image" src="img/gallery-3@1x.jpg" srcset="img/gallery-3@2x.jpg 2x" width="157" height="149" alt="Рука с компасом на фоне горного хребта под пасмурным небом.">
+                  </picture>
+                </div>
+
+                <!-- Photo 1 (tall) -->
+                <div class="gallery__item gallery__item--tall">
+                  <picture>
+                    <source type="image/webp" srcset="img/gallery-1@1x.webp 1x, img/gallery-1@2x.webp 2x" width="158" height="266">
+                    <img class="gallery__image" src="img/gallery-1@1x.jpg" srcset="img/gallery-1@2x.jpg 2x" width="158" height="266" alt="Турист со рюкзаком стоит спиной на вершине горы и смотрит на горный хребет под голубым небом.">
+                  </picture>
+                </div>
+
+                <!-- Photo 2 (square) -->
+                <div class="gallery__item">
+                  <picture>
+                    <source type="image/webp" srcset="img/gallery-2@1x.webp 1x, img/gallery-2@2x.webp 2x" width="157" height="149">
+                    <img class="gallery__image" src="img/gallery-2@1x.jpg" srcset="img/gallery-2@2x.jpg 2x" width="157" height="149" alt="Группа туристов сидят у костра на ночной стоянке в лесу.">
+                  </picture>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Photos 4, 1, 2 (Tablet only) | Hidden on Mobile/Desktop -->
+            <div class="swiper-slide gallery__slide gallery__slide--tablet-only">
+              <div class="gallery__grid">
+                <!-- Photo 4 (tall) -->
+                <div class="gallery__item gallery__item--tall">
+                  <picture>
+                    <source type="image/webp" srcset="img/gallery-4@1x.webp 1x, img/gallery-4@2x.webp 2x" width="158" height="266">
+                    <img class="gallery__image" src="img/gallery-4@1x.jpg" srcset="img/gallery-4@2x.jpg 2x" width="158" height="266" alt="Туристы спускаются по горному склону по закреплённой верёвке, на фоне виден высокий конусообразный вулкан">
+                  </picture>
+                </div>
+
+                <!-- Photo 1 (tall) -->
+                <div class="gallery__item gallery__item--tall">
+                  <picture>
+                    <source type="image/webp" srcset="img/gallery-1@1x.webp 1x, img/gallery-1@2x.webp 2x" width="158" height="266">
+                    <img class="gallery__image" src="img/gallery-1@1x.jpg" srcset="img/gallery-1@2x.jpg 2x" width="158" height="266" alt="Турист со рюкзаком стоит спиной на вершине горы и смотрит на горный хребет под голубым небом.">
+                  </picture>
+                </div>
+
+                <!-- Photo 2 (square) -->
+                <div class="gallery__item">
+                  <picture>
+                    <source type="image/webp" srcset="img/gallery-2@1x.webp 1x, img/gallery-2@2x.webp 2x" width="157" height="149">
+                    <img class="gallery__image" src="img/gallery-2@1x.jpg" srcset="img/gallery-2@2x.jpg 2x" width="157" height="149" alt="Группа туристов сидят у костра на ночной стоянке в лесу.">
+                  </picture>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 

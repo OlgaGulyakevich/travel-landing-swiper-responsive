@@ -23,3 +23,76 @@
     margin-bottom: 50px;
   }
 }
+
+// Container for slider (desktop only) / flex grid (mobile/tablet)
+.advantages__container {
+  position: relative;  // Context for absolute positioned navigation
+
+  // Navigation positioned after cards (desktop only)
+  .slider-navigation {
+    // Hidden on mobile/tablet (slider disabled)
+    display: none;
+
+    @include desktop {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;  // TODO: Placeholder - space after cards
+      position: static;  // Override any absolute positioning from base styles
+    }
+  }
+
+  // Override Swiper default position: absolute for navigation buttons
+  .swiper-button-prev,
+  .swiper-button-next {
+    @include desktop {
+      position: static;  // Override Swiper's position: absolute to work with flex layout
+    }
+  }
+}
+
+// List of advantages (flex grid on mobile/tablet, slider on desktop)
+.advantages__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;  // TODO: Placeholder - space between cards
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include flex-no-overflow;  // HTML1-TEST-04: Prevent children overflow
+
+  @include tablet {
+    gap: 30px;  // TODO: Placeholder
+  }
+
+  // Desktop: Swiper takes over, but keep as fallback
+  @include desktop {
+    flex-wrap: nowrap;  // Slider mode
+  }
+}
+
+// Individual advantage card (li.swiper-slide)
+.advantages__list > li {
+  // Mobile: 1 column (full width)
+  flex: 1 1 100%;
+  min-width: 0;  // Prevent flex overflow
+  display: flex;  // Make li a flex container for card
+  @include flex-no-overflow;  // HTML1-TEST-04: Prevent children overflow
+
+  @include tablet {
+    // Tablet: 2 columns
+    flex: 1 1 calc(50% - 15px);  // TODO: Placeholder - adjust gap
+  }
+
+  @include desktop {
+    // Desktop: Slider handles width
+    flex: 0 0 auto;
+  }
+}
+
+// Advantage card wrapper
+.advantages__card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;  // Fill parent li
+  @include flex-no-overflow;  // HTML1-TEST-04: Prevent children overflow
+}

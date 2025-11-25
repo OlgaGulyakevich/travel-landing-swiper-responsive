@@ -36,8 +36,8 @@ export const initSliders = () => {
   const toursSlider = new Swiper('[data-slider="tours"]', {
     modules: [Navigation],
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.tours__button-next',
+      prevEl: '.tours__button-prev',
     },
     slidesPerView: 1,
     slidesPerGroup: 1,
@@ -189,18 +189,24 @@ export const initSliders = () => {
     }
   });
 
-  // Gallery Slider (mobile/tablet only)
+  // Gallery Slider (mobile/tablet only, disabled on desktop)
   const gallerySlider = new Swiper('[data-slider="gallery"]', {
     modules: [Navigation],
     navigation: {
       nextEl: '.gallery__button-next',
       prevEl: '.gallery__button-prev',
     },
-    slidesPerView: 2,
+    slidesPerView: 'auto',  // Auto width based on CSS grid columns
+    spaceBetween: 5,
     loop: true,
     breakpoints: {
-      768: { slidesPerView: 3 },
-      1440: { enabled: false },
+      768: {
+        slidesPerView: 'auto',
+        spaceBetween: 5
+      },
+      1440: {
+        enabled: false  // Disable on desktop, CSS grid takes over
+      },
     },
     on: {
       init: function() {

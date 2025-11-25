@@ -1,46 +1,195 @@
 .tours {
-  // padding: 60px 0;
+  margin-bottom: 20px;
 
-  // МОДИФИКАТОР: Общий фон для Tours и Training секций
-  // Реализовать через ::before с image-set() для ретинизации
+  @include tablet {
+    margin-bottom: 40px;
+  }
+
+  @include desktop {
+    margin-bottom: 100px;
+  }
+
+  // MODIFIER: Extended background for Tours and Training sections
+  // Implement through ::before with image-set for retina
   &--with-extended-background {
     position: relative;
+    z-index: 0;
 
-    // TODO: Реализовать фоновое изображение
-    // &::before {
-    //   content: "";
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   right: 0;
-    //   height: calc(100% + var(--training-height)); // растянуть на Training секцию
-    //   background-image: image-set(
-    //     url('../img/decorative/tours-bg.jpg') 1x,
-    //     url('../img/decorative/tours-bg@2x.jpg') 2x
-    //   );
-    //   background-size: cover;
-    //   background-position: center;
-    //   z-index: -1;
-    // }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 154px;
+      left: 0;
+      right: -87px;
+      height: 100%;  // Mobile: только tours
+      background-size: contain;
+      background-position: bottom right;  // Mobile: right edge and bottom
+      background-repeat: no-repeat;
+      z-index: -1;
+      pointer-events: none;
+
+      // Fallback: JPG
+      background-image: image-set(
+        url('../../img/bg-clouds@1x.jpg') 1x,
+        url('../../img/bg-clouds@2x.jpg') 2x
+      );
+
+      // WebP if supported
+      @supports (background-image: -webkit-image-set(url('../../img/bg-clouds@1x.webp') 1x)) {
+        background-image: -webkit-image-set(
+          url('../../img/bg-clouds@1x.webp') 1x,
+          url('../../img/bg-clouds@2x.webp') 2x
+        );
+        background-image: image-set(
+          url('../../img/bg-clouds@1x.webp') 1x,
+          url('../../img/bg-clouds@2x.webp') 2x
+        );
+      }
+
+      // Tablet: stretch to training
+      @include tablet {
+        top: -167px;
+        right: -157px;
+        height: calc(100% + 970px);
+
+          //  top: 154px;  // TODO: Implement tablet background position
+      }
+
+      // Desktop: stretch to training
+      @include desktop {
+       //  top: 154px;  // TODO: Implement tablet background position
+
+      }
+    }
   }
 }
 
-.tours__title-wrapper {
-  margin-bottom: 42px;
+// Header wrapper: Title + Navigation (flex layout on tablet/desktop)
+.tours__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  min-height: 55px;
 
-  @include tablet {
-    margin-bottom: 35px;
-  }
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
 
   @include desktop {
     margin-bottom: 53px;
   }
 }
 
+// Override Swiper default position: absolute for navigation in header
+.tours__header .slider-navigation {
+  position: static;  // Override any absolute positioning from base styles
+}
+
+.tours__header .swiper-button-prev,
+.tours__header .swiper-button-next {
+  position: static;  // Override Swiper's position: absolute to work with flex layout
+}
+
+
+// Slider container
+.tours__slider {
+  position: relative;
+  margin-bottom: 25px;
+
+  @include desktop {
+    margin-bottom: 53px;
+  }
+}
+
+
+// Swiper slides in tours
+.tours__slider .swiper-slide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 290px;
+  min-height: 416px;
+  height: 416px;
+  overflow: hidden; // Prevent Safari rendering issues
+  @include flex-no-overflow;
+
+  @include tablet {
+    width: 330px;
+  }
+
+  @include desktop {
+    width: 380px;
+  }
+}
+
+// Backdrop for better text readability (covers entire slide)
+.tours__slider .swiper-slide::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  pointer-events: none; // Allow clicks through backdrop
+}
+
+.tours__slider .card__content{
+  padding: 30px 20px;
+}
+
+// Context-specific card styling for tours
+.tours__card {
+  // Card dimensions defined in .swiper-slide
+  height: 100%;
+
+  // OVERRIDE: Image wrapper as absolute background
+  .card__image-wrapper {
+    position: absolute;
+    z-index: 0;
+  }
+
+  // OVERRIDE: Card content as overlay at bottom
+  .card__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+}
+
+// Card title
+.tours__card .card__title {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: $font-weight-bold;
+  color: $color-text-inverse;
+  margin-bottom: 15px;
+  max-width: 260px;
+  @include flex-no-overflow;
+
+  // Decorative line after title
+  &::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 1px;
+    background-color: $color-text-inverse;
+    opacity: 0.2;
+    margin-top: 15px;
+  }
+}
+
+
+
 .tours__link {
-  display: inline-flex;  // inline-flex вместо flex - не растягивается на всю ширину
+  display: flex;
   align-items: center;
   gap: 12px;
+  margin: 0 auto;
+  width: fit-content;
   font-size: 14px;
   font-weight: $font-weight-bold;
   line-height: 14px;
@@ -48,8 +197,8 @@
   text-transform: uppercase;
   border: 1px solid transparent;
   transition: background-color $transition, color $transition, border-color $transition;
-  max-width: 100%;  // На случай длинного текста - не выходит за родителя
-  white-space: nowrap;  // Текст в одну строку (для коротких ссылок)
+  max-width: 100%;
+  white-space: nowrap;
 
   // HTML1-TEST-04: Prevent overflow
   @include flex-no-overflow;
@@ -81,8 +230,8 @@
 // Disabled state through utility class is-disabled
 
 .tours__link-icon {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   stroke: currentColor;
   fill: none;
   flex-shrink: 0;
