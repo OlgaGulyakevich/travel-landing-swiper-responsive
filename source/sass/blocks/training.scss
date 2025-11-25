@@ -213,6 +213,7 @@
 
 // Process list - GRID for 2-column layout!
 .training__process-list {
+  position: relative;  // For mobile vertical line
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -233,6 +234,7 @@
     gap: 23px;
   }
 }
+
 
 // Process item
 .training__process-item {
@@ -353,27 +355,38 @@
   }
 }
 
-// Mobile: Vertical line between items
+// Mobile: Vertical line from current circle to next circle
 .training__process-item::after {
   content: "";
   position: absolute;
-  left: 6px;
-  top: calc(50% + 6px);
-  bottom: -40px;
+  left: 6px;  // Center of circle (14px / 2 = 7px, minus 1px for centering 2px line)
   width: 2px;
   background-color: $color-primary-blue;
 
   @include tablet {
     display: none;
   }
+
+  @include desktop {
+    display: none;
+  }
 }
 
-// Remove line after last item (mobile)
+// Mobile: Line continues from bottom of circle to next item (all except last)
+.training__process-item:not(:last-child)::after {
+  top: 50%;  // Start from vertical center of current item
+  height: calc(100% + 25px);  // Stretch to next item (100% of current item + 25px gap)
+  transform: translateY(7px);  // Offset to start from bottom of circle (7px = half of 14px circle)
+}
+
+// Mobile: Last item - line from top of item to top of circle only
 .training__process-item:last-child::after {
-  display: none;
+  top: 0;  // Start from top of item
+  height: calc(50% - 7px);  // End at top of circle (50% center - 7px half of circle)
 }
 
-// Desktop: Horizontal line BELOW entire list
+
+// Desktop: Horizontal line BELOW first row only (supports up to 4 items)
 .training__process::after {
   @include desktop {
     content: "";
