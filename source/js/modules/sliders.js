@@ -80,7 +80,7 @@ export const initSliders = () => {
     },
     slidesPerView: 1,
     initialSlide: 2, // Mobile начинает с 3-го слайда (Надежда)
-    spaceBetween: 30,
+    spaceBetween: 20,
     breakpoints: {
       768: {
         slidesPerView: 3,

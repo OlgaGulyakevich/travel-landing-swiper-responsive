@@ -1,36 +1,198 @@
 .reviews {
-  // padding: 60px 0;
+  margin-bottom: 40px;  // TODO: Check Figma - section spacing
+
+  @include tablet {
+    margin-bottom: 80px;  // TODO: Placeholder
+  }
+
+  @include desktop {
+    margin-bottom: 100px;  // TODO: Placeholder
+  }
 }
 
-// Header wrapper: Title + Navigation (flex layout on tablet/desktop)
+// Header wrapper: Title + Navigation
 .reviews__header {
-  margin-bottom: 32px;
-  min-height: 50px;  // TODO: Placeholder - pixel-perfect height (allows growth if text wraps)
+  margin-bottom: 32px;  // TODO: Check Figma
+  min-height: 50px;
 
   @include tablet {
     display: flex;
     justify-content: space-between;
-    align-items: center;  // Arrows align with title center
+    align-items: center;
     margin-bottom: 35px;
-    min-height: 45px;  // TODO: Placeholder - pixel-perfect height
+    min-height: 45px;
   }
 
   @include desktop {
     margin-bottom: 38px;
-    min-height: 50px;  // TODO: Placeholder - pixel-perfect height
+    min-height: 50px;
 
     .title__decoration {
       top: -40px;
     }
   }
+
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
 }
 
 // Override Swiper default position: absolute for navigation in header
 .reviews__header .slider-navigation {
-  position: static;  // Override any absolute positioning from base styles
+  position: static;
 }
 
 .reviews__header .swiper-button-prev,
 .reviews__header .swiper-button-next {
-  position: static;  // Override Swiper's position: absolute to work with flex layout
+  position: static;
+}
+
+// Slider container
+.reviews__slider {
+  position: relative;
+}
+
+// Swiper slides in reviews
+.reviews__slider .swiper-slide {
+  width: 290px;  // TODO: Check Figma - mobile card width
+  height: auto;  // Cards have natural height
+
+  @include tablet {
+    width: 565px;  // TODO: Check Figma - tablet card width (1 slide per view)
+  }
+
+  @include desktop {
+    width: 570px;  // TODO: Check Figma - desktop card width (2 slides per view)
+  }
+}
+
+// Context-specific card styling for reviews
+.reviews__card {
+  display: flex;
+  flex-direction: column;  // Mobile: photo above content
+  height: 100%;
+  border: 1px solid $color-border-default;  // TODO: Check Figma
+
+  @include tablet {
+    flex-direction: row;  // Tablet/Desktop: photo left, content right
+  }
+}
+
+// Photo container (art direction via HTML <picture>)
+// IMPORTANT: Different images for mobile/tablet/desktop in HTML!
+.reviews__card .card__photo {
+  display: block;
+  width: 100%;  // Mobile: full width
+  height: 169px;  // Mobile: fixed height from HTML
+  flex-shrink: 0;  // Don't shrink in flex layout
+  overflow: hidden;
+
+  @include tablet {
+    width: 186px;  // Tablet: left side, fixed width
+    height: 237px;  // Tablet: fixed height from HTML
+  }
+
+  @include desktop {
+    width: 258px;  // Desktop: left side, wider
+    height: 253px;  // Desktop: fixed height from HTML
+  }
+}
+
+// Image inside picture (NO object-position needed - art direction in HTML!)
+.reviews__card .card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  // Fill container
+  object-position: center;  // Center image
+}
+
+// Content wrapper (right side on tablet/desktop)
+.reviews__card .card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;  // Take remaining space
+  padding: 20px 15px;  // TODO: Check Figma - mobile padding
+
+  @include tablet {
+    padding: 30px 20px;  // TODO: Check Figma - tablet padding
+  }
+
+  @include desktop {
+    padding: 40px 30px;  // TODO: Check Figma - desktop padding
+  }
+}
+
+// Review text content
+.reviews__card .card__content {
+  flex: 1;  // Take available space, pushing author to bottom
+  margin-bottom: 20px;  // TODO: Check Figma - space between text and author
+
+  @include tablet {
+    margin-bottom: 25px;  // TODO: Placeholder
+  }
+
+  @include desktop {
+    margin-bottom: 30px;  // TODO: Placeholder
+  }
+}
+
+// Review paragraphs (cascade styling - content area)
+.reviews__card .card__content p {
+  margin: 0 0 15px;  // TODO: Check Figma - space between paragraphs
+  font-size: 14px;  // TODO: Check Figma
+  line-height: 1.5;  // TODO: Check Figma
+  font-weight: $font-weight-regular;
+  color: $color-text-primary;
+
+  &:last-child {
+    margin-bottom: 0;  // No margin after last paragraph
+  }
+
+  @include tablet {
+    font-size: 14px;  // TODO: Check Figma
+    line-height: 1.6;  // TODO: Placeholder
+  }
+
+  @include desktop {
+    font-size: 16px;  // TODO: Placeholder
+    line-height: 1.7;  // TODO: Placeholder
+  }
+}
+
+// Author info (bottom of card)
+.reviews__card .card__author {
+  margin-top: auto;  // Stick to bottom in flex layout
+}
+
+// Author name (h3 in cascade - content area)
+.reviews__card .card__name {
+  margin: 0 0 5px;  // TODO: Check Figma - space between name and meta
+  font-size: 16px;  // TODO: Check Figma
+  line-height: 1.2;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+
+  @include tablet {
+    font-size: 18px;  // TODO: Placeholder
+  }
+
+  @include desktop {
+    font-size: 20px;  // TODO: Placeholder
+  }
+}
+
+// Author meta (age, city)
+.reviews__card .card__meta {
+  margin: 0;
+  font-size: 12px;  // TODO: Check Figma
+  line-height: 1.2;
+  font-weight: $font-weight-regular;
+  color: $color-text-secondary;  // TODO: Check Figma - lighter color
+
+  @include tablet {
+    font-size: 13px;  // TODO: Placeholder
+  }
+
+  @include desktop {
+    font-size: 14px;  // TODO: Placeholder
+  }
 }

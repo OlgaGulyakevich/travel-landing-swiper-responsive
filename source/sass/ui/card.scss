@@ -7,7 +7,6 @@
 
 .card {
   // Only common properties shared by ALL card types
-  background-color: $color-bg-dark;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -25,7 +24,8 @@
 .card__image {
   width: 100%;
   height: 100%;
-  object-position: center;
+  object-fit: cover;  // Fills container while maintaining aspect ratio
+  object-position: center;  // Centers the image
 }
 
 // Content wrapper - used in tours, training, reviews

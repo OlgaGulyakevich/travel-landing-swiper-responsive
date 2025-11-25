@@ -201,7 +201,7 @@
   @include tablet {
     font-size: 18px;
     line-height: 18px;
-    margin-bottom: 104px;
+    margin-bottom: 30px;  // TODO: Check Figma (было 104px - слишком много?)
   }
 
   @include desktop {
@@ -219,14 +219,16 @@
 
   @include tablet {
     display: grid;
-    grid-template-columns: repeat(2, 232px);
-    grid-template-rows: repeat(2, auto);
-    gap: 104px 174px;  // row-gap column-gap
+    grid-template-columns: repeat(2, 1fr);  // 2 columns
+    grid-template-rows: repeat(2, auto);    // 2 rows
+    grid-auto-flow: column;  // ✅ Fill by COLUMN (1,2 in col1; 3,4 in col2)
+    gap: 30px 40px;  // row-gap column-gap
   }
 
   @include desktop {
-    grid-template-columns: repeat(4, 232px);
+    grid-template-columns: repeat(4, 230px);  // ✅ Fixed 230px for pixel-perfect
     grid-template-rows: auto;  // Single row
+    grid-auto-flow: row;  // Back to row flow (1,2,3,4 horizontally)
     gap: 23px;
   }
 }
@@ -242,62 +244,14 @@
 
   @include tablet {
     padding-left: 0;  // Remove padding (no circle)
+
     align-items: flex-start;  // Align icon to top
     gap: 10px;
-    max-width: none;  // Grid controls width (230px columns)
+    max-width: none;  // Remove limit (grid controls width)
   }
 
   @include desktop {
-    padding-bottom: 14px;
-  }
-}
-
-// Tablet: Explicit positioning for layout 1,2 / 4,3
-.training__process-item:nth-child(1) {
-  @include tablet {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  @include desktop {
-    grid-column: auto;
-    grid-row: auto;
-  }
-}
-
-.training__process-item:nth-child(2) {
-  @include tablet {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  @include desktop {
-    grid-column: auto;
-    grid-row: auto;
-  }
-}
-
-.training__process-item:nth-child(3) {
-  @include tablet {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  @include desktop {
-    grid-column: auto;
-    grid-row: auto;
-  }
-}
-
-.training__process-item:nth-child(4) {
-  @include tablet {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  @include desktop {
-    grid-column: auto;
-    grid-row: auto;
+    //
   }
 }
 
@@ -308,8 +262,11 @@
 
 // Process text
 .training__process-text {
+  margin: 0;
   font-size: 12px;
   line-height: 18px;
+  font-weight: $font-weight-regular;
+  color: $color-text-primary;
 
   @include tablet {
     font-size: 14px;
@@ -337,16 +294,16 @@
   background-color: $color-primary-blue;
 
   @include tablet {
-    display: none;
+    display: none;  // ✅ Hide on tablet
   }
 
   @include desktop {
-    // Show on desktop: positioned BELOW item
+    // ✅ Show on desktop: positioned BELOW item
     display: block;
     position: absolute;
-    left: 4%;
-    bottom: -15%;
-    top: auto;
+    left: 4%;  // Center horizontally
+    bottom: -40%;  // At bottom of item
+    top: auto;  // Reset top
   }
 }
 
@@ -354,21 +311,20 @@
 .training__process-item::after {
   content: "";
   position: absolute;
-  left: 6px;
-  top: calc(50% + 6px);
-  bottom: -40px;  
+  left: 6px;  // Center of circle
+  top: calc(50% + 7px);  // Start from bottom of circle
+  bottom: -40px;  // To next item (gap value)
   width: 2px;
   background-color: $color-primary-blue;
 
   @include tablet {
-    display: none;
+    display: none;  // ✅ Hide on tablet
   }
 }
 
 // Remove line after last item (mobile)
 .training__process-item:last-child::after {
   display: none;
-
 }
 
 // Desktop: Horizontal line BELOW entire list
@@ -378,7 +334,7 @@
     position: absolute;
     left: 20px;
     right: 20px;
-    bottom: 0;
+    bottom: -7px;
     height: 2px;
     background-color: $color-primary-blue;
   }
