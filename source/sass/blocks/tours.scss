@@ -14,7 +14,7 @@
 .tours--with-extended-background {
   position: relative;
   z-index: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 // Pseudo-element for background image
@@ -31,23 +31,11 @@
   z-index: -1;
   pointer-events: none;
 
-  // Fallback: JPG
   background-image:
     image-set(
-      url("../../img/bg-clouds@1x.jpg") 1x,
-      url("../../img/bg-clouds@2x.jpg") 2x
+      url("../../img/bg-clouds@1x.webp") 1x,
+      url("../../img/bg-clouds@2x.webp") 2x
     );
-}
-
-// WebP support for background image
-@supports (background-image: -webkit-image-set(url("../../img/bg-clouds@1x.webp") 1x)) {
-  .tours--with-extended-background::before {
-    background-image:
-      image-set(
-        url("../../img/bg-clouds@1x.webp") 1x,
-        url("../../img/bg-clouds@2x.webp") 2x
-      );
-  }
 }
 
 // Tablet: stretch to training
@@ -57,11 +45,15 @@
     right: -157px;
     height: calc(100% + 970px);
   }
-
-  // Desktop: stretch to training
-// TODO: Implement desktop background position if needed
-
 }
+
+// Desktop: stretch to training
+// TODO: Implement desktop background position if needed
+// @include desktop {
+//   .tours--with-extended-background::before {
+//     // Add desktop-specific positioning if needed
+//   }
+// }
 
 // Header wrapper: Title + Navigation (flex layout on tablet/desktop)
 .tours__header {
