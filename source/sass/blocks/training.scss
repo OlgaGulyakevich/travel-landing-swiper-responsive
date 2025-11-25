@@ -222,6 +222,9 @@
     grid-template-columns: repeat(2, 232px);
     grid-template-rows: repeat(2, auto);
     gap: 104px 174px;  // row-gap column-gap
+
+    // HTML1-TEST-04: Prevent overflow in grid
+    @include grid-no-overflow;
   }
 
   @include desktop {
@@ -356,7 +359,7 @@
   position: absolute;
   left: 6px;
   top: calc(50% + 6px);
-  bottom: -40px;  
+  bottom: -40px;
   width: 2px;
   background-color: $color-primary-blue;
 
@@ -368,7 +371,6 @@
 // Remove line after last item (mobile)
 .training__process-item:last-child::after {
   display: none;
-
 }
 
 // Desktop: Horizontal line BELOW entire list
@@ -383,4 +385,3 @@
     background-color: $color-primary-blue;
   }
 }
-
