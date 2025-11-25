@@ -8,60 +8,58 @@
   @include desktop {
     margin-bottom: 100px;
   }
+}
 
-  // MODIFIER: Extended background for Tours and Training sections
-  // Implement through ::before with image-set for retina
-  &--with-extended-background {
-    position: relative;
-    z-index: 0;
+// Modifier for extended background
+.tours--with-extended-background {
+  position: relative;
+  z-index: 0;
+}
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 154px;
-      left: 0;
-      right: -87px;
-      height: 100%;  // Mobile: только tours
-      background-size: contain;
-      background-position: bottom right;  // Mobile: right edge and bottom
-      background-repeat: no-repeat;
-      z-index: -1;
-      pointer-events: none;
+// Pseudo-element for background image
+.tours--with-extended-background::before {
+  content: "";
+  position: absolute;
+  top: 154px;
+  left: 0;
+  right: -87px;
+  height: 100%;  // Mobile: tours only
+  background-size: contain;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
 
-      // Fallback: JPG
-      background-image: image-set(
-        url('../../img/bg-clouds@1x.jpg') 1x,
-        url('../../img/bg-clouds@2x.jpg') 2x
+  // Fallback: JPG
+  background-image:
+    image-set(
+      url("../../img/bg-clouds@1x.jpg") 1x,
+      url("../../img/bg-clouds@2x.jpg") 2x
+    );
+}
+
+// WebP support for background image
+@supports (background-image: -webkit-image-set(url("../../img/bg-clouds@1x.webp") 1x)) {
+  .tours--with-extended-background::before {
+    background-image:
+      image-set(
+        url("../../img/bg-clouds@1x.webp") 1x,
+        url("../../img/bg-clouds@2x.webp") 2x
       );
-
-      // WebP if supported
-      @supports (background-image: -webkit-image-set(url('../../img/bg-clouds@1x.webp') 1x)) {
-        background-image: -webkit-image-set(
-          url('../../img/bg-clouds@1x.webp') 1x,
-          url('../../img/bg-clouds@2x.webp') 2x
-        );
-        background-image: image-set(
-          url('../../img/bg-clouds@1x.webp') 1x,
-          url('../../img/bg-clouds@2x.webp') 2x
-        );
-      }
-
-      // Tablet: stretch to training
-      @include tablet {
-        top: -167px;
-        right: -157px;
-        height: calc(100% + 970px);
-
-          //  top: 154px;  // TODO: Implement tablet background position
-      }
-
-      // Desktop: stretch to training
-      @include desktop {
-       //  top: 154px;  // TODO: Implement tablet background position
-
-      }
-    }
   }
+}
+
+// Tablet: stretch to training
+@include tablet {
+  .tours--with-extended-background::before {
+    top: -167px;
+    right: -157px;
+    height: calc(100% + 970px);
+  }
+
+  // Desktop: stretch to training
+// TODO: Implement desktop background position if needed
+
 }
 
 // Header wrapper: Title + Navigation (flex layout on tablet/desktop)
@@ -111,6 +109,7 @@
   min-height: 416px;
   height: 416px;
   overflow: hidden; // Prevent Safari rendering issues
+
   @include flex-no-overflow;
 
   @include tablet {
@@ -130,12 +129,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgb(0, 0, 0, 0.25);
   z-index: 1;
   pointer-events: none; // Allow clicks through backdrop
 }
 
-.tours__slider .card__content{
+.tours__slider .card__content {
   padding: 30px 20px;
 }
 
@@ -143,21 +142,21 @@
 .tours__card {
   // Card dimensions defined in .swiper-slide
   height: 100%;
+}
 
-  // OVERRIDE: Image wrapper as absolute background
-  .card__image-wrapper {
-    position: absolute;
-    z-index: 0;
-  }
+// OVERRIDE: Image wrapper as absolute background (flat selector)
+.tours__card .card__image-wrapper {
+  position: absolute;
+  z-index: 0;
+}
 
-  // OVERRIDE: Card content as overlay at bottom
-  .card__content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-  }
+// OVERRIDE: Card content as overlay at bottom (flat selector)
+.tours__card .card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 
 // Card title
@@ -168,20 +167,18 @@
   color: $color-text-inverse;
   margin-bottom: 15px;
   max-width: 260px;
-  @include flex-no-overflow;
-
-  // Decorative line after title
-  &::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 1px;
-    background-color: $color-text-inverse;
-    opacity: 0.2;
-    margin-top: 15px;
-  }
 }
 
+// Decorative line after title (flat selector)
+.tours__card .card__title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 1px;
+  background-color: $color-text-inverse;
+  opacity: 0.2;
+  margin-top: 15px;
+}
 
 
 .tours__link {
@@ -230,14 +227,14 @@
 // Disabled state through utility class is-disabled
 
 .tours__link-icon {
-  width: 12px;
+  width: 6px;
   height: 12px;
   stroke: currentColor;
   fill: none;
   flex-shrink: 0;
 
   @include tablet {
-    width: 16px;
-    height: 16px;
+    width: 9px;
+    height: 14px;
   }
 }

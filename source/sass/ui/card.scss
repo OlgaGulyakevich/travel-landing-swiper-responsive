@@ -48,30 +48,33 @@
   line-height: 12px;
   color: $color-text-inverse;
   margin-bottom: 15px;
+
   @include flex-no-overflow;
+}
 
-  .card__meta-location {
-    display: inline-flex;
-    gap: 9px;
-    background-color: $color-primary-blue;
-    padding: 8px 16px;
-    margin-right: auto;
-  }
+.card__meta-location {
+  display: inline-flex;
+  gap: 9px;
+  background-color: $color-primary-blue;
+  padding: 8px 16px;
+  margin-right: auto;
+}
 
-  .card__meta-duration-wrapper {
-    display: flex;
-    gap: 14px;
-    background-color: transparent;
-    @include flex-no-overflow;
-  }
+.card__meta-duration-wrapper {
+  display: flex;
+  gap: 14px;
+  background-color: transparent;
 
-  .card__meta-duration {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 0px;
-    @include flex-no-overflow;
-  }
+  @include flex-no-overflow;
+}
+
+.card__meta-duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+
+  @include flex-no-overflow;
 }
 
 // Card footer (tours: rating, dates, group)
@@ -81,6 +84,7 @@
   flex-wrap: wrap;
   gap: 8px;
   color: $color-text-inverse;
+
   @include flex-no-overflow;
 
   @include tablet {
@@ -91,6 +95,7 @@
     gap: 48px;
   }
 }
+
 
 .card__rating,
 .card__dates,
@@ -154,4 +159,3 @@
 }
 
 // REVIEW CARD STYLES
-

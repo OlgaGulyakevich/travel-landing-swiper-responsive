@@ -20,6 +20,7 @@
   min-height: 568px;
   height: 568px;
   overflow: hidden; // Prevent Safari rendering issues
+
   @include flex-no-overflow;
 
   @include tablet {
@@ -41,7 +42,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgb(0, 0, 0, 0.25);
   z-index: 1;
   pointer-events: none; // Allow clicks through backdrop
 }
@@ -53,16 +54,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  -webkit-object-fit: cover; // Safari prefix
-  object-position: 50% 50%;
-  -webkit-object-position: 50% 50%; // Safari prefix
-  z-index: 0;
-  transform: translateZ(0); // Force GPU acceleration for Safari
-  -webkit-transform: translateZ(0); // Safari prefix
-  backface-visibility: hidden; // Prevent Safari flickering
-  -webkit-backface-visibility: hidden; // Safari prefix
-
+  object-fit: cover; // Safari prefix
+  object-position: 50% 50%; // Safari prefix
+  z-index: 0; // Force GPU acceleration for Safari
+  transform: translateZ(0); // Safari prefix // Prevent Safari flickering
+  backface-visibility: hidden; // Safari prefix
 }
 
 // Container positioning
@@ -75,6 +71,7 @@
   justify-content: center;
   min-height: 568px;
   margin: 0;
+
   @include flex-no-overflow;
 
   @include tablet {
@@ -94,6 +91,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 160px;
+
   @include flex-no-overflow;
 
   @include tablet {
@@ -126,11 +124,10 @@
   }
 
   @include desktop {
-    max-width:960px;
+    max-width: 960px;
     font-size: 77px;
     line-height: 77px;
     text-align: left;
-    padding-left: 0;
     padding: 0;
     margin-right: auto;
     margin-bottom: 25px;
@@ -185,6 +182,7 @@
     display: flex;
     gap: 10px;
     margin-right: auto;
+
     @include flex-no-overflow;
   }
 }
