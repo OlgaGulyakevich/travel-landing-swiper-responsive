@@ -7,6 +7,7 @@ import { initBurgerMenu } from './modules/burger-menu.js';
 import { initSliders } from './modules/sliders.js';
 import { initFormValidation } from './modules/form-validation.js';
 import { initSmoothScroll } from './modules/smooth-scroll.js';
+import { initTrainingLines } from './training-lines.js';
 
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,4 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize smooth scroll for anchor links
   initSmoothScroll();
+
+  // Initialize training process decorative lines
+  initTrainingLines();
 });

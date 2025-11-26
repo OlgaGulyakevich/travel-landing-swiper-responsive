@@ -79,11 +79,14 @@
 // Override Swiper default position: absolute for navigation in header
 .training__header .slider-navigation {
   position: static;
+  // display: flex;
+  // align-items: center;
 }
 
 .training__header .swiper-button-prev,
 .training__header .swiper-button-next {
   position: static;
+  // align-self: center; 
 }
 
 // Instructors title (h3 without decorative title component)
@@ -170,7 +173,7 @@
   }
 
   @include desktop {
-    gap: 70px;
+    gap: 85px;
   }
 }
 
@@ -188,7 +191,38 @@
 
 // Training process section
 .training__process {
-  position: relative;  // For desktop decorative line
+  position: relative;  // For desktop decorative lines container
+
+  @include desktop {
+    // Space below for decorative elements (circles)
+    padding-bottom: 34px;
+  }
+}
+
+// Desktop: Container for dynamically created lines (added by JS)
+.training__process-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+// Desktop: Individual horizontal line
+.training__process-line {
+  position: absolute;
+  height: 2px;
+  background-color: $color-primary-blue;
+}
+
+// Mobile: Individual vertical line (created by JS)
+.training__process-line--vertical {
+  position: absolute;
+  width: 2px;
+  height: auto;
+  background-color: $color-primary-blue;
 }
 
 // Process title
@@ -229,9 +263,13 @@
   }
 
   @include desktop {
-    grid-template-columns: repeat(4, 232px);
-    grid-template-rows: auto;  // Single row
-    gap: 23px;
+    grid-template-columns: repeat(auto-fit, minmax(221px, 253px));  // Auto columns: 4 items = 253px each, 5+ items shrink to fit (min 221px)
+    column-gap: 23px;
+    row-gap: 0; // Managed dynamically by JS based on number of rows
+    justify-content: start;  
+
+    // HTML1-TEST-04: Prevent overflow in grid
+    @include grid-no-overflow;
   }
 }
 
@@ -346,55 +384,15 @@
   }
 
   @include desktop {
-    // Show on desktop: positioned BELOW item
+    // Show on desktop: positioned BELOW item with fixed offset
     display: block;
     position: absolute;
-    left: 4%;
-    bottom: -15%;
+    left: 20px;  // Fixed pixel value instead of %
+    bottom: -9px;  // 
     top: auto;
+    transform: none;  // Reset mobile transform
   }
 }
 
-// Mobile: Vertical line from current circle to next circle
-.training__process-item::after {
-  content: "";
-  position: absolute;
-  left: 6px;  // Center of circle (14px / 2 = 7px, minus 1px for centering 2px line)
-  width: 2px;
-  background-color: $color-primary-blue;
-
-  @include tablet {
-    display: none;
-  }
-
-  @include desktop {
-    display: none;
-  }
-}
-
-// Mobile: Line continues from bottom of circle to next item (all except last)
-.training__process-item:not(:last-child)::after {
-  top: 50%;  // Start from vertical center of current item
-  height: calc(100% + 25px);  // Stretch to next item (100% of current item + 25px gap)
-  transform: translateY(7px);  // Offset to start from bottom of circle (7px = half of 14px circle)
-}
-
-// Mobile: Last item - line from top of item to top of circle only
-.training__process-item:last-child::after {
-  top: 0;  // Start from top of item
-  height: calc(50% - 7px);  // End at top of circle (50% center - 7px half of circle)
-}
-
-
-// Desktop: Horizontal line BELOW first row only (supports up to 4 items)
-.training__process::after {
-  @include desktop {
-    content: "";
-    position: absolute;
-    left: 20px;
-    right: 20px;
-    bottom: 0;
-    height: 2px;
-    background-color: $color-primary-blue;
-  }
-}
+// Mobile & Desktop: Vertical/horizontal lines are now managed by JS (training-lines.js)
+// CSS only handles circles positioning

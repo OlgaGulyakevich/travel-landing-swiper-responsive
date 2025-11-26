@@ -140,6 +140,7 @@
   padding: 8px 5px;
   border: 1px solid $color-bg-light-gray;
   transition: background-color $transition, border-color $transition;
+  flex-shrink: 0;
 }
 
 .card__social-link:hover {
