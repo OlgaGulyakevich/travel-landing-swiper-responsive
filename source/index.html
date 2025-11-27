@@ -733,28 +733,31 @@
     <section class="about" id="about" data-test="about">
       <div class="container">
 
-        <!-- Title with Decoration (UI Component) -->
-        <div class="title about__title-wrapper">
-          <h2 class="title__main">О нас</h2>
-          <span class="title__decoration" aria-hidden="true">О нас</span>
-        </div>
-
         <div class="about__wrapper">
-          <div class="about__content">
-            <!-- Content area WITHOUT classes (cascading styling) -->
-            <h3>История компании</h3>
-            <p>В далёком 2000 году мы начали заниматься туризмом — походы, поездки, восхождения, нам это настолько понравилось, что мы этим стали жить. Спустя 5 лет, в 2005 году мы основали компанию, чтобы показывать людям удивительные места нашей страны.</p>
-
-            <h3>Наша цель</h3>
-            <p>Подарить вам незабываемые впечатления от похода в горы. Мы берём на себя все организационные вопросы. При организации мы обязательно учтём все ваши пожелания. Вам останется только наслаждаться незабываемым приключением в приятной компании.</p>
-          </div>
-
           <!-- Image with Retina Support -->
           <div class="about__image-wrapper">
             <picture>
               <source type="image/webp" srcset="img/about@1x.webp 1x, img/about@2x.webp 2x" width="320" height="400">
               <img class="about__image" src="img/about@1x.jpg" srcset="img/about@2x.jpg 2x" width="320" height="400" alt="Группа туристов спускается с вершины горы с видом на озеро">
             </picture>
+          </div>
+
+          <!-- Text wrapper: title + content -->
+          <div class="about__text-wrapper">
+            <!-- Title with Decoration (UI Component) -->
+            <div class="title about__title-wrapper">
+              <h2 class="title__main">О нас</h2>
+              <span class="title__decoration" aria-hidden="true">О нас</span>
+            </div>
+
+            <div class="about__content">
+              <!-- Content area WITHOUT classes (cascading styling) -->
+              <h3>История компании</h3>
+              <p>В далёком 2000 году мы начали заниматься туризмом — походы, поездки, восхождения, нам&nbsp;это&nbsp;настолько понравилось, что&nbsp;мы&nbsp;этим стали жить.<br class="about__br-desktop"> Спустя 5 лет,<br class="about__br-tablet"> в 2005 году мы основали компанию, чтобы показывать людям удивительные места нашей страны.</p>
+
+              <h3>Наша цель</h3>
+              <p>Подарить вам незабываемые впечатления от похода в горы. Мы&nbsp;берём на&nbsp;себя все&nbsp;организационные вопросы. При&nbsp;организации мы&nbsp;обязательно учтём все&nbsp;ваши пожелания. Вам&nbsp;останется только наслаждаться незабываемым приключением в&nbsp;приятной компании.</p>
+            </div>
           </div>
         </div>
 

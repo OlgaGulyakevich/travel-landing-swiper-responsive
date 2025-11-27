@@ -1,20 +1,200 @@
+// =============================================================================
+// ABOUT SECTION
+// =============================================================================
+
+// Main section
 .about {
-  // padding: 60px 0;
-}
-
-.about__title-wrapper {
-  margin-bottom: 42px;
-
+  margin-bottom: 40px;
 
   @include tablet {
-    margin-bottom: 46px;
+    margin-bottom: 80px;
   }
 
   @include desktop {
+    margin-bottom: 140px;
+  }
+}
+
+// Main wrapper: flex container for image + text-wrapper
+.about__wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
+}
+
+// Image wrapper
+.about__image-wrapper {
+  flex-shrink: 0;
+  overflow: hidden; // Clip scaled image (mobile scale effect)
+
+  // Mobile: full viewport width (break out of container padding)
+  width: 100vw;
+  height: 400px;
+  margin-left: calc(-1 * $container-padding-mobile); // -15px
+  margin-right: calc(-1 * $container-padding-mobile); // -15px
+  margin-bottom: 48px;
+
+  @include tablet {
+    width: 450px;
+    height: auto; // Reset to auto (no scale effect on tablet+)
+    margin-left: calc(-1 * $container-padding-tablet); // -45px
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+
+  @include desktop {
+    width: 660px;
+    margin-left: calc(-1 * $container-padding-desktop); // -120px
+  }
+}
+
+// Picture element
+.about__image-wrapper picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+// Image
+.about__image {
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: contain;
+  object-position: 56px center;
+
+  // Mobile: scale effect
+  transform: scale(1.55);
+
+  @include tablet {
+    height: 350px;
+    object-fit: cover;
+    object-position: center center;
+    transform: none;
+  }
+
+  @include desktop {
+    height: 498px;
+  }
+}
+
+// Text wrapper: groups title + content together
+.about__text-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex: 1;
+  }
+
+  @include desktop {
+    align-self: flex-start;
+  }
+
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
+}
+
+// Title wrapper (decorative title component from UI)
+.about__title-wrapper {
+  margin-bottom: 42px;
+
+  @include tablet {
+    margin-bottom: 38px;
+  }
+
+  @include desktop {
+    margin-top: 51px;
     margin-bottom: 57px;
+
 
     .title__decoration {
       top: -40px;
     }
+  }
+}
+
+// Content area (cascade styling for h3, p)
+.about__content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  max-width: 280px;
+
+  @include tablet {
+    max-width: 270px;
+  }
+
+  @include desktop {
+    max-width: 585px;
+  }
+
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
+}
+
+// Cascade styling for headings (История компании, Наша цель)
+.about__content h3 {
+  font-size: 16px; // TODO: уточнить размеры из Figma
+  line-height: 16px;
+  font-weight: $font-weight-bold;
+  margin-bottom: 15px;
+
+  @include tablet {
+    font-size: 18px;
+    line-height: 18px;
+    margin-bottom: 13px;
+  }
+
+  @include desktop {
+    font-size: 21px;
+    line-height: 21px;
+    margin-bottom: 20px;
+  }
+}
+
+.about__br-tablet {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.about__br-desktop {
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+}
+
+// Cascade styling for paragraphs
+.about__content p {
+  margin-bottom: 25px;
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
