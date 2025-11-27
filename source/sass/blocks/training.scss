@@ -56,6 +56,20 @@
   }
 }
 
+// Br tag for desktop
+
+.training__br-desktop {
+  display: none;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include desktop {
+    display: block;
+  }
+}
+
 // Header wrapper: Instructors Title + Navigation
 .training__header {
   margin-bottom: 25px;
@@ -398,3 +412,17 @@
 
 // Mobile & Desktop: Vertical/horizontal lines are now managed by JS (training-lines.js)
 // CSS only handles circles positioning
+
+
+// Desktop: Adjust circle position for items 3 and 4 to align with grid gaps and Pixel Perfect
+.training__process-item:nth-child(3)::before {
+  @include desktop {
+    left: -2px;  // Shift right to align with column 2
+  }
+}
+
+.training__process-item:nth-child(4)::before {
+  @include desktop {
+    left: 14px;  // Shift right to align with column 3
+  }
+}
