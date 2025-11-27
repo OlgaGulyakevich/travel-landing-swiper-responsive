@@ -25,9 +25,9 @@ export function initTrainingLines() {
 
   // Function to calculate and update lines
   function updateLines() {
-    const items = Array.from(processList.querySelectorAll('.training__process-item'));
+    const processItems = Array.from(processList.querySelectorAll('.training__process-item'));
 
-    if (items.length === 0) {
+    if (processItems.length === 0) {
       return;
     }
 
@@ -47,19 +47,19 @@ export function initTrainingLines() {
 
     // Mobile: vertical lines
     if (viewportWidth < 768) {
-      createMobileLines(items);
+      createMobileLines(processItems);
       return;
     }
 
     // Desktop: horizontal lines
     if (viewportWidth >= 1440) {
-      createDesktopLines(items);
-      return;
+      createDesktopLines(processItems);
+
     }
   }
 
   // Mobile: Create vertical lines between circles
-  function createMobileLines(items) {
+  function createMobileLines(processItems) {
     // Create lines container
     linesContainer = document.createElement('div');
     linesContainer.className = 'training__process-lines';
@@ -68,8 +68,8 @@ export function initTrainingLines() {
     const containerRect = processSection.getBoundingClientRect();
 
     // Create vertical line for each item (except last)
-    items.forEach((item, index) => {
-      if (index === items.length - 1) {
+    processItems.forEach((item, index) => {
+      if (index === processItems.length - 1) {
         // Last item: line from top of item to circle
         const line = document.createElement('div');
         line.className = 'training__process-line--vertical';
@@ -91,7 +91,7 @@ export function initTrainingLines() {
         line.className = 'training__process-line--vertical';
 
         const currentRect = item.getBoundingClientRect();
-        const nextRect = items[index + 1].getBoundingClientRect();
+        const nextRect = processItems[index + 1].getBoundingClientRect();
 
         // Current circle center Y
         const currentCircleY = currentRect.top + currentRect.height / 2 - containerRect.top;
@@ -110,14 +110,14 @@ export function initTrainingLines() {
   }
 
   // Desktop: Create horizontal lines below each row
-  function createDesktopLines(items) {
+  function createDesktopLines(processItems) {
     // Group items into rows by comparing their Y positions
     // Items with same top position (±5px tolerance) = same row
     const rows = [];
     let currentRow = [];
     let currentTop = null;
 
-    items.forEach((item) => {
+    processItems.forEach((item) => {
       const rect = item.getBoundingClientRect();
       const itemTop = Math.round(rect.top);
 
@@ -151,7 +151,7 @@ export function initTrainingLines() {
     linesContainer.setAttribute('aria-hidden', 'true');
 
     // Create a line for each row
-    rows.forEach((row, index) => {
+    rows.forEach((row) => {
       const line = document.createElement('div');
       line.className = 'training__process-line';
 

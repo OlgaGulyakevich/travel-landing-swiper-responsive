@@ -4,7 +4,7 @@
  */
 
 import Swiper from 'swiper';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -12,7 +12,7 @@ import { makePaginationKeyboardAccessible } from './pagination-keyboard.js';
 
 export const initSliders = () => {
   // Hero Slider
-  const heroSlider = new Swiper('[data-slider="hero"]', {
+  void new Swiper('[data-slider="hero"]', {
     modules: [Pagination],
     pagination: {
       el: '.swiper-pagination',
@@ -33,7 +33,7 @@ export const initSliders = () => {
   });
 
   // Tours Slider
-  const toursSlider = new Swiper('[data-slider="tours"]', {
+  void new Swiper('[data-slider="tours"]', {
     modules: [Navigation],
     navigation: {
       nextEl: '.tours__button-next',
@@ -72,7 +72,7 @@ export const initSliders = () => {
   });
 
   // Training Slider
-  const trainingSlider = new Swiper('[data-slider="training"]', {
+  void new Swiper('[data-slider="training"]', {
     modules: [Navigation],
     navigation: {
       nextEl: '.training__button-next',
@@ -117,7 +117,7 @@ export const initSliders = () => {
   });
 
   // Reviews Slider
-  const reviewsSlider = new Swiper('[data-slider="reviews"]', {
+  void new Swiper('[data-slider="reviews"]', {
     modules: [Navigation],
     navigation: {
       nextEl: '.reviews__button-next',
@@ -151,7 +151,7 @@ export const initSliders = () => {
   });
 
   // Advantages Slider (desktop only)
-  const advSlider = new Swiper('[data-slider="advantages"]', {
+  void new Swiper('[data-slider="advantages"]', {
     modules: [Navigation],
     navigation: {
       nextEl: '.advantages__button-next',
@@ -190,13 +190,13 @@ export const initSliders = () => {
   });
 
   // Gallery Slider (mobile/tablet only, disabled on desktop)
-  const gallerySlider = new Swiper('[data-slider="gallery"]', {
+  void new Swiper('[data-slider="gallery"]', {
     modules: [Navigation],
     navigation: {
       nextEl: '.gallery__button-next',
       prevEl: '.gallery__button-prev',
     },
-    slidesPerView: 'auto',  // Auto width based on CSS grid columns
+    slidesPerView: 'auto', // Auto width based on CSS grid columns
     spaceBetween: 5,
     loop: true,
     breakpoints: {
@@ -205,7 +205,7 @@ export const initSliders = () => {
         spaceBetween: 5
       },
       1440: {
-        enabled: false  // Disable on desktop, CSS grid takes over
+        enabled: false // Disable on desktop, CSS grid takes over
       },
     },
     on: {
