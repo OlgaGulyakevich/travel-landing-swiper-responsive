@@ -71,7 +71,7 @@
 .card__meta-duration {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   padding: 8px 0;
 
   @include flex-no-overflow;
@@ -88,7 +88,7 @@
   @include flex-no-overflow;
 
   @include tablet {
-    gap: 20px;
+    gap: 26px;
   }
 
   @include desktop {

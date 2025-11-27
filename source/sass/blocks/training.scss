@@ -79,14 +79,11 @@
 // Override Swiper default position: absolute for navigation in header
 .training__header .slider-navigation {
   position: static;
-  // display: flex;
-  // align-items: center;
 }
 
 .training__header .swiper-button-prev,
 .training__header .swiper-button-next {
   position: static;
-  // align-self: center; 
 }
 
 // Instructors title (h3 without decorative title component)
@@ -133,6 +130,7 @@
 // Context-specific card styling for training
 .training__card {
   height: 100%;  // Fill slide height
+  background-color: $color-bg-white;
   border: 1px solid $color-border-default;
   padding: 15px;
 }
@@ -192,6 +190,10 @@
 // Training process section
 .training__process {
   position: relative;  // For desktop decorative lines container
+
+  @include tablet {
+    // padding-bottom: 20px;
+  }
 
   @include desktop {
     // Space below for decorative elements (circles)
@@ -264,9 +266,9 @@
 
   @include desktop {
     grid-template-columns: repeat(auto-fit, minmax(221px, 253px));  // Auto columns: 4 items = 253px each, 5+ items shrink to fit (min 221px)
-    column-gap: 23px;
+    column-gap: 3px;
     row-gap: 0; // Managed dynamically by JS based on number of rows
-    justify-content: start;  
+    justify-content: start;
 
     // HTML1-TEST-04: Prevent overflow in grid
     @include grid-no-overflow;
@@ -281,7 +283,7 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  max-width: 246px;  // Mobile: limit width for better readability
+  max-width: 265px;  // Mobile: limit width for better readability
 
   @include tablet {
     padding-left: 0;  // Remove padding (no circle)
@@ -388,7 +390,7 @@
     display: block;
     position: absolute;
     left: 20px;  // Fixed pixel value instead of %
-    bottom: -9px;  // 
+    bottom: -9px;  //
     top: auto;
     transform: none;  // Reset mobile transform
   }

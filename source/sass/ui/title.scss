@@ -17,14 +17,17 @@
   font-weight: $font-weight-extrabold;
   white-space: nowrap;
 
+
   @include tablet {
     font-size: 25px;
     line-height: 25px;
+    padding-bottom: 10px;
   }
 
   @include desktop {
     font-size: 35px;
     line-height: 35px;
+    padding-bottom: 0;
   }
 }
 

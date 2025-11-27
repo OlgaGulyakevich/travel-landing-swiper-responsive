@@ -37,9 +37,13 @@ $color-disabled: #999999;
 $color-white-100: #ffffff;
 $color-white-50: rgb(255, 255, 255, 0.5);
 
+// Colors - Overlay/Backdrop
+$color-overlay-light: rgba(0, 0, 0, 0.9);
+$color-overlay-hero: linear-gradient(112deg, rgba(15, 20, 41, 0.33) 17.23%, rgba(15, 20, 41, 0.00) 94.93%);
+$color-overlay-tours: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 22.3%, rgba(0, 0, 0, 0.00) 60.32%);
+
 // Shadows
 $shadow-card: 0 0 20px 0 rgb(28, 51, 116, 0.1);
-
 
 // Typography
 // HTML1-TEST-05: Указано типовое семейство sans-serif

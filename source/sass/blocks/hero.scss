@@ -1,9 +1,11 @@
 .hero {
   background-color: $color-bg-dark;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
+  // padding-bottom: 7px;
 
   @include tablet {
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
+    margin-bottom: 25px;
   }
 
   @include desktop {
@@ -42,7 +44,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgb(0, 0, 0, 0.25);
+  background: $color-overlay-hero;
   z-index: 1;
   pointer-events: none; // Allow clicks through backdrop
 }

@@ -73,7 +73,8 @@
 .swiper-button-next.swiper-button-next.swiper-button-disabled {
   color: $color-text-inverse;
   background-color: $color-disabled;
-  border: 1px solid transparent;  // Keep border for consistent sizing with active buttons
+  border: 1px solid transparent;
+  opacity: 1;
   cursor: not-allowed;
   pointer-events: none;
 }

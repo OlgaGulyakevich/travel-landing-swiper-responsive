@@ -41,7 +41,7 @@ export const initSliders = () => {
     },
     slidesPerView: 1,
     slidesPerGroup: 1,
-    spaceBetween: 30,
+    spaceBetween: 20,
     breakpoints: {
       768: { slidesPerView: 2 },
       1440: { slidesPerView: 3 },
