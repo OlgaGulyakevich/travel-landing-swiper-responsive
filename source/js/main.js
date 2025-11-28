@@ -7,7 +7,7 @@ import { initBurgerMenu } from './modules/burger-menu.js';
 import { initSliders } from './modules/sliders.js';
 import { initFormValidation } from './modules/form-validation.js';
 import { initSmoothScroll } from './modules/smooth-scroll.js';
-import { initTrainingLines } from './training-lines.js';
+import { initTrainingLines } from './modules/training-lines.js';
 
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {

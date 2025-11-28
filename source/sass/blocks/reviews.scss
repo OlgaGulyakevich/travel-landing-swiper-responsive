@@ -1,31 +1,33 @@
 .reviews {
-  margin-bottom: 40px;  // TODO: Check Figma - section spacing
+  margin-bottom: 46px;
+  overflow-x: clip; // Prevent horizontal scroll WITHOUT affecting vertical overflow
 
   @include tablet {
-    margin-bottom: 80px;  // TODO: Placeholder
+    margin-bottom: 90px;
   }
 
   @include desktop {
-    margin-bottom: 100px;  // TODO: Placeholder
+    margin-bottom: 212px;
   }
 }
 
 // Header wrapper: Title + Navigation
 .reviews__header {
-  margin-bottom: 32px;  // TODO: Check Figma
-  min-height: 50px;
+  margin-bottom: 22px;
 
   @include tablet {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 35px;
-    min-height: 45px;
+    align-items: flex-end;
+    margin-bottom: 15px;
+    min-height: 55px;
   }
 
   @include desktop {
-    margin-bottom: 38px;
+    margin-bottom: 28px;
     min-height: 50px;
+    margin-right: 10px;  // Pixel-perfect alignment with Figma
+    margin-left: -10px;  // Pixel-perfect alignment with Figma
 
     .title__decoration {
       top: -40px;
@@ -47,152 +49,153 @@
 }
 
 // Slider container
-.reviews__slider {
+// High specificity to override Swiper defaults
+.reviews .reviews__slider.swiper {
   position: relative;
+  margin: 0;  // Reset Swiper default margin
+  padding: 0; // Reset Swiper default padding
+  overflow: visible; // Show shadows (override Swiper)
+}
+
+// Wrapper without padding (cards go edge-to-edge)
+.reviews .reviews__slider .swiper-wrapper {
+  margin: 0;  // Reset Swiper default margin
+  padding: 0; // NO padding - cards edge-to-edge vertically
+  overflow: visible; // Show shadows
 }
 
 // Swiper slides in reviews
 .reviews__slider .swiper-slide {
-  width: 290px;  // TODO: Check Figma - mobile card width
-  height: auto;  // Cards have natural height
+  width: 290px;
+  height: auto;
+  margin: 0;     // Reset Swiper default margin (spaceBetween handles gaps)
+  padding: 10px 0; // Vertical padding to prevent shadow clipping (top/bottom)
 
   @include tablet {
-    width: 565px;  // TODO: Check Figma - tablet card width (1 slide per view)
+    width: 565px;
   }
 
   @include desktop {
-    width: 570px;  // TODO: Check Figma - desktop card width (2 slides per view)
+    width: 700px;
   }
 }
 
 // Context-specific card styling for reviews
 .reviews__card {
   display: flex;
-  flex-direction: column;  // Mobile: photo above content
+  flex-direction: column;
   height: 100%;
-  border: 1px solid $color-border-default;  // TODO: Check Figma
+  padding: 20px;
+  background-color: $color-bg-white;
+  box-shadow: 0 0 20px 0 rgb(28, 51, 116, 0.1);
 
   @include tablet {
     flex-direction: row;  // Tablet/Desktop: photo left, content right
   }
+
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
 }
 
 // Photo container (art direction via HTML <picture>)
-// IMPORTANT: Different images for mobile/tablet/desktop in HTML!
 .reviews__card .card__photo {
   display: block;
-  width: 100%;  // Mobile: full width
-  height: 169px;  // Mobile: fixed height from HTML
-  flex-shrink: 0;  // Don't shrink in flex layout
+  width: 100%;
+  height: 169px;
+  flex-shrink: 0;
   overflow: hidden;
 
   @include tablet {
-    width: 186px;  // Tablet: left side, fixed width
-    height: 237px;  // Tablet: fixed height from HTML
+    width: 186px;
+    height: 237px;
   }
 
   @include desktop {
-    width: 258px;  // Desktop: left side, wider
-    height: 253px;  // Desktop: fixed height from HTML
+    width: 258px;
+    height: 253px;
   }
 }
 
-// Image inside picture (NO object-position needed - art direction in HTML!)
+// Image inside picture
 .reviews__card .card__photo img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;  // Fill container
-  object-position: center;  // Center image
+  object-fit: cover;
+  object-position: center;
 }
 
 // Content wrapper (right side on tablet/desktop)
 .reviews__card .card__body {
   display: flex;
   flex-direction: column;
-  flex: 1;  // Take remaining space
-  padding: 20px 15px;  // TODO: Check Figma - mobile padding
+  flex: 1;
+  padding-top: 20px;
 
   @include tablet {
-    padding: 30px 20px;  // TODO: Check Figma - tablet padding
+    padding-top: 0;
+    padding-right: 10px;
+    padding-left: 30px;
   }
 
-  @include desktop {
-    padding: 40px 30px;  // TODO: Check Figma - desktop padding
-  }
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
 }
 
 // Review text content
 .reviews__card .card__content {
-  flex: 1;  // Take available space, pushing author to bottom
-  margin-bottom: 20px;  // TODO: Check Figma - space between text and author
+  margin-bottom: 15px;
 
   @include tablet {
-    margin-bottom: 25px;  // TODO: Placeholder
+    margin-bottom: 25px;
   }
 
   @include desktop {
-    margin-bottom: 30px;  // TODO: Placeholder
+    margin-bottom: 0;
   }
 }
 
 // Review paragraphs (cascade styling - content area)
 .reviews__card .card__content p {
-  margin: 0 0 15px;  // TODO: Check Figma - space between paragraphs
-  font-size: 14px;  // TODO: Check Figma
-  line-height: 1.5;  // TODO: Check Figma
-  font-weight: $font-weight-regular;
-  color: $color-text-primary;
+  margin: 0 0 10px;
+  font-size: 12px;
+  line-height: 18px;
 
   &:last-child {
     margin-bottom: 0;  // No margin after last paragraph
   }
 
-  @include tablet {
-    font-size: 14px;  // TODO: Check Figma
-    line-height: 1.6;  // TODO: Placeholder
-  }
-
   @include desktop {
-    font-size: 16px;  // TODO: Placeholder
-    line-height: 1.7;  // TODO: Placeholder
+    font-size: 14px;
+    line-height: 22px;
   }
-}
-
-// Author info (bottom of card)
-.reviews__card .card__author {
-  margin-top: auto;  // Stick to bottom in flex layout
 }
 
 // Author name (h3 in cascade - content area)
 .reviews__card .card__name {
-  margin: 0 0 5px;  // TODO: Check Figma - space between name and meta
-  font-size: 16px;  // TODO: Check Figma
-  line-height: 1.2;
+  margin: 0 0 10px;
+  font-size: 12px;
+  line-height: 12px;
   font-weight: $font-weight-bold;
-  color: $color-text-primary;
 
   @include tablet {
-    font-size: 18px;  // TODO: Placeholder
+    font-size: 13px;
+    line-height: 13px;
+    margin: 0 0 6px;
   }
 
   @include desktop {
-    font-size: 20px;  // TODO: Placeholder
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0 0 3px;
   }
 }
 
 // Author meta (age, city)
 .reviews__card .card__meta {
   margin: 0;
-  font-size: 12px;  // TODO: Check Figma
-  line-height: 1.2;
-  font-weight: $font-weight-regular;
-  color: $color-text-secondary;  // TODO: Check Figma - lighter color
-
-  @include tablet {
-    font-size: 13px;  // TODO: Placeholder
-  }
-
-  @include desktop {
-    font-size: 14px;  // TODO: Placeholder
-  }
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: $font-weight-light;
+  color: $color-text-primary;
 }

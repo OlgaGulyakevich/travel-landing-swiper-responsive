@@ -5,6 +5,7 @@
 // Main section
 .about {
   margin-bottom: 40px;
+  overflow-x: hidden; // Prevent horizontal scroll from full-width image on mobile
 
   @include tablet {
     margin-bottom: 80px;

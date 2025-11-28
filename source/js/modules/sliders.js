@@ -123,8 +123,13 @@ export const initSliders = () => {
       nextEl: '.reviews__button-next',
       prevEl: '.reviews__button-prev',
     },
-    slidesPerView: 1,
+    slidesPerView: 'auto',
     spaceBetween: 30,
+    breakpoints: {
+      1440: {
+        spaceBetween: 120,
+      },
+    },
     on: {
       init: function() {
         // Add SVG icons to navigation buttons
