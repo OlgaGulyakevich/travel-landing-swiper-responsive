@@ -1,5 +1,20 @@
 .advantages {
-  padding: 60px 0;
+  margin-bottom: 40px;
+
+  @include tablet {
+    margin-bottom: 60px;
+  }
+
+  @include desktop {
+    margin-bottom: 80px;
+  }
+}
+
+// Remove container padding for advantages section
+.advantages .container {
+  @include desktop {
+    padding: 0;
+  }
 }
 
 .advantages__title-wrapper {
@@ -28,6 +43,17 @@
 .advantages__container {
   position: relative;  // Context for absolute positioned navigation
 
+  // Ensure equal height for slides on desktop when slider is enabled
+  @include desktop {
+    .swiper-wrapper {
+      align-items: stretch;  // Stretch all slides to equal height
+    }
+
+    .swiper-slide {
+      height: auto;  // Let slides adjust to tallest content
+    }
+  }
+
   // Navigation positioned after cards (desktop only)
   .slider-navigation {
     // Hidden on mobile/tablet (slider disabled)
@@ -36,7 +62,7 @@
     @include desktop {
       display: flex;
       justify-content: center;
-      margin-top: 40px;  // TODO: Placeholder - space after cards
+      margin-top: 50px;
       position: static;  // Override any absolute positioning from base styles
     }
   }
@@ -54,40 +80,45 @@
 .advantages__list {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;  // TODO: Placeholder - space between cards
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  justify-content: center;
+  gap: 15px;
 
   @include flex-no-overflow;  // HTML1-TEST-04: Prevent children overflow
 
   @include tablet {
-    gap: 30px;  // TODO: Placeholder
+    gap: 30px;
   }
 
   // Desktop: Swiper takes over, but keep as fallback
   @include desktop {
-    flex-wrap: nowrap;  // Slider mode
+    flex-wrap: nowrap;
+    // justify-content: center;  // !!!!!! TODO: Check Figma - space between cards
+    gap: 0;
   }
 }
 
 // Individual advantage card (li.swiper-slide)
 .advantages__list > li {
   // Mobile: 1 column (full width)
-  flex: 1 1 100%;
+  flex: 0 0 100%;
   min-width: 0;  // Prevent flex overflow
   display: flex;  // Make li a flex container for card
 
   @include flex-no-overflow;  // HTML1-TEST-04: Prevent children overflow
 
   @include tablet {
-    // Tablet: 2 columns
-    flex: 1 1 calc(50% - 15px);  // TODO: Placeholder - adjust gap
+    // Tablet: 2 columns, fixed width
+    flex: 0 0 324px;
+    max-width: 324px;
+    height: auto;  // Let cards determine their own height in grid
   }
 
   @include desktop {
-    // Desktop: Slider handles width
-    flex: 0 0 auto;
+    // Desktop: Slider handles width with slidesPerView: auto
+    flex: 0 0 380px;
+    max-width: 380px;
+    width: 380px;
+    height: auto;  // Swiper will handle equal heights via CSS
   }
 }
 
@@ -95,7 +126,76 @@
 .advantages__card {
   display: flex;
   flex-direction: column;
-  width: 100%;  // Fill parent li
+  align-items: center;
+  width: 100%;
+  max-width: 290px;  // Mobile max width
+  height: auto;
+  padding: 20px 10px;
+  margin: 0 auto;
+  text-align: center;  // Center text on mobile
+  background-color: $color-bg-white;
+  border: 1px solid $color-additional-10;
 
   @include flex-no-overflow;  // HTML1-TEST-04: Prevent children overflow
+
+  @include tablet {
+    height: 100%;  // Fill parent height for equal height cards
+    max-width: none;
+    padding: 30px 20px;
+  }
+
+  @include desktop {
+    height: 100%;
+    padding: 40px 20px;
+  }
+}
+
+// Advantage icon (24px icon + 12px padding = 48px total)
+.advantages__icon {
+  width: 24px;
+  height: 24px;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid $color-primary-blue;
+  color: $color-primary-blue;
+  flex-shrink: 0;
+  box-sizing: content-box;
+
+  @include tablet {
+    padding: 12px;
+    margin-bottom: 25px;
+  }
+
+  @include desktop {
+    padding: 15px;
+    margin-bottom: 30px;
+  }
+}
+
+// Cascade styling for advantage title (h3)
+.advantages__card h3 {
+  margin: 0 0 15px;
+  line-height: 14px;
+  font-weight: $font-weight-semibold;
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  @include desktop {
+    font-size: 18px;
+    line-height: 18px;
+  }
+}
+
+// Cascade styling for advantage description (p)
+.advantages__card p {
+  font-size: 12px;
+  line-height: 18px;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
 }

@@ -33,19 +33,3 @@ export const initFormValidation = () => {
     });
   });
 };
-
-// 2. По валидации - добавлен класс .is-invalid:
-
-// Что сделано:
-// - ✅ Добавлен .is-invalid в utility.scss:71-73
-// - ✅ Очищен input.scss от закомментированных вариантов
-// - ✅ Использован !important чтобы перебить все состояния
-
-// Как использовать в JS:
-// // При валидации формы
-// const input = document.querySelector('.input');
-// if (!input.validity.valid) {
-//   input.classList.add('is-invalid');
-// } else {
-//   input.classList.remove('is-invalid');
-// }

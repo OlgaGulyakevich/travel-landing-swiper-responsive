@@ -156,18 +156,34 @@ export const initSliders = () => {
   });
 
   // Advantages Slider (desktop only)
+  // Desktop: Shows slides 2, 3, 4 in preview with loop enabled
+  // Mobile/Tablet: Static flex grid (slider disabled)
+
   void new Swiper('[data-slider="advantages"]', {
     modules: [Navigation],
+    enabled: false,  // Disabled by default (enabled only on desktop via breakpoints)
     navigation: {
       nextEl: '.advantages__button-next',
       prevEl: '.advantages__button-prev',
     },
-    slidesPerView: 'auto',
-    slidesPerGroup: 2,
-    loop: true,
     breakpoints: {
-      1440: { enabled: true },
-      320: { enabled: false },
+      // Mobile/Tablet: slider disabled
+      320: {
+        enabled: false,
+      },
+      768: {
+        enabled: false,
+      },
+      // Desktop: slider enabled with all parameters
+      1440: {
+        enabled: true,
+        slidesPerView: 'auto',  // Width controlled by CSS (380px per card)
+        spaceBetween: 30,       // Gap between cards
+        centeredSlides: false,   // Center active slide, show partial prev/next
+        initialSlide: 0,        // ✅ Start from card 2 (index 1) to show half of card 1
+        loop: true,             // ✅ Infinite loop
+        loopedSlides: 5,        // Total number of original slides for proper loop cloning
+      },
     },
     on: {
       init: function() {

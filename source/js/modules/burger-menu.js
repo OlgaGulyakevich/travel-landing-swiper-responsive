@@ -19,6 +19,9 @@ export const initBurgerMenu = () => {
     if (!isOpen) {
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+    } else {
+      // Reset scrollbar width when closing
+      document.documentElement.style.setProperty('--scrollbar-width', '0px');
     }
 
     menu.classList.toggle('is-open');
@@ -33,6 +36,9 @@ export const initBurgerMenu = () => {
     burger.classList.remove('is-active');
     document.body.classList.remove('scroll-lock');
     burger.setAttribute('aria-expanded', 'false');
+
+    // Reset scrollbar width when closing
+    document.documentElement.style.setProperty('--scrollbar-width', '0px');
   };
 
   // Toggle on burger click
