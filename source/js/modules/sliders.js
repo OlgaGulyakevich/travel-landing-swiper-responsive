@@ -178,11 +178,11 @@ export const initSliders = () => {
       1440: {
         enabled: true,
         slidesPerView: 'auto',  // Width controlled by CSS (380px per card)
-        spaceBetween: 30,       // Gap between cards
+        spaceBetween: 30,
         centeredSlides: false,   // Center active slide, show partial prev/next
-        initialSlide: 0,        // ✅ Start from card 2 (index 1) to show half of card 1
-        loop: true,             // ✅ Infinite loop
-        loopedSlides: 5,        // Total number of original slides for proper loop cloning
+        initialSlide: 0,        // Start from card 1 (index 0) to show half of card 1
+        loop: true,             // Infinite loop
+        loopedSlides: 5,        // Total number of original slides
       },
     },
     on: {
