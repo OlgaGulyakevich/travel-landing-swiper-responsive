@@ -79,12 +79,12 @@ export const initSliders = () => {
       prevEl: '.training__button-prev',
     },
     slidesPerView: 1,
-    initialSlide: 2, // Mobile начинает с 3-го слайда (Надежда)
+    initialSlide: 2, // Mobile starts from 3rd slide (Nadezhda)
     spaceBetween: 20,
     breakpoints: {
       768: {
         slidesPerView: 3,
-        initialSlide: 0, // Tablet и Desktop начинают с 1-го слайда (Александр)
+        initialSlide: 0, // Tablet and Desktop start from 1st slide (Alexander)
       },
       1440: {
         slidesPerView: 4,
