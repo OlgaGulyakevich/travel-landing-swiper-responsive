@@ -4,22 +4,28 @@
  */
 
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 import { makePaginationKeyboardAccessible } from './pagination-keyboard.js';
 
 export const initSliders = () => {
   // Hero Slider
   void new Swiper('[data-slider="hero"]', {
-    modules: [Pagination],
+    modules: [Pagination, EffectFade],
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
     },
     loop: true,
     autoplay: false,
+    speed: 800,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: false  // Changed to false to fix pagination flashing bug
+    },
     on: {
       init: function() {
         // Make pagination bullets keyboard accessible
@@ -42,6 +48,10 @@ export const initSliders = () => {
     slidesPerView: 1,
     slidesPerGroup: 1,
     spaceBetween: 20,
+    speed: 400,
+    watchSlidesProgress: true,
+    resistance: true,
+    resistanceRatio: 0.85,
     breakpoints: {
       768: { slidesPerView: 2 },
       1440: { slidesPerView: 3 },
@@ -81,6 +91,10 @@ export const initSliders = () => {
     slidesPerView: 1,
     initialSlide: 2, // Mobile starts from 3rd slide (Nadezhda)
     spaceBetween: 20,
+    watchSlidesProgress: true,
+    speed: 400,
+    resistance: true,
+    resistanceRatio: 0.85,
     breakpoints: {
       768: {
         slidesPerView: 3,
@@ -125,6 +139,10 @@ export const initSliders = () => {
     },
     slidesPerView: 'auto',
     spaceBetween: 30,
+    speed: 600,
+    watchSlidesProgress: true,
+    resistance: true,
+    resistanceRatio: 0.85,
     breakpoints: {
       1440: {
         spaceBetween: 120,
@@ -179,10 +197,12 @@ export const initSliders = () => {
         enabled: true,
         slidesPerView: 'auto',  // Width controlled by CSS (380px per card)
         spaceBetween: 30,
-        centeredSlides: false,   // Center active slide, show partial prev/next
+        centeredSlides: false,
         initialSlide: 0,        // Start from card 1 (index 0) to show half of card 1
-        loop: true,             // Infinite loop
-        loopedSlides: 5,        // Total number of original slides
+        loop: true,
+        loopedSlides: 5,
+        speed: 500,
+        watchSlidesProgress: true,
       },
     },
     on: {
@@ -220,6 +240,7 @@ export const initSliders = () => {
     slidesPerView: 'auto', // Auto width based on CSS grid columns
     spaceBetween: 5,
     loop: true,
+    watchSlidesProgress: true,
     breakpoints: {
       768: {
         slidesPerView: 'auto',
