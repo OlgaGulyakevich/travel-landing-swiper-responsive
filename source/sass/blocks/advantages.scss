@@ -31,7 +31,7 @@
   }
 
   @include tablet {
-    margin-bottom: 60px;
+    margin-bottom: 52px;
   }
 
   @include desktop {
@@ -41,12 +41,12 @@
 
 // Container for slider (desktop only) / flex grid (mobile/tablet)
 .advantages__container {
-  position: relative;  // Context for absolute positioned navigation
+  position: relative;
 
   // Ensure equal height for slides on desktop when slider is enabled
   @include desktop {
     .swiper-wrapper {
-      align-items: stretch;  // Stretch all slides to equal height
+      align-items: stretch;
     }
 
     .swiper-slide {
@@ -71,7 +71,7 @@
   .swiper-button-prev,
   .swiper-button-next {
     @include desktop {
-      position: static;  // Override Swiper's position: absolute to work with flex layout
+      position: static;
     }
   }
 }
@@ -89,11 +89,10 @@
     gap: 30px;
   }
 
-  // Desktop: Swiper takes over, but keep as fallback
+  // Desktop: Swiper takes over (controls layout via slidesPerView and spaceBetween)
   @include desktop {
     flex-wrap: nowrap;
-    // justify-content: center;  // !!!!!! TODO: Check Figma - space between cards
-    gap: 0;
+    gap: 0;  // Swiper manages spacing via spaceBetween: 30
   }
 }
 
@@ -101,16 +100,16 @@
 .advantages__list > li {
   // Mobile: 1 column (full width)
   flex: 0 0 100%;
-  min-width: 0;  // Prevent flex overflow
-  display: flex;  // Make li a flex container for card
+  display: flex;
 
   @include flex-no-overflow;  // HTML1-TEST-04: Prevent children overflow
 
   @include tablet {
-    // Tablet: 2 columns, fixed width
-    flex: 0 0 324px;
+    // Tablet: 2 columns, adaptive width with max 324px
+    flex: 0 1 calc(50% - 15px);  // Take 50% minus half of gap
     max-width: 324px;
-    height: auto;  // Let cards determine their own height in grid
+    min-width: 280px;
+    height: auto;
   }
 
   @include desktop {
@@ -122,7 +121,7 @@
   }
 }
 
-// Advantage card wrapper
+// Advantage card
 .advantages__card {
   display: flex;
   flex-direction: column;
@@ -132,7 +131,7 @@
   height: auto;
   padding: 20px 10px;
   margin: 0 auto;
-  text-align: center;  // Center text on mobile
+  text-align: center;
   background-color: $color-bg-white;
   border: 1px solid $color-additional-10;
 
@@ -141,7 +140,8 @@
   @include tablet {
     height: 100%;  // Fill parent height for equal height cards
     max-width: none;
-    padding: 30px 20px;
+    min-height: 340px;
+    padding: 30px 19px;
   }
 
   @include desktop {
@@ -154,7 +154,7 @@
 .advantages__icon {
   width: 24px;
   height: 24px;
-  padding: 8px;
+  padding: 7px;
   margin-bottom: 20px;
   border: 1px solid $color-primary-blue;
   color: $color-primary-blue;
@@ -197,5 +197,21 @@
   @include tablet {
     font-size: 14px;
     line-height: 22px;
+  }
+}
+
+.advantages__card-br {
+  display: block;
+}
+
+.advantages__card-br-tablet {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+
+  @include desktop {
+    display: none;
   }
 }
