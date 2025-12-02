@@ -24,7 +24,7 @@ export const initSliders = () => {
     speed: 800,
     effect: 'fade',
     fadeEffect: {
-      crossFade: false  // Changed to false to fix pagination flashing bug
+      crossFade: false // Changed to false to fix pagination flashing bug
     },
     on: {
       init: function() {
@@ -180,7 +180,7 @@ export const initSliders = () => {
 
   void new Swiper('[data-slider="advantages"]', {
     modules: [Navigation],
-    enabled: false,  // Disabled by default (enabled only on desktop via breakpoints)
+    enabled: false, // Disabled by default (enabled only on desktop via breakpoints)
     navigation: {
       nextEl: '.advantages__button-next',
       prevEl: '.advantages__button-prev',
@@ -199,7 +199,7 @@ export const initSliders = () => {
       1440: {
         enabled: true,
         loop: true,
-        loopedSlides: 10,         // Total slides (5 original + 5 duplicates)
+        loopedSlides: 10, // Total slides (5 original + 5 duplicates)
         speed: 800,
         slidesPerView: 'auto',
         slidesPerGroup: 2,

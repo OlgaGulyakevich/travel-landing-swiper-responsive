@@ -36,6 +36,7 @@
 
   @include desktop {
     margin-bottom: 50px;
+
     // Back to original padding
     padding-left: 120px;
     padding-right: 120px;
@@ -51,7 +52,7 @@
   @include desktop {
     // Display slider on full viewport width
     width: 100vw;
-    margin-left: calc(-50vw + 50%)!important;
+    margin-left: calc(-50vw + 50%);
     overflow: hidden;
   }
 
