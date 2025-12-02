@@ -1,33 +1,47 @@
 .gallery {
-  padding: 60px 0;
+  margin-bottom: 5px;
+}
+
+// Title wrapper
+.gallery__title-wrapper {
+  margin-bottom: 27px;
+
+  @include tablet {
+    margin-bottom: 30px;
+  }
 }
 
 // Intro text + Navigation wrapper (tablet: flex layout with arrows on right)
 .gallery__intro {
-  margin-bottom: 30px;  // TODO: Placeholder - space before gallery
+  margin-bottom: 31px;
 
   @include tablet {
     display: flex;
     justify-content: space-between;
-    align-items: center;  // Arrows align with text center
-    margin-bottom: 40px;  // TODO: Placeholder
+    align-items: center;
+    margin-bottom: 21px;
   }
 
   @include desktop {
-    margin-bottom: 50px;  // TODO: Placeholder
+    margin-bottom: 46px;
   }
 
   // Content paragraph (cascading)
   p {
-    margin: 0;  // Reset default margin
-    max-width: 500px;  // TODO: Placeholder - prevent too wide text
+    font-size: 12px;
+    line-height: 18px;
+    text-align: left;
 
     @include tablet {
-      max-width: 400px;  // TODO: Placeholder
+      font-size: 14px;
+      line-height: 22px;
+      max-width: 380px;
     }
 
     @include desktop {
-      max-width: none;  // Remove on desktop
+      font-size: 16px;
+      line-height: 24px;
+      max-width: 600px;
     }
   }
 
@@ -38,12 +52,14 @@
     @include tablet {
       display: flex;  // Show on tablet
       position: static;  // Override any absolute positioning
+      align-self: flex-end;
     }
 
     @include desktop {
       display: none;  // Hide on desktop (slider disabled)
     }
   }
+
 
   // Override Swiper default position: absolute for navigation buttons
   .swiper-button-prev,

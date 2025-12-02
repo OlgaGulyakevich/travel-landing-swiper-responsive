@@ -6,11 +6,11 @@
   }
 
   @include desktop {
-    margin-bottom: 80px;
+    margin-bottom: 100px;
   }
 }
 
-// Remove container padding for advantages section
+// Container - reset padding only on desktop
 .advantages .container {
   @include desktop {
     padding: 0;
@@ -36,38 +36,37 @@
 
   @include desktop {
     margin-bottom: 50px;
+    // Back to original padding
+    padding-left: 120px;
+    padding-right: 120px;
   }
 }
 
-// Container for slider (desktop only) / flex grid (mobile/tablet)
+// ============================================
+// CONTAINER SLIDER
+// ============================================
 .advantages__container {
   position: relative;
 
-  // Ensure equal height for slides on desktop when slider is enabled
   @include desktop {
-    .swiper-wrapper {
-      align-items: stretch;
-    }
-
-    .swiper-slide {
-      height: auto;  // Let slides adjust to tallest content
-    }
+    // Display slider on full viewport width
+    width: 100vw;
+    margin-left: calc(-50vw + 50%)!important;
+    overflow: hidden;
   }
 
-  // Navigation positioned after cards (desktop only)
+  // Navigation
   .slider-navigation {
-    // Hidden on mobile/tablet (slider disabled)
     display: none;
 
     @include desktop {
       display: flex;
       justify-content: center;
-      margin-top: 50px;
-      position: static;  // Override any absolute positioning from base styles
+      margin-top: 70px;
+      position: static;
     }
   }
 
-  // Override Swiper default position: absolute for navigation buttons
   .swiper-button-prev,
   .swiper-button-next {
     @include desktop {
@@ -76,58 +75,69 @@
   }
 }
 
-// List of advantages (flex grid on mobile/tablet, slider on desktop)
+// ============================================
+// LIST OF CARDS
+// ============================================
 .advantages__list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
 
-  @include flex-no-overflow;  // HTML1-TEST-04: Prevent children overflow
+  @include flex-no-overflow;
 
   @include tablet {
     gap: 30px;
   }
 
-  // Desktop: Swiper takes over (controls layout via slidesPerView and spaceBetween)
   @include desktop {
+    // IMPORTANT: remove flex-wrap and gap - Swiper controls layout
     flex-wrap: nowrap;
-    gap: 0;  // Swiper manages spacing via spaceBetween: 30
+    justify-content: flex-start;
+    gap: 0;
   }
 }
 
-// Individual advantage card (li.swiper-slide)
+// ============================================
+// SLIDES - FIXED WIDTH
+// ============================================
 .advantages__list > li {
-  // Mobile: 1 column (full width)
   flex: 0 0 100%;
-  display: flex;
 
-  @include flex-no-overflow;  // HTML1-TEST-04: Prevent children overflow
+  @include flex-no-overflow;
 
   @include tablet {
-    // Tablet: 2 columns, adaptive width with max 324px
-    flex: 0 1 calc(50% - 15px);  // Take 50% minus half of gap
-    max-width: 324px;
-    min-width: 280px;
-    height: auto;
+    flex: 0 1 calc(50% - 15px);
   }
 
   @include desktop {
-    // Desktop: Slider handles width with slidesPerView: auto
-    flex: 0 0 380px;
-    max-width: 380px;
+    // KEY MOMENT: fixed width for slidesPerView: 'auto'
     width: 380px;
-    height: auto;  // Swiper will handle equal heights via CSS
+    min-width: 380px;
+    max-width: 380px;
+    flex: 0 0 auto;
+    flex-shrink: 0;
   }
 }
 
-// Advantage card
+// Duplicates hidden on mobile/tablet
+.swiper-slide.advantages__slide--duplicate {
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+}
+
+// ============================================
+// CARD
+// ============================================
 .advantages__card {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 290px;  // Mobile max width
+  max-width: 290px;
   height: auto;
   padding: 20px 10px;
   margin: 0 auto;
@@ -135,22 +145,26 @@
   background-color: $color-bg-white;
   border: 1px solid $color-additional-10;
 
-  @include flex-no-overflow;  // HTML1-TEST-04: Prevent children overflow
+  @include flex-no-overflow;
 
   @include tablet {
-    height: 100%;  // Fill parent height for equal height cards
+    height: 100%;
     max-width: none;
     min-height: 340px;
     padding: 30px 19px;
   }
 
   @include desktop {
-    height: 100%;
-    padding: 40px 20px;
+    width: 380px;
+    max-width: 380px;
+    min-height: 329px;
+    padding: 40px 15px;
+    margin: 0; // Remove auto margin
+    box-sizing: border-box;
   }
 }
 
-// Advantage icon (24px icon + 12px padding = 48px total)
+// ICON
 .advantages__icon {
   width: 24px;
   height: 24px;
@@ -162,8 +176,8 @@
   box-sizing: content-box;
 
   @include tablet {
-    padding: 12px;
-    margin-bottom: 25px;
+    padding: 10px;
+    margin-bottom: 24px;
   }
 
   @include desktop {
@@ -172,11 +186,11 @@
   }
 }
 
-// Cascade styling for advantage title (h3)
+// CARD TITLE
 .advantages__card h3 {
-  margin: 0 0 15px;
   line-height: 14px;
   font-weight: $font-weight-semibold;
+  margin-bottom: 15px;
 
   @include tablet {
     font-size: 16px;
@@ -189,7 +203,7 @@
   }
 }
 
-// Cascade styling for advantage description (p)
+// CARD DESCRIPTION
 .advantages__card p {
   font-size: 12px;
   line-height: 18px;
@@ -213,5 +227,26 @@
 
   @include desktop {
     display: none;
+  }
+}
+
+.advantages__card-br-desktop {
+  display: none;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.advantages__card-nowrap-desktop {
+  display: none;
+
+  @include desktop {
+    display: block;
+    white-space: nowrap;
   }
 }

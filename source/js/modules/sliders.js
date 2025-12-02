@@ -174,8 +174,9 @@ export const initSliders = () => {
   });
 
   // Advantages Slider (desktop only)
-  // Desktop: Shows slides 2, 3, 4 in preview with loop enabled
+  // Desktop: Shows cards with loop, slides by 2
   // Mobile/Tablet: Static flex grid (slider disabled)
+  // HTML contains 10 slides: 5 original + 5 duplicates for smooth loop
 
   void new Swiper('[data-slider="advantages"]', {
     modules: [Navigation],
@@ -192,17 +193,25 @@ export const initSliders = () => {
       768: {
         enabled: false,
       },
-      // Desktop: slider enabled with all parameters
+      // Desktop: 10 slides with loop and slidesPerGroup: 2
+      // Available width: 1440px - 200px padding = 1240px
+      // Target: Show partial + 3 full + partial
       1440: {
         enabled: true,
-        slidesPerView: 'auto',  // Width controlled by CSS (380px per card)
-        spaceBetween: 30,
-        centeredSlides: false,
-        initialSlide: 0,        // Start from card 1 (index 0) to show half of card 1
         loop: true,
-        loopedSlides: 5,
-        speed: 500,
+        loopedSlides: 10,         // Total slides (5 original + 5 duplicates)
+        speed: 800,
+        slidesPerView: 'auto',
+        slidesPerGroup: 2,
+
+        centeredSlides: true,
+        slidesOffsetBefore: 30,      // Peek left
+        slidesOffsetAfter: 80,       // Peek right
+        spaceBetween: 30,
+        initialSlide: 2,
+
         watchSlidesProgress: true,
+        watchOverflow: true,
       },
     },
     on: {
