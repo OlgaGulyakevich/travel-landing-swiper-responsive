@@ -205,8 +205,8 @@ export const initSliders = () => {
         slidesPerGroup: 2,
 
         centeredSlides: true,
-        slidesOffsetBefore: 30,      // Peek left
-        slidesOffsetAfter: 80,       // Peek right
+        // slidesOffsetBefore: 30,      // Peek left
+        // slidesOffsetAfter: 80,       // Peek right
         spaceBetween: 30,
         initialSlide: 2,
 
