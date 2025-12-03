@@ -1,5 +1,6 @@
 .advantages {
   margin-bottom: 76px;
+  overflow-x: clip; // Prevent horizontal scroll when container extends beyond viewport
 
   @include tablet {
     margin-bottom: 100px;

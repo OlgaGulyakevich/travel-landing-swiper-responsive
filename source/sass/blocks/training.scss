@@ -127,6 +127,11 @@
   }
 }
 
+// Swiper wrapper (flex container) - HTML1-TEST-04: Prevent overflow
+.training__slider .swiper-wrapper {
+  @include flex-no-overflow;
+}
+
 // Swiper slides in training
 .training__slider .swiper-slide {
   width: 290px;

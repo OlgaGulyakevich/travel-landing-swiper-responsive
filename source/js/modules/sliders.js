@@ -262,12 +262,12 @@ export const initSliders = () => {
       prevEl: '.gallery__button-prev',
     },
 
-    // Mobile/Tablet: auto - слайдер сам подстраивает количество слайдов
+    // Mobile/Tablet
     slidesPerView: 'auto',
     slidesPerGroup: 1,
     spaceBetween: 5,
     loop: true,
-    loopedSlides: 5, // Количество реальных слайдов для loop mode
+    loopedSlides: 5, 
     speed: 600,
     grabCursor: true,
     watchSlidesProgress: true,
