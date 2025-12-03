@@ -109,9 +109,13 @@
   }
 }
 
-// Slides
-.gallery__slide {
-  width: 100%;
+// Slides - fixed width for slidesPerView: 'auto'
+.swiper-slide.gallery__slide {
+  width: 157px; 
+
+  @include tablet {
+    width: 252px;
+  }
 }
 
 // Inner grid per slide

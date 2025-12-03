@@ -262,24 +262,17 @@ export const initSliders = () => {
       prevEl: '.gallery__button-prev',
     },
 
-    // Mobile: 1 slide (grid with 2-3 photos inside)
-    slidesPerView: 2,
+    // Mobile/Tablet: auto - слайдер сам подстраивает количество слайдов
+    slidesPerView: 'auto',
     slidesPerGroup: 1,
-    spaceBetween: 0,
+    spaceBetween: 5,
     loop: true,
+    loopedSlides: 5, // Количество реальных слайдов для loop mode
     speed: 600,
     grabCursor: true,
     watchSlidesProgress: true,
 
     breakpoints: {
-      // Tablet: Same behavior (1 slide per view, grid shows 3 photos)
-      768: {
-        slidesPerView: 3,
-        slidesPerGroup: 1,
-        spaceBetween: 0,
-        loop: true,
-      },
-
       // Desktop: Disabled (CSS Grid takes over)
       1440: {
         enabled: false,
