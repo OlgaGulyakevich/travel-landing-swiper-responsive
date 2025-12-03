@@ -4,7 +4,7 @@
  */
 
 import Swiper from 'swiper';
-import { Navigation, Pagination, EffectFade } from 'swiper/modules';
+import { Navigation, Pagination, EffectFade, Keyboard } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -14,7 +14,7 @@ import { makePaginationKeyboardAccessible } from './pagination-keyboard.js';
 export const initSliders = () => {
   // Hero Slider
   void new Swiper('[data-slider="hero"]', {
-    modules: [Pagination, EffectFade],
+    modules: [Pagination, EffectFade, Keyboard],
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -25,10 +25,16 @@ export const initSliders = () => {
 
     // Fade effect with adaptive speed
     effect: 'fade',
-    speed: 400, 
+    speed: 400,
 
     fadeEffect: {
       crossFade: false
+    },
+
+    // Keyboard navigation for accessibility
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
     },
 
     breakpoints: {
@@ -55,7 +61,7 @@ export const initSliders = () => {
 
   // Tours Slider
   void new Swiper('[data-slider="tours"]', {
-    modules: [Navigation],
+    modules: [Navigation, Keyboard],
     navigation: {
       nextEl: '.tours__button-next',
       prevEl: '.tours__button-prev',
@@ -67,6 +73,13 @@ export const initSliders = () => {
     watchSlidesProgress: true,
     resistance: true,
     resistanceRatio: 0.85,
+
+    // Keyboard navigation for accessibility
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+
     breakpoints: {
       768: { slidesPerView: 2 },
       1440: { slidesPerView: 3 },
@@ -98,7 +111,7 @@ export const initSliders = () => {
 
   // Training Slider
   void new Swiper('[data-slider="training"]', {
-    modules: [Navigation],
+    modules: [Navigation, Keyboard],
     navigation: {
       nextEl: '.training__button-next',
       prevEl: '.training__button-prev',
@@ -110,6 +123,13 @@ export const initSliders = () => {
     speed: 400,
     resistance: true,
     resistanceRatio: 0.85,
+
+    // Keyboard navigation for accessibility
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+
     breakpoints: {
       768: {
         slidesPerView: 3,
@@ -147,7 +167,7 @@ export const initSliders = () => {
 
   // Reviews Slider
   void new Swiper('[data-slider="reviews"]', {
-    modules: [Navigation],
+    modules: [Navigation, Keyboard],
     navigation: {
       nextEl: '.reviews__button-next',
       prevEl: '.reviews__button-prev',
@@ -158,6 +178,13 @@ export const initSliders = () => {
     watchSlidesProgress: true,
     resistance: true,
     resistanceRatio: 0.85,
+
+    // Keyboard navigation for accessibility
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+
     breakpoints: {
       1440: {
         spaceBetween: 120,
@@ -194,12 +221,19 @@ export const initSliders = () => {
   // HTML contains 10 slides: 5 original + 5 duplicates for smooth loop
 
   void new Swiper('[data-slider="advantages"]', {
-    modules: [Navigation],
+    modules: [Navigation, Keyboard],
     enabled: false, // Disabled by default (enabled only on desktop via breakpoints)
     navigation: {
       nextEl: '.advantages__button-next',
       prevEl: '.advantages__button-prev',
     },
+
+    // Keyboard navigation for accessibility (desktop only)
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+
     breakpoints: {
       // Mobile/Tablet: slider disabled
       320: {
@@ -255,7 +289,7 @@ export const initSliders = () => {
   // Mobile/Tablet: Shows slides with grid layout inside
   // Desktop: Slider disabled, CSS Grid takes over
   void new Swiper('[data-slider="gallery"]', {
-    modules: [Navigation],
+    modules: [Navigation, Keyboard],
 
     navigation: {
       nextEl: '.gallery__button-next',
@@ -267,10 +301,16 @@ export const initSliders = () => {
     slidesPerGroup: 1,
     spaceBetween: 5,
     loop: true,
-    loopedSlides: 5, 
+    loopedSlides: 5,
     speed: 600,
     grabCursor: true,
     watchSlidesProgress: true,
+
+    // Keyboard navigation for accessibility
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
 
     breakpoints: {
       // Desktop: Disabled (CSS Grid takes over)
