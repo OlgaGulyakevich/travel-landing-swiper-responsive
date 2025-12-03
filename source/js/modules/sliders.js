@@ -21,11 +21,26 @@ export const initSliders = () => {
     },
     loop: true,
     autoplay: false,
-    speed: 800,
+    grabCursor: true,
+
+    // Fade effect with adaptive speed
     effect: 'fade',
+    speed: 400, 
+
     fadeEffect: {
-      crossFade: false // Changed to false to fix pagination flashing bug
+      crossFade: false
     },
+
+    breakpoints: {
+      768: {
+        speed: 600,
+      },
+
+      1440: {
+        speed: 800,
+      }
+    },
+
     on: {
       init: function() {
         // Make pagination bullets keyboard accessible
@@ -194,19 +209,16 @@ export const initSliders = () => {
         enabled: false,
       },
       // Desktop: 10 slides with loop and slidesPerGroup: 2
-      // Available width: 1440px - 200px padding = 1240px
       // Target: Show partial + 3 full + partial
       1440: {
         enabled: true,
         loop: true,
-        loopedSlides: 10, // Total slides (5 original + 5 duplicates)
+        loopedSlides: 10,
         speed: 800,
         slidesPerView: 'auto',
         slidesPerGroup: 2,
 
         centeredSlides: true,
-        // slidesOffsetBefore: 30,      // Peek left
-        // slidesOffsetAfter: 80,       // Peek right
         spaceBetween: 30,
         initialSlide: 2,
 
@@ -240,25 +252,40 @@ export const initSliders = () => {
   });
 
   // Gallery Slider (mobile/tablet only, disabled on desktop)
+  // Mobile/Tablet: Shows slides with grid layout inside
+  // Desktop: Slider disabled, CSS Grid takes over
   void new Swiper('[data-slider="gallery"]', {
     modules: [Navigation],
+
     navigation: {
       nextEl: '.gallery__button-next',
       prevEl: '.gallery__button-prev',
     },
-    slidesPerView: 'auto', // Auto width based on CSS grid columns
-    spaceBetween: 5,
+
+    // Mobile: 1 slide (grid with 2-3 photos inside)
+    slidesPerView: 2,
+    slidesPerGroup: 1,
+    spaceBetween: 0,
     loop: true,
+    speed: 600,
+    grabCursor: true,
     watchSlidesProgress: true,
+
     breakpoints: {
+      // Tablet: Same behavior (1 slide per view, grid shows 3 photos)
       768: {
-        slidesPerView: 'auto',
-        spaceBetween: 5
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+        spaceBetween: 0,
+        loop: true,
       },
+
+      // Desktop: Disabled (CSS Grid takes over)
       1440: {
-        enabled: false // Disable on desktop, CSS grid takes over
+        enabled: false,
       },
     },
+
     on: {
       init: function() {
         // Add SVG icons to navigation buttons

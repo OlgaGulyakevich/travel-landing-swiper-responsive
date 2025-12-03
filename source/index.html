@@ -1055,19 +1055,19 @@
     <section class="gallery" id="gallery" data-test="gallery">
       <div class="container">
 
-        <!-- Title with Decoration (UI Component) -->
+        <!-- Title with Decoration -->
         <div class="title gallery__title-wrapper">
-          <h2 class="title__main">Фотографии</h2>
-          <span class="title__decoration" aria-hidden="true">Фотографии</span>
+          <h2 class="title__main">Фотогалерея</h2>
+          <span class="title__decoration" aria-hidden="true">Фотогалерея</span>
         </div>
 
-        <!-- Intro text + Navigation (Tablet: flex layout with arrows on right) -->
+        <!-- Intro + Navigation -->
         <div class="gallery__intro">
           <!-- Content area WITHOUT classes (cascading styling) -->
-          <p>Добавляйте фото с хэштегом #лайфтур, а&nbsp;также отмечайте нас на фото. Лучшие фотографии украсят этот раздел нашего сайта.</p>
+          <p>Добавляйте фото с хэштегом #лайфтур,<br class="gallery__intro-br-tablet"> а&nbsp;также отмечайте нас на&nbsp;фото. Лучшие фотографии украсят этот раздел нашего сайта.</p>
 
-          <!-- Navigation Arrows (Mobile/Tablet only, Desktop hidden) -->
-          <div class="slider-navigation gallery__navigation">
+          <!-- Navigation (Tablet only) -->
+          <div class="slider-navigation">
             <button class="swiper-button-prev gallery__button-prev" type="button" aria-label="Предыдущее фото">
               <span class="visually-hidden">Предыдущее фото</span>
             </button>
@@ -1079,131 +1079,142 @@
 
       </div>
 
-      <!-- Gallery Container (Slider on mobile/tablet, Grid on desktop) -->
-      <div class="gallery__container swiper" data-slider="gallery">
-          <div class="swiper-wrapper">
+      <!-- ========== MOBILE/TABLET: Swiper Slider ========== -->
+      <!-- 5 slides = 5 desktop columns -->
+      <div class="gallery__slider swiper" data-slider="gallery">
+        <ul class="swiper-wrapper">
 
-            <!-- Slide 1: Photos 1, 2, 3 (Mobile + Tablet) | All 7 photos (Desktop) -->
-            <div class="swiper-slide gallery__slide">
-              <div class="gallery__grid">
-                <!-- Photo 1 (tall) -->
-                <div class="gallery__item gallery__item--tall">
-                  <picture>
-                    <source type="image/webp" srcset="img/gallery-1@1x.webp 1x, img/gallery-1@2x.webp 2x" width="158" height="266">
-                    <img class="gallery__image" src="img/gallery-1@1x.jpg" srcset="img/gallery-1@2x.jpg 2x" width="158" height="266" alt="Турист со рюкзаком стоит спиной на вершине горы и смотрит на горный хребет под голубым небом.">
-                  </picture>
-                </div>
-
-                <!-- Photo 2 (square) -->
-                <div class="gallery__item">
-                  <picture>
-                    <source type="image/webp" srcset="img/gallery-2@1x.webp 1x, img/gallery-2@2x.webp 2x" width="157" height="149">
-                    <img class="gallery__image" src="img/gallery-2@1x.jpg" srcset="img/gallery-2@2x.jpg 2x" width="157" height="149" alt="Группа туристов сидят у костра на ночной стоянке в лесу.">
-                  </picture>
-                </div>
-
-                <!-- Photo 3 (square) -->
-                <div class="gallery__item">
-                  <picture>
-                    <source type="image/webp" srcset="img/gallery-3@1x.webp 1x, img/gallery-3@2x.webp 2x" width="157" height="149">
-                    <img class="gallery__image" src="img/gallery-3@1x.jpg" srcset="img/gallery-3@2x.jpg 2x" width="157" height="149" alt="Рука с компасом на фоне горного хребта под пасмурным небом.">
-                  </picture>
-                </div>
-
-                <!-- Photo 4 (tall) - visible on desktop only in Slide 1 -->
-                <div class="gallery__item gallery__item--tall gallery__item--desktop-visible">
-                  <picture>
-                    <source type="image/webp" srcset="img/gallery-4@1x.webp 1x, img/gallery-4@2x.webp 2x" width="158" height="266">
-                    <img class="gallery__image" src="img/gallery-4@1x.jpg" srcset="img/gallery-4@2x.jpg 2x" width="158" height="266" alt="Туристы спускаются по горному склону по закреплённой верёвке, на фоне виден высокий конусообразный вулкан">
-                  </picture>
-                </div>
-
-                <!-- Photo 5 (square) - visible on desktop only -->
-                <div class="gallery__item gallery__item--desktop-visible">
-                  <picture>
-                    <source type="image/webp" srcset="img/gallery-5@1x.webp 1x, img/gallery-5@2x.webp 2x" width="157" height="149">
-                    <img class="gallery__image" src="img/gallery-5@1x.jpg" srcset="img/gallery-5@2x.jpg 2x" width="157" height="149" alt="Группа альпинистов в яркой одежде и касках идет по леднику рядом с бирюзовым ледниковым озером.">
-                  </picture>
-                </div>
-
-                <!-- Photo 6 (square) - visible on desktop only -->
-                <div class="gallery__item gallery__item--desktop-visible">
-                  <picture>
-                    <source type="image/webp" srcset="img/gallery-6@1x.webp 1x, img/gallery-6@2x.webp 2x" width="157" height="149">
-                    <img class="gallery__image" src="img/gallery-6@1x.jpg" srcset="img/gallery-6@2x.jpg 2x" width="157" height="149" alt="Ярко-синяя туристическая палатка освещена изнутри в поле под впечатляющим, усыпанным звездами небом с видимым Млечным Путем.">
-                  </picture>
-                </div>
-
-                <!-- Photo 7 (tall) - visible on desktop only -->
-                <div class="gallery__item gallery__item--tall gallery__item--desktop-visible">
-                  <picture>
-                    <source type="image/webp" srcset="img/gallery-7@1x.webp 1x, img/gallery-7@2x.webp 2x" width="158" height="266">
-                    <img class="gallery__image" src="img/gallery-7@1x.jpg" srcset="img/gallery-7@2x.jpg 2x" width="158" height="266" alt="Туристы на привале разводят костер на берегу реки в лесу.">
-                  </picture>
-                </div>
+          <!-- Slide 1: Photo 1 (tall) -->
+          <li class="swiper-slide gallery__slide">
+            <div class="gallery__grid">
+              <div class="gallery__item gallery__item--tall">
+                <picture>
+                  <source type="image/webp" srcset="img/gallery-1@1x.webp 1x, img/gallery-1@2x.webp 2x" width="158" height="269">
+                  <img class="gallery__image" src="img/gallery-1@1x.jpg" srcset="img/gallery-1@2x.jpg 2x" width="158" height="269" alt="Турист со рюкзаком стоит спиной на вершине горы и смотрит на горный хребет под голубым небом." loading="lazy">
+                </picture>
               </div>
             </div>
+          </li>
 
-            <!-- Slide 2: Photos 3, 1, 2 (Mobile) | Hidden on Tablet/Desktop -->
-            <div class="swiper-slide gallery__slide gallery__slide--tablet-hidden">
-              <div class="gallery__grid">
-                <!-- Photo 3 (square) -->
-                <div class="gallery__item">
-                  <picture>
-                    <source type="image/webp" srcset="img/gallery-3@1x.webp 1x, img/gallery-3@2x.webp 2x" width="157" height="149">
-                    <img class="gallery__image" src="img/gallery-3@1x.jpg" srcset="img/gallery-3@2x.jpg 2x" width="157" height="149" alt="Рука с компасом на фоне горного хребта под пасмурным небом.">
-                  </picture>
-                </div>
-
-                <!-- Photo 1 (tall) -->
-                <div class="gallery__item gallery__item--tall">
-                  <picture>
-                    <source type="image/webp" srcset="img/gallery-1@1x.webp 1x, img/gallery-1@2x.webp 2x" width="158" height="266">
-                    <img class="gallery__image" src="img/gallery-1@1x.jpg" srcset="img/gallery-1@2x.jpg 2x" width="158" height="266" alt="Турист со рюкзаком стоит спиной на вершине горы и смотрит на горный хребет под голубым небом.">
-                  </picture>
-                </div>
-
-                <!-- Photo 2 (square) -->
-                <div class="gallery__item">
-                  <picture>
-                    <source type="image/webp" srcset="img/gallery-2@1x.webp 1x, img/gallery-2@2x.webp 2x" width="157" height="149">
-                    <img class="gallery__image" src="img/gallery-2@1x.jpg" srcset="img/gallery-2@2x.jpg 2x" width="157" height="149" alt="Группа туристов сидят у костра на ночной стоянке в лесу.">
-                  </picture>
-                </div>
+          <!-- Slide 2: Photos 2 + 3 (square) -->
+          <li class="swiper-slide gallery__slide">
+            <div class="gallery__grid">
+              <div class="gallery__item">
+                <picture>
+                  <source type="image/webp" srcset="img/gallery-2@1x.webp 1x, img/gallery-2@2x.webp 2x" width="157" height="128">
+                  <img class="gallery__image" src="img/gallery-2@1x.jpg" srcset="img/gallery-2@2x.jpg 2x" width="157" height="128" alt="Группа туристов сидят у костра на ночной стоянке в лесу." loading="lazy">
+                </picture>
+              </div>
+              <div class="gallery__item">
+                <!-- Art direction: different crop for mobile/tablet -->
+                <picture>
+                  <source media="(min-width: 768px)" type="image/webp" srcset="img/gallery-3-tablet@1x.webp 1x, img/gallery-3-tablet@2x.webp 2x" width="252" height="205">
+                  <source media="(min-width: 768px)" srcset="img/gallery-3-tablet@1x.jpg 1x, img/gallery-3-tablet@2x.jpg 2x" width="252" height="205">
+                  <source type="image/webp" srcset="img/gallery-3-mobile@1x.webp 1x, img/gallery-3-mobile@2x.webp 2x" width="157" height="128">
+                  <img class="gallery__image" src="img/gallery-3-mobile@1x.jpg" srcset="img/gallery-3-mobile@2x.jpg 2x" width="157" height="128" alt="Рука с компасом на фоне горного хребта под пасмурным небом." loading="lazy">
+                </picture>
               </div>
             </div>
+          </li>
 
-            <!-- Slide 3: Photos 4, 1, 2 (Tablet only) | Hidden on Mobile/Desktop -->
-            <div class="swiper-slide gallery__slide gallery__slide--tablet-only">
-              <div class="gallery__grid">
-                <!-- Photo 4 (tall) -->
-                <div class="gallery__item gallery__item--tall">
-                  <picture>
-                    <source type="image/webp" srcset="img/gallery-4@1x.webp 1x, img/gallery-4@2x.webp 2x" width="158" height="266">
-                    <img class="gallery__image" src="img/gallery-4@1x.jpg" srcset="img/gallery-4@2x.jpg 2x" width="158" height="266" alt="Туристы спускаются по горному склону по закреплённой верёвке, на фоне виден высокий конусообразный вулкан">
-                  </picture>
-                </div>
-
-                <!-- Photo 1 (tall) -->
-                <div class="gallery__item gallery__item--tall">
-                  <picture>
-                    <source type="image/webp" srcset="img/gallery-1@1x.webp 1x, img/gallery-1@2x.webp 2x" width="158" height="266">
-                    <img class="gallery__image" src="img/gallery-1@1x.jpg" srcset="img/gallery-1@2x.jpg 2x" width="158" height="266" alt="Турист со рюкзаком стоит спиной на вершине горы и смотрит на горный хребет под голубым небом.">
-                  </picture>
-                </div>
-
-                <!-- Photo 2 (square) -->
-                <div class="gallery__item">
-                  <picture>
-                    <source type="image/webp" srcset="img/gallery-2@1x.webp 1x, img/gallery-2@2x.webp 2x" width="157" height="149">
-                    <img class="gallery__image" src="img/gallery-2@1x.jpg" srcset="img/gallery-2@2x.jpg 2x" width="157" height="149" alt="Группа туристов сидят у костра на ночной стоянке в лесу.">
-                  </picture>
-                </div>
+          <!-- Slide 3: Photo 4 (tall) -->
+          <li class="swiper-slide gallery__slide">
+            <div class="gallery__grid">
+              <div class="gallery__item gallery__item--tall">
+                <picture>
+                  <source type="image/webp" srcset="img/gallery-4@1x.webp 1x, img/gallery-4@2x.webp 2x" width="158" height="269">
+                  <img class="gallery__image" src="img/gallery-4@1x.jpg" srcset="img/gallery-4@2x.jpg 2x" width="158" height="269" alt="Туристы спускаются по горному склону по закреплённой верёвке, на фоне виден высокий конусообразный вулкан." loading="lazy">
+                </picture>
               </div>
             </div>
+          </li>
 
-          </div>
+          <!-- Slide 4: Photos 5 + 6 (square) -->
+          <li class="swiper-slide gallery__slide">
+            <div class="gallery__grid">
+              <div class="gallery__item">
+                <picture>
+                  <source type="image/webp" srcset="img/gallery-5@1x.webp 1x, img/gallery-5@2x.webp 2x" width="157" height="128">
+                  <img class="gallery__image" src="img/gallery-5@1x.jpg" srcset="img/gallery-5@2x.jpg 2x" width="157" height="128" alt="Группа альпинистов в яркой одежде и касках идет по леднику рядом с бирюзовым ледниковым озером." loading="lazy">
+                </picture>
+              </div>
+              <div class="gallery__item">
+                <picture>
+                  <source type="image/webp" srcset="img/gallery-6@1x.webp 1x, img/gallery-6@2x.webp 2x" width="157" height="128">
+                  <img class="gallery__image" src="img/gallery-6@1x.jpg" srcset="img/gallery-6@2x.jpg 2x" width="157" height="128" alt="Ярко-синяя туристическая палатка освещена изнутри в поле под впечатляющим, усыпанным звездами небом с видимым Млечным Путем." loading="lazy">
+                </picture>
+              </div>
+            </div>
+          </li>
+
+          <!-- Slide 5: Photo 7 (tall) -->
+          <li class="swiper-slide gallery__slide">
+            <div class="gallery__grid">
+              <div class="gallery__item gallery__item--tall">
+                <picture>
+                  <source type="image/webp" srcset="img/gallery-7@1x.webp 1x, img/gallery-7@2x.webp 2x" width="158" height="269">
+                  <img class="gallery__image" src="img/gallery-7@1x.jpg" srcset="img/gallery-7@2x.jpg 2x" width="158" height="269" alt="Туристы на привале разводят костер на берегу реки в лесу." loading="lazy">
+                </picture>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- ========== DESKTOP: Static CSS Grid ========== -->
+      <div class="gallery__desktop-grid">
+        <!-- Photo 1: Tall -->
+        <div class="gallery__item gallery__item--tall">
+          <picture>
+            <source type="image/webp" srcset="img/gallery-1@1x.webp 1x, img/gallery-1@2x.webp 2x" width="284" height="463">
+            <img class="gallery__image" src="img/gallery-1@1x.jpg" srcset="img/gallery-1@2x.jpg 2x" width="284" height="463" alt="Турист со рюкзаком стоит спиной на вершине горы и смотрит на горный хребет под голубым небом." loading="lazy">
+          </picture>
         </div>
+        <!-- Photo 2: Square -->
+        <div class="gallery__item">
+          <picture>
+            <source type="image/webp" srcset="img/gallery-2@1x.webp 1x, img/gallery-2@2x.webp 2x" width="284" height="223">
+            <img class="gallery__image" src="img/gallery-2@1x.jpg" srcset="img/gallery-2@2x.jpg 2x" width="284" height="223" alt="Группа туристов сидят у костра на ночной стоянке в лесу." loading="lazy">
+          </picture>
+        </div>
+        <!-- Photo 3: Square -->
+        <div class="gallery__item">
+          <picture>
+            <source type="image/webp" srcset="img/gallery-3@1x.webp 1x, img/gallery-3@2x.webp 2x" width="284" height="223">
+            <img class="gallery__image" src="img/gallery-3@1x.jpg" srcset="img/gallery-3@2x.jpg 2x" width="284" height="223" alt="Рука с компасом на фоне горного хребта под пасмурным небом." loading="lazy">
+          </picture>
+        </div>
+        <!-- Photo 4: Tall -->
+        <div class="gallery__item gallery__item--tall">
+          <picture>
+            <source type="image/webp" srcset="img/gallery-4@1x.webp 1x, img/gallery-4@2x.webp 2x" width="284" height="463">
+            <img class="gallery__image" src="img/gallery-4@1x.jpg" srcset="img/gallery-4@2x.jpg 2x" width="284" height="463" alt="Туристы спускаются по горному склону по закреплённой верёвке, на фоне виден высокий конусообразный вулкан." loading="lazy">
+          </picture>
+        </div>
+        <!-- Photo 5: Square -->
+        <div class="gallery__item">
+          <picture>
+            <source type="image/webp" srcset="img/gallery-5@1x.webp 1x, img/gallery-5@2x.webp 2x" width="284" height="223">
+            <img class="gallery__image" src="img/gallery-5@1x.jpg" srcset="img/gallery-5@2x.jpg 2x" width="284" height="223" alt="Группа альпинистов в яркой одежде и касках идет по леднику рядом с бирюзовым ледниковым озером." loading="lazy">
+          </picture>
+        </div>
+        <!-- Photo 6: Square -->
+        <div class="gallery__item">
+          <picture>
+            <source type="image/webp" srcset="img/gallery-6@1x.webp 1x, img/gallery-6@2x.webp 2x" width="284" height="223">
+            <img class="gallery__image" src="img/gallery-6@1x.jpg" srcset="img/gallery-6@2x.jpg 2x" width="284" height="223" alt="Ярко-синяя туристическая палатка освещена изнутри в поле под впечатляющим, усыпанным звездами небом с видимым Млечным Путем." loading="lazy">
+          </picture>
+        </div>
+        <!-- Photo 7: Tall -->
+        <div class="gallery__item gallery__item--tall">
+          <picture>
+            <source type="image/webp" srcset="img/gallery-7@1x.webp 1x, img/gallery-7@2x.webp 2x" width="284" height="463">
+            <img class="gallery__image" src="img/gallery-7@1x.jpg" srcset="img/gallery-7@2x.jpg 2x" width="284" height="463" alt="Туристы на привале разводят костер на берегу реки в лесу." loading="lazy">
+          </picture>
+        </div>
+      </div>
+
     </section>
 
     <!-- ===== FORM SECTION ===== -->
