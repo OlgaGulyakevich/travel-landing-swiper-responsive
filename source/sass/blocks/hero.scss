@@ -64,6 +64,15 @@
   backface-visibility: hidden; // Safari prefix
 }
 
+// Safari-specific background positioning for slide 1 (desktop)
+@supports (-webkit-hyphens: none) {
+  .hero__slide:first-child .hero__bg {
+    @include desktop {
+      object-position: 50% 70%; // Safari desktop correction
+    }
+  }
+}
+
 // Container positioning
 .hero__slide .container {
   position: relative;
@@ -236,6 +245,8 @@
 
   img {
     display: block;
+    transform: translateZ(0); // Safari positioning fix - force GPU acceleration
+    backface-visibility: hidden; // Safari rendering fix - prevent flickering
   }
 }
 
@@ -254,6 +265,19 @@
   }
 }
 
+// Safari-specific positioning fix
+@supports (-webkit-hyphens: none) {
+  .hero__decorative-photo--1 {
+    @include tablet {
+      left: 237px; // Safari tablet correction
+    }
+
+    @include desktop {
+      left: 1077px; // Safari desktop correction
+    }
+  }
+}
+
 // Photo 2 positioning in hero decorative photos (px for Firefox compatibility)
 .hero__decorative-photo--2 {
   @include tablet {
@@ -266,5 +290,14 @@
     bottom: 202px;
     right: 134px;
     width: 277px;
+  }
+}
+
+// Safari-specific positioning fix
+@supports (-webkit-hyphens: none) {
+  .hero__decorative-photo--2 {
+    @include tablet {
+      right: 210px; // Safari tablet correction
+    }
   }
 }

@@ -248,10 +248,10 @@
 // IMAGES
 // ============================================
 .gallery__image {
-  display: block;
+  // display: block - inherited from page.scss :where(.page) img
+  // object-fit: cover - inherited from global.scss img
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
 // ============================================
