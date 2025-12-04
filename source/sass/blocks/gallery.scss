@@ -112,7 +112,7 @@
 
 // Slides - fixed width for slidesPerView: 'auto'
 .swiper-slide.gallery__slide {
-  width: 157px; 
+  width: 157px;
 
   @include tablet {
     width: 252px;
@@ -165,11 +165,11 @@
     @include grid-no-overflow;
   }
 
-   // Scaling for screens greater than 1440px
-   @media (min-width: 1441px) {
+  // Scaling for screens greater than 1440px
+  @media (width >= 1441px) {
     // Remove restrictions for stretching
     max-height: none;
-    aspect-ratio: 1440 / 463; 
+    aspect-ratio: 1440 / 463;
   }
 }
 

@@ -6,6 +6,7 @@
 import { initBurgerMenu } from './modules/burger-menu.js';
 import { initSliders } from './modules/sliders.js';
 import { initFormValidation } from './modules/form-validation.js';
+import { initInputMasks } from './modules/input-masks.js';
 import { initSmoothScroll } from './modules/smooth-scroll.js';
 import { initTrainingLines } from './modules/training-lines.js';
 
@@ -19,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize form validation
   initFormValidation();
+
+  // Initialize input masks (phone and email)
+  initInputMasks();
 
   // Initialize smooth scroll for anchor links
   initSmoothScroll();

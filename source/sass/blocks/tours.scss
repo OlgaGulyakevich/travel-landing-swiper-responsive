@@ -32,6 +32,8 @@
   pointer-events: none;
   transform: scale(1.3);
 
+  // JPG fallback for browsers without WebP support
+  background-image: url("../../img/bg-clouds@1x.jpg");
   background-image:
     image-set(
       url("../../img/bg-clouds@1x.webp") 1x,

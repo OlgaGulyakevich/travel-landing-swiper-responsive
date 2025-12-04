@@ -74,6 +74,13 @@
 // -----------------------------------------------------------------------------
 
 // Invalid state (added via JS validation)
-.is-invalid {
+// Increased specificity to override .input styles
+.input.is-invalid {
   border-color: $color-error;
+
+  // Keep error border even when focused
+  &:focus,
+  &:focus-visible {
+    border-color: $color-error;
+  }
 }

@@ -1,3 +1,15 @@
+// =============================================================================
+// INPUT COMPONENT
+// =============================================================================
+// States:
+// - Default: base styling
+// - Hover: border color change on mouse hover
+// - Focus: border color change when input is focused
+// - Disabled: border color change when input is disabled
+// - Error: managed via .is-invalid class (see utility.scss)
+// - Pattern: shows format hint with reduced opacity (e.g., phone/email masks)
+// =============================================================================
+
 .input {
   width: 100%;
   padding: 17px 15px;
@@ -9,25 +21,36 @@
   border-radius: 2px;
   background-color: $color-bg-white;
 
+  // Hover state
   &:hover {
-    border: 1px solid $color-primary-active;
+    border: 1px solid $color-primary-blue;
   }
 
+  // Focus state
   &:focus,
   &:focus-visible {
     outline: none;
     border: 1px solid $color-border-focus;
   }
 
+  // Disabled state
   &:disabled {
     border: 1px solid $color-border-disabled;
   }
 
+  // Placeholder styling
   &::placeholder {
     color: $color-text-disabled;
     opacity: 1; // For Firefox
   }
 
-  // Invalid state управляется через JS класс .is-invalid (см. utility.scss)
-  // Это позволяет контролировать момент показа ошибки
+  // Invalid state managed via JS class .is-invalid (see utility.scss)
+  // This allows controlling the moment of showing the error
+}
+
+// Pattern hint modifier - shows format hint with reduced opacity
+// Using rgba for text-only transparency (not affecting border)
+
+.input--pattern {
+  color: rgba(#2d383f, 0.5);
 }

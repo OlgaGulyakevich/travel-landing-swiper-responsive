@@ -1,25 +1,140 @@
+// =============================================================================
+// FORM SECTION
+// =============================================================================
+// Layout:
+// - Mobile/Tablet: Vertical (h2 + p + form stacked)
+// - Desktop: Horizontal (text left, form right)
+// Background:
+// - Full-width background image with image-set() retina support
+// =============================================================================
+
+// Main section
+.form-section {
+  padding: 60px 0; // TODO: проверить padding по Figma (mobile)
+
+  // Background image with retina support
+  // PNG fallback for browsers without WebP support
+  // TODO: проверить background-position и background-size по Figma
+  background-image: url("../../img/bg-form@1x.png");
+  background-image:
+    image-set(
+      url("../../img/bg-form@1x.webp") 1x,
+      url("../../img/bg-form@2x.webp") 2x
+    );
+  background-size: cover; // TODO: проверить по Figma
+  background-position: center; // TODO: проверить по Figma
+  background-repeat: no-repeat;
+
+  @include tablet {
+    padding: 60px 0 80px; // TODO: проверить padding по Figma (tablet)
+  }
+
+  @include desktop {
+    padding: 120px 0; // TODO: проверить padding по Figma (desktop)
+  }
+}
+
+// Container for content and form
+.form-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Центрируем контент и форму
+
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
+}
+
+// =============================================================================
+// CONTENT AREA (h2 + p) - cascading styling
+// =============================================================================
+.form-section__content {
+  margin-bottom: 30px; // TODO: проверить margin-bottom по Figma (mobile)
+  text-align: center;
+
+  @include tablet {
+    margin-bottom: 40px; // TODO: проверить margin-bottom по Figma (tablet)
+  }
+
+  @include desktop {
+    max-width: 600px; // TODO: проверить max-width контента по Figma
+    margin-bottom: 40px; // TODO: проверить margin-bottom по Figma (desktop)
+    text-align: center; // Центрируем на всех вьюпортах
+  }
+}
+
+// Cascade styling for h2
+.form-section__content h2 {
+  font-size: 22px; // TODO: проверить font-size по Figma (mobile)
+  font-weight: $font-weight-extrabold;
+  line-height: 22px; // TODO: проверить line-height по Figma (mobile)
+  color: $color-text-inverse;
+  margin-bottom: 15px; // TODO: проверить margin-bottom по Figma (mobile)
+
+  @include tablet {
+    font-size: 25px; // TODO: проверить font-size по Figma (tablet)
+    line-height: 25px; // TODO: проверить line-height по Figma (tablet)
+    margin-bottom: 15px; // TODO: проверить margin-bottom по Figma (tablet)
+  }
+
+  @include desktop {
+    font-size: 35px; // TODO: проверить font-size по Figma (desktop)
+    line-height: 35px; // TODO: проверить line-height по Figma (desktop)
+    margin-bottom: 15px; // TODO: проверить margin-bottom по Figma (desktop)
+  }
+}
+
+// Cascade styling for p
+.form-section__content p {
+  font-size: 14px; // TODO: проверить font-size по Figma (mobile)
+  font-weight: $font-weight-regular;
+  line-height: 20px; // TODO: проверить line-height по Figma (mobile)
+  color: $color-text-inverse;
+
+  @include tablet {
+    font-size: 16px; // TODO: проверить font-size по Figma (tablet)
+    line-height: 22px; // TODO: проверить line-height по Figma (tablet)
+  }
+
+  @include desktop {
+    font-size: 16px; // TODO: проверить font-size по Figma (desktop)
+    line-height: 22px; // TODO: проверить line-height по Figma (desktop)
+  }
+}
+
+// =============================================================================
+// FORM CONTAINER
+// =============================================================================
 .form {
-  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
+
+  @include tablet {
+    max-width: 360px; // TODO: проверить max-width формы по Figma (tablet)
+    margin: 0 auto;
+  }
+
+  @include desktop {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 360px; // TODO: проверить max-width формы по Figma (desktop)
+    margin: 0;
+  }
 }
 
-// Field wrapper - для отступов между полями и позиционирования
+// =============================================================================
+// FIELD WRAPPER
+// =============================================================================
 .form__field {
-  // Добавь свои стили здесь (margin-bottom, width, etc.)
-  // Пример:
-  // margin-bottom: 20px;
+  margin-bottom: 10px; // TODO: проверить margin-bottom между полями по Figma
 }
 
-// Button - для специфичного позиционирования кнопки в форме
+// =============================================================================
+// BUTTON POSITIONING
+// =============================================================================
 .form__button {
-  // Добавь свои стили здесь (margin-top, width, align, etc.)
-  // Пример:
-  // margin-top: 30px;
-  // width: 100%;
+  margin-top: 10px; // TODO: проверить margin-top кнопки по Figma
+  width: 100%;
 }
-
-// input.scss - ✅ правильно:
-// - width: 100% - растягивается на родителя
-// - Конкретные размеры через .field-form:
-// .field-form__input {
-//   max-width: 400px; // если нужно ограничить
-// }
