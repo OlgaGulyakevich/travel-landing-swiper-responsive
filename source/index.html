@@ -93,7 +93,7 @@
           <div class="hero__slide swiper-slide">
             <picture>
               <source type="image/webp" srcset="img/hero-1@1x.webp 1x, img/hero-1@2x.webp 2x" width="320" height="568">
-              <img class="hero__bg" src="img/hero-1@1x.png" srcset="img/hero-1@2x.png 2x" width="320" height="568" alt="Захватывающие вершины Кавказа">
+              <img class="hero__bg" src="img/hero-1@1x.jpg" srcset="img/hero-1@2x.jpg 2x" width="320" height="568" alt="Захватывающие вершины Кавказа">
             </picture>
 
             <div class="container">
@@ -171,7 +171,7 @@
           <div class="hero__slide swiper-slide">
             <picture>
               <source type="image/webp" srcset="img/hero-3@1x.webp 1x, img/hero-3@2x.webp 2x" width="320" height="568">
-              <img class="hero__bg" src="img/hero-3@1x.png" srcset="img/hero-3@2x.png 2x" width="320" height="568" alt="Магические пейзажи Алтайского Края">
+              <img class="hero__bg" src="img/hero-3@1x.jpg" srcset="img/hero-3@2x.jpg 2x" width="320" height="568" alt="Магические пейзажи Алтайского Края">
             </picture>
 
             <div class="container">
@@ -245,7 +245,7 @@
                 <div class="card__image-wrapper">
                   <picture>
                     <source type="image/webp" srcset="img/tour-1@1x.webp 1x, img/tour-1@2x.webp 2x" width="290" height="416">
-                    <img class="card__image" src="img/tour-1@1x.png" srcset="img/tour-1@2x.png 2x" width="290" height="416" alt="Путешествие вокруг Эльбруса">
+                    <img class="card__image" src="img/tour-1@1x.jpg" srcset="img/tour-1@2x.jpg 2x" width="290" height="416" alt="Путешествие вокруг Эльбруса">
                   </picture>
                 </div>
 
@@ -317,7 +317,7 @@
                 <div class="card__image-wrapper">
                   <picture>
                     <source type="image/webp" srcset="img/tour-2@1x.webp 1x, img/tour-2@2x.webp 2x" width="290" height="416">
-                    <img class="card__image" src="img/tour-2@1x.png" srcset="img/tour-2@2x.png 2x" width="290" height="416" alt="Путь к подножию Белухи">
+                    <img class="card__image" src="img/tour-2@1x.jpg" srcset="img/tour-2@2x.jpg 2x" width="290" height="416" alt="Путь к подножию Белухи">
                   </picture>
                 </div>
 
@@ -388,7 +388,7 @@
                 <div class="card__image-wrapper">
                   <picture>
                     <source type="image/webp" srcset="img/tour-3@1x.webp 1x, img/tour-3@2x.webp 2x" width="290" height="416">
-                    <img class="card__image" src="img/tour-3@1x.png" srcset="img/tour-3@2x.png 2x" width="290" height="416" alt="Через Фишт к Чёрному морю и обратно">
+                    <img class="card__image" src="img/tour-3@1x.jpg" srcset="img/tour-3@2x.jpg 2x" width="290" height="416" alt="Через Фишт к Чёрному морю и обратно">
                   </picture>
                 </div>
 
@@ -459,7 +459,7 @@
                 <div class="card__image-wrapper">
                   <picture>
                     <source type="image/webp" srcset="img/tour-4@1x.webp 1x, img/tour-4@2x.webp 2x" width="290" height="416">
-                    <img class="card__image" src="img/tour-4@1x.png" srcset="img/tour-4@2x.png 2x" width="290" height="416" alt="Восхождение Манарага">
+                    <img class="card__image" src="img/tour-4@1x.jpg" srcset="img/tour-4@2x.jpg 2x" width="290" height="416" alt="Восхождение Манарага">
                   </picture>
                 </div>
 
@@ -1109,7 +1109,7 @@
                 <!-- Art direction: different crop for mobile/tablet -->
                 <picture>
                   <source media="(min-width: 768px)" type="image/webp" srcset="img/gallery-3-tablet@1x.webp 1x, img/gallery-3-tablet@2x.webp 2x" width="252" height="205">
-                  <source media="(min-width: 768px)" srcset="img/gallery-3-tablet@1x.jpg 1x, img/gallery-3-tablet@2x.jpg 2x" width="252" height="205">
+                  <source media="(min-width: 768px)" type="image/jpeg" srcset="img/gallery-3-tablet@1x.jpg 1x, img/gallery-3-tablet@2x.jpg 2x" width="252" height="205">
                   <source type="image/webp" srcset="img/gallery-3-mobile@1x.webp 1x, img/gallery-3-mobile@2x.webp 2x" width="157" height="128">
                   <img class="gallery__image" src="img/gallery-3-mobile@1x.jpg" srcset="img/gallery-3-mobile@2x.jpg 2x" width="157" height="128" alt="Рука с компасом на фоне горного хребта под пасмурным небом." loading="lazy">
                 </picture>
@@ -1224,8 +1224,11 @@
         <!-- Content area WITHOUT classes (cascading styling) -->
         <div class="form-section__content">
           <h2>Остались вопросы?</h2>
-          <p>Заполните форму и наш оператор свяжется с вами для консультации.</p>
+          <p>Заполните форму и наш оператор<br> свяжется<br> с вами для консультации.</p>
         </div>
+
+        <!-- Message container for AJAX responses -->
+        <div class="form-message" data-form-message="status"></div>
 
         <!-- Form -->
         <form class="form" action="https://echo.htmlacademy.ru" method="POST" data-form="contact">

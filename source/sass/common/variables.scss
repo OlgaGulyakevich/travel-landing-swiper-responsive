@@ -30,6 +30,7 @@ $color-border-pagination: #ffffff;
 
 // Colors - Status
 $color-error: #ff121f;
+$color-success: #2e7d32;
 $color-disabled: #999999;
 
 
@@ -38,7 +39,7 @@ $color-white-100: #ffffff;
 $color-white-50: rgb(255, 255, 255, 0.5);
 
 // Colors - Overlay/Backdrop
-$color-overlay-light: rgb(0, 0, 0, 0.9);
+$color-overlay-form: linear-gradient(112deg, rgb(15, 20, 41, 0.33) 17.23%, rgb(15, 20, 41, 0) 94.93%);
 $color-overlay-hero: linear-gradient(112deg, rgb(15, 20, 41, 0.33) 17.23%, rgb(15, 20, 41, 0) 94.93%);
 $color-overlay-tours: linear-gradient(0deg, rgb(0, 0, 0, 0.6) 22.3%, rgb(0, 0, 0, 0) 60.32%);
 

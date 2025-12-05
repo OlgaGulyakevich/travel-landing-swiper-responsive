@@ -1,103 +1,139 @@
 // =============================================================================
 // FORM SECTION
 // =============================================================================
-// Layout:
-// - Mobile/Tablet: Vertical (h2 + p + form stacked)
-// - Desktop: Horizontal (text left, form right)
-// Background:
-// - Full-width background image with image-set() retina support
-// =============================================================================
 
 // Main section
 .form-section {
-  padding: 60px 0; // TODO: проверить padding по Figma (mobile)
+  position: relative;
+  padding: 174px 0;
 
   // Background image with retina support
-  // PNG fallback for browsers without WebP support
-  // TODO: проверить background-position и background-size по Figma
-  background-image: url("../../img/bg-form@1x.png");
+  // Mobile: JPG fallback + WebP
   background-image:
     image-set(
-      url("../../img/bg-form@1x.webp") 1x,
-      url("../../img/bg-form@2x.webp") 2x
+      url("../../img/bg-form-mobile@1x.webp") 1x,
+      url("../../img/bg-form-mobile@2x.webp") 2x
     );
-  background-size: cover; // TODO: проверить по Figma
-  background-position: center; // TODO: проверить по Figma
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 
+  margin-bottom: 20px;
+
   @include tablet {
-    padding: 60px 0 80px; // TODO: проверить padding по Figma (tablet)
+    padding: 184px 0;
+
+    // Tablet: JPG fallback + WebP
+    background-image:
+      image-set(
+        url("../../img/bg-form-tablet@1x.webp") 1x,
+        url("../../img/bg-form-tablet@2x.webp") 2x
+      );
+    margin-bottom: 40px;
   }
 
   @include desktop {
-    padding: 120px 0; // TODO: проверить padding по Figma (desktop)
+    padding: 293px 0;
+
+    // Desktop: PNG fallback + WebP
+    background-image:
+      image-set(
+        url("../../img/bg-form-desktop@1x.webp") 1x,
+        url("../../img/bg-form-desktop@2x.webp") 2x
+      );
+    background-size: contain;
+    background-position: left center;
+    margin-bottom: 100px;
   }
+}
+
+// Backdrop for better text readability (covers entire section)
+.form-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $color-overlay-form;
+  z-index: 1;
+  pointer-events: none;
 }
 
 // Container for content and form
 .form-section .container {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: center; // Центрируем контент и форму
-
-  // HTML1-TEST-04: Prevent overflow
-  @include flex-no-overflow;
+  align-items: center;
 }
 
 // =============================================================================
 // CONTENT AREA (h2 + p) - cascading styling
 // =============================================================================
 .form-section__content {
-  margin-bottom: 30px; // TODO: проверить margin-bottom по Figma (mobile)
+  min-width: 258px;
+  margin-bottom: 20px;
   text-align: center;
 
   @include tablet {
-    margin-bottom: 40px; // TODO: проверить margin-bottom по Figma (tablet)
+    max-width: 360px;
+    margin-bottom: 25px;
   }
 
   @include desktop {
-    max-width: 600px; // TODO: проверить max-width контента по Figma
-    margin-bottom: 40px; // TODO: проверить margin-bottom по Figma (desktop)
-    text-align: center; // Центрируем на всех вьюпортах
+    max-width: 960px;
+    margin-bottom: 40px;
   }
 }
 
 // Cascade styling for h2
 .form-section__content h2 {
-  font-size: 22px; // TODO: проверить font-size по Figma (mobile)
+  font-size: 22px;
   font-weight: $font-weight-extrabold;
-  line-height: 22px; // TODO: проверить line-height по Figma (mobile)
+  line-height: 22px;
   color: $color-text-inverse;
-  margin-bottom: 15px; // TODO: проверить margin-bottom по Figma (mobile)
+  margin-bottom: 20px;
 
   @include tablet {
-    font-size: 25px; // TODO: проверить font-size по Figma (tablet)
-    line-height: 25px; // TODO: проверить line-height по Figma (tablet)
-    margin-bottom: 15px; // TODO: проверить margin-bottom по Figma (tablet)
+    font-size: 25px;
+    line-height: 25px;
+    margin-bottom: 25px;
   }
 
   @include desktop {
-    font-size: 35px; // TODO: проверить font-size по Figma (desktop)
-    line-height: 35px; // TODO: проверить line-height по Figma (desktop)
-    margin-bottom: 15px; // TODO: проверить margin-bottom по Figma (desktop)
+    font-size: 35px;
+    line-height: 35px;
+    margin-bottom: 20px;
   }
 }
 
 // Cascade styling for p
 .form-section__content p {
-  font-size: 14px; // TODO: проверить font-size по Figma (mobile)
-  font-weight: $font-weight-regular;
-  line-height: 20px; // TODO: проверить line-height по Figma (mobile)
+  font-size: 12px;
+  line-height: 18px;
   color: $color-text-inverse;
 
   @include tablet {
-    font-size: 16px; // TODO: проверить font-size по Figma (tablet)
-    line-height: 22px; // TODO: проверить line-height по Figma (tablet)
+    font-size: 16px;
+    line-height: 24px;
   }
+}
 
-  @include desktop {
-    font-size: 16px; // TODO: проверить font-size по Figma (desktop)
-    line-height: 22px; // TODO: проверить line-height по Figma (desktop)
+.form-section__content p br {
+  display: block;
+}
+
+@include tablet {
+  .form-section__content p br {
+    display: none;
+  }
+}
+
+@include desktop {
+  .form-section__content p br {
+    display: none;
   }
 }
 
@@ -107,20 +143,22 @@
 .form {
   display: flex;
   flex-direction: column;
+  gap: 8px;
+  width: 258px;
 
   // HTML1-TEST-04: Prevent overflow
   @include flex-no-overflow;
 
   @include tablet {
-    max-width: 360px; // TODO: проверить max-width формы по Figma (tablet)
-    margin: 0 auto;
+    width: 360px;
+    gap: 11px;
   }
 
   @include desktop {
-    flex: 0 0 auto;
+    flex-direction: row;
+    gap: 30px;
     width: 100%;
-    max-width: 360px; // TODO: проверить max-width формы по Figma (desktop)
-    margin: 0;
+    max-width: 960px;
   }
 }
 
@@ -128,13 +166,90 @@
 // FIELD WRAPPER
 // =============================================================================
 .form__field {
-  margin-bottom: 10px; // TODO: проверить margin-bottom между полями по Figma
+  width: 100%;
+
+  @include tablet {
+    .input {
+      padding: 17px 30px;
+    }
+  }
 }
 
 // =============================================================================
 // BUTTON POSITIONING
 // =============================================================================
 .form__button {
-  margin-top: 10px; // TODO: проверить margin-top кнопки по Figma
   width: 100%;
+
+  @include desktop {
+    flex-shrink: 0;
+    width: auto;
+    min-width: 180px; // Minimum width of the button
+  }
+}
+
+// =============================================================================
+// FORM MESSAGE (Success/Error notifications after AJAX submission)
+// =============================================================================
+.form-message {
+  // Hidden by default
+  display: none;
+  opacity: 0;
+
+  // Dimensions
+  width: 290px;
+  padding: 16px 20px;
+
+  // Typography
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+
+  // Visual
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgb(0, 0, 0, 0.12);
+
+  // Smooth fade in/out
+  transition: opacity 0.3s ease;
+
+  // Mobile: fixed at bottom (always visible, above sticky header)
+  position: fixed;
+  bottom: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; // Above sticky header
+
+  @include tablet {
+    // Tablet+: absolute above form
+    position: absolute;
+    width: 360px;
+    top: -90px;
+    bottom: auto;
+    z-index: 10;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  @include desktop {
+    width: 400px;
+    top: -100px;
+  }
+
+  // Success state (Material Design green)
+  &--success {
+    display: block;
+    opacity: 1;
+    background-color: #e8f5e9;
+    color: $color-success;
+    border: 1px solid #66bb6a;
+  }
+
+  // Error state (Material Design red)
+  &--error {
+    display: block;
+    opacity: 1;
+    background-color: #ffebee;
+    color: $color-error;
+    border: 1px solid #ef5350;
+  }
 }

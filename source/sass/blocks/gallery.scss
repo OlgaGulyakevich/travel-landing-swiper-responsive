@@ -7,11 +7,10 @@
 // ============================================
 
 .gallery {
-  margin-bottom: 5px;
-  overflow-x: clip; // Prevent horizontal scroll when desktop grid extends beyond viewport
+  overflow-x: clip;
 
   @include desktop {
-    margin-bottom: 0;
+    margin-bottom: 5px;
   }
 }
 
