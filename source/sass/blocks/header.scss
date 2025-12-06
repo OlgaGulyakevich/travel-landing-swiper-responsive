@@ -215,6 +215,7 @@
 .header__nav .nav__link:active {
   color: $color-primary-active;
   text-decoration: none;
+  border: none;
 }
 
 // Disabled state via .is-disabled class (utility.scss)

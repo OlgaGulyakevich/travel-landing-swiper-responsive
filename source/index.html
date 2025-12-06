@@ -1262,60 +1262,72 @@
       <!-- Contacts Section -->
       <section class="footer__contacts-section">
 
-        <!-- Title with Decoration (UI Component) -->
-        <div class="title footer__title-wrapper">
-          <h2 class="title__main">Контакты</h2>
-          <span class="title__decoration" aria-hidden="true">Контакты</span>
-        </div>
+        <!-- Desktop: Left column wrapper (info) + Right column (map) -->
+        <div class="footer__contacts-wrapper">
 
-        <div class="footer__contacts-content">
-          <!-- Content area WITHOUT classes (cascading styling) -->
-          <p>Свяжитесь с нами любым удобным для вас способом или приходите к нам в гости. Мы будем рады поделиться увлекательными историями и подобрать для вас тур.</p>
-        </div>
+          <!-- Left: Info block -->
+          <div class="footer__contacts-info">
 
-        <!-- Contacts Info -->
-        <ul class="footer__contacts-list">
-          <li class="footer__contact-item">
-            <svg class="footer__contact-icon icon" width="26" height="26" aria-hidden="true">
-              <use href="/__spritemap#sprite-phone"></use>
-            </svg>
-            <div class="footer__contact-info">
-              <h3 class="footer__contact-title">Телефон</h3>
-              <a class="footer__contact-link" href="tel:+79837454545">+7 983 745-45-45</a>
+            <!-- Title with Decoration (UI Component) -->
+            <div class="title footer__title-wrapper">
+              <h2 class="title__main">Контакты</h2>
+              <span class="title__decoration" aria-hidden="true">Контакты</span>
             </div>
-          </li>
 
-          <li class="footer__contact-item">
-            <svg class="footer__contact-icon icon" width="26" height="26" aria-hidden="true">
-              <use href="/__spritemap#sprite-mail"></use>
-            </svg>
-            <div class="footer__contact-info">
-              <h3 class="footer__contact-title">Email</h3>
-              <a class="footer__contact-link" href="mailto:info@lifetour.com">info@lifetour.com</a>
+            <div class="footer__contacts-content">
+              <!-- Content area WITHOUT classes (cascading styling) -->
+              <p>Свяжитесь с нами любым удобным для&nbsp;вас способом или&nbsp;приходите к&nbsp;нам&nbsp;в&nbsp;гости. Мы будем рады поделиться увлекательными историями и подобрать для вас тур.</p>
             </div>
-          </li>
 
-          <li class="footer__contact-item">
-            <svg class="footer__contact-icon icon" width="26" height="26" aria-hidden="true">
-              <use href="/__spritemap#sprite-pin-stroke"></use>
-            </svg>
-            <div class="footer__contact-info">
-              <h3 class="footer__contact-title">Адрес</h3>
-              <address class="footer__contact-address">г. Москва, пр-т Мира, д. 14, офис 101</address>
-            </div>
-          </li>
-        </ul>
+            <!-- Contacts Info -->
+            <ul class="footer__contacts-list">
+              <li class="footer__contact-item">
+                <svg class="footer__contact-icon icon" width="26" height="26" aria-hidden="true">
+                  <use href="/__spritemap#sprite-phone"></use>
+                </svg>
+                <div class="footer__contact-info">
+                  <h3 class="footer__contact-title">Телефон</h3>
+                  <a class="footer__contact-link" href="tel:+79837454545">+7 983 745-45-45</a>
+                </div>
+              </li>
 
-        <!-- Map -->
-        <div class="footer__map">
-          <picture>
-            <source type="image/webp" media="(min-width: 1440px)" srcset="img/map-desktop@1x.webp 1x, img/map-desktop@2x.webp 2x" width="600" height="324">
-            <source type="image/webp" media="(min-width: 768px)" srcset="img/map-tablet@1x.webp 1x, img/map-tablet@2x.webp 2x" width="768" height="340">
-            <source type="image/webp" srcset="img/map-mobile@1x.webp 1x, img/map-mobile@2x.webp 2x" width="320" height="343">
-            <source type="image/jpeg" media="(min-width: 1440px)" srcset="img/map-desktop@1x.jpg 1x, img/map-desktop@2x.jpg 2x" width="600" height="324">
-            <source type="image/jpeg" media="(min-width: 768px)" srcset="img/map-tablet@1x.jpg 1x, img/map-tablet@2x.jpg 2x" width="768" height="340">
-            <img class="footer__map-image" src="img/map-mobile@1x.jpg" srcset="img/map-mobile@2x.jpg 2x" width="320" height="343" alt="Карта с местоположением офиса">
-          </picture>
+              <li class="footer__contact-item">
+                <svg class="footer__contact-icon icon" width="26" height="26" aria-hidden="true">
+                  <use href="/__spritemap#sprite-mail"></use>
+                </svg>
+                <div class="footer__contact-info">
+                  <h3 class="footer__contact-title">Email</h3>
+                  <a class="footer__contact-link" href="mailto:info@lifetour.com">info@lifetour.com</a>
+                </div>
+              </li>
+
+              <li class="footer__contact-item">
+                <svg class="footer__contact-icon icon" width="26" height="26" aria-hidden="true">
+                  <use href="/__spritemap#sprite-pin-stroke"></use>
+                </svg>
+                <div class="footer__contact-info">
+                  <h3 class="footer__contact-title">Адрес</h3>
+                  <address class="footer__contact-address">
+                    <a class="footer__contact-link" href="https://yandex.ru/maps/?text=%D0%B3.%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%BF%D1%80-%D1%82%20%D0%9C%D0%B8%D1%80%D0%B0%2C%20%D0%B4.%2014%2C%20%D0%BE%D1%84%D0%B8%D1%81%20101">г. Москва, пр-т Мира,<br class="footer__contact-address-br-mobile"> д. 14, офис 101</a>
+                  </address>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+
+          <!-- Right: Map -->
+          <div class="footer__map">
+            <picture>
+              <source type="image/webp" media="(min-width: 1440px)" srcset="img/map-desktop@1x.webp 1x, img/map-desktop@2x.webp 2x" width="600" height="324">
+              <source type="image/webp" media="(min-width: 768px)" srcset="img/map-tablet@1x.webp 1x, img/map-tablet@2x.webp 2x" width="768" height="340">
+              <source type="image/webp" srcset="img/map-mobile@1x.webp 1x, img/map-mobile@2x.webp 2x" width="320" height="343">
+              <source type="image/jpeg" media="(min-width: 1440px)" srcset="img/map-desktop@1x.jpg 1x, img/map-desktop@2x.jpg 2x" width="600" height="324">
+              <source type="image/jpeg" media="(min-width: 768px)" srcset="img/map-tablet@1x.jpg 1x, img/map-tablet@2x.jpg 2x" width="768" height="340">
+              <img class="footer__map-image" src="img/map-mobile@1x.jpg" srcset="img/map-mobile@2x.jpg 2x" width="320" height="343" alt="Карта с местоположением офиса">
+            </picture>
+          </div>
+
         </div>
 
       </section>
@@ -1356,28 +1368,34 @@
         <a class="footer__phone-desktop" href="tel:88007253232">8 800 725-32-32</a>
 
         <!-- Social Links -->
-        <div class="footer__social">
-          <a class="footer__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="Мы в ВКонтакте">
-            <svg class="icon" width="16" height="9" aria-hidden="true">
-              <use href="/__spritemap#sprite-vk"></use>
-            </svg>
-          </a>
+        <ul class="footer__social-list">
+          <li>
+            <a class="footer__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="Мы в ВКонтакте">
+              <svg class="footer__social-icon" width="16" height="9" aria-hidden="true">
+                <use href="/__spritemap#sprite-vk"></use>
+              </svg>
+            </a>
+          </li>
 
-          <a class="footer__social-link" href="https://ok.ru" target="_blank" rel="noopener noreferrer" aria-label="Мы в Одноклассниках">
-            <svg class="icon" width="9" height="16" aria-hidden="true">
-              <use href="/__spritemap#sprite-ok"></use>
-            </svg>
-          </a>
+          <li>
+            <a class="footer__social-link" href="https://ok.ru" target="_blank" rel="noopener noreferrer" aria-label="Мы в Одноклассниках">
+              <svg class="footer__social-icon" width="9" height="16" aria-hidden="true">
+                <use href="/__spritemap#sprite-ok"></use>
+              </svg>
+            </a>
+          </li>
 
-          <a class="footer__social-link" href="https://reddit.com" target="_blank" rel="noopener noreferrer" aria-label="Мы в Reddit">
-            <svg class="icon" width="14" height="15" aria-hidden="true">
-              <use href="/__spritemap#sprite-reddit"></use>
-            </svg>
-          </a>
-        </div>
+          <li>
+            <a class="footer__social-link" href="https://reddit.com" target="_blank" rel="noopener noreferrer" aria-label="Мы в Reddit">
+              <svg class="footer__social-icon" width="14" height="15" aria-hidden="true">
+                <use href="/__spritemap#sprite-reddit"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
 
         <!-- Privacy Policy -->
-        <a class="footer__policy" href="#privacy">Политика конфиденциальности</a>
+        <a class="footer__privacy-link" href="#privacy">Политика конфиденциальности</a>
 
       </div>
 

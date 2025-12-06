@@ -6,6 +6,7 @@
 .form-section {
   position: relative;
   padding: 174px 0;
+  background-color: $color-bg-dark;
 
   // Background image with retina support
   // Mobile: JPG fallback + WebP
@@ -18,7 +19,7 @@
   background-position: center;
   background-repeat: no-repeat;
 
-  margin-bottom: 20px;
+  margin-bottom: 36px;
 
   @include tablet {
     padding: 184px 0;
@@ -29,7 +30,7 @@
         url("../../img/bg-form-tablet@1x.webp") 1x,
         url("../../img/bg-form-tablet@2x.webp") 2x
       );
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
 
   @include desktop {
@@ -41,9 +42,8 @@
         url("../../img/bg-form-desktop@1x.webp") 1x,
         url("../../img/bg-form-desktop@2x.webp") 2x
       );
-    background-size: contain;
     background-position: left center;
-    margin-bottom: 100px;
+    margin-bottom: 118px;
   }
 }
 

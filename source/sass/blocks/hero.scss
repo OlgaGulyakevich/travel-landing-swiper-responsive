@@ -1,11 +1,7 @@
 .hero {
   background-color: $color-bg-dark;
 
-  // margin-bottom: 20px;
-  // padding-bottom: 7px;
-
   @include tablet {
-    // margin-bottom: 40px;
     margin-bottom: 25px;
   }
 

@@ -15,4 +15,8 @@
   // display: block already in .page img
   width: 100%; // 100% from parent .logo (142px)
   height: auto;
+
+  @include desktop {
+    padding: 9px 0;
+  }
 }
