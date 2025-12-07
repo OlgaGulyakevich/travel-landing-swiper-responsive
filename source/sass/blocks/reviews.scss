@@ -1,3 +1,201 @@
 .reviews {
-  padding: 60px 0;
+  margin-bottom: 31px;
+  overflow-x: clip; // Prevent horizontal scroll WITHOUT affecting vertical overflow
+
+  @include tablet {
+    margin-bottom: 104px;
+  }
+
+  @include desktop {
+    margin-bottom: 212px;
+  }
+}
+
+// Header wrapper: Title + Navigation
+.reviews__header {
+  margin-bottom: 22px;
+
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 15px;
+    min-height: 55px;
+  }
+
+  @include desktop {
+    margin-bottom: 28px;
+    min-height: 50px;
+    margin-right: 10px;  // Pixel-perfect alignment with Figma
+    margin-left: -10px;  // Pixel-perfect alignment with Figma
+
+    .title__decoration {
+      top: -40px;
+    }
+  }
+
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
+}
+
+// Override Swiper default position: absolute for navigation in header
+.reviews__header .slider-navigation {
+  position: static;
+}
+
+.reviews__header .swiper-button-prev,
+.reviews__header .swiper-button-next {
+  position: static;
+}
+
+// Slider container
+// High specificity to override Swiper defaults
+.reviews .reviews__slider.swiper {
+  position: relative;
+  margin: 0;  // Reset Swiper default margin
+  padding: 0; // Reset Swiper default padding
+  overflow: visible; // Show shadows (override Swiper)
+}
+
+// Wrapper without padding (cards go edge-to-edge)
+.reviews .reviews__slider .swiper-wrapper {
+  margin: 0;  // Reset Swiper default margin
+  padding: 0; // NO padding - cards edge-to-edge vertically
+  overflow: visible; // Show shadows
+}
+
+// Swiper slides in reviews
+.reviews__slider .swiper-slide {
+  width: 290px;
+  height: auto;
+  margin: 0;     // Reset Swiper default margin (spaceBetween handles gaps)
+  padding: 10px 0; // Vertical padding to prevent shadow clipping (top/bottom)
+
+  @include tablet {
+    width: 565px;
+  }
+
+  @include desktop {
+    width: 700px;
+  }
+}
+
+// Context-specific card styling for reviews
+.reviews__card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  background-color: $color-bg-white;
+  box-shadow: 0 0 20px 0 rgb(28, 51, 116, 0.1);
+
+  @include tablet {
+    flex-direction: row;  // Tablet/Desktop: photo left, content right
+  }
+
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
+}
+
+// Photo container (art direction via HTML <picture>)
+.reviews__card .card__photo {
+  display: block;
+  width: 100%;
+  height: 169px;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  @include tablet {
+    width: 186px;
+    height: 237px;
+  }
+
+  @include desktop {
+    width: 258px;
+    height: 253px;
+  }
+}
+
+// Image inside picture
+.reviews__card .card__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+// Content wrapper (right side on tablet/desktop)
+.reviews__card .card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 20px;
+
+  @include tablet {
+    padding-top: 0;
+    padding-right: 10px;
+    padding-left: 30px;
+  }
+
+  // HTML1-TEST-04: Prevent overflow
+  @include flex-no-overflow;
+}
+
+// Review text content
+.reviews__card .card__content {
+  margin-bottom: 15px;
+
+  @include tablet {
+    margin-bottom: 25px;
+  }
+
+  @include desktop {
+    margin-bottom: 0;
+  }
+}
+
+// Review paragraphs (cascade styling - content area)
+.reviews__card .card__content p {
+  margin: 0 0 10px;
+  font-size: 12px;
+  line-height: 18px;
+
+  &:last-child {
+    margin-bottom: 0;  // No margin after last paragraph
+  }
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+// Author name (h3 in cascade - content area)
+.reviews__card .card__name {
+  margin: 0 0 10px;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: $font-weight-bold;
+
+  @include tablet {
+    font-size: 13px;
+    line-height: 13px;
+    margin: 0 0 6px;
+  }
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0 0 3px;
+  }
+}
+
+// Author meta (age, city)
+.reviews__card .card__meta {
+  margin: 0;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: $font-weight-light;
+  color: $color-text-primary;
 }

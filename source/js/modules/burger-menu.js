@@ -8,15 +8,26 @@ export const initBurgerMenu = () => {
   const menu = document.querySelector('.header__nav');
   const menuLinks = menu?.querySelectorAll('a');
 
-  if (!burger || !menu) return;
+  if (!burger || !menu) {
+    return;
+  }
 
   const toggleMenu = () => {
     const isOpen = menu.classList.contains('is-open');
-    
+
+    // Calculate and set scrollbar width before locking scroll
+    if (!isOpen) {
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+    } else {
+      // Reset scrollbar width when closing
+      document.documentElement.style.setProperty('--scrollbar-width', '0px');
+    }
+
     menu.classList.toggle('is-open');
     burger.classList.toggle('is-active');
     document.body.classList.toggle('scroll-lock');
-    
+
     burger.setAttribute('aria-expanded', !isOpen);
   };
 
@@ -25,13 +36,16 @@ export const initBurgerMenu = () => {
     burger.classList.remove('is-active');
     document.body.classList.remove('scroll-lock');
     burger.setAttribute('aria-expanded', 'false');
+
+    // Reset scrollbar width when closing
+    document.documentElement.style.setProperty('--scrollbar-width', '0px');
   };
 
   // Toggle on burger click
   burger.addEventListener('click', toggleMenu);
 
   // Close on menu link click
-  menuLinks?.forEach(link => {
+  menuLinks?.forEach((link) => {
     link.addEventListener('click', closeMenu);
   });
 

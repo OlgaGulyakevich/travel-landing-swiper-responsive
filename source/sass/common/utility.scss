@@ -16,7 +16,6 @@
   overflow: hidden;
   white-space: nowrap;
   border: 0;
-  clip: rect(0 0 0 0);
   clip-path: inset(50%);
 }
 
@@ -27,6 +26,8 @@
 // Scroll lock (for open burger menu)
 .scroll-lock {
   overflow: hidden;
+  touch-action: none;
+  -webkit-overflow-scrolling: auto;
   padding-right: var(--scrollbar-width, 0);
 }
 
@@ -36,6 +37,7 @@
 
 // Hidden element
 .is-hidden {
+  /* stylelint-disable-next-line declaration-no-important */
   display: none !important;
 }
 
@@ -46,17 +48,16 @@
 
 // Open state (for burger menu)
 .is-open {
-  // Добавляется JavaScript к мобильному меню
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
 }
 
-// Invalid state (for form fields)
-.is-invalid {
-  // Добавляется JavaScript к невалидным полям формы
-  border-color: #ff0000;
-  outline-color: #ff0000;
+// Disabled state (for links and other interactive elements)
+.is-disabled {
+  color: $color-text-disabled;
+  pointer-events: none;
+  cursor: default;
 }
 
 // -----------------------------------------------------------------------------
@@ -68,3 +69,18 @@
   outline: none;
 }
 
+// -----------------------------------------------------------------------------
+// Validation States
+// -----------------------------------------------------------------------------
+
+// Invalid state (added via JS validation)
+// Increased specificity to override .input styles
+.input.is-invalid {
+  border-color: $color-error;
+
+  // Keep error border even when focused
+  &:focus,
+  &:focus-visible {
+    border-color: $color-error;
+  }
+}

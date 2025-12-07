@@ -30,7 +30,6 @@
 // Prevents flex children from overflowing container
 // Use on flex containers to add min-width: 0 to all direct children
 // HTML1-TEST-04: При добавлении новых элементов они не должны выходить за пределы
-//
 // Example:
 // .container {
 //   display: flex;
@@ -45,7 +44,6 @@
 // Prevents grid children from overflowing container
 // Use on grid containers to add min-width: 0 to all direct children
 // HTML1-TEST-04: При добавлении новых элементов они не должны выходить за пределы
-//
 // Example:
 // .grid {
 //   display: grid;

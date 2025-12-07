@@ -4,97 +4,343 @@
  */
 
 import Swiper from 'swiper';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, EffectFade, Keyboard } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+import { makePaginationKeyboardAccessible } from './pagination-keyboard.js';
 
 export const initSliders = () => {
   // Hero Slider
-  const heroSlider = new Swiper('[data-slider="hero"]', {
-    modules: [Pagination],
+  void new Swiper('[data-slider="hero"]', {
+    modules: [Pagination, EffectFade, Keyboard],
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
     },
     loop: true,
     autoplay: false,
+    grabCursor: true,
+
+    // Fade effect with adaptive speed
+    effect: 'fade',
+    speed: 400,
+
+    fadeEffect: {
+      crossFade: false
+    },
+
+    // Keyboard navigation for accessibility
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+
+    breakpoints: {
+      768: {
+        speed: 600,
+      },
+
+      1440: {
+        speed: 800,
+      }
+    },
+
+    on: {
+      init: function() {
+        // Make pagination bullets keyboard accessible
+        makePaginationKeyboardAccessible(this);
+      },
+      paginationUpdate: function() {
+        // Update pagination when it changes
+        makePaginationKeyboardAccessible(this);
+      }
+    }
   });
 
   // Tours Slider
-  const toursSlider = new Swiper('[data-slider="tours"]', {
-    modules: [Navigation],
+  void new Swiper('[data-slider="tours"]', {
+    modules: [Navigation, Keyboard],
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.tours__button-next',
+      prevEl: '.tours__button-prev',
     },
     slidesPerView: 1,
     slidesPerGroup: 1,
-    spaceBetween: 30,
+    spaceBetween: 20,
+    speed: 400,
+    watchSlidesProgress: true,
+    resistance: true,
+    resistanceRatio: 0.85,
+
+    // Keyboard navigation for accessibility
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+
     breakpoints: {
       768: { slidesPerView: 2 },
       1440: { slidesPerView: 3 },
     },
+    on: {
+      init: function() {
+        // Add SVG icons to navigation buttons
+        const prevBtn = this.navigation.prevEl;
+        const nextBtn = this.navigation.nextEl;
+
+        if (prevBtn) {
+          prevBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-left"></use>
+            </svg>
+          `;
+        }
+
+        if (nextBtn) {
+          nextBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-right"></use>
+            </svg>
+          `;
+        }
+      }
+    }
   });
 
   // Training Slider
-  const trainingSlider = new Swiper('[data-slider="training"]', {
-    modules: [Navigation],
+  void new Swiper('[data-slider="training"]', {
+    modules: [Navigation, Keyboard],
     navigation: {
       nextEl: '.training__button-next',
       prevEl: '.training__button-prev',
     },
     slidesPerView: 1,
-    initialSlide: 2, // Mobile начинает с 3-го слайда (Надежда)
-    spaceBetween: 30,
+    initialSlide: 2, // Mobile starts from 3rd slide (Nadezhda)
+    spaceBetween: 20,
+    watchSlidesProgress: true,
+    speed: 400,
+    resistance: true,
+    resistanceRatio: 0.85,
+
+    // Keyboard navigation for accessibility
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+
     breakpoints: {
       768: {
         slidesPerView: 3,
-        initialSlide: 0, // Tablet и Desktop начинают с 1-го слайда (Александр)
+        initialSlide: 0, // Tablet and Desktop start from 1st slide (Alexander)
       },
       1440: {
         slidesPerView: 4,
         initialSlide: 0,
       },
     },
+    on: {
+      init: function() {
+        // Add SVG icons to navigation buttons
+        const prevBtn = this.navigation.prevEl;
+        const nextBtn = this.navigation.nextEl;
+
+        if (prevBtn) {
+          prevBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-left"></use>
+            </svg>
+          `;
+        }
+
+        if (nextBtn) {
+          nextBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-right"></use>
+            </svg>
+          `;
+        }
+      }
+    }
   });
 
   // Reviews Slider
-  const reviewsSlider = new Swiper('[data-slider="reviews"]', {
-    modules: [Navigation],
+  void new Swiper('[data-slider="reviews"]', {
+    modules: [Navigation, Keyboard],
     navigation: {
       nextEl: '.reviews__button-next',
       prevEl: '.reviews__button-prev',
     },
-    slidesPerView: 1,
+    slidesPerView: 'auto',
     spaceBetween: 30,
+    speed: 600,
+    watchSlidesProgress: true,
+    resistance: true,
+    resistanceRatio: 0.85,
+
+    // Keyboard navigation for accessibility
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+
+    breakpoints: {
+      1440: {
+        spaceBetween: 120,
+      },
+    },
+    on: {
+      init: function() {
+        // Add SVG icons to navigation buttons
+        const prevBtn = this.navigation.prevEl;
+        const nextBtn = this.navigation.nextEl;
+
+        if (prevBtn) {
+          prevBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-left"></use>
+            </svg>
+          `;
+        }
+
+        if (nextBtn) {
+          nextBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-right"></use>
+            </svg>
+          `;
+        }
+      }
+    }
   });
 
   // Advantages Slider (desktop only)
-  const advSlider = new Swiper('[data-slider="advantages"]', {
-    modules: [Navigation],
+  // Desktop: Shows cards with loop, slides by 2
+  // Mobile/Tablet: Static flex grid (slider disabled)
+  // HTML contains 10 slides: 5 original + 5 duplicates for smooth loop
+
+  void new Swiper('[data-slider="advantages"]', {
+    modules: [Navigation, Keyboard],
+    enabled: false, // Disabled by default (enabled only on desktop via breakpoints)
     navigation: {
       nextEl: '.advantages__button-next',
       prevEl: '.advantages__button-prev',
     },
-    slidesPerView: 'auto',
-    slidesPerGroup: 2,
-    loop: true,
-    breakpoints: {
-      1440: { enabled: true },
-      320: { enabled: false },
+
+    // Keyboard navigation for accessibility (desktop only)
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
     },
+
+    breakpoints: {
+      // Mobile/Tablet: slider disabled
+      320: {
+        enabled: false,
+      },
+      768: {
+        enabled: false,
+      },
+      // Desktop: 10 slides with loop and slidesPerGroup: 2
+      // Target: Show partial + 3 full + partial
+      1440: {
+        enabled: true,
+        loop: true,
+        loopedSlides: 10,
+        speed: 800,
+        slidesPerView: 'auto',
+        slidesPerGroup: 2,
+
+        centeredSlides: true,
+        spaceBetween: 30,
+        initialSlide: 2,
+
+        watchSlidesProgress: true,
+        watchOverflow: true,
+      },
+    },
+    on: {
+      init: function() {
+        // Add SVG icons to navigation buttons
+        const prevBtn = this.navigation.prevEl;
+        const nextBtn = this.navigation.nextEl;
+
+        if (prevBtn) {
+          prevBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-left"></use>
+            </svg>
+          `;
+        }
+
+        if (nextBtn) {
+          nextBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-right"></use>
+            </svg>
+          `;
+        }
+      }
+    }
   });
 
-  // Gallery Slider (mobile/tablet only)
-  const gallerySlider = new Swiper('[data-slider="gallery"]', {
-    modules: [Navigation],
+  // Gallery Slider (mobile/tablet only, disabled on desktop)
+  // Mobile/Tablet: Shows slides with grid layout inside
+  // Desktop: Slider disabled, CSS Grid takes over
+  void new Swiper('[data-slider="gallery"]', {
+    modules: [Navigation, Keyboard],
+
     navigation: {
       nextEl: '.gallery__button-next',
       prevEl: '.gallery__button-prev',
     },
-    slidesPerView: 2,
+
+    // Mobile/Tablet
+    slidesPerView: 'auto',
+    slidesPerGroup: 1,
+    spaceBetween: 5,
     loop: true,
-    breakpoints: {
-      768: { slidesPerView: 3 },
-      1440: { enabled: false },
+    loopedSlides: 5,
+    speed: 600,
+    grabCursor: true,
+    watchSlidesProgress: true,
+
+    // Keyboard navigation for accessibility
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
     },
+
+    breakpoints: {
+      // Desktop: Disabled (CSS Grid takes over)
+      1440: {
+        enabled: false,
+      },
+    },
+
+    on: {
+      init: function() {
+        // Add SVG icons to navigation buttons
+        const prevBtn = this.navigation.prevEl;
+        const nextBtn = this.navigation.nextEl;
+
+        if (prevBtn) {
+          prevBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-left"></use>
+            </svg>
+          `;
+        }
+
+        if (nextBtn) {
+          nextBtn.innerHTML = `
+            <svg aria-hidden="true">
+              <use href="/__spritemap#sprite-arrow-right"></use>
+            </svg>
+          `;
+        }
+      }
+    }
   });
 };

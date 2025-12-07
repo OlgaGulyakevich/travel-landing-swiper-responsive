@@ -1,3 +1,262 @@
 .advantages {
-  padding: 60px 0;
+  margin-bottom: 76px;
+  overflow-x: clip; // Prevent horizontal scroll when container extends beyond viewport
+
+  @include tablet {
+    margin-bottom: 100px;
+  }
+
+  @include desktop {
+    margin-bottom: 219px;
+  }
+}
+
+// Container - reset padding only on desktop
+.advantages .container {
+  @include desktop {
+    padding: 0;
+  }
+}
+
+.advantages__title-wrapper {
+  margin-bottom: 37px;
+  text-align: center;
+
+  .title__decoration {
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include desktop {
+      top: -26px;
+    }
+  }
+
+  @include tablet {
+    margin-bottom: 52px;
+  }
+
+  @include desktop {
+    margin-bottom: 50px;
+
+    // Back to original padding
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+}
+
+// ============================================
+// CONTAINER SLIDER
+// ============================================
+.advantages__container {
+  position: relative;
+
+  @include desktop {
+    // Display slider on full viewport width
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    overflow: hidden;
+  }
+
+  // Navigation
+  .slider-navigation {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      justify-content: center;
+      margin-top: 70px;
+      position: static;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    @include desktop {
+      position: static;
+    }
+  }
+}
+
+// ============================================
+// LIST OF CARDS
+// ============================================
+.advantages__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+
+  @include flex-no-overflow;
+
+  @include tablet {
+    gap: 30px;
+  }
+
+  @include desktop {
+    // IMPORTANT: remove flex-wrap and gap - Swiper controls layout
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0;
+  }
+}
+
+// ============================================
+// SLIDES - FIXED WIDTH
+// ============================================
+.advantages__list > li {
+  flex: 0 0 100%;
+
+  @include flex-no-overflow;
+
+  @include tablet {
+    flex: 0 1 calc(50% - 15px);
+  }
+
+  @include desktop {
+    // KEY MOMENT: fixed width for slidesPerView: 'auto'
+    width: 380px;
+    min-width: 380px;
+    max-width: 380px;
+    flex: 0 0 auto;
+    flex-shrink: 0;
+  }
+}
+
+// Duplicates hidden on mobile/tablet
+.swiper-slide.advantages__slide--duplicate {
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+}
+
+// ============================================
+// CARD
+// ============================================
+.advantages__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 290px;
+  height: auto;
+  padding: 20px 10px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: $color-bg-white;
+  border: 1px solid $color-additional-10;
+
+  @include flex-no-overflow;
+
+  @include tablet {
+    height: 100%;
+    max-width: none;
+    min-height: 340px;
+    padding: 30px 19px;
+  }
+
+  @include desktop {
+    width: 380px;
+    max-width: 380px;
+    min-height: 329px;
+    padding: 40px 15px;
+    margin: 0; // Remove auto margin
+    box-sizing: border-box;
+  }
+}
+
+// ICON
+.advantages__icon {
+  width: 24px;
+  height: 24px;
+  padding: 7px;
+  margin-bottom: 20px;
+  border: 1px solid $color-primary-blue;
+  color: $color-primary-blue;
+  flex-shrink: 0;
+  box-sizing: content-box;
+
+  @include tablet {
+    padding: 10px;
+    margin-bottom: 24px;
+  }
+
+  @include desktop {
+    padding: 15px;
+    margin-bottom: 30px;
+  }
+}
+
+// CARD TITLE
+.advantages__card h3 {
+  line-height: 14px;
+  font-weight: $font-weight-semibold;
+  margin-bottom: 15px;
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  @include desktop {
+    font-size: 18px;
+    line-height: 18px;
+  }
+}
+
+// CARD DESCRIPTION
+.advantages__card p {
+  font-size: 12px;
+  line-height: 18px;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+.advantages__card-br-mobile {
+  display: block;
+
+  @include tablet {
+    display: block;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.advantages__card-br-tablet {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.advantages__card-br-desktop {
+  display: none;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.advantages__card-nowrap-desktop {
+  display: none;
+
+  @include desktop {
+    display: block;
+    white-space: nowrap;
+  }
 }
