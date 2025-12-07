@@ -8,19 +8,16 @@ export const initBurgerMenu = () => {
   const menu = document.querySelector('.header__nav');
   const menuLinks = menu?.querySelectorAll('a');
 
-  if (!burger || !menu) {
-    return;
-  }
+  if (!burger || !menu) return;
 
   const toggleMenu = () => {
     const isOpen = menu.classList.contains('is-open');
 
-    // Calculate and set scrollbar width before locking scroll
+    // Calculate scrollbar width before locking to prevent layout shift
     if (!isOpen) {
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
     } else {
-      // Reset scrollbar width when closing
       document.documentElement.style.setProperty('--scrollbar-width', '0px');
     }
 
@@ -37,7 +34,7 @@ export const initBurgerMenu = () => {
     document.body.classList.remove('scroll-lock');
     burger.setAttribute('aria-expanded', 'false');
 
-    // Reset scrollbar width when closing
+    // Reset scrollbar width when menu closes
     document.documentElement.style.setProperty('--scrollbar-width', '0px');
   };
 
@@ -45,7 +42,7 @@ export const initBurgerMenu = () => {
   burger.addEventListener('click', toggleMenu);
 
   // Close on menu link click
-  menuLinks?.forEach((link) => {
+  menuLinks?.forEach(link => {
     link.addEventListener('click', closeMenu);
   });
 
