@@ -39,6 +39,7 @@
     display: flex;
     gap: 100px;
     align-items: flex-start;
+
     @include flex-no-overflow;
   }
 }
@@ -252,7 +253,7 @@
 
   @include desktop {
     // Desktop: constrained width inside flex layout
-    margin-left: 0; 
+    margin-left: 0;
     margin-top: 0;
     margin-right: 0;
     width: 600px;
@@ -389,7 +390,7 @@
 
 // Explicit positioning of elements in Grid (mobile only)
 // Mobile-only: max-width 767px (before tablet breakpoint at 768px)
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .footer__nav .nav__item:nth-child(1) {
     grid-row: 1;
     grid-column: 1;
