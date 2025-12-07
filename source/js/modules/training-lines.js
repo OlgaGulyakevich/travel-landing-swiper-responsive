@@ -164,7 +164,7 @@ export function initTrainingLines() {
       // lineTop: distance from container top to item bottom + 1px offset
       // To move line DOWN: increase offset (e.g., +1 → +11 moves 10px down)
       // To move line UP: decrease offset (e.g., +1 → -9 moves 10px up)
-      const lineTop = firstRect.bottom - containerRect.top + 1;
+      const lineTop = firstRect.bottom - containerRect.top - 4;
 
       // lineLeft: horizontal position from container left + 20px (circle left position from SCSS)
       const lineLeft = firstRect.left - containerRect.left + 20;

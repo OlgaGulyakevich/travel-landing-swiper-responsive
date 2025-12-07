@@ -15,15 +15,19 @@
   margin-bottom: 25px;
 
   @include desktop {
-    margin-bottom: 56px;
+    margin-bottom: 60px;
   }
 }
 
 .training__title-wrapper .title__main {
   margin-bottom: 35px;
 
+  @include tablet {
+    margin-bottom: 25px;
+  }
+
   @include desktop {
-    margin-bottom: 38px;
+    margin-bottom: 33px;
   }
 }
 
@@ -57,7 +61,6 @@
 }
 
 // Br tag for desktop
-
 .training__br-desktop {
   display: none;
 
@@ -123,7 +126,7 @@
   margin-bottom: 25px;
 
   @include desktop {
-    margin-bottom: 56px;
+    margin-bottom: 61px;
   }
 }
 
@@ -152,6 +155,10 @@
   background-color: $color-bg-white;
   border: 1px solid $color-border-default;
   padding: 15px;
+
+  @include desktop {
+    padding: 10px 12px;
+  }
 }
 
 // Picture wrapper (direct child of card)
@@ -200,6 +207,7 @@
   font-weight: $font-weight-bold;
 }
 
+
 // Trainer description (p in cascade - content area)
 .training__slider .card__content p {
   font-size: 12px;
@@ -210,9 +218,6 @@
 .training__process {
   position: relative;  // For desktop decorative lines container
 
-  @include tablet {
-    // padding-bottom: 20px;
-  }
 
   @include desktop {
     // Space below for decorative elements (circles)
@@ -262,7 +267,7 @@
   @include desktop {
     font-size: 20px;
     line-height: 20px;
-    margin-bottom: 23px;
+    margin-bottom: 27px;
   }
 }
 
@@ -271,7 +276,7 @@
   position: relative;  // For mobile vertical line
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 24px;
 
   @include tablet {
     display: grid;
@@ -302,11 +307,11 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  max-width: 265px;  // Mobile: limit width for better readability
+  max-width: 265px;
 
   @include tablet {
-    padding-left: 0;  // Remove padding (no circle)
-    align-items: flex-start;  // Align icon to top
+    padding-left: 0;
+    align-items: flex-start;
     gap: 10px;
     max-width: none;  // Grid controls width (230px columns)
   }
@@ -368,6 +373,11 @@
 // Process icon
 .training__process-icon {
   flex-shrink: 0;
+  padding-bottom: 10px;
+
+  @include desktop {
+    padding-bottom: 0;
+  }
 }
 
 // Process text
@@ -409,7 +419,7 @@
     display: block;
     position: absolute;
     left: 20px;
-    bottom: -9px;
+    bottom: -4px;
     top: auto;
     transform: none;  // Reset mobile transform
   }
