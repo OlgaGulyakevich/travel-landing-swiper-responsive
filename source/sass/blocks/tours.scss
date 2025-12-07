@@ -64,18 +64,20 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 26px;
-
-  // margin-bottom: 40px;
-  // margin-bottom: 26px;
-  // min-height: 55px;
-  min-height: 67px;
+  margin-bottom: 40px;
+  min-height: 60px;
 
   // HTML1-TEST-04: Prevent overflow
   @include flex-no-overflow;
 
+  @include tablet {
+    margin-bottom: 24px;
+    min-height: 70px
+  }
+
   @include desktop {
-    margin-bottom: 53px;
+    min-height: 54px;
+    margin-bottom: 50px;
   }
 }
 
@@ -94,6 +96,10 @@
 .tours__slider {
   position: relative;
   margin-bottom: 23px;
+
+  @include tablet {
+    margin-bottom: 25px;
+  }
 
   @include desktop {
     margin-bottom: 53px;

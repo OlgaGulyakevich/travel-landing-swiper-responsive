@@ -82,7 +82,10 @@ export const initSliders = () => {
 
     breakpoints: {
       768: { slidesPerView: 2 },
-      1440: { slidesPerView: 3 },
+      1440: {
+        slidesPerView: 3,
+        spaceBetween: 23,
+      },
     },
     on: {
       init: function() {
