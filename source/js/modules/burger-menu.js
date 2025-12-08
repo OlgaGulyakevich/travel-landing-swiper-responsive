@@ -8,7 +8,9 @@ export const initBurgerMenu = () => {
   const menu = document.querySelector('.header__nav');
   const menuLinks = menu?.querySelectorAll('a');
 
-  if (!burger || !menu) return;
+  if (!burger || !menu) {
+    return;
+  }
 
   const toggleMenu = () => {
     const isOpen = menu.classList.contains('is-open');
@@ -42,7 +44,7 @@ export const initBurgerMenu = () => {
   burger.addEventListener('click', toggleMenu);
 
   // Close on menu link click
-  menuLinks?.forEach(link => {
+  menuLinks?.forEach((link) => {
     link.addEventListener('click', closeMenu);
   });
 

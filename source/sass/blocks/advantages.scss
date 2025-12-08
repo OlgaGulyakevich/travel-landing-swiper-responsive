@@ -159,6 +159,7 @@
   @include desktop {
     width: 380px;
     max-width: 380px;
+    height: 100%;
     min-height: 329px;
     padding: 40px 15px;
     margin: 0; // Remove auto margin
@@ -240,6 +241,14 @@
   }
 }
 
+.advantages__card-br-not-mobile {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+}
+
 .advantages__card-br-desktop {
   display: none;
 
@@ -251,6 +260,7 @@
     display: block;
   }
 }
+
 .advantages__card-nowrap-tablet {
   white-space: normal;
 
@@ -264,9 +274,7 @@
 }
 
 .advantages__card-nowrap-desktop {
-
   @include desktop {
     white-space: nowrap;
   }
 }
-
