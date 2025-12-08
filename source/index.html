@@ -749,9 +749,16 @@
       <div class="container">
 
         <div class="about__wrapper">
-          <!-- Image with Retina Support -->
+          <!-- Image with Retina Support and Art Direction -->
           <div class="about__image-wrapper">
             <picture>
+              <!-- Desktop (≥1440px) -->
+              <source type="image/webp" media="(min-width: 1440px)" srcset="img/about@1x.webp 1x, img/about@2x.webp 2x" width="660" height="498">
+              <source type="image/jpeg" media="(min-width: 1440px)" srcset="img/about@1x.jpg 1x, img/about@2x.jpg 2x" width="660" height="498">
+              <!-- Tablet (≥768px) -->
+              <source type="image/webp" media="(min-width: 768px)" srcset="img/about-tablet@1x.webp 1x, img/about-tablet@2x.webp 2x" width="450" height="350">
+              <source type="image/jpeg" media="(min-width: 768px)" srcset="img/about-tablet@1x.jpg 1x, img/about-tablet@2x.jpg 2x" width="450" height="350">
+              <!-- Mobile (default) -->
               <source type="image/webp" srcset="img/about@1x.webp 1x, img/about@2x.webp 2x" width="320" height="400">
               <img class="about__image" src="img/about@1x.jpg" srcset="img/about@2x.jpg 2x" width="320" height="400" alt="Группа туристов спускается с вершины горы с видом на озеро">
             </picture>
