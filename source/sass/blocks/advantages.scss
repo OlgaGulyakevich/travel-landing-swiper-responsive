@@ -1,13 +1,13 @@
 .advantages {
-  margin-bottom: 76px;
+  padding: 20px 0;
   overflow-x: clip; // Prevent horizontal scroll when container extends beyond viewport
 
   @include tablet {
-    margin-bottom: 100px;
+    padding: 40px 0;
   }
 
   @include desktop {
-    margin-bottom: 219px;
+    padding: 100px 0;
   }
 }
 

@@ -8,9 +8,15 @@
 
 .gallery {
   overflow-x: clip;
+  padding-top: 20px;
+
+  @include tablet {
+    padding-top: 40px;
+  }
 
   @include desktop {
     margin-bottom: 5px;
+    padding-top: 100px;
   }
 }
 

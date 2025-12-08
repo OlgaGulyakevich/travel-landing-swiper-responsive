@@ -108,7 +108,6 @@
 
   @include desktop {
     align-items: flex-start;
-    margin-bottom: 80px;
     justify-content: flex-end;
   }
 }
@@ -138,7 +137,7 @@
     text-align: left;
     padding: 0;
     margin-right: auto;
-    margin-bottom: 25px;
+    margin-bottom: 26px;
   }
 }
 
@@ -166,7 +165,6 @@
     margin-right: auto;
     padding-right: 10px;
     padding-left: 0;
-    margin-bottom: 35px;
   }
 }
 
@@ -178,7 +176,7 @@
 
   @include desktop {
     margin-right: auto;
-    margin-bottom: 134px;
+    margin-bottom: 132px;
   }
 }
 
@@ -191,6 +189,7 @@
     display: flex;
     gap: 10px;
     margin-right: auto;
+    margin-bottom: 24px;
 
     @include flex-no-overflow;
   }
@@ -202,6 +201,10 @@
   color: $color-text-inverse;
   border: 1px solid $color-white-100;
   padding: 14px 20px;
+
+  @include desktop {
+    padding: 13px 20px;
+  }
 }
 
 .hero__detail svg {
@@ -225,7 +228,7 @@
 
   @include desktop {
     bottom: 93px;
-    left: 51%;
+    left: 50%;
   }
 }
 

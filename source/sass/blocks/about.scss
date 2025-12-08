@@ -4,15 +4,15 @@
 
 // Main section
 .about {
-  margin-bottom: 40px;
+  padding: 20px 0;
   overflow-x: hidden; // Prevent horizontal scroll from full-width image on mobile
 
   @include tablet {
-    margin-bottom: 80px;
+    padding: 40px 0;
   }
 
   @include desktop {
-    margin-bottom: 140px;
+    padding: 100px 0;
   }
 }
 

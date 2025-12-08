@@ -1,13 +1,13 @@
 .reviews {
-  margin-bottom: 12px;
+  padding: 20px 0;
   overflow-x: clip; // Prevent horizontal scroll WITHOUT affecting vertical overflow
 
   @include tablet {
-    margin-bottom: 104px;
+    padding: 40px 0;
   }
 
   @include desktop {
-    margin-bottom: 212px;
+    padding: 100px 0;
   }
 }
 

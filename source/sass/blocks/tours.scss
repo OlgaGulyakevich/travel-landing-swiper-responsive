@@ -1,12 +1,12 @@
 .tours {
-  margin-bottom: 40px;
+  padding: 20px 0;
 
   @include tablet {
-    margin-bottom: 80px;
+    padding: 40px 0;
   }
 
   @include desktop {
-    margin-bottom: 140px;
+    padding: 100px 0;
   }
 }
 
