@@ -84,6 +84,7 @@
 .reviews__card {
   display: flex;
   flex-direction: column;
+  height: 100%; // Equal height cards in slider
   padding: 20px;
   background-color: $color-bg-white;
   box-shadow: 0 0 20px 0 rgb(28, 51, 116, 0.1);
