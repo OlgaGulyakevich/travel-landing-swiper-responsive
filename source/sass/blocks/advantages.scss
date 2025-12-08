@@ -141,7 +141,7 @@
   width: 100%;
   max-width: 290px;
   height: auto;
-  padding: 20px 10px;
+  padding: 20px 9px;
   margin: 0 auto;
   text-align: center;
   background-color: $color-bg-white;
@@ -251,14 +251,6 @@
     display: block;
   }
 }
-.advantages__card-nowrap-mobile {
-  white-space: nowrap;
-
-  @include tablet {
-    white-space: normal;
-  }
-}
-
 .advantages__card-nowrap-tablet {
   white-space: normal;
 
@@ -277,3 +269,4 @@
     white-space: nowrap;
   }
 }
+
