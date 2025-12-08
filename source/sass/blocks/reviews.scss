@@ -1,5 +1,5 @@
 .reviews {
-  margin-bottom: 31px;
+  margin-bottom: 12px;
   overflow-x: clip; // Prevent horizontal scroll WITHOUT affecting vertical overflow
 
   @include tablet {
@@ -161,7 +161,7 @@
   line-height: 18px;
 
   &:last-child {
-    margin-bottom: 0; 
+    margin-bottom: 0;
   }
 
   @include desktop {

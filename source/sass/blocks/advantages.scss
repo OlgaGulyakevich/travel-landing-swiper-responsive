@@ -251,12 +251,29 @@
     display: block;
   }
 }
+.advantages__card-nowrap-mobile {
+  white-space: nowrap;
 
-.advantages__card-nowrap-desktop {
-  display: none;
+  @include tablet {
+    white-space: normal;
+  }
+}
+
+.advantages__card-nowrap-tablet {
+  white-space: normal;
+
+  @include tablet {
+    white-space: nowrap;
+  }
 
   @include desktop {
-    display: block;
+    white-space: normal;
+  }
+}
+
+.advantages__card-nowrap-desktop {
+
+  @include desktop {
     white-space: nowrap;
   }
 }
