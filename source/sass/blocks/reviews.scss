@@ -84,13 +84,12 @@
 .reviews__card {
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: 20px;
   background-color: $color-bg-white;
   box-shadow: 0 0 20px 0 rgb(28, 51, 116, 0.1);
 
   @include tablet {
-    flex-direction: row;  // Tablet/Desktop: photo left, content right
+    flex-direction: row;
   }
 
   // HTML1-TEST-04: Prevent overflow
@@ -162,7 +161,7 @@
   line-height: 18px;
 
   &:last-child {
-    margin-bottom: 0;  // No margin after last paragraph
+    margin-bottom: 0; 
   }
 
   @include desktop {
