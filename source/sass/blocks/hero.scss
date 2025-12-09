@@ -173,6 +173,11 @@
   width: 180px;
   min-height: 56px;
   text-align: center;
+  margin-bottom: 96px;
+
+  @include tablet {
+    margin-bottom: 300px;
+  }
 
   @include desktop {
     margin-right: auto;
