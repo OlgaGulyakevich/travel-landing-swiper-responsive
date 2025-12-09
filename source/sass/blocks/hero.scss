@@ -6,7 +6,7 @@
   }
 
   @include desktop {
-    margin-bottom: 100px;
+    margin-bottom: $spacing-3xl;
   }
 }
 
@@ -42,7 +42,7 @@
   right: 0;
   bottom: 0;
   background: $color-overlay-hero;
-  z-index: 1;
+  z-index: $z-overlay;
   pointer-events: none; // Allow clicks through backdrop
 }
 
@@ -55,7 +55,7 @@
   height: 100%;
   object-fit: cover; // Safari prefix
   object-position: 50% 50%; // Safari prefix
-  z-index: 0; // Force GPU acceleration for Safari
+  z-index: $z-default; // Force GPU acceleration for Safari
   transform: translateZ(0); // Safari prefix // Prevent Safari flickering
   backface-visibility: hidden; // Safari prefix
 }
@@ -72,7 +72,7 @@
 // Container positioning
 .hero__slide .container {
   position: relative;
-  z-index: 3; // Above backdrop and decorative photos
+  z-index: $z-above; // Above backdrop and decorative photos
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -98,7 +98,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-bottom: $spacing-base;
 
   @include flex-no-overflow;
 
@@ -121,18 +121,18 @@
   text-align: center;
   text-wrap: pretty;
   padding: 0 9px;
-  margin-bottom: 15px;
+  margin-bottom: $spacing-base;
 
   @include tablet {
     max-width: 700px;
-    font-size: 56px;
+    font-size: $font-size-4xl;
     line-height: 56px;
     padding: 0 4px;
   }
 
   @include desktop {
     max-width: 960px;
-    font-size: 77px;
+    font-size: $font-size-5xl;
     line-height: 77px;
     text-align: left;
     padding: 0;
@@ -154,7 +154,7 @@
   @include tablet {
     max-width: 493px;
     font-size: 17px;
-    line-height: 24px;
+    line-height: $line-height-lg;
     padding: 0 10px;
     margin-bottom: 35px;
   }
@@ -204,7 +204,7 @@
   font-size: 12px;
   line-height: 16px;
   color: $color-text-inverse;
-  border: 1px solid $color-white-100;
+  border: 1px solid $color-bg-white;
   padding: 14px 20px;
 
   @include desktop {
@@ -228,7 +228,7 @@
   left: 50%;
   bottom: 40px;
   transform: translateX(-50%);
-  z-index: 10;
+  z-index: $z-controls;
 
 
   @include desktop {
@@ -240,7 +240,7 @@
 // Decorative photos (only on slide 2)
 .hero__decorative-photo {
   position: absolute;
-  z-index: 2; // Above backdrop, below text content
+  z-index: $z-content; // Above backdrop, below text content
   display: none; // Hide on mobile
 
   // Show on tablet and desktop

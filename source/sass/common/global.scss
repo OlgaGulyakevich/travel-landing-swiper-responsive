@@ -25,14 +25,14 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-width: 320px; // minimum width of the frame (HTML1-TEST-03)
+  min-width: $container-mobile; // minimum width of the frame (HTML1-TEST-03)
   min-height: 100vh; // consider using 100vh instead of 100% for correct behavior
   margin: 0;
   padding: 0;
   font-family: $font-family;
-  font-size: 14px;
+  font-size: $font-size-body;
   font-weight: $font-weight-regular;
-  line-height: 20px;
+  line-height: $line-height-body;
   color: $color-text-primary;
   background-color: $color-bg-white;
   -webkit-font-smoothing: antialiased;

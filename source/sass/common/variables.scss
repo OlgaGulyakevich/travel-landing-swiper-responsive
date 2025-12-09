@@ -1,4 +1,24 @@
 // ============================================
+// SPACING & SIZING
+// ============================================
+
+// Spacing scale (8px base unit with adjustments for pixel-perfect design)
+$spacing-xs: 4px;   // Micro gaps, star ratings
+$spacing-sm: 8px;   // Small gaps, icon padding
+$spacing-base: 15px;  // Base unit (mobile container padding)
+$spacing-md: 20px;  // Common spacing (button padding, margins)
+$spacing-lg: 30px;  // Large spacing (navigation gaps, content margins)
+$spacing-xl: 40px;  // Section padding (tablet)
+$spacing-2xl: 48px;  // Large section margins
+$spacing-3xl: 100px; // Desktop section padding
+$spacing-4xl: 120px; // Desktop container padding
+
+// Border radius
+$border-radius-sm: 2px;   // Inputs
+$border-radius-md: 4px;   // Cards, notifications
+$border-radius-full: 50%;   // Circles (bullets, icons)
+
+// ============================================
 // COLORS
 // ============================================
 
@@ -8,8 +28,7 @@ $color-primary-blue: #0266c1;
 $color-primary-dark: #024b99;
 $color-primary-active: #1c3374;
 
-// Additional
-$color-additional-100: #0266c1;
+// Additional (opacity variations)
 $color-additional-20: rgb(2, 102, 193, 0.2);
 $color-additional-10: rgb(2, 102, 193, 0.1);
 
@@ -38,8 +57,7 @@ $color-error: #ff121f;
 $color-success: #2e7d32;
 $color-disabled: #999999;
 
-// White variations
-$color-white-100: #ffffff;
+// White variations (opacity)
 $color-white-50: rgb(255, 255, 255, 0.5);
 
 // Overlay/Backdrop
@@ -53,9 +71,16 @@ $color-overlay-tours: linear-gradient(0deg, rgb(0, 0, 0, 0.6) 22.3%, rgb(0, 0, 0
 
 // Shadows
 $shadow-card: 0 0 20px 0 rgb(28, 51, 116, 0.1);
+$shadow-form-message: 0 4px 16px rgb(0, 0, 0, 0.12);
 
 // Transitions
 $transition: 0.3s ease;
+
+// Opacity scale
+$opacity-subtle: 0.03;  // Title decorations
+$opacity-light: 0.2;   // Border decorations
+$opacity-medium: 0.5;   // Logo hover, white overlays
+$opacity-strong: 0.7;   // Logo active state
 
 // ============================================
 // TYPOGRAPHY
@@ -68,6 +93,31 @@ $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 $font-weight-extrabold: 800;
+
+// Font sizes (mobile-first, responsive via mixins)
+$font-size-xs: 12px;  // Small text, captions
+$font-size-sm: 14px;  // Body text (mobile)
+$font-size-base: 16px;  // Base body text
+$font-size-lg: 18px;  // Large body, small headings
+$font-size-xl: 22px;  // Section titles (mobile)
+$font-size-2xl: 25px;  // Headings (tablet)
+$font-size-3xl: 35px;  // Large headings (desktop)
+$font-size-4xl: 56px;  // Hero title (tablet)
+$font-size-5xl: 77px;  // Hero title (desktop)
+
+// Line heights (absolute values for pixel-perfect)
+$line-height-xs: 12px;
+$line-height-sm: 18px;
+$line-height-md: 22px;
+$line-height-lg: 24px;
+
+// Body defaults (used in global.scss)
+$font-size-body: 14px;  // Default body font-size
+$line-height-body: 20px;  // Default body line-height
+
+// Letter spacing
+$letter-spacing-wide: 0.56px;  // Navigation, links
+$letter-spacing-wider: 0.64px;  // Tablet navigation
 
 // ============================================
 // LAYOUT
@@ -84,3 +134,14 @@ $container-padding-mobile: 15px;
 // Breakpoints
 $tablet-min: 768px;
 $desktop-min: 1440px;
+
+// Z-index scale (clear stacking context hierarchy)
+$z-background: -1;   // Tours background pseudo-elements
+$z-default: 0;   // Hero background images
+$z-overlay: 1;   // Overlays, decorative layers
+$z-content: 2;   // Card content, hero decorative photos
+$z-above: 3;   // Hero slide container
+$z-controls: 10;   // Pagination, form messages (relative)
+$z-nav-overlay: 99;   // Mobile navigation overlay
+$z-header-sticky: 100;   // Sticky header
+$z-modal: 1000;   // Form messages (fixed/modal)

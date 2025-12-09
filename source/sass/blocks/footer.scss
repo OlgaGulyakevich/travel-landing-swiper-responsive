@@ -3,10 +3,10 @@
 // =============================================================================
 
 .footer {
-  padding: 0 0 20px;
+  padding: 0 0 $spacing-md;
 
   @include tablet {
-    padding: 0 0 20px;
+    padding: 0 0 $spacing-md;
   }
 
   @include desktop {
@@ -19,10 +19,10 @@
 // =============================================================================
 
 .footer__contacts-section {
-  margin-bottom: 20px;
+  margin-bottom: $spacing-md;
 
   @include tablet {
-    margin-bottom: 40px;
+    margin-bottom: $spacing-xl;
   }
 
   @include desktop {
@@ -73,7 +73,7 @@
   margin-bottom: 29px;
 
   @include tablet {
-    margin-bottom: 40px;
+    margin-bottom: $spacing-xl;
   }
 
   @include desktop {
@@ -86,8 +86,8 @@
 
 
   @include tablet {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: $font-size-base;
+    line-height: $line-height-lg;
     max-width: 500px;
   }
 }
@@ -96,7 +96,7 @@
 .footer__contacts-list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: $spacing-lg;
   margin-bottom: 33px;
 
   @include flex-no-overflow;
@@ -104,8 +104,8 @@
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
-    gap: 40px;
-    margin-bottom: 40px;
+    gap: $spacing-xl;
+    margin-bottom: $spacing-xl;
   }
 
   @include desktop {
@@ -175,12 +175,12 @@
   font-weight: $font-weight-semibold;
 
   @include tablet {
-    font-size: 16px;
+    font-size: $font-size-base;
     line-height: 16px;
   }
 
   @include desktop {
-    font-size: 18px;
+    font-size: $font-size-lg;
     line-height: 18px;
   }
 }
@@ -191,12 +191,12 @@
   white-space: nowrap;
 
   @include tablet {
-    line-height: 22px;
+    line-height: $line-height-md;
   }
 
   @include desktop {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: $font-size-base;
+    line-height: $line-height-lg;
   }
 }
 
@@ -330,7 +330,7 @@
 
   @include desktop {
     order: 1; // Row 1: Logo
-    margin-left: 30px;
+    margin-left: $spacing-lg;
   }
 }
 
@@ -351,7 +351,7 @@
 
 // Interactive states for dark logo
 .footer__logo:hover {
-  opacity: 0.7;
+  opacity: $opacity-strong;
 }
 
 .footer__logo:focus,
@@ -361,7 +361,7 @@
 }
 
 .footer__logo:active {
-  opacity: 0.5;
+  opacity: $opacity-medium;
 }
 
 // Contextual styles for navigation (common component .nav)
@@ -382,7 +382,7 @@
   }
 
   @include desktop {
-    gap: 30px;
+    gap: $spacing-lg;
     justify-content: center;
     max-width: 815px;
   }
@@ -431,7 +431,7 @@
   }
 
   @include desktop {
-    font-size: 16px;
+    font-size: $font-size-base;
     line-height: 16px;
   }
 }
@@ -462,7 +462,7 @@
   display: none;
   color: $color-text-primary;
   font-weight: $font-weight-semibold;
-  font-size: 18px;
+  font-size: $font-size-lg;
   line-height: 18px;
 
   order: 3;
@@ -539,7 +539,7 @@
 .footer__social-link:focus,
 .footer__social-link:focus-visible {
   outline: none;
-  border-color: $color-white-100;
+  border-color: $color-bg-white;
 }
 
 .footer__social-link:active {

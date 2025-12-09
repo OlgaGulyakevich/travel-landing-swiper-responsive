@@ -1,19 +1,19 @@
 .tours {
-  padding: 20px 0;
+  padding: $spacing-md 0;
 
   @include tablet {
-    padding: 40px 0;
+    padding: $spacing-xl 0;
   }
 
   @include desktop {
-    padding: 100px 0;
+    padding: $spacing-3xl 0;
   }
 }
 
 // Modifier for extended background
 .tours--with-extended-background {
   position: relative;
-  z-index: 0;
+  z-index: $z-default;
   overflow-x: clip;
 }
 
@@ -28,7 +28,7 @@
   background-size: contain;
   background-position: bottom right;
   background-repeat: no-repeat;
-  z-index: -1;
+  z-index: $z-background;
   pointer-events: none;
   transform: scale(1.3);
 
@@ -64,7 +64,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 40px;
+  margin-bottom: $spacing-xl;
   min-height: 60px;
 
   // HTML1-TEST-04: Prevent overflow
@@ -137,12 +137,12 @@
   right: 0;
   bottom: 0;
   background: $color-overlay-tours;
-  z-index: 1;
+  z-index: $z-overlay;
   pointer-events: none; // Allow clicks through backdrop
 }
 
 .tours__slider .card__content {
-  padding: 30px 20px;
+  padding: $spacing-lg $spacing-md;
 }
 
 // Context-specific card styling for tours
@@ -155,7 +155,7 @@
 // OVERRIDE: Image wrapper as absolute background (flat selector)
 .tours__card .card__image-wrapper {
   position: absolute;
-  z-index: 0;
+  z-index: $z-default;
 }
 
 // OVERRIDE: Card content as overlay at bottom (flat selector)
@@ -164,7 +164,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: $z-content;
 }
 
 // Card title
@@ -173,7 +173,7 @@
   line-height: 28px;
   font-weight: $font-weight-bold;
   color: $color-text-inverse;
-  margin-bottom: 15px;
+  margin-bottom: $spacing-base;
   max-width: 260px;
 }
 
@@ -229,7 +229,7 @@
 // Focus state and focus visible state
 .tours__link:focus,
 .tours__link:focus-visible {
-  color: $color-additional-100;
+  color: $color-primary-blue;
   outline: none;
 }
 

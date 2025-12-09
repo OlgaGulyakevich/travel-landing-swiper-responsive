@@ -6,7 +6,7 @@
 .header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: $z-header-sticky;
   background-color: $color-primary-blue;
   color: $color-text-inverse;
 }
@@ -15,8 +15,8 @@
   display: grid;
   align-items: center;
   min-height: 100px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: $spacing-base;
+  padding-bottom: $spacing-base;
 
   // HTML1-TEST-04: Prevent children from overflowing on long content
   @include grid-no-overflow;
@@ -26,8 +26,8 @@
 
   @include tablet {
     min-height: 82px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
 
     // Tablet: 3 columns (burger | logo | phone)
     // right-group unwraps via display: contents
@@ -75,7 +75,7 @@
     // Desktop: explicitly place logo in first column
     grid-column: 1;
     justify-self: start;
-    margin-left: 30px;
+    margin-left: $spacing-lg;
   }
 }
 
@@ -103,7 +103,7 @@
   right: 0;
   bottom: 0;
   background-color: rgb(0, 0, 0, 0.3);
-  z-index: 99;
+  z-index: $z-nav-overlay;
   padding: 0;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   opacity: 0;
@@ -124,7 +124,7 @@
     opacity: 1;
     visibility: visible;
     justify-self: center;
-    padding-left: 30px;
+    padding-left: $spacing-lg;
   }
 }
 
@@ -151,8 +151,8 @@
   gap: 22px;
   background-color: $color-primary-blue;
   margin-top: 0; // Remove margin, backdrop starts under header
-  padding: 0 15px;
-  padding-top: 30px;
+  padding: 0 $spacing-base;
+  padding-top: $spacing-lg;
   padding-bottom: 50px;
   max-height: calc(100vh - 100px); // Limit height = screen minus header
   overflow-y: auto;
@@ -172,7 +172,7 @@
   @include desktop {
     // Desktop: reset mobile styles
     flex-direction: row;
-    gap: 30px;
+    gap: $spacing-lg;
     background-color: transparent;
     margin-top: 0;
     padding: 0;

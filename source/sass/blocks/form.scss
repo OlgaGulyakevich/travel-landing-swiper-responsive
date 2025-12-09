@@ -56,14 +56,14 @@
   right: 0;
   bottom: 0;
   background: $color-overlay-form;
-  z-index: 1;
+  z-index: $z-overlay;
   pointer-events: none;
 }
 
 // Container for content and form
 .form-section .container {
   position: relative;
-  z-index: 2;
+  z-index: $z-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,7 +74,7 @@
 // =============================================================================
 .form-section__content {
   min-width: 258px;
-  margin-bottom: 20px;
+  margin-bottom: $spacing-md;
   text-align: center;
 
   @include tablet {
@@ -84,7 +84,7 @@
 
   @include desktop {
     max-width: 960px;
-    margin-bottom: 40px;
+    margin-bottom: $spacing-xl;
   }
 }
 
@@ -94,7 +94,7 @@
   font-weight: $font-weight-extrabold;
   line-height: 22px;
   color: $color-text-inverse;
-  margin-bottom: 20px;
+  margin-bottom: $spacing-md;
 
   @include tablet {
     font-size: 25px;
@@ -105,7 +105,7 @@
   @include desktop {
     font-size: 35px;
     line-height: 35px;
-    margin-bottom: 20px;
+    margin-bottom: $spacing-md;
   }
 }
 
@@ -116,8 +116,8 @@
   color: $color-text-inverse;
 
   @include tablet {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: $font-size-base;
+    line-height: $line-height-lg;
   }
 }
 
@@ -156,7 +156,7 @@
 
   @include desktop {
     flex-direction: row;
-    gap: 30px;
+    gap: $spacing-lg;
     width: 100%;
     max-width: 960px;
   }
@@ -170,7 +170,7 @@
 
   @include tablet {
     .input {
-      padding: 17px 30px;
+      padding: 17px $spacing-lg;
     }
   }
 }
@@ -206,8 +206,8 @@
   line-height: 20px;
 
   // Visual
-  border-radius: 4px;
-  box-shadow: 0 4px 16px rgb(0, 0, 0, 0.12);
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-form-message;
 
   // Smooth fade in/out
   transition: opacity 0.3s ease;
@@ -217,7 +217,7 @@
   bottom: 180px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1000; // Above sticky header
+  z-index: $z-modal; // Above sticky header
 
   @include tablet {
     // Tablet+: absolute above form
@@ -225,9 +225,9 @@
     width: 360px;
     top: -90px;
     bottom: auto;
-    z-index: 10;
-    font-size: 16px;
-    line-height: 24px;
+    z-index: $z-controls;
+    font-size: $font-size-base;
+    line-height: $line-height-lg;
   }
 
   @include desktop {

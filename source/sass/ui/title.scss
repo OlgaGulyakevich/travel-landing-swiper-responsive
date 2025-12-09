@@ -12,20 +12,20 @@
 
 .title__main {
   // Main title (h2)
-  font-size: 22px;
+  font-size: $font-size-xl;
   line-height: 22px;
   font-weight: $font-weight-extrabold;
   white-space: nowrap;
 
 
   @include tablet {
-    font-size: 25px;
+    font-size: $font-size-2xl;
     line-height: 25px;
     padding-bottom: 10px;
   }
 
   @include desktop {
-    font-size: 35px;
+    font-size: $font-size-3xl;
     line-height: 35px;
     padding-bottom: 0;
   }
@@ -41,7 +41,7 @@
   line-height: 26px;
   font-weight: $font-weight-extrabold;
   color: $color-text-secondary;
-  opacity: 0.03;
+  opacity: $opacity-subtle;
   min-width: 290px;
 
 

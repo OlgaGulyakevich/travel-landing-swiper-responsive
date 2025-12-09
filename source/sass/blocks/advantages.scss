@@ -217,64 +217,6 @@
   }
 }
 
-.advantages__card-br-mobile {
-  display: block;
-
-  @include tablet {
-    display: block;
-  }
-
-  @include desktop {
-    display: none;
-  }
-}
-
-.advantages__card-br-tablet {
-  display: none;
-
-  @include tablet {
-    display: block;
-  }
-
-  @include desktop {
-    display: none;
-  }
-}
-
-.advantages__card-br-not-mobile {
-  display: none;
-
-  @include tablet {
-    display: block;
-  }
-}
-
-.advantages__card-br-desktop {
-  display: none;
-
-  @include tablet {
-    display: none;
-  }
-
-  @include desktop {
-    display: block;
-  }
-}
-
-.advantages__card-nowrap-tablet {
-  white-space: normal;
-
-  @include tablet {
-    white-space: nowrap;
-  }
-
-  @include desktop {
-    white-space: normal;
-  }
-}
-
-.advantages__card-nowrap-desktop {
-  @include desktop {
-    white-space: nowrap;
-  }
-}
+// Note: Line break and text wrapping utilities moved to common/responsive-text.scss
+// Use universal classes: .br-not-desktop, .br-tablet, .br-not-mobile, .br-desktop
+// and .nowrap-tablet, .nowrap-desktop in HTML instead of block-specific classes
