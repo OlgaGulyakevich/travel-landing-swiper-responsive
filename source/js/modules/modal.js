@@ -3,26 +3,9 @@
 // Base modal functionality with focus trap and scroll lock
 // =============================================================================
 
+import { lockScroll, unlockScroll } from './scroll-lock.js';
+
 let lastFocusedElement = null;
-let scrollbarWidth = 0;
-
-/**
- * Calculate scrollbar width and set CSS variable
- */
-const calculateScrollbarWidth = () => {
-  const outer = document.createElement('div');
-  outer.style.visibility = 'hidden';
-  outer.style.overflow = 'scroll';
-  document.body.appendChild(outer);
-
-  const inner = document.createElement('div');
-  outer.appendChild(inner);
-
-  scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
-  outer.parentNode.removeChild(outer);
-
-  document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
-};
 
 /**
  * Get all focusable elements within a container
@@ -74,13 +57,8 @@ export const openModal = (modalId) => {
   // Save last focused element
   lastFocusedElement = document.activeElement;
 
-  // Calculate scrollbar width if not done yet
-  if (scrollbarWidth === 0) {
-    calculateScrollbarWidth();
-  }
-
   // Add scroll lock to body
-  document.body.classList.add('scroll-lock');
+  lockScroll();
 
   // Show modal
   modal.removeAttribute('hidden');
@@ -107,13 +85,18 @@ export const closeModal = (modalId) => {
   const modal = document.querySelector(`[data-modal="${modalId}"]`);
   if (!modal) return;
 
+  // Check if modal is actually open
+  if (!modal.classList.contains('is-open')) return;
+
   // Remove is-open class
   modal.classList.remove('is-open');
+
+  // Unlock scroll immediately to prevent race conditions
+  unlockScroll();
 
   // Wait for animation to finish
   setTimeout(() => {
     modal.setAttribute('hidden', '');
-    document.body.classList.remove('scroll-lock');
 
     // Restore focus to last focused element
     if (lastFocusedElement) {
@@ -160,6 +143,10 @@ export const initModal = () => {
   document.addEventListener('click', (event) => {
     const trigger = event.target.closest('[data-modal-trigger]');
     if (trigger) {
+      // Skip tour-detail triggers - they have custom handler in tour-detail.js
+      if (trigger.hasAttribute('data-tour-id')) {
+        return;
+      }
       event.preventDefault();
       const modalId = trigger.getAttribute('data-modal-trigger');
       openModal(modalId);

@@ -128,8 +128,19 @@
   }
 }
 
-// Backdrop for better text readability (covers entire slide)
-.tours__slider .swiper-slide::after {
+.tours__slider .card__content {
+  padding: $spacing-lg $spacing-md;
+}
+
+// Context-specific card styling for tours
+.tours__card {
+  position: relative;
+  background-color: $color-bg-dark;
+  height: 100%;
+}
+
+// Backdrop for better text readability (covers entire card)
+.tours__card::after {
   content: "";
   position: absolute;
   top: 0;
@@ -137,19 +148,26 @@
   right: 0;
   bottom: 0;
   background: $color-overlay-tours;
-  z-index: $z-overlay;
+  z-index: 1; // Between image (z-index: 0) and content (z-index: 3)
   pointer-events: none; // Allow clicks through backdrop
 }
 
-.tours__slider .card__content {
-  padding: $spacing-lg $spacing-md;
-}
+// Cursor and hover animations for clickable tour cards
+.tours__card[data-modal-trigger] {
+  cursor: pointer;
+  transition: transform 0.3s;
 
-// Context-specific card styling for tours
-.tours__card {
-  // Card dimensions defined in .swiper-slide
-  background-color: $color-bg-dark;
-  height: 100%;
+  // Hover state - simple lift effect
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  // Active/click state
+  &:active {
+    transform: translateY(-2px);
+  }
 }
 
 // OVERRIDE: Image wrapper as absolute background (flat selector)
@@ -164,7 +182,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: $z-content;
+  z-index: 3; // Higher than overlay (z-index: 1) to ensure content is always on top
 }
 
 // Card title
@@ -188,6 +206,9 @@
   margin-top: 15px;
 }
 
+.tours__card .card__meta-duration {
+  color: $color-text-inverse;
+}
 
 .tours__link {
   display: flex;

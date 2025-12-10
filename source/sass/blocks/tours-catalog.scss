@@ -5,7 +5,7 @@
 
 // Catalog modal container - fixed height to prevent jumping
 #tours-catalog-modal .modal__container {
-  height: 90vh; // Fixed height instead of max-height
+  height: 100vh; 
 
   @include tablet {
     height: 85vh;

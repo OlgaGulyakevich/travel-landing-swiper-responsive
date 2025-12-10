@@ -94,6 +94,58 @@ const getNightsText = (nights) => {
 };
 
 /**
+ * Clear tour detail modal content
+ */
+const clearTourDetail = () => {
+  // Clear gallery
+  const wrapper = document.querySelector('[data-tour-gallery] .swiper-wrapper');
+  if (wrapper) {
+    wrapper.innerHTML = '';
+  }
+
+  // Destroy existing swiper
+  if (tourDetailSwiper) {
+    tourDetailSwiper.destroy(true, true);
+    tourDetailSwiper = null;
+  }
+
+  // Clear all text content
+  const elementsToСlear = [
+    '[data-tour-title]',
+    '[data-tour-region]',
+    '[data-tour-days]',
+    '[data-tour-nights]',
+    '[data-tour-dates]',
+    '[data-tour-group]',
+    '[data-tour-price]',
+    '[data-tour-description]',
+  ];
+
+  elementsToСlear.forEach((selector) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      element.textContent = '';
+    }
+  });
+
+  // Clear lists
+  const includedElement = document.querySelector('[data-tour-included]');
+  if (includedElement) {
+    includedElement.innerHTML = '';
+  }
+
+  const programElement = document.querySelector('[data-tour-program]');
+  if (programElement) {
+    programElement.innerHTML = '';
+  }
+
+  const difficultyElement = document.querySelector('[data-tour-difficulty]');
+  if (difficultyElement) {
+    difficultyElement.innerHTML = '';
+  }
+};
+
+/**
  * Populate tour detail modal
  * @param {Object} tour - Tour data
  */
@@ -178,6 +230,12 @@ const populateTourDetail = (tour) => {
       .join('');
   }
 
+  // Auto-fill booking date
+  const dateInput = document.querySelector('#booking-date');
+  if (dateInput && tour.dates) {
+    dateInput.value = tour.dates;
+  }
+
   // Initialize gallery
   initGallery(tour.images);
 };
@@ -204,34 +262,110 @@ const openTourDetail = (tourId) => {
 };
 
 /**
+ * Get or create message container for success/error messages
+ * @returns {HTMLElement} - Message container
+ */
+const getOrCreateMessageContainer = () => {
+  let container = document.querySelector('[data-booking-message]');
+  if (!container) {
+    container = document.createElement('div');
+    container.className = 'form-message';
+    container.setAttribute('data-booking-message', 'status');
+    document.body.appendChild(container);
+  }
+  return container;
+};
+
+/**
+ * Show success message
+ */
+const showBookingSuccessMessage = () => {
+  const container = getOrCreateMessageContainer();
+  container.textContent = 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.';
+  container.className = 'form-message form-message--success';
+  container.setAttribute('role', 'status');
+  container.setAttribute('aria-live', 'polite');
+
+  setTimeout(() => {
+    container.className = 'form-message';
+    container.textContent = '';
+  }, 5000);
+};
+
+/**
+ * Show error message
+ * @param {string} message - Error message text
+ */
+const showBookingErrorMessage = (message) => {
+  const container = getOrCreateMessageContainer();
+  container.textContent = message;
+  container.className = 'form-message form-message--error';
+  container.setAttribute('role', 'alert');
+  container.setAttribute('aria-live', 'assertive');
+
+  setTimeout(() => {
+    container.className = 'form-message';
+    container.textContent = '';
+  }, 5000);
+};
+
+/**
  * Handle booking form submission
  * @param {Event} event - Submit event
  */
-const handleBookingSubmit = (event) => {
+const handleBookingSubmit = async (event) => {
   event.preventDefault();
 
   const form = event.target;
   const formData = new FormData(form);
 
-  // Basic validation
+  // Validate required fields
   const name = formData.get('name');
   const phone = formData.get('phone');
   const email = formData.get('email');
+  const people = formData.get('people');
+  const city = formData.get('city');
+  const experience = formData.get('experience');
 
-  if (!name || !phone || !email) {
-    // eslint-disable-next-line no-alert
-    alert('Пожалуйста, заполните все обязательные поля');
-    return;
+  if (!name || !phone || !email || !people || !city || !experience) {
+    return; // Validation module handles errors
   }
 
-  // Here you would normally send data to server
-  // For now, just show success message and close modal
-  // eslint-disable-next-line no-alert
-  alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+  try {
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    submitButton.textContent = 'Отправка...';
+    submitButton.disabled = true;
 
-  // Reset form and close modal
-  form.reset();
-  closeModal('tour-detail');
+    const response = await fetch('https://echo.htmlacademy.ru', {
+      method: 'POST',
+      body: formData,
+    });
+
+    submitButton.textContent = originalText;
+    submitButton.disabled = false;
+
+    if (response.ok) {
+      showBookingSuccessMessage();
+      setTimeout(() => {
+        form.reset();
+        form.querySelectorAll('.is-invalid').forEach((input) => {
+          input.classList.remove('is-invalid');
+        });
+        form.querySelectorAll('.tour-detail__form-error').forEach((error) => {
+          error.setAttribute('hidden', '');
+        });
+      }, 500);
+      setTimeout(() => closeModal('tour-detail'), 1000);
+    } else {
+      showBookingErrorMessage('Ошибка отправки. Пожалуйста, попробуйте позже.');
+    }
+  } catch (error) {
+    showBookingErrorMessage('Ошибка соединения. Проверьте интернет и попробуйте снова.');
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.textContent = 'Отправить заявку';
+    submitButton.disabled = false;
+  }
 };
 
 /**
@@ -245,6 +379,8 @@ export const initTourDetail = () => {
       event.preventDefault();
       const tourId = trigger.getAttribute('data-tour-id');
       if (tourId) {
+        // Clear old content before opening to prevent flickering
+        clearTourDetail();
         openTourDetail(tourId);
       }
     }
@@ -253,6 +389,10 @@ export const initTourDetail = () => {
   // Handle custom event from tours catalog
   document.addEventListener('open-tour-detail', (event) => {
     const { tourId } = event.detail;
+
+    // Clear old content immediately to prevent flickering
+    clearTourDetail();
+
     closeModal('tours-catalog'); // Close catalog modal first
     setTimeout(() => {
       openTourDetail(tourId);

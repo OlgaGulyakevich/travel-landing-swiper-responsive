@@ -13,6 +13,7 @@ import { initTrainingLines } from './modules/training-lines.js';
 import { initModal } from './modules/modal.js';
 import { initToursCatalog } from './modules/tours-catalog.js';
 import { initTourDetail } from './modules/tour-detail.js';
+import { initScrollAnimations } from './modules/scroll-animations.js';
 
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -45,4 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize tour detail modal
   initTourDetail();
+
+  // Initialize scroll-triggered animations
+  initScrollAnimations();
 });

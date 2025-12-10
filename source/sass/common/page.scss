@@ -107,6 +107,16 @@
   }
 }
 
+:where(.page) fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+:where(.page) legend {
+  padding: 0;
+}
+
 // Lists
 :where(.page) ul,
 :where(.page) ol {

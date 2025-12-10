@@ -223,19 +223,19 @@
     </section>
 
     <!-- ===== TOURS SECTION ===== -->
-    <section class="tours tours--with-extended-background" id="tours" data-test="tours">
+    <section class="tours tours--with-extended-background" id="tours" data-animate data-test="tours">
       <div class="container">
 
         <!-- Header: Title + Navigation -->
         <div class="tours__header">
           <!-- Title with Decoration (UI Component) -->
-          <div class="title tours__title-wrapper">
+          <div class="title tours__title-wrapper" data-animate>
             <h2 class="title__main">Ближайшие туры</h2>
             <span class="title__decoration" aria-hidden="true">Ближайшие туры</span>
           </div>
 
           <!-- Navigation Arrows (Tablet/Desktop only) -->
-          <div class="slider-navigation tours__navigation">
+          <div class="slider-navigation tours__navigation" data-animate>
             <button class="swiper-button-prev tours__button-prev" type="button" aria-label="Предыдущий слайд">
               <span class="visually-hidden">Предыдущий тур</span>
             </button>
@@ -256,7 +256,7 @@
 
             <!-- Slide 0: Shows everywhere (mobile: 1-st, tablet: 1-st, desktop: 1-st) -->
             <div class="swiper-slide">
-              <article class="card tours__card" data-modal-trigger="tour-detail" data-tour-id="elbrus-journey" style="cursor: pointer;">
+              <article class="card tours__card" data-animate data-modal-trigger="tour-detail" data-tour-id="elbrus-journey">
                 <div class="card__image-wrapper">
                   <picture>
                     <source type="image/webp" srcset="img/tour-1@1x.webp 1x, img/tour-1@2x.webp 2x" width="290" height="416">
@@ -328,7 +328,7 @@
 
             <!-- Slide 1: Shows on tablet/desktop (tablet: 2-nd, desktop: 2-nd) -->
             <div class="swiper-slide">
-              <article class="card tours__card" data-modal-trigger="tour-detail" data-tour-id="beluha" style="cursor: pointer;">
+              <article class="card tours__card" data-animate data-modal-trigger="tour-detail" data-tour-id="beluha">
                 <div class="card__image-wrapper">
                   <picture>
                     <source type="image/webp" srcset="img/tour-2@1x.webp 1x, img/tour-2@2x.webp 2x" width="290" height="416">
@@ -399,7 +399,7 @@
 
             <!-- Slide 2: Shows only on desktop (desktop: 3-rd) -->
             <div class="swiper-slide">
-              <article class="card tours__card" data-modal-trigger="tour-detail" data-tour-id="fisht-black-sea" style="cursor: pointer;">
+              <article class="card tours__card" data-animate data-modal-trigger="tour-detail" data-tour-id="fisht-black-sea">
                 <div class="card__image-wrapper">
                   <picture>
                     <source type="image/webp" srcset="img/tour-3@1x.webp 1x, img/tour-3@2x.webp 2x" width="290" height="416">
@@ -470,7 +470,7 @@
 
             <!-- Slide 3: Additional slide (for scrolling) -->
             <div class="swiper-slide">
-              <article class="card tours__card" data-modal-trigger="tour-detail" data-tour-id="ural-manaraga" style="cursor: pointer;">
+              <article class="card tours__card" data-animate data-modal-trigger="tour-detail" data-tour-id="ural-manaraga">
                 <div class="card__image-wrapper">
                   <picture>
                     <source type="image/webp" srcset="img/tour-4@1x.webp 1x, img/tour-4@2x.webp 2x" width="290" height="416">
@@ -543,7 +543,7 @@
         </div>
 
         <!-- Link to All Tours -->
-        <a class="tours__link" href="#tours" data-modal-trigger="tours-catalog">Показать все туры
+        <a class="tours__link" href="#tours" data-animate data-modal-trigger="tours-catalog">Показать все туры
           <svg class="tours__link-icon" width="6" height="12" aria-hidden="true">
             <use href="/__spritemap#sprite-arrow-small-right"></use>
           </svg>
@@ -553,11 +553,11 @@
     </section>
 
     <!-- ===== TRAINING SECTION ===== -->
-    <section class="training" id="training" data-test="training">
+    <section class="training" id="training" data-animate data-test="training">
       <div class="container">
 
         <!-- Title with Decoration -->
-        <div class="title training__title-wrapper">
+        <div class="title training__title-wrapper" data-animate>
           <h2 class="title__main">Обучение</h2>
           <span class="title__decoration" aria-hidden="true">Обучение</span>
           <!-- Content area WITHOUT classes (cascading styling) -->
@@ -565,12 +565,12 @@
         </div>
 
         <!-- Header: Instructors Title + Navigation -->
-        <div class="training__header">
+        <div class="training__header" data-animate>
           <!-- Instructors Title -->
           <h3 class="training__instructors-title">Наши инструкторы</h3>
 
           <!-- Navigation Arrows (Tablet/Desktop only) -->
-          <div class="slider-navigation training__navigation">
+          <div class="slider-navigation training__navigation" data-animate>
             <button class="swiper-button-prev training__button-prev" type="button" aria-label="Предыдущий инструктор">
               <span class="visually-hidden">Предыдущий инструктор</span>
             </button>
@@ -585,7 +585,7 @@
         <!-- Mobile: initialSlide: 2 (shows slide 2 - Nadzeya) -->
         <!-- Tablet: 3 slides (shows slides 0, 1, 2 - Alexander, Svetlana, Nadzeya) -->
         <!-- Desktop: 4 slides (shows slides 0, 1, 2, 3 - Alexander, Svetlana, Nadzeya, Fedor) -->
-        <div class="training__slider swiper" data-slider="training">
+        <div class="training__slider swiper" data-animate data-slider="training">
           <div class="swiper-wrapper">
 
             <!-- Slide 0: Alexander (tablet: 1-st, desktop: 1-st) -->
@@ -680,7 +680,7 @@
               </article>
             </div>
 
-            <!-- Слайд 4: Дополнительный слайд (для прокрутки, не виден изначально) -->
+            <!-- Slide 4: Daniel (desktop: 5-th) -->
             <div class="swiper-slide">
               <article class="card training__card">
                 <picture>
@@ -707,7 +707,7 @@
         </div>
 
         <!-- Training Process (Static List) -->
-        <div class="training__process">
+        <div class="training__process" data-animate>
           <h3 class="training__process-title">Процесс обучения</h3>
 
           <ul class="training__process-list">
@@ -745,12 +745,12 @@
     </section>
 
     <!-- ===== ABOUT SECTION ===== -->
-    <section class="about" id="about" data-test="about">
+    <section class="about" id="about" data-animate data-test="about">
       <div class="container">
 
         <div class="about__wrapper">
           <!-- Image with Retina Support and Art Direction -->
-          <div class="about__image-wrapper">
+          <div class="about__image-wrapper" data-animate>
             <picture>
               <!-- Desktop (≥1440px) -->
               <source type="image/webp" media="(min-width: 1440px)" srcset="img/about@1x.webp 1x, img/about@2x.webp 2x" width="660" height="498">
@@ -765,14 +765,14 @@
           </div>
 
           <!-- Text wrapper: title + content -->
-          <div class="about__text-wrapper">
+          <div class="about__text-wrapper" data-animate>
             <!-- Title with Decoration (UI Component) -->
             <div class="title about__title-wrapper">
               <h2 class="title__main">О нас</h2>
               <span class="title__decoration" aria-hidden="true">О нас</span>
             </div>
 
-            <div class="about__content">
+            <div class="about__content" data-animate>
               <!-- Content area WITHOUT classes (cascading styling) -->
               <h3>История компании</h3>
               <p>В далёком 2000 году мы начали заниматься туризмом — походы, поездки, восхождения, нам&nbsp;это&nbsp;настолько понравилось, что&nbsp;мы&nbsp;этим стали жить.<br class="about__br-desktop"> Спустя 5 лет,<br class="about__br-tablet"> в 2005 году мы основали компанию, чтобы показывать людям удивительные места нашей страны.</p>
@@ -787,7 +787,7 @@
     </section>
 
     <!-- ===== REVIEWS SECTION ===== -->
-    <section class="reviews" id="reviews" data-test="reviews">
+    <section class="reviews" id="reviews" data-animate data-test="reviews">
       <div class="container">
 
         <!-- Header: Title + Navigation -->
@@ -928,7 +928,7 @@
     </section>
 
     <!-- ===== ADVANTAGES SECTION ===== -->
-    <section class="advantages" id="advantages" data-test="adv">
+    <section class="advantages" id="advantages" data-animate data-test="adv">
       <div class="container">
 
         <!-- Title with Decoration -->
@@ -942,7 +942,7 @@
           <ul class="swiper-wrapper advantages__list">
 
             <!-- Advantage 1 -->
-            <li class="swiper-slide advantages__slide">
+            <li class="swiper-slide advantages__slide" data-animate>
               <div class="advantages__card">
                 <svg class="advantages__icon icon" width="24" height="24" aria-hidden="true">
                   <use href="/__spritemap#sprite-shield"></use>
@@ -954,7 +954,7 @@
             </li>
 
             <!-- Advantage 2 -->
-            <li class="swiper-slide advantages__slide">
+            <li class="swiper-slide advantages__slide" data-animate>
               <div class="advantages__card">
                 <svg class="advantages__icon icon" width="24" height="24" aria-hidden="true">
                   <use href="/__spritemap#sprite-crown"></use>
@@ -966,7 +966,7 @@
             </li>
 
             <!-- Advantage 3 -->
-            <li class="swiper-slide advantages__slide">
+            <li class="swiper-slide advantages__slide" data-animate>
               <div class="advantages__card">
                 <svg class="advantages__icon icon" width="24" height="24" aria-hidden="true">
                   <use href="/__spritemap#sprite-boots"></use>
@@ -978,7 +978,7 @@
             </li>
 
             <!-- Advantage 4 -->
-            <li class="swiper-slide advantages__slide">
+            <li class="swiper-slide advantages__slide" data-animate>
               <div class="advantages__card">
                 <svg class="advantages__icon icon" width="24" height="24" aria-hidden="true">
                   <use href="/__spritemap#sprite-path"></use>
@@ -990,7 +990,7 @@
             </li>
 
             <!-- Advantage 5 -->
-            <li class="swiper-slide advantages__slide">
+            <li class="swiper-slide advantages__slide" data-animate>
               <div class="advantages__card">
                 <svg class="advantages__icon icon" width="24" height="24" aria-hidden="true">
                   <use href="/__spritemap#sprite-leaf"></use>
@@ -1074,7 +1074,7 @@
     </section>
 
     <!-- ===== GALLERY SECTION ===== -->
-    <section class="gallery" id="gallery" data-test="gallery">
+    <section class="gallery" id="gallery" data-animate data-test="gallery">
       <div class="container">
 
         <!-- Title with Decoration -->
@@ -1103,7 +1103,7 @@
 
       <!-- ========== MOBILE/TABLET: Swiper Slider ========== -->
       <!-- 5 slides = 5 desktop columns -->
-      <div class="gallery__slider swiper" data-slider="gallery">
+      <div class="gallery__slider swiper" data-animate data-slider="gallery">
         <ul class="swiper-wrapper">
 
           <!-- Slide 1: Photo 1 (tall) -->
@@ -1240,7 +1240,7 @@
     </section>
 
     <!-- ===== FORM SECTION ===== -->
-    <section class="form-section" id="form" data-test="form">
+    <section class="form-section" id="form" data-animate data-test="form">
       <div class="container">
 
         <!-- Content area WITHOUT classes (cascading styling) -->
@@ -1291,19 +1291,19 @@
           <div class="footer__contacts-info">
 
             <!-- Title with Decoration (UI Component) -->
-            <div class="title footer__title-wrapper">
+            <div class="title footer__title-wrapper" data-animate>
               <h2 class="title__main">Контакты</h2>
               <span class="title__decoration" aria-hidden="true">Контакты</span>
             </div>
 
-            <div class="footer__contacts-content">
+            <div class="footer__contacts-content" data-animate>
               <!-- Content area WITHOUT classes (cascading styling) -->
               <p>Свяжитесь с нами любым удобным для&nbsp;вас способом или&nbsp;приходите к&nbsp;нам&nbsp;в&nbsp;гости. Мы будем рады поделиться увлекательными историями и подобрать для вас тур.</p>
             </div>
 
             <!-- Contacts Info -->
-            <ul class="footer__contacts-list">
-              <li class="footer__contact-item">
+            <ul class="footer__contacts-list" data-animate>
+              <li class="footer__contact-item" data-animate>
                 <svg class="footer__contact-icon icon" width="26" height="26" aria-hidden="true">
                   <use href="/__spritemap#sprite-phone"></use>
                 </svg>
@@ -1313,7 +1313,7 @@
                 </div>
               </li>
 
-              <li class="footer__contact-item">
+              <li class="footer__contact-item" data-animate>
                 <svg class="footer__contact-icon icon" width="26" height="26" aria-hidden="true">
                   <use href="/__spritemap#sprite-mail"></use>
                 </svg>
@@ -1323,7 +1323,7 @@
                 </div>
               </li>
 
-              <li class="footer__contact-item">
+              <li class="footer__contact-item" data-animate>
                 <svg class="footer__contact-icon icon" width="26" height="26" aria-hidden="true">
                   <use href="/__spritemap#sprite-pin-stroke"></use>
                 </svg>
@@ -1339,7 +1339,7 @@
           </div>
 
           <!-- Right: Map -->
-          <div class="footer__map">
+          <div class="footer__map" data-animate>
             <picture>
               <source type="image/webp" media="(min-width: 1440px)" srcset="img/map-desktop@1x.webp 1x, img/map-desktop@2x.webp 2x" width="600" height="324">
               <source type="image/webp" media="(min-width: 768px)" srcset="img/map-tablet@1x.webp 1x, img/map-tablet@2x.webp 2x" width="768" height="340">
@@ -1355,7 +1355,7 @@
       </section>
 
       <!-- Footer Bottom -->
-      <div class="footer__bottom">
+      <div class="footer__bottom" data-animate>
 
         <!-- Logo -->
         <a class="logo footer__logo" href="#hero">
@@ -1387,10 +1387,10 @@
         </nav>
 
         <!-- Phone (Desktop only) -->
-        <a class="footer__phone-desktop" href="tel:88007253232">8 800 725-32-32</a>
+        <a class="footer__phone-desktop" data-animate href="tel:88007253232">8 800 725-32-32</a>
 
         <!-- Social Links -->
-        <ul class="footer__social-list">
+        <ul class="footer__social-list" >
           <li>
             <a class="footer__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="Мы в ВКонтакте">
               <svg class="footer__social-icon" width="16" height="9" aria-hidden="true">
@@ -1432,27 +1432,29 @@
   <div class="modal" id="tours-catalog-modal" data-modal="tours-catalog" role="dialog" aria-modal="true" aria-labelledby="tours-catalog-title" hidden>
     <div class="modal__overlay" data-modal-close></div>
     <div class="modal__container">
-      <div class="modal__content tours-catalog">
-        <!-- Close Button -->
-        <button class="modal__close" type="button" data-modal-close aria-label="Закрыть модальное окно">
-          <svg class="modal__close-icon" width="24" height="24" aria-hidden="true">
-            <use href="/__spritemap#sprite-close"></use>
-          </svg>
-        </button>
+      <div class="modal__content">
+        <section class="tours-catalog">
+          <!-- Close Button -->
+          <button class="modal__close" type="button" data-modal-close aria-label="Закрыть модальное окно">
+            <svg class="modal__close-icon" width="24" height="24" aria-hidden="true">
+              <use href="/__spritemap#sprite-close"></use>
+            </svg>
+          </button>
 
-        <!-- Header -->
-        <h2 class="tours-catalog__title" id="tours-catalog-title">Все туры</h2>
+          <!-- Header -->
+          <h2 class="tours-catalog__title" id="tours-catalog-title">Все туры</h2>
 
-        <!-- Filters -->
-        <div class="tours-catalog__filters">
-          <button class="tours-catalog__filter tours-catalog__filter--active" type="button" data-filter="all">Все</button>
-          <button class="tours-catalog__filter" type="button" data-filter="easy">Легкие</button>
-          <button class="tours-catalog__filter" type="button" data-filter="medium">Средние</button>
-          <button class="tours-catalog__filter" type="button" data-filter="hard">Сложные</button>
-        </div>
+          <!-- Filters -->
+          <div class="tours-catalog__filters">
+            <button class="tours-catalog__filter tours-catalog__filter--active" type="button" data-filter="all">Все</button>
+            <button class="tours-catalog__filter" type="button" data-filter="easy">Легкие</button>
+            <button class="tours-catalog__filter" type="button" data-filter="medium">Средние</button>
+            <button class="tours-catalog__filter" type="button" data-filter="hard">Сложные</button>
+          </div>
 
-        <!-- Tours Grid (will be populated via JS) -->
-        <div class="tours-catalog__grid" data-tours-container></div>
+          <!-- Tours Grid (will be populated via JS) -->
+          <div class="tours-catalog__grid" data-tours-container></div>
+        </section>
       </div>
     </div>
   </div>
@@ -1461,33 +1463,37 @@
   <div class="modal" id="tour-detail-modal" data-modal="tour-detail" role="dialog" aria-modal="true" aria-labelledby="tour-detail-title" hidden>
     <div class="modal__overlay" data-modal-close></div>
     <div class="modal__container modal__container--large">
-      <div class="modal__content tour-detail">
-        <!-- Close Button -->
-        <button class="modal__close" type="button" data-modal-close aria-label="Закрыть модальное окно">
-          <svg class="modal__close-icon" width="24" height="24" aria-hidden="true">
-            <use href="/__spritemap#sprite-close"></use>
-          </svg>
-        </button>
+      <div class="modal__content">
+        <section class="tour-detail">
+          <!-- Close Button -->
+          <button class="modal__close" type="button" data-modal-close aria-label="Закрыть модальное окно">
+            <svg class="modal__close-icon" width="24" height="24" aria-hidden="true">
+              <use href="/__spritemap#sprite-close"></use>
+            </svg>
+          </button>
 
-        <!-- Tour Content (will be populated via JS) -->
-        <div class="tour-detail__wrapper">
+          <!-- Tour Content (will be populated via JS) -->
+          <div class="tour-detail__wrapper">
           <!-- Left Column: Gallery -->
           <div class="tour-detail__gallery">
             <div class="tour-detail__slider swiper" data-tour-gallery>
               <div class="swiper-wrapper"></div>
-              <!-- Navigation -->
-              <div class="tour-detail__slider-nav">
-                <button class="tour-detail__slider-button tour-detail__slider-button--prev" type="button" aria-label="Предыдущее изображение">
-                  <svg class="icon" width="16" height="16" aria-hidden="true">
-                    <use href="/__spritemap#sprite-arrow-left"></use>
-                  </svg>
-                </button>
-                <button class="tour-detail__slider-button tour-detail__slider-button--next" type="button" aria-label="Следующее изображение">
-                  <svg class="icon" width="16" height="16" aria-hidden="true">
-                    <use href="/__spritemap#sprite-arrow-right"></use>
-                  </svg>
-                </button>
-              </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="slider-navigation tour-detail__slider-nav">
+              <button class="swiper-button-prev tour-detail__slider-button tour-detail__slider-button--prev" type="button" aria-label="Предыдущее изображение">
+                <svg class="icon" width="16" height="16" aria-hidden="true">
+                  <use href="/__spritemap#sprite-arrow-left"></use>
+                </svg>
+                <span class="visually-hidden">Предыдущее изображение</span>
+              </button>
+              <button class="swiper-button-next tour-detail__slider-button tour-detail__slider-button--next" type="button" aria-label="Следующее изображение">
+                <svg class="icon" width="16" height="16" aria-hidden="true">
+                  <use href="/__spritemap#sprite-arrow-right"></use>
+                </svg>
+                <span class="visually-hidden">Следующее изображение</span>
+              </button>
             </div>
           </div>
 
@@ -1549,51 +1555,118 @@
 
             <!-- Description -->
             <div class="tour-detail__section">
-              <h3 class="tour-detail__section-title">Описание</h3>
-              <p class="tour-detail__description" data-tour-description></p>
+              <h3 class="tour-detail__section-title" data-animate>Описание</h3>
+              <p class="tour-detail__description" data-animate data-tour-description></p>
             </div>
 
             <!-- Included -->
             <div class="tour-detail__section">
-              <h3 class="tour-detail__section-title">Что включено</h3>
-              <ul class="tour-detail__included" data-tour-included></ul>
+              <h3 class="tour-detail__section-title" data-animate>Что включено</h3>
+              <ul class="tour-detail__included" data-animate data-tour-included></ul>
             </div>
 
             <!-- Program -->
             <div class="tour-detail__section">
-              <h3 class="tour-detail__section-title">Программа тура</h3>
-              <div class="tour-detail__program" data-tour-program></div>
+              <h3 class="tour-detail__section-title" data-animate>Программа тура</h3>
+              <div class="tour-detail__program" data-animate data-tour-program></div>
             </div>
 
             <!-- Booking Form -->
             <div class="tour-detail__section">
-              <h3 class="tour-detail__section-title">Забронировать тур</h3>
-              <form class="tour-detail__form" data-tour-booking-form novalidate>
-                <div class="tour-detail__form-row">
-                  <div class="tour-detail__form-field">
-                    <label class="tour-detail__form-label" for="booking-name">Имя *</label>
-                    <input class="input tour-detail__form-input" type="text" id="booking-name" name="name" required>
+              <h3 class="tour-detail__section-title" data-animate>Забронировать тур</h3>
+              <form class="tour-detail__form" data-tour-booking-form novalidate data-animate>
+                <fieldset class="tour-detail__form-fieldset">
+                  <legend class="visually-hidden">Информация для бронирования</legend>
+
+                  <!-- Row 1: Name + Phone -->
+                  <div class="tour-detail__form-row">
+                    <div class="tour-detail__form-field">
+                      <label class="tour-detail__form-label" for="booking-name">Имя *</label>
+                      <input class="input tour-detail__form-input" type="text"
+                             id="booking-name" name="name"
+                             aria-describedby="booking-name-error" required>
+                      <span id="booking-name-error" class="tour-detail__form-error" role="alert" hidden></span>
+                    </div>
+                    <div class="tour-detail__form-field">
+                      <label class="tour-detail__form-label" for="booking-phone">Телефон *</label>
+                      <input class="input tour-detail__form-input" type="tel"
+                             id="booking-phone" name="phone"
+                             pattern="[0-9\s\-\+\(\)]+" minlength="11"
+                             aria-describedby="booking-phone-error" required>
+                      <span id="booking-phone-error" class="tour-detail__form-error" role="alert" hidden></span>
+                    </div>
                   </div>
-                  <div class="tour-detail__form-field">
-                    <label class="tour-detail__form-label" for="booking-phone">Телефон *</label>
-                    <input class="input tour-detail__form-input" type="tel" id="booking-phone" name="phone" required>
+
+                  <!-- Row 2: Email + People Count -->
+                  <div class="tour-detail__form-row">
+                    <div class="tour-detail__form-field">
+                      <label class="tour-detail__form-label" for="booking-email">Email *</label>
+                      <input class="input tour-detail__form-input" type="email"
+                             id="booking-email" name="email"
+                             aria-describedby="booking-email-error" required>
+                      <span id="booking-email-error" class="tour-detail__form-error" role="alert" hidden></span>
+                    </div>
+                    <div class="tour-detail__form-field">
+                      <label class="tour-detail__form-label" for="booking-people">Количество человек *</label>
+                      <input class="input tour-detail__form-input" type="number"
+                             id="booking-people" name="people"
+                             min="1" max="50" value="1"
+                             aria-describedby="booking-people-error" required>
+                      <span id="booking-people-error" class="tour-detail__form-error" role="alert" hidden></span>
+                    </div>
                   </div>
-                </div>
-                <div class="tour-detail__form-row">
-                  <div class="tour-detail__form-field">
-                    <label class="tour-detail__form-label" for="booking-email">Email *</label>
-                    <input class="input tour-detail__form-input" type="email" id="booking-email" name="email" required>
+
+                  <!-- Row 3: City + Experience -->
+                  <div class="tour-detail__form-row">
+                    <div class="tour-detail__form-field">
+                      <label class="tour-detail__form-label" for="booking-city">Город отправления *</label>
+                      <input class="input tour-detail__form-input" type="text"
+                             id="booking-city" name="city" placeholder="Например: Москва"
+                             aria-describedby="booking-city-error" required>
+                      <span id="booking-city-error" class="tour-detail__form-error" role="alert" hidden></span>
+                    </div>
+                    <div class="tour-detail__form-field">
+                      <label class="tour-detail__form-label" for="booking-experience">Опыт в походах *</label>
+                      <select class="input tour-detail__form-input"
+                              id="booking-experience" name="experience"
+                              aria-describedby="booking-experience-error" required>
+                        <option value="">Выберите уровень</option>
+                        <option value="beginner">Новичок</option>
+                        <option value="intermediate">Опытный</option>
+                        <option value="advanced">Профессионал</option>
+                      </select>
+                      <span id="booking-experience-error" class="tour-detail__form-error" role="alert" hidden></span>
+                    </div>
                   </div>
-                  <div class="tour-detail__form-field">
-                    <label class="tour-detail__form-label" for="booking-date">Желаемая дата</label>
-                    <input class="input tour-detail__form-input" type="text" id="booking-date" name="date" placeholder="дд.мм.гггг">
+
+                  <!-- Row 4: Date (auto-filled, readonly) -->
+                  <div class="tour-detail__form-row tour-detail__form-row--single">
+                    <div class="tour-detail__form-field">
+                      <label class="tour-detail__form-label" for="booking-date">Даты набора</label>
+                      <input class="input tour-detail__form-input" type="text"
+                             id="booking-date" name="date" readonly>
+                      <p class="tour-detail__form-hint">Даты заполняются автоматически из выбранного тура</p>
+                    </div>
                   </div>
-                </div>
-                <button class="button button--primary tour-detail__form-submit" type="submit">Отправить заявку</button>
+
+                  <!-- Row 5: Comments -->
+                  <div class="tour-detail__form-row tour-detail__form-row--single">
+                    <div class="tour-detail__form-field">
+                      <label class="tour-detail__form-label" for="booking-comments">Комментарии и вопросы</label>
+                      <textarea class="input tour-detail__form-input tour-detail__form-textarea"
+                                id="booking-comments" name="comments" rows="4"
+                                placeholder="Укажите пожелания по датам, задайте вопросы или оставьте дополнительную информацию"></textarea>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <button class="button button--primary tour-detail__form-submit" type="submit">
+                  Отправить заявку
+                </button>
               </form>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   </div>

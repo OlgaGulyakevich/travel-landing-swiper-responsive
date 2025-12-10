@@ -3,6 +3,19 @@
 // Detailed tour information with gallery and booking form
 // =============================================================================
 
+// Tour detail modal container - fixed height to prevent showing background
+#tour-detail-modal .modal__container {
+  height: 100vh;
+
+  @include tablet {
+    height: 90vh;
+  }
+
+  @include desktop {
+    height: 85vh;
+  }
+}
+
 .tour-detail__wrapper {
   display: flex;
   flex-direction: column;
@@ -32,6 +45,11 @@
   position: relative;
   border-radius: $border-radius-md;
   overflow: hidden;
+  margin-top: 60px; // Space for close button above slider
+
+  @include desktop {
+    margin-top: 80px; // More space on desktop
+  }
 }
 
 .tour-detail__slider .swiper-slide {
@@ -52,52 +70,24 @@
   object-fit: cover;
 }
 
-// Slider navigation
+// Slider navigation (below slider, centered like in advantages)
 .tour-detail__slider-nav {
-  position: absolute;
-  bottom: $spacing-md;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
   display: flex;
-  gap: $spacing-md;
-}
-
-.tour-detail__slider-button {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  background-color: $color-bg-white;
-  border: none;
-  border-radius: $border-radius-full;
-  cursor: pointer;
-  color: $color-primary-blue;
-  transition: all $transition;
-  box-shadow: 0 2px 8px rgb(0, 0, 0, 0.15);
+  gap: 4px;
+  margin-top: $spacing-lg;
+  position: static; // Not absolute anymore
+
+  @include desktop {
+    margin-top: $spacing-xl;
+  }
 }
 
-.tour-detail__slider-button:hover {
-  background-color: $color-primary-blue;
-  color: $color-text-inverse;
-  transform: scale(1.1);
-}
-
-.tour-detail__slider-button:focus,
-.tour-detail__slider-button:focus-visible {
-  outline: 2px solid $color-primary-blue;
-  outline-offset: 2px;
-}
-
-.tour-detail__slider-button:active {
-  transform: scale(0.95);
-}
-
-.tour-detail__slider-button:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-  pointer-events: none;
+// Navigation buttons use standard UI styles from navigation-arrows.scss
+// Additional specific styles for tour-detail context
+.tour-detail__slider-button.swiper-button-prev,
+.tour-detail__slider-button.swiper-button-next {
+  position: static; // Override any absolute positioning
 }
 
 // =============================================================================
@@ -373,5 +363,57 @@
     width: auto;
     min-width: 200px;
   }
+}
+
+// Fieldset reset
+.tour-detail__form-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+// Single column row (for date and comments)
+.tour-detail__form-row--single {
+  grid-template-columns: 1fr;
+}
+
+// Textarea
+.tour-detail__form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+  line-height: $line-height-md;
+}
+
+// Hint text (below date field)
+.tour-detail__form-hint {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  margin-top: $spacing-xs;
+  font-style: italic;
+}
+
+// Error messages
+.tour-detail__form-error {
+  display: none;
+  font-size: $font-size-xs;
+  color: $color-error;
+  margin-top: $spacing-xs;
+}
+
+.tour-detail__form-error:not([hidden]) {
+  display: block;
+}
+
+// Select dropdown arrow
+select.tour-detail__form-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%232d383f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  padding-right: 40px;
 }
 
