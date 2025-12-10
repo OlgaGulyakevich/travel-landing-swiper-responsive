@@ -116,7 +116,7 @@
                 <!-- Content area WITHOUT classes (cascading styling) -->
                 <h2>Захватывающие вершины Кавказа</h2>
                 <p>В сопровождении опытных гидов вы пройдёте через потрясающие ландшафты и совершите восход на вершину горы Чегет.</p>
-                <a class="button hero__button" href="#tours">Смотреть тур</a>
+                <a class="button hero__button" href="#tours" data-modal-trigger="tour-detail" data-tour-id="kavkaz-chegem">Смотреть тур</a>
 
                 <!-- Tour details (desktop only) -->
                 <div class="hero__details">
@@ -124,7 +124,7 @@
                     <svg class="icon" width="12" height="12" aria-hidden="true">
                       <use href="/__spritemap#sprite-moon"></use>
                     </svg>
-                    6 дней/5 ночей
+                    7 дней/6 ночей
                   </span>
                   <span class="hero__detail">
                     <svg class="icon" width="12" height="12" aria-hidden="true">
@@ -161,7 +161,7 @@
                 <!-- Content area WITHOUT classes (cascading styling) -->
                 <h2>Невероятная&nbsp; природа Камчатки</h2>
                 <p>Незабываемое приключение, во&nbsp;время которого вы&nbsp;отправитесь в путешествие по одному из&nbsp;самых нетронутых уголков дикой природы в мире.</p>
-                <a class="button hero__button" href="#tours">Смотреть тур</a>
+                <a class="button hero__button" href="#tours" data-modal-trigger="tour-detail" data-tour-id="kamchatka">Смотреть тур</a>
 
                 <!-- Tour details (desktop only) -->
                 <div class="hero__details">
@@ -169,7 +169,7 @@
                     <svg class="icon" width="12" height="12" aria-hidden="true">
                       <use href="/__spritemap#sprite-moon"></use>
                     </svg>
-                    9 дней/19 ночей
+                    9 дней/8 ночей
                   </span>
                   <span class="hero__detail">
                     <svg class="icon" width="12" height="12" aria-hidden="true">
@@ -194,7 +194,7 @@
                 <!-- Content area WITHOUT classes (cascading styling) -->
                 <h2>Магические пейзажи Алтайского Края</h2>
                 <p>Алтайский трекинг-тур— это&nbsp;захватывающее приключение с посещением магических и захватывающих душу ландшафтов Алтайских гор.</p>
-                <a class="button hero__button" href="#tours">Смотреть тур</a>
+                <a class="button hero__button" href="#tours" data-modal-trigger="tour-detail" data-tour-id="altai">Смотреть тур</a>
 
                 <!-- Tour details (desktop only) -->
                 <div class="hero__details">
@@ -256,7 +256,7 @@
 
             <!-- Slide 0: Shows everywhere (mobile: 1-st, tablet: 1-st, desktop: 1-st) -->
             <div class="swiper-slide">
-              <article class="card tours__card">
+              <article class="card tours__card" data-modal-trigger="tour-detail" data-tour-id="elbrus-journey" style="cursor: pointer;">
                 <div class="card__image-wrapper">
                   <picture>
                     <source type="image/webp" srcset="img/tour-1@1x.webp 1x, img/tour-1@2x.webp 2x" width="290" height="416">
@@ -328,7 +328,7 @@
 
             <!-- Slide 1: Shows on tablet/desktop (tablet: 2-nd, desktop: 2-nd) -->
             <div class="swiper-slide">
-              <article class="card tours__card">
+              <article class="card tours__card" data-modal-trigger="tour-detail" data-tour-id="beluha" style="cursor: pointer;">
                 <div class="card__image-wrapper">
                   <picture>
                     <source type="image/webp" srcset="img/tour-2@1x.webp 1x, img/tour-2@2x.webp 2x" width="290" height="416">
@@ -399,7 +399,7 @@
 
             <!-- Slide 2: Shows only on desktop (desktop: 3-rd) -->
             <div class="swiper-slide">
-              <article class="card tours__card">
+              <article class="card tours__card" data-modal-trigger="tour-detail" data-tour-id="fisht-black-sea" style="cursor: pointer;">
                 <div class="card__image-wrapper">
                   <picture>
                     <source type="image/webp" srcset="img/tour-3@1x.webp 1x, img/tour-3@2x.webp 2x" width="290" height="416">
@@ -470,7 +470,7 @@
 
             <!-- Slide 3: Additional slide (for scrolling) -->
             <div class="swiper-slide">
-              <article class="card tours__card">
+              <article class="card tours__card" data-modal-trigger="tour-detail" data-tour-id="ural-manaraga" style="cursor: pointer;">
                 <div class="card__image-wrapper">
                   <picture>
                     <source type="image/webp" srcset="img/tour-4@1x.webp 1x, img/tour-4@2x.webp 2x" width="290" height="416">
@@ -543,7 +543,7 @@
         </div>
 
         <!-- Link to All Tours -->
-        <a class="tours__link" href="#tours">Показать все туры
+        <a class="tours__link" href="#tours" data-modal-trigger="tours-catalog">Показать все туры
           <svg class="tours__link-icon" width="6" height="12" aria-hidden="true">
             <use href="/__spritemap#sprite-arrow-small-right"></use>
           </svg>
@@ -1425,6 +1425,178 @@
 
     </div>
   </footer>
+
+  <!-- ========== MODALS ========== -->
+
+  <!-- Tours Catalog Modal -->
+  <div class="modal" id="tours-catalog-modal" data-modal="tours-catalog" role="dialog" aria-modal="true" aria-labelledby="tours-catalog-title" hidden>
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__container">
+      <div class="modal__content tours-catalog">
+        <!-- Close Button -->
+        <button class="modal__close" type="button" data-modal-close aria-label="Закрыть модальное окно">
+          <svg class="modal__close-icon" width="24" height="24" aria-hidden="true">
+            <use href="/__spritemap#sprite-close"></use>
+          </svg>
+        </button>
+
+        <!-- Header -->
+        <h2 class="tours-catalog__title" id="tours-catalog-title">Все туры</h2>
+
+        <!-- Filters -->
+        <div class="tours-catalog__filters">
+          <button class="tours-catalog__filter tours-catalog__filter--active" type="button" data-filter="all">Все</button>
+          <button class="tours-catalog__filter" type="button" data-filter="easy">Легкие</button>
+          <button class="tours-catalog__filter" type="button" data-filter="medium">Средние</button>
+          <button class="tours-catalog__filter" type="button" data-filter="hard">Сложные</button>
+        </div>
+
+        <!-- Tours Grid (will be populated via JS) -->
+        <div class="tours-catalog__grid" data-tours-container></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tour Detail Modal -->
+  <div class="modal" id="tour-detail-modal" data-modal="tour-detail" role="dialog" aria-modal="true" aria-labelledby="tour-detail-title" hidden>
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__container modal__container--large">
+      <div class="modal__content tour-detail">
+        <!-- Close Button -->
+        <button class="modal__close" type="button" data-modal-close aria-label="Закрыть модальное окно">
+          <svg class="modal__close-icon" width="24" height="24" aria-hidden="true">
+            <use href="/__spritemap#sprite-close"></use>
+          </svg>
+        </button>
+
+        <!-- Tour Content (will be populated via JS) -->
+        <div class="tour-detail__wrapper">
+          <!-- Left Column: Gallery -->
+          <div class="tour-detail__gallery">
+            <div class="tour-detail__slider swiper" data-tour-gallery>
+              <div class="swiper-wrapper"></div>
+              <!-- Navigation -->
+              <div class="tour-detail__slider-nav">
+                <button class="tour-detail__slider-button tour-detail__slider-button--prev" type="button" aria-label="Предыдущее изображение">
+                  <svg class="icon" width="16" height="16" aria-hidden="true">
+                    <use href="/__spritemap#sprite-arrow-left"></use>
+                  </svg>
+                </button>
+                <button class="tour-detail__slider-button tour-detail__slider-button--next" type="button" aria-label="Следующее изображение">
+                  <svg class="icon" width="16" height="16" aria-hidden="true">
+                    <use href="/__spritemap#sprite-arrow-right"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Info -->
+          <div class="tour-detail__info">
+            <!-- Title -->
+            <h2 class="tour-detail__title" id="tour-detail-title" data-tour-title></h2>
+
+            <!-- Meta Info (like in tour cards) -->
+            <div class="tour-detail__meta">
+              <!-- Region -->
+              <div class="tour-detail__meta-item tour-detail__meta-item--region">
+                <svg class="icon" width="9" height="12" aria-hidden="true">
+                  <use href="/__spritemap#sprite-pin-fill"></use>
+                </svg>
+                <span data-tour-region></span>
+              </div>
+
+              <!-- Duration with icons -->
+              <div class="tour-detail__meta-item tour-detail__meta-item--duration">
+                <span class="tour-detail__meta-duration">
+                  <svg class="icon" width="20" height="20" aria-hidden="true">
+                    <use href="/__spritemap#sprite-sun"></use>
+                  </svg>
+                  <span data-tour-days></span>
+                </span>
+                <span class="tour-detail__meta-duration">
+                  <svg class="icon" width="16" height="16" aria-hidden="true">
+                    <use href="/__spritemap#sprite-moon"></use>
+                  </svg>
+                  <span data-tour-nights></span>
+                </span>
+              </div>
+
+              <!-- Difficulty -->
+              <div class="tour-detail__meta-item tour-detail__meta-item--difficulty">
+                <span class="tour-detail__meta-label">Сложность:</span>
+                <div class="tour-detail__stars" data-tour-difficulty></div>
+              </div>
+
+              <!-- Dates -->
+              <div class="tour-detail__meta-item tour-detail__meta-item--dates">
+                <span class="tour-detail__meta-label">Даты набора:</span>
+                <span class="tour-detail__meta-value" data-tour-dates></span>
+              </div>
+
+              <!-- Group Size -->
+              <div class="tour-detail__meta-item tour-detail__meta-item--group">
+                <span class="tour-detail__meta-label">Группа:</span>
+                <span class="tour-detail__meta-value" data-tour-group></span>
+              </div>
+
+              <!-- Price -->
+              <div class="tour-detail__meta-item tour-detail__meta-item--price">
+                <span class="tour-detail__meta-label">Цена:</span>
+                <span class="tour-detail__meta-value tour-detail__price" data-tour-price></span>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="tour-detail__section">
+              <h3 class="tour-detail__section-title">Описание</h3>
+              <p class="tour-detail__description" data-tour-description></p>
+            </div>
+
+            <!-- Included -->
+            <div class="tour-detail__section">
+              <h3 class="tour-detail__section-title">Что включено</h3>
+              <ul class="tour-detail__included" data-tour-included></ul>
+            </div>
+
+            <!-- Program -->
+            <div class="tour-detail__section">
+              <h3 class="tour-detail__section-title">Программа тура</h3>
+              <div class="tour-detail__program" data-tour-program></div>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="tour-detail__section">
+              <h3 class="tour-detail__section-title">Забронировать тур</h3>
+              <form class="tour-detail__form" data-tour-booking-form novalidate>
+                <div class="tour-detail__form-row">
+                  <div class="tour-detail__form-field">
+                    <label class="tour-detail__form-label" for="booking-name">Имя *</label>
+                    <input class="input tour-detail__form-input" type="text" id="booking-name" name="name" required>
+                  </div>
+                  <div class="tour-detail__form-field">
+                    <label class="tour-detail__form-label" for="booking-phone">Телефон *</label>
+                    <input class="input tour-detail__form-input" type="tel" id="booking-phone" name="phone" required>
+                  </div>
+                </div>
+                <div class="tour-detail__form-row">
+                  <div class="tour-detail__form-field">
+                    <label class="tour-detail__form-label" for="booking-email">Email *</label>
+                    <input class="input tour-detail__form-input" type="email" id="booking-email" name="email" required>
+                  </div>
+                  <div class="tour-detail__form-field">
+                    <label class="tour-detail__form-label" for="booking-date">Желаемая дата</label>
+                    <input class="input tour-detail__form-input" type="text" id="booking-date" name="date" placeholder="дд.мм.гггг">
+                  </div>
+                </div>
+                <button class="button button--primary tour-detail__form-submit" type="submit">Отправить заявку</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- JavaScript -->
   <script type="module" src="js/main.js"></script>

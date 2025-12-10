@@ -1,0 +1,264 @@
+// =============================================================================
+// TOURS CATALOG MODAL
+// Grid of tour cards with filters
+// =============================================================================
+
+// Catalog modal container - fixed height to prevent jumping
+#tours-catalog-modal .modal__container {
+  height: 90vh; // Fixed height instead of max-height
+
+  @include tablet {
+    height: 85vh;
+  }
+
+  @include desktop {
+    height: 80vh;
+  }
+}
+
+#tours-catalog-modal .modal__content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.tours-catalog__title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-extrabold;
+  line-height: 36px;
+  color: $color-text-primary;
+  margin-bottom: $spacing-lg;
+  padding-right: 60px;
+
+  @include tablet {
+    font-size: $font-size-3xl;
+    line-height: 40px;
+    margin-bottom: $spacing-xl;
+  }
+
+  @include desktop {
+    font-size: 42px;
+    line-height: 50px;
+  }
+}
+
+// Filters
+.tours-catalog__filters {
+  display: flex;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  @include flex-no-overflow;
+
+  @include tablet {
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+  }
+
+  @include desktop {
+    gap: $spacing-lg;
+  }
+}
+
+.tours-catalog__filters::-webkit-scrollbar {
+  display: none;
+}
+
+.tours-catalog__filter {
+  flex-shrink: 0;
+  padding: 10px $spacing-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  line-height: 16px;
+  color: $color-text-primary;
+  background-color: $color-bg-white;
+  border: 2px solid $color-border-default;
+  cursor: pointer;
+  transition: all $transition;
+  white-space: nowrap;
+
+  @include tablet {
+    padding: 12px $spacing-lg;
+    font-size: $font-size-base;
+    line-height: 18px;
+  }
+}
+
+.tours-catalog__filter:hover {
+  border-color: $color-primary-blue;
+  color: $color-primary-blue;
+}
+
+.tours-catalog__filter:focus,
+.tours-catalog__filter:focus-visible {
+  background-color: transparent;
+  border-color: transparent;
+  color: $color-primary-active;
+  outline: none;
+}
+
+.tours-catalog__filter:active {
+  background-color: $color-primary-active;
+  border-color: transparent;
+  color: $color-text-inverse;
+}
+
+.tours-catalog__filter--active {
+  background-color: $color-primary-blue;
+  border-color: $color-primary-blue;
+  color: $color-text-inverse;
+}
+
+.tours-catalog__filter--active:hover {
+  background-color: $color-primary-dark;
+  border-color: $color-primary-dark;
+  color: $color-text-inverse;
+}
+
+.tours-catalog__filter--active:focus,
+.tours-catalog__filter--active:focus-visible {
+  background-color: $color-primary-blue;
+  border-color: $color-primary-blue;
+  color: $color-text-inverse;
+  outline: none;
+}
+
+.tours-catalog__filter--active:active {
+  background-color: $color-primary-active;
+  border-color: $color-primary-active;
+  color: $color-text-inverse;
+}
+
+// Tours grid
+.tours-catalog__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include grid-no-overflow;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-xl;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-lg;
+  }
+}
+
+.tours-catalog__grid
+.card__content {
+ padding: 15px;
+
+ @include desktop {
+ padding: 10px;
+ }
+}
+
+// Tour card (reusing existing card styles from tours section)
+// Additional styles specific to catalog modal
+.tours-catalog__grid .card {
+  width: 100%;
+  background-color: $color-bg-white;
+  box-shadow: 0 0 20px 0 rgb(28, 51, 116, 0.1); // Soft shadow like reviews
+  transition: box-shadow $transition;
+}
+
+// Hover effect for catalog cards
+.tours-catalog__grid .card:hover {
+  box-shadow: 0 0 25px 0 rgb(28, 51, 116, 0.15); // Slightly stronger on hover
+}
+
+.tours-catalog__grid .card__image-wrapper {
+  height: 200px;
+
+  @include tablet {
+    height: 240px;
+  }
+
+  @include desktop {
+    height: 200px;
+  }
+}
+
+.tours-catalog__grid .card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Override text colors for catalog cards (white background instead of image)
+.tours-catalog__grid .card__description {
+  color: $color-text-secondary;
+}
+
+// Price and rating layout - vertical like rating
+.tours-catalog__grid .card__rating,
+.tours-catalog__grid .card__price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tours-catalog__grid .card__rating .card__description,
+.tours-catalog__grid .card__price .card__description {
+  color: $color-text-secondary;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: $font-weight-light;
+}
+
+.tours-catalog__grid .card__price-value {
+  color: $color-text-primary;
+  font-size: 13px;
+  line-height: 13px;
+  font-weight: $font-weight-bold;
+}
+
+// "Подробнее" button in catalog cards
+.tours-catalog__card-button {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+  padding: 10px $spacing-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  line-height: 16px;
+  color: $color-primary-blue;
+  background-color: transparent;
+  border: 2px solid $color-primary-blue;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: all $transition;
+}
+
+.tours-catalog__card-button:hover {
+  background-color: $color-primary-blue;
+  color: $color-text-inverse;
+}
+
+.tours-catalog__card-button:focus,
+.tours-catalog__card-button:focus-visible {
+  outline: 2px solid $color-primary-blue;
+  outline-offset: 2px;
+}
+
+.tours-catalog__card-button:active {
+  background-color: $color-primary-active;
+  border-color: $color-primary-active;
+}
+
+// Empty state
+.tours-catalog__empty {
+  grid-column: 1 / -1;
+  padding: $spacing-3xl $spacing-lg;
+  text-align: center;
+  color: $color-text-secondary;
+  font-size: $font-size-lg;
+}
+

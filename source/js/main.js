@@ -10,6 +10,9 @@ import { initFormSubmit } from './modules/form-submit.js';
 import { initInputMasks } from './modules/input-masks.js';
 import { initSmoothScroll } from './modules/smooth-scroll.js';
 import { initTrainingLines } from './modules/training-lines.js';
+import { initModal } from './modules/modal.js';
+import { initToursCatalog } from './modules/tours-catalog.js';
+import { initTourDetail } from './modules/tour-detail.js';
 
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -33,4 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize training process decorative lines
   initTrainingLines();
+
+  // Initialize modal functionality
+  initModal();
+
+  // Initialize tours catalog modal
+  initToursCatalog();
+
+  // Initialize tour detail modal
+  initTourDetail();
 });
