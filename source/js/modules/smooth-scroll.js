@@ -14,6 +14,11 @@ export const initSmoothScroll = () => {
         return;
       }
 
+      // Skip modal triggers - they have their own handlers
+      if (anchor.hasAttribute('data-modal-trigger')) {
+        return;
+      }
+
       const target = document.querySelector(href);
 
       if (target) {

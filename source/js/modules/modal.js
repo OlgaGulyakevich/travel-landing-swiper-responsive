@@ -31,7 +31,9 @@ const getFocusableElements = (container) => {
  * @param {KeyboardEvent} event - Keyboard event
  */
 const trapFocus = (modal, event) => {
-  if (event.key !== 'Tab') return;
+  if (event.key !== 'Tab') {
+    return;
+  }
 
   const focusableElements = getFocusableElements(modal);
   const firstElement = focusableElements[0];
@@ -52,7 +54,9 @@ const trapFocus = (modal, event) => {
  */
 export const openModal = (modalId) => {
   const modal = document.querySelector(`[data-modal="${modalId}"]`);
-  if (!modal) return;
+  if (!modal) {
+    return;
+  }
 
   // Save last focused element
   lastFocusedElement = document.activeElement;
@@ -83,10 +87,14 @@ export const openModal = (modalId) => {
  */
 export const closeModal = (modalId) => {
   const modal = document.querySelector(`[data-modal="${modalId}"]`);
-  if (!modal) return;
+  if (!modal) {
+    return;
+  }
 
   // Check if modal is actually open
-  if (!modal.classList.contains('is-open')) return;
+  if (!modal.classList.contains('is-open')) {
+    return;
+  }
 
   // Remove is-open class
   modal.classList.remove('is-open');

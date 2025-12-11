@@ -33,8 +33,12 @@ const loadToursData = async () => {
  * @returns {string} - Difficulty text
  */
 const getDifficultyLevel = (difficulty) => {
-  if (difficulty <= 2) return 'easy';
-  if (difficulty <= 3) return 'medium';
+  if (difficulty <= 2) {
+    return 'easy';
+  }
+  if (difficulty <= 3) {
+    return 'medium';
+  }
   return 'hard';
 };
 
@@ -62,8 +66,12 @@ const generateStars = (count) => {
  * @returns {string} - Days text
  */
 const getDaysText = (days) => {
-  if (days === 1) return '1 день';
-  if (days >= 2 && days <= 4) return `${days} дня`;
+  if (days === 1) {
+    return '1 день';
+  }
+  if (days >= 2 && days <= 4) {
+    return `${days} дня`;
+  }
   return `${days} дней`;
 };
 
@@ -73,8 +81,12 @@ const getDaysText = (days) => {
  * @returns {string} - Nights text
  */
 const getNightsText = (nights) => {
-  if (nights === 1) return '1 ночь';
-  if (nights >= 2 && nights <= 4) return `${nights} ночи`;
+  if (nights === 1) {
+    return '1 ночь';
+  }
+  if (nights >= 2 && nights <= 4) {
+    return `${nights} ночи`;
+  }
   return `${nights} ночей`;
 };
 
@@ -150,7 +162,9 @@ const generateTourCard = (tour) => `
  * @returns {Array} - Filtered tours
  */
 const filterTours = (filter) => {
-  if (filter === 'all') return toursData;
+  if (filter === 'all') {
+    return toursData;
+  }
 
   return toursData.filter((tour) => {
     const level = getDifficultyLevel(tour.difficulty);
@@ -164,7 +178,9 @@ const filterTours = (filter) => {
  */
 const renderTours = (tours) => {
   const container = document.querySelector('[data-tours-container]');
-  if (!container) return;
+  if (!container) {
+    return;
+  }
 
   // ✅ Добавить fade-out перед заменой контента
   container.style.opacity = '0';
@@ -177,11 +193,11 @@ const renderTours = (tours) => {
       container.innerHTML = tours.map((tour) => generateTourCard(tour)).join('');
     }
 
-      // ✅ Fade-in нового контента
-      requestAnimationFrame(() => {
-        container.style.opacity = '1';
-      });
-    }, 200); // Задержка соответствует времени fade-out
+    // ✅ Fade-in нового контента
+    requestAnimationFrame(() => {
+      container.style.opacity = '1';
+    });
+  }, 200); // Задержка соответствует времени fade-out
 };
 
 /**
@@ -190,7 +206,9 @@ const renderTours = (tours) => {
  */
 const handleFilterClick = (event) => {
   const button = event.target.closest('[data-filter]');
-  if (!button) return;
+  if (!button) {
+    return;
+  }
 
   const filter = button.getAttribute('data-filter');
   currentFilter = filter;
@@ -212,7 +230,9 @@ const handleFilterClick = (event) => {
  */
 const handleDetailClick = (event) => {
   const button = event.target.closest('[data-tour-detail]');
-  if (!button) return;
+  if (!button) {
+    return;
+  }
 
   const tourId = button.getAttribute('data-tour-detail');
 

@@ -35,8 +35,12 @@ const generateStars = (count) => {
  * @returns {string} - Duration text
  */
 const getDurationText = (days) => {
-  if (days === 1) return '1 день';
-  if (days >= 2 && days <= 4) return `${days} дня`;
+  if (days === 1) {
+    return '1 день';
+  }
+  if (days >= 2 && days <= 4) {
+    return `${days} дня`;
+  }
   return `${days} дней`;
 };
 
@@ -46,10 +50,17 @@ const getDurationText = (days) => {
  */
 const initGallery = (images) => {
   const swiperContainer = document.querySelector('[data-tour-gallery]');
-  if (!swiperContainer) return;
+  if (!swiperContainer) {
+    return;
+  }
+
+  // Hide gallery immediately before any DOM manipulation
+  swiperContainer.classList.add('is-loading');
 
   const wrapper = swiperContainer.querySelector('.swiper-wrapper');
-  if (!wrapper) return;
+  if (!wrapper) {
+    return;
+  }
 
   // Generate slides
   wrapper.innerHTML = images
@@ -87,6 +98,12 @@ const initGallery = (images) => {
     },
     grabCursor: true,
   });
+
+  // Show gallery with smooth fade-in after modal is rendered
+  // Delay allows modal to open before starting gallery fade animation
+  setTimeout(() => {
+    swiperContainer.classList.remove('is-loading');
+  }, 100);
 };
 
 /**
@@ -95,8 +112,12 @@ const initGallery = (images) => {
  * @returns {string} - Nights text
  */
 const getNightsText = (nights) => {
-  if (nights === 1) return '1 ночь';
-  if (nights >= 2 && nights <= 4) return `${nights} ночи`;
+  if (nights === 1) {
+    return '1 ночь';
+  }
+  if (nights >= 2 && nights <= 4) {
+    return `${nights} ночи`;
+  }
   return `${nights} ночей`;
 };
 
@@ -104,6 +125,12 @@ const getNightsText = (nights) => {
  * Clear tour detail modal content
  */
 const clearTourDetail = () => {
+  // Hide gallery immediately to prevent flickering
+  const slider = document.querySelector('[data-tour-gallery]');
+  if (slider) {
+    slider.classList.add('is-loading');
+  }
+
   // Clear gallery
   const wrapper = document.querySelector('[data-tour-gallery] .swiper-wrapper');
   if (wrapper) {
@@ -161,7 +188,9 @@ const clearTourDetail = () => {
  * @param {Object} tour - Tour data
  */
 const populateTourDetail = (tour) => {
-  if (!tour) return;
+  if (!tour) {
+    return;
+  }
 
   // Title
   const titleElement = document.querySelector('[data-tour-title]');
@@ -404,13 +433,10 @@ export const initTourDetail = () => {
   document.addEventListener('open-tour-detail', (event) => {
     const { tourId } = event.detail;
 
-    // Clear old content immediately to prevent flickering
+    // Close catalog and immediately open tour detail (same as hero)
+    closeModal('tours-catalog');
     clearTourDetail();
-
-    closeModal('tours-catalog'); // Close catalog modal first
-    setTimeout(() => {
-      openTourDetail(tourId);
-    }, 300);
+    openTourDetail(tourId);
   });
 
   // Handle booking form submission

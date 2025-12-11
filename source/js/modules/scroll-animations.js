@@ -105,7 +105,9 @@ const animateOnScroll = (entries, observer) => {
 export const initScrollAnimations = () => {
   const elements = document.querySelectorAll('[data-animate]');
 
-  if (!elements.length) return;
+  if (!elements.length) {
+    return;
+  }
 
   // Desktop breakpoint (1440px+)
   const isDesktop = window.innerWidth >= 1440;

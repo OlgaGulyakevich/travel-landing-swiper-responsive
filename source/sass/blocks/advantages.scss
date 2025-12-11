@@ -154,7 +154,7 @@
   @media (hover: hover) {
     &:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(28, 51, 116, 0.12);
+      box-shadow: 0 8px 16px rgb(28, 51, 116, 0.12);
     }
 
     &:hover .advantages__icon {

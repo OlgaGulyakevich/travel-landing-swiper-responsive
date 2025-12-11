@@ -30,24 +30,29 @@
   padding-right: 60px;
 
   @include tablet {
-    font-size: $font-size-3xl;
-    line-height: 40px;
+    font-size: $font-size-2xl;
+    line-height: 36px;
     margin-bottom: $spacing-xl;
   }
 
   @include desktop {
-    font-size: 42px;
-    line-height: 50px;
+    font-size: $font-size-3xl;
+    line-height: 40px;
   }
 }
 
 .tours-catalog__grid h3 {
-  font-size: 14px;
-  font-weight: $font-weight-bold;
-  line-height: 16px;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-extrabold;
+  line-height: 28px;
   color: $color-text-primary;
+  margin-bottom: $spacing-base;
   padding-right: 20px;
   margin-bottom: 10px;
+
+  @include tablet {
+    padding-right: 8px;
+  }
 }
 
 .tours-catalog__grid p {
@@ -166,14 +171,13 @@
   }
 }
 
-.tours-catalog__grid
-.card__content {
- display: flex;
- flex-direction: column;
- flex-grow: 1;
- padding: 15px 20px;
+.tours-catalog__grid .card__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 15px 20px;
 
- gap: 10px;
+  gap: 10px;
 }
 
 // Tour card (reusing existing card styles from tours section)
@@ -206,14 +210,10 @@
 }
 
 .tours-catalog__grid .card__image-wrapper {
-  height: 200px;
-
-  @include tablet {
-    height: 240px;
-  }
+  height: 300px;
 
   @include desktop {
-    height: 200px;
+    height: 340px;
   }
 }
 
@@ -222,6 +222,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center center;
+  padding: 20px 20px 0;
 }
 
 // Override text colors for catalog cards (white background instead of image)
@@ -260,7 +261,6 @@
 }
 
 .tours-catalog__grid .card__price-value {
-  color: $color-text-primary;
   font-size: 13px;
   line-height: 13px;
   font-weight: $font-weight-semibold;
@@ -283,7 +283,6 @@
   color: $color-primary-blue;
   background-color: transparent;
   border: 1px solid $color-primary-blue;
-
 }
 
 .tours-catalog__card-button:hover {
@@ -318,6 +317,7 @@
     opacity: 0;
     transform: translateY(15px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

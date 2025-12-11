@@ -20,13 +20,14 @@
   width: auto;
   padding: $spacing-md $spacing-lg;
   border-radius: $border-radius-md;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 8px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgb(0, 0, 0, 0.12), 0 8px 32px rgb(0, 0, 0, 0.08);
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
   line-height: $line-height-md;
   text-align: center;
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   // Icon before text
   &::before {
@@ -82,6 +83,7 @@
     opacity: 0;
     transform: translateX(-50%) translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
