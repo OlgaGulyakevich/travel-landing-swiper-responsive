@@ -14,6 +14,8 @@ import { initModal } from './modules/modal.js';
 import { initToursCatalog } from './modules/tours-catalog.js';
 import { initTourDetail } from './modules/tour-detail.js';
 import { initScrollAnimations } from './modules/scroll-animations.js';
+import { initBookingFormMasks } from './modules/booking-form-masks.js';
+import { initBookingFormValidation } from './modules/booking-form-validation.js';
 
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -49,4 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize scroll-triggered animations
   initScrollAnimations();
+
+  // Initialize booking form input masks (phone and email)
+  initBookingFormMasks();
+
+  // Initialize booking form validation
+  initBookingFormValidation();
 });

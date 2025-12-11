@@ -1,0 +1,102 @@
+// =============================================================================
+// BOOKING FORM MESSAGE
+// Success/Error notifications for booking form with modern styling
+// =============================================================================
+
+.form-message[data-booking-message] {
+  // Override positioning - always fixed at bottom for booking form
+  display: none;
+  opacity: 0;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: $z-modal;
+  top: auto; // Override tablet/desktop top positioning
+
+  // Modern styling
+  min-width: 320px;
+  max-width: 600px;
+  width: auto;
+  padding: $spacing-md $spacing-lg;
+  border-radius: $border-radius-md;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 8px 32px rgba(0, 0, 0, 0.08);
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-md;
+  text-align: center;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Icon before text
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: $spacing-sm;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  @include tablet {
+    font-size: $font-size-base;
+    padding: $spacing-lg $spacing-xl;
+    bottom: 40px;
+  }
+
+  // Success state with icon and gradient
+  &.form-message--success {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 100%);
+    color: #2e7d32;
+    border: 1px solid #66bb6a;
+
+    &::before {
+      background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.6667 5L7.50004 14.1667L3.33337 10' stroke='%232e7d32' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+  }
+
+  // Error state with icon and gradient
+  &.form-message--error {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    background: linear-gradient(135deg, #ffebee 0%, #fef5f6 100%);
+    color: #c62828;
+    border: 1px solid #ef5350;
+
+    &::before {
+      background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 6V10M10 14H10.01M18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10Z' stroke='%23c62828' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+  }
+}
+
+// Slide-up animation for booking form messages
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.form-message[data-booking-message].form-message--success,
+.form-message[data-booking-message].form-message--error {
+  animation: slideUpFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+// Reduce motion for accessibility
+@media (prefers-reduced-motion: reduce) {
+  .form-message[data-booking-message] {
+    transition: none;
+    animation: none;
+  }
+}

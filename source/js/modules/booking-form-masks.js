@@ -1,13 +1,52 @@
+// =============================================================================
+// BOOKING FORM INPUT MASKS
+// Pattern hints for phone and email inputs in booking form
+// =============================================================================
+
 /**
- * Booking Form Input Masks Module
- * Shows pattern hints on focus for phone and email inputs in booking form
- * User can type freely, pattern is just a visual guide with opacity 0.5
+ * @fileoverview Input masks module for booking form
+ *
+ * Provides visual pattern hints for phone and email inputs in the tour
+ * booking form. Patterns appear on focus as semi-transparent placeholders
+ * (opacity: 0.5 via .input--pattern class) to guide user input format.
+ *
+ * Features:
+ * - Pattern hints shown on focus with .input--pattern class (opacity: 0.5)
+ * - Hints disappear when user starts typing
+ * - Automatic pattern restore if input is cleared while focused
+ * - Clean removal on blur if no actual input provided
+ * - Prevents recursion during programmatic value changes
+ * - Handles edge cases (Backspace, Delete, navigation keys)
+ *
+ * Pattern Formats:
+ * - Phone: '+7 (000)-000-00-00' (Russian mobile format)
+ * - Email: 'example@mail.ru' (common Russian email pattern)
+ *
+ * Replicates functionality from input-masks.js for contact form.
+ *
+ * CSS Required:
+ * .input--pattern { opacity: 0.5; } (defined in ui/input.scss)
+ *
+ * Used By:
+ * - Tour detail modal booking form (#booking-phone, #booking-email)
+ *
+ * @author Olga Gulakevic
+ * @version 1.0.0
  */
 
 /**
- * Initialize input mask for a specific input
- * @param {HTMLInputElement} input - Input element
- * @param {string} patternHint - Pattern to show (e.g., '+7 (000)-000-00-00' or 'example@mail.ru')
+ * Initializes input mask for a specific input element
+ *
+ * Sets up event listeners for focus, input, blur, and keydown to manage
+ * pattern hint display. Uses flags to prevent recursion during programmatic
+ * value changes.
+ *
+ * @param {HTMLInputElement} input - The input element to add mask to
+ * @param {string} patternHint - The pattern string to display (e.g., '+7 (000)-000-00-00')
+ *
+ * @example
+ * const phoneInput = document.querySelector('#booking-phone');
+ * initInputMask(phoneInput, '+7 (000)-000-00-00');
  */
 const initInputMask = (input, patternHint) => {
   if (!input) {
@@ -102,7 +141,14 @@ const initInputMask = (input, patternHint) => {
 };
 
 /**
- * Initialize phone input mask for booking form
+ * Initializes phone input mask for booking form
+ *
+ * Finds #booking-phone input and applies pattern hint '+7 (000)-000-00-00'.
+ * Pattern appears on focus to guide users in entering Russian mobile numbers.
+ *
+ * @example
+ * // Called in main.js via initBookingFormMasks()
+ * initBookingPhoneMask();
  */
 export const initBookingPhoneMask = () => {
   const phoneInput = document.querySelector('#booking-phone');
@@ -112,7 +158,14 @@ export const initBookingPhoneMask = () => {
 };
 
 /**
- * Initialize email input mask for booking form
+ * Initializes email input mask for booking form
+ *
+ * Finds #booking-email input and applies pattern hint 'example@mail.ru'.
+ * Pattern appears on focus to guide users in entering email addresses.
+ *
+ * @example
+ * // Called in main.js via initBookingFormMasks()
+ * initBookingEmailMask();
  */
 export const initBookingEmailMask = () => {
   const emailInput = document.querySelector('#booking-email');
@@ -122,7 +175,22 @@ export const initBookingEmailMask = () => {
 };
 
 /**
- * Initialize all input masks for booking form
+ * Initializes all input masks for booking form (main export)
+ *
+ * Convenience function that initializes both phone and email masks
+ * for the tour booking form. Called once on DOMContentLoaded in main.js.
+ *
+ * Initializes:
+ * - Phone input (#booking-phone) with pattern '+7 (000)-000-00-00'
+ * - Email input (#booking-email) with pattern 'example@mail.ru'
+ *
+ * @example
+ * // In main.js
+ * import { initBookingFormMasks } from './modules/booking-form-masks.js';
+ *
+ * document.addEventListener('DOMContentLoaded', () => {
+ *   initBookingFormMasks();
+ * });
  */
 export const initBookingFormMasks = () => {
   initBookingPhoneMask();

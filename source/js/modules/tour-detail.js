@@ -320,14 +320,15 @@ const handleBookingSubmit = async (event) => {
   const formData = new FormData(form);
 
   // Validate required fields
-  const name = formData.get('name');
+  const firstname = formData.get('firstname');
+  const lastname = formData.get('lastname');
   const phone = formData.get('phone');
   const email = formData.get('email');
   const people = formData.get('people');
   const city = formData.get('city');
   const experience = formData.get('experience');
 
-  if (!name || !phone || !email || !people || !city || !experience) {
+  if (!firstname || !lastname || !phone || !email || !people || !city || !experience) {
     return; // Validation module handles errors
   }
 

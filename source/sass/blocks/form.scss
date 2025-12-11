@@ -163,6 +163,31 @@
 }
 
 // =============================================================================
+// FIELDSET RESET (for semantic HTML)
+// =============================================================================
+.form__fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+  @include flex-no-overflow;
+
+  @include tablet {
+    gap: 11px;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    gap: $spacing-lg;
+    flex: 1; // Take available space in parent flex container
+  }
+}
+
+// =============================================================================
 // FIELD WRAPPER
 // =============================================================================
 .form__field {
@@ -191,6 +216,7 @@
 // =============================================================================
 // FORM MESSAGE (Success/Error notifications after AJAX submission)
 // =============================================================================
+// Contact Form Messages (positioned above form on tablet/desktop)
 .form-message {
   // Hidden by default
   display: none;

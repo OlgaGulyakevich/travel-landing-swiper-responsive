@@ -1,0 +1,106 @@
+// =============================================================================
+// BOOKING FORM
+// Form for tour booking in tour-detail modal
+// =============================================================================
+
+// Form container
+.tour-detail__form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+// Form rows (2 columns on tablet+)
+.tour-detail__form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include grid-no-overflow;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Single column row (for date and comments)
+.tour-detail__form-row--single {
+  grid-template-columns: 1fr;
+}
+
+// Field wrapper
+.tour-detail__form-field {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+// Label
+.tour-detail__form-label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+// Input
+.tour-detail__form-input {
+  width: 100%;
+}
+
+// Submit button
+.tour-detail__form-submit {
+  margin-top: $spacing-md;
+  width: 100%;
+
+  @include tablet {
+    width: auto;
+    min-width: 200px;
+  }
+}
+
+// Fieldset reset
+.tour-detail__form-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+// Textarea
+.tour-detail__form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+  line-height: $line-height-md;
+}
+
+// Hint text (below date field)
+.tour-detail__form-hint {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  margin-top: $spacing-xs;
+  font-style: italic;
+}
+
+// Error messages
+.tour-detail__form-error {
+  display: none;
+  font-size: $font-size-xs;
+  color: $color-error;
+  margin-top: $spacing-xs;
+}
+
+.tour-detail__form-error:not([hidden]) {
+  display: block;
+}
+
+// Select dropdown arrow
+select.tour-detail__form-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%232d383f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  padding-right: 40px;
+}

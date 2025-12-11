@@ -1,22 +1,70 @@
+// =============================================================================
+// BOOKING FORM VALIDATION
+// Native browser validation with custom error display
+// =============================================================================
+
 /**
- * Booking Form Validation Module
- * Native browser validation with custom .is-invalid class and error messages
+ * @fileoverview Validation module for booking form
  *
- * Requirements:
- * - Show errors ONLY after submit attempt
- * - Add .is-invalid to individual invalid inputs
- * - Display error messages in aria-describedby elements
- * - After first submit: validate in real-time
- * - Phone field: only numbers, spaces, dashes, parentheses, +
- * - Email field: standard email + .рф local domain support
+ * Provides comprehensive form validation using native browser Constraint
+ * Validation API with custom error display styling. Follows HTML Academy
+ * standards for deferred error display (no errors until first submit).
+ *
+ * Features:
+ * - Native Constraint Validation API (validity.valid, validationMessage)
+ * - Deferred error display (errors shown ONLY after first submit attempt)
+ * - Real-time validation after first submit (input and blur events)
+ * - Custom .is-invalid class for styling invalid inputs
+ * - ARIA-compliant error messages via aria-describedby
+ * - Auto-focus first invalid field for accessibility
+ * - Clears input mask patterns before validation
+ * - Fixes double Punycode encoding bug for .рф domains
+ *
+ * Validation Rules (HTML attributes):
+ * - required: Field must be filled
+ * - type="email": Valid email format
+ * - type="tel" pattern="[0-9\s\-\+\(\)]+": Phone with allowed characters
+ * - minlength="11": Minimum length (phone)
+ * - min="1" max="50": Number range (people count)
+ *
+ * Supported Fields:
+ * - #booking-firstname (text, required)
+ * - #booking-lastname (text, required)
+ * - #booking-phone (tel, required, pattern, minlength)
+ * - #booking-email (email, required)
+ * - #booking-people (number, required, min, max)
+ * - #booking-city (text, required)
+ * - #booking-experience (select, required)
+ * - #booking-date (text, readonly, auto-filled)
+ * - #booking-comments (textarea, optional)
+ *
+ * Replicates functionality from form-validation.js for contact form.
+ *
+ * CSS Required:
+ * - .is-invalid (defined in utility.scss)
+ * - .tour-detail__form-error (defined in tour-detail.scss)
+ *
+ * @author Olga Gulakevic
+ * @version 1.0.0
  */
 
 /**
- * Fix double Punycode encoding bug for .рф domains
- * Browser bug: .рф → xn--p1ai.xn--p1ai (double encoding)
- * This function fixes: xn--p1ai.xn--p1ai → xn--p1ai
- * @param {string} email - Email address (may contain double-encoded Punycode)
- * @returns {string} - Email with fixed single Punycode encoding
+ * Fixes double Punycode encoding bug for .рф (Russian) domains
+ *
+ * Browser bug: When user types email@domain.рф, some browsers encode it
+ * incorrectly as email@domain.xn--p1ai.xn--p1ai (double encoding).
+ * This function detects and fixes this specific bug.
+ *
+ * @param {string} email - Email address that may contain double-encoded Punycode
+ * @returns {string} Email with corrected single Punycode encoding
+ *
+ * @example
+ * fixDoublePunycodeEncoding('test@mail.xn--p1ai.xn--p1ai')
+ * // Returns: 'test@mail.xn--p1ai'
+ *
+ * @example
+ * fixDoublePunycodeEncoding('test@gmail.com')
+ * // Returns: 'test@gmail.com' (unchanged)
  */
 const fixDoublePunycodeEncoding = (email) => {
   if (!email) {
@@ -28,8 +76,21 @@ const fixDoublePunycodeEncoding = (email) => {
 };
 
 /**
- * Validate single input and show/hide error message
- * @param {HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement} input - Input to validate
+ * Validates a single input and displays/hides error message
+ *
+ * Uses browser's native Constraint Validation API (validity.valid) to check
+ * if input is valid. Adds .is-invalid class and shows error message if invalid,
+ * or removes class and hides error if valid.
+ *
+ * Error message element must have id matching input's aria-describedby attribute.
+ *
+ * @param {HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement} input - Input element to validate
+ *
+ * @example
+ * const emailInput = document.querySelector('#booking-email');
+ * validateInput(emailInput);
+ * // If invalid: adds .is-invalid class, shows error message
+ * // If valid: removes .is-invalid class, hides error message
  */
 const validateInput = (input) => {
   const errorId = input.getAttribute('aria-describedby');
@@ -60,9 +121,21 @@ const validateInput = (input) => {
 };
 
 /**
- * Validate all form inputs
- * @param {HTMLFormElement} form - Form element
- * @returns {boolean} - True if all inputs are valid
+ * Validates all required inputs in form
+ *
+ * Iterates through all required inputs, selects, and textareas in the form
+ * and validates each one using validateInput(). Used during form submission
+ * to check all fields before allowing submit.
+ *
+ * @param {HTMLFormElement} form - The form element to validate
+ * @returns {boolean} True if all required inputs are valid, false otherwise
+ *
+ * @example
+ * const form = document.querySelector('[data-tour-booking-form]');
+ * const isValid = validateAllInputs(form);
+ * if (!isValid) {
+ *   e.preventDefault(); // Prevent form submission
+ * }
  */
 const validateAllInputs = (form) => {
   const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
@@ -78,6 +151,40 @@ const validateAllInputs = (form) => {
   return isValid;
 };
 
+/**
+ * Initializes validation for booking form (main export)
+ *
+ * Sets up comprehensive form validation with deferred error display following
+ * HTML Academy standards. Errors are shown ONLY after first submit attempt,
+ * then real-time validation activates on input and blur events.
+ *
+ * Event Handlers:
+ * - submit: Validates all fields, prevents submission if invalid, focuses first error
+ * - invalid: Prevents default browser validation bubble, shows custom error
+ * - input: Real-time validation after first submit, fixes Punycode encoding
+ * - blur: Real-time validation after first submit
+ *
+ * Special Handling:
+ * - Clears input mask patterns (.input--pattern) before validation
+ * - Fixes double Punycode encoding for .рф domains
+ * - Auto-focuses first invalid field for accessibility
+ * - Uses hasSubmitted flag to enable real-time validation after first submit
+ *
+ * @example
+ * // In main.js
+ * import { initBookingFormValidation } from './modules/booking-form-validation.js';
+ *
+ * document.addEventListener('DOMContentLoaded', () => {
+ *   initBookingFormValidation();
+ * });
+ *
+ * @example
+ * // HTML structure required
+ * <input type="email" id="booking-email" name="email"
+ *        aria-describedby="booking-email-error" required>
+ * <span id="booking-email-error" class="tour-detail__form-error"
+ *       role="alert" hidden></span>
+ */
 export const initBookingFormValidation = () => {
   const form = document.querySelector('[data-tour-booking-form]');
 

@@ -1254,18 +1254,21 @@
 
         <!-- Form -->
         <form class="form" action="https://echo.htmlacademy.ru" method="POST" data-form="contact">
+          <fieldset class="form__fieldset">
+            <legend class="visually-hidden">Контактная информация</legend>
 
-          <!-- Phone Field -->
-          <div class="form__field">
-            <label class="visually-hidden" for="phone">Телефон</label>
-            <input class="input" type="tel" id="phone" name="phone" placeholder="Телефон" pattern="[0-9\s\-\+\(\)]+" minlength="11" title="Введите корректный номер телефона (минимум 11 символов)" required>
-          </div>
+            <!-- Phone Field -->
+            <div class="form__field">
+              <label class="visually-hidden" for="phone">Телефон</label>
+              <input class="input" type="tel" id="phone" name="phone" placeholder="Телефон" pattern="[0-9\s\-\+\(\)]+" minlength="11" title="Введите корректный номер телефона (минимум 11 символов)" required>
+            </div>
 
-          <!-- Email Field -->
-          <div class="form__field">
-            <label class="visually-hidden" for="email">Email</label>
-            <input class="input" type="email" id="email" name="email" placeholder="Email" title="Введите корректный email адрес" required>
-          </div>
+            <!-- Email Field -->
+            <div class="form__field">
+              <label class="visually-hidden" for="email">Email</label>
+              <input class="input" type="email" id="email" name="email" placeholder="Email" title="Введите корректный email адрес" required>
+            </div>
+          </fieldset>
 
           <!-- Submit Button -->
           <button class="button form__button" type="submit">Отправить</button>
@@ -1433,7 +1436,7 @@
     <div class="modal__overlay" data-modal-close></div>
     <div class="modal__container">
       <div class="modal__content">
-        <section class="tours-catalog">
+        <section class="tours-catalog" data-test="tours-catalog-content">
           <!-- Close Button -->
           <button class="modal__close" type="button" data-modal-close aria-label="Закрыть модальное окно">
             <svg class="modal__close-icon" width="24" height="24" aria-hidden="true">
@@ -1464,7 +1467,7 @@
     <div class="modal__overlay" data-modal-close></div>
     <div class="modal__container modal__container--large">
       <div class="modal__content">
-        <section class="tour-detail">
+        <section class="tour-detail" data-test="tour-detail-content">
           <!-- Close Button -->
           <button class="modal__close" type="button" data-modal-close aria-label="Закрыть модальное окно">
             <svg class="modal__close-icon" width="24" height="24" aria-hidden="true">
@@ -1578,34 +1581,45 @@
                 <fieldset class="tour-detail__form-fieldset">
                   <legend class="visually-hidden">Информация для бронирования</legend>
 
-                  <!-- Row 1: Name + Phone -->
+                  <!-- Row 1: First Name + Last Name -->
                   <div class="tour-detail__form-row">
                     <div class="tour-detail__form-field">
-                      <label class="tour-detail__form-label" for="booking-name">Имя *</label>
+                      <label class="tour-detail__form-label" for="booking-firstname">Имя *</label>
                       <input class="input tour-detail__form-input" type="text"
-                             id="booking-name" name="name"
-                             aria-describedby="booking-name-error" required>
-                      <span id="booking-name-error" class="tour-detail__form-error" role="alert" hidden></span>
+                             id="booking-firstname" name="firstname" placeholder="Иван"
+                             aria-describedby="booking-firstname-error" required>
+                      <span id="booking-firstname-error" class="tour-detail__form-error" role="alert" hidden></span>
                     </div>
+                    <div class="tour-detail__form-field">
+                      <label class="tour-detail__form-label" for="booking-lastname">Фамилия *</label>
+                      <input class="input tour-detail__form-input" type="text"
+                             id="booking-lastname" name="lastname" placeholder="Иванов"
+                             aria-describedby="booking-lastname-error" required>
+                      <span id="booking-lastname-error" class="tour-detail__form-error" role="alert" hidden></span>
+                    </div>
+                  </div>
+
+                  <!-- Row 2: Phone + Email -->
+                  <div class="tour-detail__form-row">
                     <div class="tour-detail__form-field">
                       <label class="tour-detail__form-label" for="booking-phone">Телефон *</label>
                       <input class="input tour-detail__form-input" type="tel"
-                             id="booking-phone" name="phone"
+                             id="booking-phone" name="phone" placeholder="+7 (___)-___-__-__"
                              pattern="[0-9\s\-\+\(\)]+" minlength="11"
                              aria-describedby="booking-phone-error" required>
                       <span id="booking-phone-error" class="tour-detail__form-error" role="alert" hidden></span>
                     </div>
-                  </div>
-
-                  <!-- Row 2: Email + People Count -->
-                  <div class="tour-detail__form-row">
                     <div class="tour-detail__form-field">
                       <label class="tour-detail__form-label" for="booking-email">Email *</label>
                       <input class="input tour-detail__form-input" type="email"
-                             id="booking-email" name="email"
+                             id="booking-email" name="email" placeholder="example@mail.ru"
                              aria-describedby="booking-email-error" required>
                       <span id="booking-email-error" class="tour-detail__form-error" role="alert" hidden></span>
                     </div>
+                  </div>
+
+                  <!-- Row 3: People Count + City -->
+                  <div class="tour-detail__form-row">
                     <div class="tour-detail__form-field">
                       <label class="tour-detail__form-label" for="booking-people">Количество человек *</label>
                       <input class="input tour-detail__form-input" type="number"
@@ -1614,17 +1628,17 @@
                              aria-describedby="booking-people-error" required>
                       <span id="booking-people-error" class="tour-detail__form-error" role="alert" hidden></span>
                     </div>
-                  </div>
-
-                  <!-- Row 3: City + Experience -->
-                  <div class="tour-detail__form-row">
                     <div class="tour-detail__form-field">
                       <label class="tour-detail__form-label" for="booking-city">Город отправления *</label>
                       <input class="input tour-detail__form-input" type="text"
-                             id="booking-city" name="city" placeholder="Например: Москва"
+                             id="booking-city" name="city" placeholder="Москва"
                              aria-describedby="booking-city-error" required>
                       <span id="booking-city-error" class="tour-detail__form-error" role="alert" hidden></span>
                     </div>
+                  </div>
+
+                  <!-- Row 4: Experience + Date -->
+                  <div class="tour-detail__form-row">
                     <div class="tour-detail__form-field">
                       <label class="tour-detail__form-label" for="booking-experience">Опыт в походах *</label>
                       <select class="input tour-detail__form-input"
@@ -1637,10 +1651,6 @@
                       </select>
                       <span id="booking-experience-error" class="tour-detail__form-error" role="alert" hidden></span>
                     </div>
-                  </div>
-
-                  <!-- Row 4: Date (auto-filled, readonly) -->
-                  <div class="tour-detail__form-row tour-detail__form-row--single">
                     <div class="tour-detail__form-field">
                       <label class="tour-detail__form-label" for="booking-date">Даты набора</label>
                       <input class="input tour-detail__form-input" type="text"
