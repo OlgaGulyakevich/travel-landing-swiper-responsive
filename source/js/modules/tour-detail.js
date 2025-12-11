@@ -118,7 +118,6 @@ const clearTourDetail = () => {
     '[data-tour-dates]',
     '[data-tour-group]',
     '[data-tour-price]',
-    '[data-tour-description]',
   ];
 
   elementsToСlear.forEach((selector) => {
@@ -128,7 +127,12 @@ const clearTourDetail = () => {
     }
   });
 
-  // Clear lists
+  // Clear content areas (HTML content)
+  const descriptionElement = document.querySelector('[data-tour-description]');
+  if (descriptionElement) {
+    descriptionElement.innerHTML = '';
+  }
+
   const includedElement = document.querySelector('[data-tour-included]');
   if (includedElement) {
     includedElement.innerHTML = '';
@@ -200,31 +204,33 @@ const populateTourDetail = (tour) => {
     priceElement.textContent = `от ${tour.price.toLocaleString('ru-RU')} ₽`;
   }
 
-  // Description
+  // Description (content area - semantic HTML)
   const descriptionElement = document.querySelector('[data-tour-description]');
   if (descriptionElement) {
-    descriptionElement.textContent = tour.fullDescription;
+    descriptionElement.innerHTML = `<p>${tour.fullDescription}</p>`;
   }
 
-  // Included list
+  // Included list (content area - semantic HTML)
   const includedElement = document.querySelector('[data-tour-included]');
   if (includedElement) {
-    includedElement.innerHTML = tour.included
-      .map((item) => `<li>${item}</li>`)
-      .join('');
+    includedElement.innerHTML = `
+      <ul>
+        ${tour.included.map((item) => `<li>${item}</li>`).join('')}
+      </ul>
+    `;
   }
 
-  // Program
+  // Program (content area - semantic HTML)
   const programElement = document.querySelector('[data-tour-program]');
   if (programElement) {
     programElement.innerHTML = tour.program
       .map(
         (day) => `
-        <div class="tour-detail__program-day">
-          <div class="tour-detail__program-day-number">День ${day.day}</div>
-          <div class="tour-detail__program-day-title">${day.title}</div>
-          <div class="tour-detail__program-day-description">${day.description}</div>
-        </div>
+        <article>
+          <h4>День ${day.day}</h4>
+          <strong>${day.title}</strong>
+          <p>${day.description}</p>
+        </article>
       `
       )
       .join('');
