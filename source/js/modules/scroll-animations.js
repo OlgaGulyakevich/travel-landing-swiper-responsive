@@ -84,6 +84,12 @@ const animateOnScroll = (entries, observer) => {
  * translateY: 30px). When elements enter viewport, 'is-visible' class is added to
  * trigger CSS animation to visible state.
  *
+ * Special handling for tours section:
+ * - Mobile/Tablet: No animations (horizontal slider layout looks strange with fade-in)
+ * - Desktop: Animations enabled (vertical grid layout benefits from scroll animations)
+ *
+ * All other sections: Animations work on all breakpoints.
+ *
  * Falls back to immediate visibility for browsers without Intersection Observer support.
  *
  * @example
@@ -101,11 +107,24 @@ export const initScrollAnimations = () => {
 
   if (!elements.length) return;
 
+  // Desktop breakpoint (1440px+)
+  const isDesktop = window.innerWidth >= 1440;
+
   // Check if Intersection Observer is supported
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(animateOnScroll, observerOptions);
 
     elements.forEach((el) => {
+      // Check if element is inside tours slider (horizontal layout on mobile/tablet)
+      const isInToursSlider = el.closest('.tours__slider');
+
+      // Skip animation for tours slider elements on mobile/tablet
+      if (isInToursSlider && !isDesktop) {
+        el.classList.add('is-visible'); // Show immediately without animation
+        return;
+      }
+
+      // Enable animation for all other elements (or tours slider on desktop)
       el.classList.add('animate-on-scroll'); // Add initial hidden state
       observer.observe(el);
     });
