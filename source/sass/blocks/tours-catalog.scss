@@ -5,7 +5,7 @@
 
 // Catalog modal container - fixed height to prevent jumping
 #tours-catalog-modal .modal__container {
-  height: 100vh; 
+  height: 100vh;
 
   @include tablet {
     height: 85vh;
@@ -41,11 +41,27 @@
   }
 }
 
+.tours-catalog__grid h3 {
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  line-height: 16px;
+  color: $color-text-primary;
+  padding-right: 20px;
+  margin-bottom: 10px;
+}
+
+.tours-catalog__grid p {
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 15px;
+}
+
 // Filters
 .tours-catalog__filters {
   display: flex;
   gap: $spacing-sm;
   margin-bottom: $spacing-lg;
+  padding-top: $spacing-xs;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -74,7 +90,7 @@
   line-height: 16px;
   color: $color-text-primary;
   background-color: $color-bg-white;
-  border: 2px solid $color-border-default;
+  border: 1px solid $color-border-default;
   cursor: pointer;
   transition: all $transition;
   white-space: nowrap;
@@ -152,25 +168,41 @@
 
 .tours-catalog__grid
 .card__content {
- padding: 15px;
+ display: flex;
+ flex-direction: column;
+ flex-grow: 1;
+ padding: 15px 20px;
 
- @include desktop {
- padding: 10px;
- }
+ gap: 10px;
 }
 
 // Tour card (reusing existing card styles from tours section)
 // Additional styles specific to catalog modal
 .tours-catalog__grid .card {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   background-color: $color-bg-white;
-  box-shadow: 0 0 20px 0 rgb(28, 51, 116, 0.1); // Soft shadow like reviews
-  transition: box-shadow $transition;
+  box-shadow: 0 0 20px 0 rgb(28, 51, 116, 0.1);
+  transition: box-shadow $transition, transform $transition;
+  animation: fadeInCard 0.3s ease-out;
 }
 
 // Hover effect for catalog cards
 .tours-catalog__grid .card:hover {
-  box-shadow: 0 0 25px 0 rgb(28, 51, 116, 0.15); // Slightly stronger on hover
+  box-shadow: 0 0 25px 0 rgb(28, 51, 116, 0.15);
+}
+
+// Lift effect ( only for devices with hover)
+@media (hover: hover) {
+  .tours-catalog__grid .card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+// Active/click state
+.tours-catalog__grid .card:active {
+  transform: translateY(-2px);
 }
 
 .tours-catalog__grid .card__image-wrapper {
@@ -189,6 +221,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
 }
 
 // Override text colors for catalog cards (white background instead of image)
@@ -196,12 +229,18 @@
   color: $color-text-secondary;
 }
 
-// Price and rating layout - vertical like rating
-.tours-catalog__grid .card__rating,
-.tours-catalog__grid .card__price {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.tours-catalog__grid .card__meta-duration-wrapper {
+  gap: 30px;
+
+  @include desktop {
+    gap: 14px;
+  }
+}
+
+.tours-catalog__grid .card__footer {
+  justify-content: space-between;
+  margin-top: auto;
+  margin-bottom: 0;
 }
 
 .tours-catalog__grid .card__rating .card__description,
@@ -212,18 +251,30 @@
   font-weight: $font-weight-light;
 }
 
+// Price and rating layout - vertical like rating
+.tours-catalog__grid .card__rating,
+.tours-catalog__grid .card__price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .tours-catalog__grid .card__price-value {
   color: $color-text-primary;
   font-size: 13px;
   line-height: 13px;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-semibold;
+  color: $color-primary-blue;
 }
 
-// "Подробнее" button in catalog cards
+// Button in catalog cards
 .tours-catalog__card-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  align-self: center;
   gap: $spacing-sm;
+  width: 200px;
   margin-top: $spacing-md;
   padding: 10px $spacing-md;
   font-size: $font-size-sm;
@@ -231,20 +282,19 @@
   line-height: 16px;
   color: $color-primary-blue;
   background-color: transparent;
-  border: 2px solid $color-primary-blue;
-  border-radius: $border-radius-md;
-  cursor: pointer;
-  transition: all $transition;
+  border: 1px solid $color-primary-blue;
+
 }
 
 .tours-catalog__card-button:hover {
   background-color: $color-primary-blue;
   color: $color-text-inverse;
+  border: transparent;
 }
 
 .tours-catalog__card-button:focus,
 .tours-catalog__card-button:focus-visible {
-  outline: 2px solid $color-primary-blue;
+  outline: 1px solid $color-primary-blue;
   outline-offset: 2px;
 }
 
@@ -262,3 +312,14 @@
   font-size: $font-size-lg;
 }
 
+// ✅ Добавить в конец файла
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

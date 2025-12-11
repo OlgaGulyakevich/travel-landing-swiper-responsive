@@ -166,12 +166,22 @@ const renderTours = (tours) => {
   const container = document.querySelector('[data-tours-container]');
   if (!container) return;
 
-  if (tours.length === 0) {
-    container.innerHTML = '<p class="tours-catalog__empty">Туры не найдены</p>';
-    return;
-  }
+  // ✅ Добавить fade-out перед заменой контента
+  container.style.opacity = '0';
+  container.style.transition = 'opacity 0.2s ease-out';
 
-  container.innerHTML = tours.map((tour) => generateTourCard(tour)).join('');
+  setTimeout(() => {
+    if (tours.length === 0) {
+      container.innerHTML = '<p class="tours-catalog__empty">Туры не найдены</p>';
+    } else {
+      container.innerHTML = tours.map((tour) => generateTourCard(tour)).join('');
+    }
+
+      // ✅ Fade-in нового контента
+      requestAnimationFrame(() => {
+        container.style.opacity = '1';
+      });
+    }, 200); // Задержка соответствует времени fade-out
 };
 
 /**

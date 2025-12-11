@@ -6,7 +6,8 @@
 import { openModal, closeModal } from './modal.js';
 import { getToursData } from './tours-catalog.js';
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, EffectFade, } from 'swiper/modules';
+import 'swiper/css/effect-fade';
 
 let tourDetailSwiper = null;
 
@@ -71,13 +72,19 @@ const initGallery = (images) => {
 
   // Initialize new swiper
   tourDetailSwiper = new Swiper(swiperContainer, {
-    modules: [Navigation],
+    modules: [Navigation, EffectFade],
     loop: images.length > 1,
     navigation: {
       nextEl: '.tour-detail__slider-button--next',
       prevEl: '.tour-detail__slider-button--prev',
     },
-    speed: 600,
+    // Fade effect with adaptive speed
+    effect: 'fade',
+    speed: 400,
+
+    fadeEffect: {
+      crossFade: false
+    },
     grabCursor: true,
   });
 };

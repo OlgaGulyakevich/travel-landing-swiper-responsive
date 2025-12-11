@@ -51,6 +51,8 @@
 .tour-detail__form-submit {
   margin-top: $spacing-md;
   width: 100%;
+  max-width: 200px;
+  align-self: center;
 
   @include tablet {
     width: auto;
@@ -60,20 +62,27 @@
 
 // Fieldset reset
 .tour-detail__form-fieldset {
-  border: none;
-  padding: 0;
-  margin: 0;
+  padding: $spacing-base;
+  background-color: rgba(2, 102, 193, 0.05);
   display: flex;
   flex-direction: column;
   gap: $spacing-md;
+
+  @include tablet {
+    padding: $spacing-lg;
+  }
 }
 
 // Textarea
 .tour-detail__form-textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 150px;
   font-family: inherit;
   line-height: $line-height-md;
+
+  @include tablet {
+    min-height: 100px;
+  }
 }
 
 // Hint text (below date field)
