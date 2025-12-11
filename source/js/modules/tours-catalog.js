@@ -134,7 +134,7 @@ const generateTourCard = (tour) => `
         </div>
       </div>
 
-      <button class="tours-catalog__card-button" type="button" data-tour-detail="${tour.id}">
+      <button class="button tours-catalog__card-button" type="button" data-tour-detail="${tour.id}">
         Подробнее
         <svg class="icon" width="6" height="12" aria-hidden="true">
           <use href="/__spritemap#sprite-arrow-small-right"></use>

@@ -11,21 +11,7 @@
   overflow: hidden;
   transition: background-color $transition, border-color $transition, color $transition, transform 0.2s, box-shadow 0.2s;
 
-  // Ripple effect on click
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-  }
-
-  // Hover lift effect
+  // Hover lift effect (desktop only)
   @media (hover: hover) {
     &:hover {
       background-color: $color-text-inverse;
@@ -48,8 +34,24 @@
     border-color: transparent;
     color: $color-text-inverse;
     transform: translateY(0);
+  }
 
+  // Ripple effect on click (mobile + tablet only)
+  @media (hover: none) {
     &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    &:active::before {
       width: 300px;
       height: 300px;
     }
@@ -71,20 +73,6 @@
       // Block interactive states
       background-color: $color-text-disabled;
       color: $color-text-inverse;
-    }
-  }
-}
-
-// Primary button specific animations
-.button--primary {
-  background: linear-gradient(135deg, $color-primary-blue 0%, darken($color-primary-blue, 5%) 100%);
-  background-size: 200% 200%;
-  background-position: 0% 0%;
-  transition: background-position 0.3s, background-color $transition, border-color $transition, color $transition, transform 0.2s, box-shadow 0.2s;
-
-  @media (hover: hover) {
-    &:hover {
-      background-position: 100% 0;
     }
   }
 }
