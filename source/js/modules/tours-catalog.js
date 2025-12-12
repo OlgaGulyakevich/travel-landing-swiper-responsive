@@ -268,4 +268,3 @@ export const initToursCatalog = async () => {
  * @returns {Array} - Tours data
  */
 export const getToursData = () => toursData;
-

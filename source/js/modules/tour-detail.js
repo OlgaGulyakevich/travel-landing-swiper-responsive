@@ -459,4 +459,3 @@ export const initTourDetail = () => {
     bookingForm.addEventListener('submit', handleBookingSubmit);
   }
 };
-

@@ -3,16 +3,16 @@
 // =============================================================================
 
 .error-404 {
-  padding: 60px 0;
+  padding: $spacing-3xl 0;
   background-color: $color-bg-white;
   text-align: center;
 
   @include tablet {
-    padding: 80px 0;
+    padding: $spacing-4xl 0;
   }
 
   @include desktop {
-    padding: $spacing-3xl 0;
+    padding: $spacing-5xl 0;
   }
 }
 
@@ -25,24 +25,24 @@
   @include flex-no-overflow;
 
   @include desktop {
-    gap: 50px;
+    gap: $spacing-2xl;
   }
 }
 
 .error-404__icon {
-  width: 100px;
-  height: 100px;
+  width: $icon-size-lg;
+  height: $icon-size-lg;
   color: $color-primary-blue;
   flex-shrink: 0;
 
   @include tablet {
-    width: 120px;
-    height: 120px;
+    width: $icon-size-xl;
+    height: $icon-size-xl;
   }
 
   @include desktop {
-    width: 140px;
-    height: 140px;
+    width: $icon-size-2xl;
+    height: $icon-size-2xl;
   }
 }
 
@@ -63,17 +63,17 @@
 .error-404__title {
   font-size: $font-size-xl;
   font-weight: $font-weight-extrabold;
-  line-height: 28px;
+  line-height: $line-height-28;
   color: $color-text-primary;
 
   @include tablet {
     font-size: $font-size-3xl;
-    line-height: 40px;
+    line-height: $line-height-40;
   }
 
   @include desktop {
-    font-size: 42px;
-    line-height: 50px;
+    font-size: $font-size-42;
+    line-height: $line-height-50;
   }
 }
 
@@ -85,7 +85,7 @@
 
   @include tablet {
     font-size: $font-size-lg;
-    line-height: 26px;
+    line-height: $line-height-26;
   }
 }
 

@@ -145,10 +145,9 @@
 }
 
 // Filled stars - bright golden gradient with shine effect
-.card__stars svg:has(use[href*="star-fill"]) {
+.card__stars svg:has([href*="star-fill"]) {
   // Градиент от светло-золотого к тёмно-золотому для объёма
   background: linear-gradient(135deg, #ffd700 0%, #ffb800 50%, #ff9500 100%);
-  background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: $color-star-fill;
@@ -158,7 +157,7 @@
 }
 
 // Stroke stars - gray color
-.card__stars svg:has(use[href*="star-stroke"]) {
+.card__stars svg:has([href*="star-stroke"]) {
   color: $color-star-stroke;
 }
 

@@ -3,9 +3,18 @@
 // Detailed tour information with gallery and booking form
 // =============================================================================
 
-// Tour detail modal container - fixed height to prevent showing background
-#tour-detail-modal .modal__container {
-  height: 100vh;
+// Tour detail modal container - adaptive height
+[data-modal="tour-detail"] .modal__container {
+  height: 100vh; // Fullscreen on mobile
+
+  @include tablet {
+    height: auto; // Adaptive height based on content
+    max-height: 90vh; // But not more than 90% of viewport
+  }
+
+  @include desktop {
+    max-height: 85vh; // Slightly less on desktop
+  }
 }
 
 .tour-detail__wrapper {
@@ -16,7 +25,7 @@
   @include flex-no-overflow;
 
   @include desktop {
-    gap: 60px;
+    gap: $spacing-3xl;
   }
 }
 
@@ -32,12 +41,12 @@
   position: relative;
   border-radius: $border-radius-md;
   overflow: hidden;
-  margin-top: 60px;
+  margin-top: $spacing-3xl;
   opacity: 1;
   transition: opacity 0.6s ease-in-out;
 
   @include desktop {
-    margin-top: 80px;
+    margin-top: $spacing-4xl;
   }
 }
 
@@ -47,14 +56,14 @@
 }
 
 .tour-detail__slider .swiper-slide {
-  height: 300px;
+  height: $card-image-height-md;
 
   @include tablet {
-    height: 400px;
+    height: $card-image-height-lg;
   }
 
   @include desktop {
-    height: 500px;
+    height: $card-image-height-xl;
   }
 }
 
@@ -70,7 +79,7 @@
 .tour-detail__slider-nav {
   display: flex;
   justify-content: center;
-  gap: 4px;
+  gap: $spacing-xs;
   margin-top: $spacing-lg;
   position: static; // Not absolute anymore
 
@@ -99,20 +108,20 @@
 .tour-detail__title {
   font-size: $font-size-xl;
   font-weight: $font-weight-extrabold;
-  line-height: 28px;
+  line-height: $line-height-28;
   color: $color-text-primary;
-  padding-right: 20px;
+  padding-right: $spacing-md;
   margin-bottom: $spacing-base;
 
   @include tablet {
     font-size: $font-size-2xl;
-    line-height: 36px;
+    line-height: $line-height-36;
     margin-bottom: $spacing-lg;
   }
 
   @include desktop {
     font-size: $font-size-3xl;
-    line-height: 40px;
+    line-height: $line-height-40;
   }
 }
 
@@ -122,7 +131,7 @@
   flex-direction: column;
   gap: $spacing-md;
   padding: $spacing-md;
-  background-color: rgb(2, 102, 193, 0.05);
+  background-color: $color-additional-05;
   border-radius: $border-radius-md;
   margin-bottom: $spacing-lg;
 
@@ -132,8 +141,8 @@
   @include tablet {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px 80px;
-    padding: $spacing-lg 40px;
+    gap: $spacing-lg $spacing-4xl;
+    padding: $spacing-lg $spacing-xl;
     align-items: flex-end;
     width: fit-content;
 
@@ -142,7 +151,7 @@
 
   @include desktop {
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px 100px;
+    gap: $spacing-lg $spacing-5xl;
   }
 }
 
@@ -174,8 +183,8 @@
 // Duration with icons
 .tour-detail__meta-item--duration {
   display: flex;
-  gap: 50px;
-  margin-bottom: 15px;
+  gap: $spacing-2xl;
+  margin-bottom: $spacing-15;
 
   @include tablet {
     gap: $spacing-md;
@@ -227,26 +236,23 @@
 }
 
 .tour-detail__stars svg {
-  width: 16px;
-  height: 16px;
+  width: $icon-size-sm;
+  height: $icon-size-sm;
   flex-shrink: 0;
 }
 
 // Filled stars - bright golden gradient with shine effect
-.tour-detail__stars svg:has(use[href*="star-fill"]) {
+.tour-detail__stars svg:has([href*="star-fill"]) {
   // Golden gradient for volume
-  background: linear-gradient(135deg, #ffd700 0%, #ffb800 50%, #ff9500 100%);
-  background-clip: text;
+  background: $gradient-star-fill;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: $color-star-fill;
-  filter:
-    drop-shadow(0 0 2px rgb(255, 184, 0, 0.6))
-    drop-shadow(0 1px 1px rgb(255, 149, 0, 0.4)); // Glow + shadow for volume
+  filter: $shadow-star-glow;
 }
 
 // Stroke stars - gray color via currentColor
-.tour-detail__stars svg:has(use[href*="star-stroke"]) {
+.tour-detail__stars svg:has([href*="star-stroke"]) {
   color: $color-star-stroke;
 }
 
@@ -258,13 +264,13 @@
 .tour-detail__section-title {
   font-size: $font-size-lg;
   font-weight: $font-weight-bold;
-  line-height: 24px;
+  line-height: $line-height-lg;
   color: $color-text-primary;
   margin-bottom: $spacing-md;
 
   @include tablet {
     font-size: $font-size-xl;
-    line-height: 28px;
+    line-height: $line-height-28;
     margin-bottom: $spacing-lg;
   }
 }
@@ -296,15 +302,15 @@
     font-size: $font-size-base;
     line-height: $line-height-lg;
     color: $color-text-secondary;
-
-    &::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: $color-primary-blue;
-      font-weight: $font-weight-bold;
-    }
   }
+}
+
+.tour-detail__content--list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: $color-primary-blue;
+  font-weight: $font-weight-bold;
 }
 
 // Program - semantic structure with articles
@@ -316,8 +322,8 @@
 
   article {
     padding: $spacing-md;
-    background-color: rgb(0, 0, 0, 0.02);
-    border-left: 3px solid $color-primary-blue;
+    background-color: $color-black-02;
+    border-left: $border-width-thick solid $color-primary-blue;
     border-radius: $border-radius-sm;
   }
 
@@ -326,7 +332,7 @@
     font-weight: $font-weight-bold;
     color: $color-primary-blue;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: $letter-spacing-tight;
     margin-bottom: $spacing-xs;
   }
 
@@ -344,4 +350,3 @@
     color: $color-text-secondary;
   }
 }
-

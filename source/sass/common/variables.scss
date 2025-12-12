@@ -5,18 +5,42 @@
 // Spacing scale (8px base unit with adjustments for pixel-perfect design)
 $spacing-xs: 4px;   // Micro gaps, star ratings
 $spacing-sm: 8px;   // Small gaps, icon padding
-$spacing-base: 15px;  // Base unit (mobile container padding)
+$spacing-base: 10px;  // Base unit (10px increment)
 $spacing-md: 20px;  // Common spacing (button padding, margins)
 $spacing-lg: 30px;  // Large spacing (navigation gaps, content margins)
 $spacing-xl: 40px;  // Section padding (tablet)
-$spacing-2xl: 48px;  // Large section margins
-$spacing-3xl: 100px; // Desktop section padding
-$spacing-4xl: 120px; // Desktop container padding
+$spacing-2xl: 50px;  // Extra large spacing
+$spacing-3xl: 60px;  // Section padding (intermediate)
+$spacing-4xl: 80px;  // Large section padding
+$spacing-5xl: 100px; // Desktop section padding
+$spacing-6xl: 120px; // Desktop container padding
+
+// Specific spacing values for pixel-perfect implementation
+$spacing-15: 15px;  // Container padding mobile, gaps
+$spacing-48: 48px;  // Large section margins
 
 // Border radius
 $border-radius-sm: 2px;   // Inputs
 $border-radius-md: 4px;   // Cards, notifications
 $border-radius-full: 50%;   // Circles (bullets, icons)
+
+// Border widths
+$border-width-thin: 1px;  // Default borders
+$border-width-medium: 2px;  // Focused states
+$border-width-thick: 3px;  // Accent borders
+
+// Icon sizes
+$icon-size-sm: 16px;  // Small icons
+$icon-size-md: 20px;  // Medium icons
+$icon-size-lg: 100px;  // Large icons (404 page mobile)
+$icon-size-xl: 120px;  // Large icons (404 page tablet)
+$icon-size-2xl: 140px;  // Large icons (404 page desktop)
+
+// Card image heights
+$card-image-height-sm: 250px;  // Catalog cards
+$card-image-height-md: 300px;  // Tour detail mobile
+$card-image-height-lg: 400px;  // Tour detail tablet
+$card-image-height-xl: 500px;  // Tour detail desktop
 
 // ============================================
 // COLORS
@@ -31,6 +55,8 @@ $color-primary-active: #1c3374;
 // Additional (opacity variations)
 $color-additional-20: rgb(2, 102, 193, 0.2);
 $color-additional-10: rgb(2, 102, 193, 0.1);
+$color-additional-05: rgb(2, 102, 193, 0.05);
+$color-additional-15: rgb(28, 51, 116, 0.15);
 
 // Rating stars
 $color-star-fill: #ffb800; // Яркий золотой цвет для заполненных звёзд (сияющий)
@@ -58,8 +84,19 @@ $color-border-decorative: rgb(45, 56, 63, 0.2);
 
 // Status
 $color-error: #ff121f;
+$color-error-dark: #c62828;  // Dark error for messages
+$color-error-light: #ef5350;  // Light error for borders
+$color-error-bg: linear-gradient(135deg, #ffebee 0%, #fef5f6 100%);  // Error background gradient
 $color-success: #2e7d32;
+$color-success-light: #66bb6a;  // Light success for borders
+$color-success-bg: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 100%);  // Success background gradient
 $color-disabled: #999999;
+
+// Black variations (opacity)
+$color-black-02: rgb(0, 0, 0, 0.02);  // Subtle backgrounds
+$color-black-08: rgb(0, 0, 0, 0.08);  // Box shadows
+$color-black-12: rgb(0, 0, 0, 0.12);  // Box shadows
+$color-black-60: rgb(0, 0, 0, 0.6);   // Overlays
 
 // White variations (opacity)
 $color-white-50: rgb(255, 255, 255, 0.5);
@@ -75,7 +112,13 @@ $color-overlay-tours: linear-gradient(0deg, rgb(0, 0, 0, 0.6) 22.3%, rgb(0, 0, 0
 
 // Shadows
 $shadow-card: 0 0 20px 0 rgb(28, 51, 116, 0.1);
-$shadow-form-message: 0 4px 16px rgb(0, 0, 0, 0.12);
+$shadow-card-hover: 0 0 25px 0 $color-additional-15;
+$shadow-form-message: 0 4px 16px $color-black-12;
+$shadow-form-message-enhanced: 0 4px 16px $color-black-12, 0 8px 32px $color-black-08;
+
+// Star rating gradients and shadows
+$gradient-star-fill: linear-gradient(135deg, #ffd700 0%, #ffb800 50%, #ff9500 100%);
+$shadow-star-glow: drop-shadow(0 0 2px rgb(255, 184, 0, 0.6)) drop-shadow(0 1px 1px rgb(255, 149, 0, 0.4));
 
 // Transitions
 $transition: 0.3s ease;
@@ -100,28 +143,44 @@ $font-weight-extrabold: 800;
 
 // Font sizes (mobile-first, responsive via mixins)
 $font-size-xs: 12px;  // Small text, captions
+$font-size-13: 13px;  // Small text variations
 $font-size-sm: 14px;  // Body text (mobile)
 $font-size-base: 16px;  // Base body text
 $font-size-lg: 18px;  // Large body, small headings
 $font-size-xl: 22px;  // Section titles (mobile)
 $font-size-2xl: 25px;  // Headings (tablet)
 $font-size-3xl: 35px;  // Large headings (desktop)
+$font-size-42: 42px;  // Extra large headings
 $font-size-4xl: 56px;  // Hero title (tablet)
 $font-size-5xl: 77px;  // Hero title (desktop)
 
 // Line heights (absolute values for pixel-perfect)
 $line-height-xs: 12px;
-$line-height-sm: 18px;
+$line-height-13: 13px;
+$line-height-sm: 16px;
+$line-height-18: 18px;
 $line-height-md: 22px;
 $line-height-lg: 24px;
+$line-height-26: 26px;
+$line-height-28: 28px;
+$line-height-36: 36px;
+$line-height-40: 40px;
+$line-height-50: 50px;
 
 // Body defaults (used in global.scss)
 $font-size-body: 14px;  // Default body font-size
 $line-height-body: 20px;  // Default body line-height
 
 // Letter spacing
+$letter-spacing-tight: 0.5px;  // Tight spacing
 $letter-spacing-wide: 0.56px;  // Navigation, links
 $letter-spacing-wider: 0.64px;  // Tablet navigation
+
+// Transform values
+$transform-lift-sm: translateY(-2px);  // Small lift on active
+$transform-lift-md: translateY(-4px);  // Medium lift on hover
+$transform-slide-up: translateY(20px);  // Slide up for messages
+$transform-slide-down: translateY(30px);  // Slide down for animations
 
 // ============================================
 // LAYOUT

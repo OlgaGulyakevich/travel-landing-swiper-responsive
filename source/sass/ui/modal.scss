@@ -55,7 +55,6 @@
 
   @include tablet {
     max-width: 678px;
-    max-height: 90vh;
     border-radius: $border-radius-md;
   }
 
@@ -85,7 +84,7 @@
   }
 
   @include desktop {
-    padding: 60px;
+    padding: 50px 60px;
   }
 }
 
@@ -138,4 +137,3 @@
   color: $color-primary-active;
   transform: rotate(90deg) scale(0.95);
 }
-
