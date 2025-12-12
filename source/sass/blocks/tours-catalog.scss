@@ -176,8 +176,6 @@
   flex-direction: column;
   flex-grow: 1;
   padding: 15px 20px;
-
-  gap: 10px;
 }
 
 // Tour card (reusing existing card styles from tours section)
@@ -210,11 +208,7 @@
 }
 
 .tours-catalog__grid .card__image-wrapper {
-  height: 300px;
-
-  @include desktop {
-    height: 340px;
-  }
+  height: 250px;
 }
 
 .tours-catalog__grid .card__image {

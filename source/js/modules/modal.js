@@ -52,7 +52,7 @@ const trapFocus = (modal, event) => {
  * Open modal
  * @param {string} modalId - Modal ID
  */
-export const openModal = (modalId) => {
+export function openModal(modalId) {
   const modal = document.querySelector(`[data-modal="${modalId}"]`);
   if (!modal) {
     return;
@@ -76,16 +76,28 @@ export const openModal = (modalId) => {
     focusableElements[0].focus();
   }
 
-  // Add event listeners
-  modal.addEventListener('keydown', (event) => trapFocus(modal, event));
-  modal.addEventListener('keydown', handleEscapeKey);
-};
+  // Create event handlers and store them on the modal element
+  // This ensures each modal has its own handlers without conflicts
+  modal._trapFocusHandler = (event) => trapFocus(modal, event);
+  modal._escapeHandler = (event) => {
+    if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+      event.preventDefault();
+      closeModal(modalId);
+    }
+  };
+
+  // Add focus trap to modal element
+  modal.addEventListener('keydown', modal._trapFocusHandler, true);
+
+  // Add Escape handler to document to ensure it always works
+  document.addEventListener('keydown', modal._escapeHandler, true);
+}
 
 /**
  * Close modal
  * @param {string} modalId - Modal ID
  */
-export const closeModal = (modalId) => {
+export function closeModal(modalId) {
   const modal = document.querySelector(`[data-modal="${modalId}"]`);
   if (!modal) {
     return;
@@ -113,28 +125,21 @@ export const closeModal = (modalId) => {
     }
   }, 300);
 
-  // Remove event listeners
-  modal.removeEventListener('keydown', handleEscapeKey);
-};
-
-/**
- * Handle ESC key press
- * @param {KeyboardEvent} event - Keyboard event
- */
-const handleEscapeKey = (event) => {
-  if (event.key === 'Escape') {
-    const openModal = document.querySelector('.modal.is-open');
-    if (openModal) {
-      const modalId = openModal.getAttribute('data-modal');
-      closeModal(modalId);
-    }
+  // Remove event listeners stored on modal element
+  if (modal._trapFocusHandler) {
+    modal.removeEventListener('keydown', modal._trapFocusHandler, true);
+    delete modal._trapFocusHandler;
   }
-};
+  if (modal._escapeHandler) {
+    document.removeEventListener('keydown', modal._escapeHandler, true);
+    delete modal._escapeHandler;
+  }
+}
 
 /**
  * Initialize modal functionality
  */
-export const initModal = () => {
+export function initModal() {
   // Handle close button clicks
   document.addEventListener('click', (event) => {
     const closeButton = event.target.closest('[data-modal-close]');
@@ -160,5 +165,5 @@ export const initModal = () => {
       openModal(modalId);
     }
   });
-};
+}
 

@@ -181,6 +181,20 @@ const clearTourDetail = () => {
   if (difficultyElement) {
     difficultyElement.innerHTML = '';
   }
+
+  // Clear booking form validation state
+  const form = document.querySelector('[data-tour-booking-form]');
+  if (form) {
+    // Remove validation error classes
+    form.querySelectorAll('.is-invalid').forEach((input) => {
+      input.classList.remove('is-invalid');
+    });
+
+    // Hide error messages
+    form.querySelectorAll('.tour-detail__form-error').forEach((error) => {
+      error.setAttribute('hidden', '');
+    });
+  }
 };
 
 /**

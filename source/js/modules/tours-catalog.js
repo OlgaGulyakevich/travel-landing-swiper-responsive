@@ -3,10 +3,7 @@
 // Load and display tours with filtering
 // =============================================================================
 
-import { openModal } from './modal.js';
-
 let toursData = [];
-let currentFilter = 'all';
 
 /**
  * Load tours data from JSON
@@ -211,7 +208,6 @@ const handleFilterClick = (event) => {
   }
 
   const filter = button.getAttribute('data-filter');
-  currentFilter = filter;
 
   // Update active state
   document.querySelectorAll('[data-filter]').forEach((btn) => {
