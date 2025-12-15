@@ -5,6 +5,7 @@
 
 import { openModal, closeModal } from './modal.js';
 import { getToursData } from './tours-catalog.js';
+import { getDaysText, getNightsText } from './utils/text-helpers.js';
 import Swiper from 'swiper';
 import { Navigation, EffectFade, } from 'swiper/modules';
 import 'swiper/css/effect-fade';
@@ -27,21 +28,6 @@ const generateStars = (count) => {
     `;
   }
   return starsHTML;
-};
-
-/**
- * Get duration text with correct declension
- * @param {number} days - Number of days
- * @returns {string} - Duration text
- */
-const getDurationText = (days) => {
-  if (days === 1) {
-    return '1 день';
-  }
-  if (days >= 2 && days <= 4) {
-    return `${days} дня`;
-  }
-  return `${days} дней`;
 };
 
 /**
@@ -104,21 +90,6 @@ const initGallery = (images) => {
   setTimeout(() => {
     swiperContainer.classList.remove('is-loading');
   }, 100);
-};
-
-/**
- * Get nights text with correct declension
- * @param {number} nights - Number of nights
- * @returns {string} - Nights text
- */
-const getNightsText = (nights) => {
-  if (nights === 1) {
-    return '1 ночь';
-  }
-  if (nights >= 2 && nights <= 4) {
-    return `${nights} ночи`;
-  }
-  return `${nights} ночей`;
 };
 
 /**
@@ -221,7 +192,7 @@ const populateTourDetail = (tour) => {
   // Days
   const daysElement = document.querySelector('[data-tour-days]');
   if (daysElement) {
-    daysElement.textContent = getDurationText(tour.duration.days);
+    daysElement.textContent = getDaysText(tour.duration.days);
   }
 
   // Nights

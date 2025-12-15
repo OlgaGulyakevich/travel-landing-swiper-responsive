@@ -3,6 +3,8 @@
 // Load and display tours with filtering
 // =============================================================================
 
+import { getDaysText, getNightsText } from './utils/text-helpers.js';
+
 let toursData = [];
 
 /**
@@ -55,36 +57,6 @@ const generateStars = (count) => {
     `;
   }
   return starsHTML;
-};
-
-/**
- * Get days text with correct declension
- * @param {number} days - Number of days
- * @returns {string} - Days text
- */
-const getDaysText = (days) => {
-  if (days === 1) {
-    return '1 день';
-  }
-  if (days >= 2 && days <= 4) {
-    return `${days} дня`;
-  }
-  return `${days} дней`;
-};
-
-/**
- * Get nights text with correct declension
- * @param {number} nights - Number of nights
- * @returns {string} - Nights text
- */
-const getNightsText = (nights) => {
-  if (nights === 1) {
-    return '1 ночь';
-  }
-  if (nights >= 2 && nights <= 4) {
-    return `${nights} ночи`;
-  }
-  return `${nights} ночей`;
 };
 
 /**

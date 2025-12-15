@@ -1,7 +1,7 @@
 /**
  * @fileoverview Email utility functions
  * @module utils/email-helpers
- * @author Olga Gulakevic
+ * @author Olga Gulakevich
  * @version 1.0.0
  */
 
