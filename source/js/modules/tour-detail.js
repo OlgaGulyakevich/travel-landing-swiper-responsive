@@ -1,16 +1,34 @@
-// =============================================================================
-// TOUR DETAIL
-// Display detailed tour information with gallery and booking form
-// =============================================================================
+/**
+ * @fileoverview Tour Detail Module (Main Coordinator)
+ * Coordinates tour detail modal functionality by orchestrating UI, gallery, and booking submodules.
+ * Acts as a facade pattern - delegates specific tasks to specialized submodules.
+ * @module tour-detail
+ * @author Olga Gulakevich
+ * @version 1.0.0
+ */
 
 import { openModal, closeModal } from './modal.js';
 import { getToursData } from './tours-catalog.js';
-import { showMessage } from './utils/message-helpers.js';
 import { populateTourDetail } from './tour-detail/tour-detail-ui.js';
 import { initGallery, destroyGallery } from './tour-detail/tour-detail-gallery.js';
+import { handleBookingSubmit } from './tour-detail/tour-detail-booking.js';
 
 /**
  * Clear tour detail modal content
+ *
+ * Resets modal to clean state by:
+ * - Hiding gallery and clearing slides
+ * - Destroying Swiper instance (via destroyGallery)
+ * - Clearing all tour information (title, region, duration, etc.)
+ * - Clearing content areas (description, included items, program)
+ * - Resetting booking form validation state
+ *
+ * Called before opening new tour to prevent flickering and data mixing.
+ *
+ * @example
+ * // Clear before opening new tour
+ * clearTourDetail();
+ * openTourDetail('elbrus-5-days');
  */
 const clearTourDetail = () => {
   // Hide gallery immediately to prevent flickering
@@ -84,8 +102,19 @@ const clearTourDetail = () => {
 
 
 /**
- * Handle tour detail modal open
- * @param {string} tourId - Tour ID
+ * Open tour detail modal with tour data
+ *
+ * Orchestrates modal opening by delegating to specialized submodules:
+ * 1. Fetches tour data from tours catalog
+ * 2. Populates UI with tour data (via tour-detail-ui.js)
+ * 3. Initializes gallery with images (via tour-detail-gallery.js)
+ * 4. Opens modal overlay
+ *
+ * @param {string} tourId - Unique tour identifier (e.g., 'elbrus-5-days', 'kazbek-trek')
+ *
+ * @example
+ * // Open tour detail from button click
+ * openTourDetail('elbrus-5-days');
  */
 const openTourDetail = (tourId) => {
   const toursData = getToursData();
@@ -107,74 +136,21 @@ const openTourDetail = (tourId) => {
   openModal('tour-detail');
 };
 
-/**
- * Handle booking form submission
- * @param {Event} event - Submit event
- */
-const handleBookingSubmit = async (event) => {
-  event.preventDefault();
-
-  const form = event.target;
-  const formData = new FormData(form);
-
-  // Validate required fields
-  const firstname = formData.get('firstname');
-  const lastname = formData.get('lastname');
-  const phone = formData.get('phone');
-  const email = formData.get('email');
-  const people = formData.get('people');
-  const city = formData.get('city');
-  const experience = formData.get('experience');
-
-  if (!firstname || !lastname || !phone || !email || !people || !city || !experience) {
-    return; // Validation module handles errors
-  }
-
-  try {
-    const submitButton = form.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    submitButton.textContent = 'Отправка...';
-    submitButton.disabled = true;
-
-    const response = await fetch('https://echo.htmlacademy.ru', {
-      method: 'POST',
-      body: formData,
-    });
-
-    submitButton.textContent = originalText;
-    submitButton.disabled = false;
-
-    if (response.ok) {
-      showMessage('success', 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.', {
-        containerSelector: '[data-booking-message]'
-      });
-      setTimeout(() => {
-        form.reset();
-        form.querySelectorAll('.is-invalid').forEach((input) => {
-          input.classList.remove('is-invalid');
-        });
-        form.querySelectorAll('.tour-detail__form-error').forEach((error) => {
-          error.setAttribute('hidden', '');
-        });
-      }, 500);
-      setTimeout(() => closeModal('tour-detail'), 1000);
-    } else {
-      showMessage('error', 'Ошибка отправки. Пожалуйста, попробуйте позже.', {
-        containerSelector: '[data-booking-message]'
-      });
-    }
-  } catch (error) {
-    showMessage('error', 'Ошибка соединения. Проверьте интернет и попробуйте снова.', {
-      containerSelector: '[data-booking-message]'
-    });
-    const submitButton = form.querySelector('button[type="submit"]');
-    submitButton.textContent = 'Отправить заявку';
-    submitButton.disabled = false;
-  }
-};
 
 /**
  * Initialize tour detail functionality
+ *
+ * Sets up all event handlers for tour detail modal:
+ * - Click handlers for "Смотреть тур" buttons from hero slider
+ * - Custom event handler for tours catalog card clicks
+ * - Form submission handler for booking form (via tour-detail-booking.js)
+ *
+ * Called once on page load from main.js.
+ *
+ * @example
+ * // Initialize in main.js
+ * import { initTourDetail } from './modules/tour-detail.js';
+ * initTourDetail();
  */
 export const initTourDetail = () => {
   // Handle "Смотреть тур" buttons from hero slider
