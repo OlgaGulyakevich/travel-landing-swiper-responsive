@@ -426,7 +426,7 @@ const handleBookingSubmit = async (event) => {
 };
 
 /**
- * Initialize tour detail functionality
+ * Initialize tour detail functionality 
  */
 export const initTourDetail = () => {
   // Handle "Смотреть тур" buttons from hero slider

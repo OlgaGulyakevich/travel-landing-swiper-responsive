@@ -179,7 +179,7 @@ const renderTours = (tours) => {
     return;
   }
 
-  // ✅ Добавить fade-out перед заменой контента
+  // Fade-out before replacing content
   container.style.opacity = '0';
   container.style.transition = 'opacity 0.2s ease-out';
 
@@ -190,11 +190,11 @@ const renderTours = (tours) => {
       container.innerHTML = tours.map((tour) => generateTourCard(tour)).join('');
     }
 
-    // ✅ Fade-in нового контента
+    // Fade-in new content
     requestAnimationFrame(() => {
       container.style.opacity = '1';
     });
-  }, 200); // Задержка соответствует времени fade-out
+  }, 200); // Delay corresponds to fade-out time
 };
 
 /**
