@@ -6,29 +6,12 @@
 import { openModal, closeModal } from './modal.js';
 import { getToursData } from './tours-catalog.js';
 import { getDaysText, getNightsText } from './utils/text-helpers.js';
+import { generateStars } from './utils/ui-helpers.js';
 import Swiper from 'swiper';
 import { Navigation, EffectFade, } from 'swiper/modules';
 import 'swiper/css/effect-fade';
 
 let tourDetailSwiper = null;
-
-/**
- * Generate stars HTML
- * @param {number} count - Number of filled stars
- * @returns {string} - Stars HTML
- */
-const generateStars = (count) => {
-  let starsHTML = '';
-  for (let i = 0; i < 5; i++) {
-    const iconType = i < count ? 'star-fill' : 'star-stroke';
-    starsHTML += `
-      <svg class="icon" width="16" height="16" aria-hidden="true">
-        <use href="/__spritemap#sprite-${iconType}"></use>
-      </svg>
-    `;
-  }
-  return starsHTML;
-};
 
 /**
  * Initialize Swiper gallery

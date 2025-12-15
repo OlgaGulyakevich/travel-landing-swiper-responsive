@@ -4,6 +4,7 @@
 // =============================================================================
 
 import { getDaysText, getNightsText } from './utils/text-helpers.js';
+import { generateStars } from './utils/ui-helpers.js';
 
 let toursData = [];
 
@@ -39,24 +40,6 @@ const getDifficultyLevel = (difficulty) => {
     return 'medium';
   }
   return 'hard';
-};
-
-/**
- * Generate stars HTML
- * @param {number} count - Number of filled stars
- * @returns {string} - Stars HTML
- */
-const generateStars = (count) => {
-  let starsHTML = '';
-  for (let i = 0; i < 5; i++) {
-    const iconType = i < count ? 'star-fill' : 'star-stroke';
-    starsHTML += `
-      <svg class="icon" width="16" height="16" aria-hidden="true">
-        <use href="/__spritemap#sprite-${iconType}"></use>
-      </svg>
-    `;
-  }
-  return starsHTML;
 };
 
 /**
