@@ -255,12 +255,11 @@
   }
 }
 
-// Photo 1 positioning in hero decorative photos (px for Firefox compatibility)
 .hero__decorative-photo--1 {
   @include tablet {
-    bottom: 207px;
-    left: 161px;
-    width: 266px;
+    bottom: 20.21vh;
+    left: 20.96vw;
+    width: 34.64vw;
   }
 
   @include desktop {
@@ -270,25 +269,23 @@
   }
 }
 
-// Safari-specific positioning fix
 @supports (-webkit-hyphens: none) {
   .hero__decorative-photo--1 {
     @include tablet {
-      left: 237px; // Safari tablet correction
+      left: 30.86vw;
     }
 
     @include desktop {
-      left: 1077px; // Safari desktop correction
+      left: 74.79vw;
     }
   }
 }
 
-// Photo 2 positioning in hero decorative photos (px for Firefox compatibility)
 .hero__decorative-photo--2 {
   @include tablet {
-    bottom: 196px;
-    right: 169px;
-    width: 231px;
+    bottom: 19.14vh;
+    right: 22.01vw;
+    width: 30.08vw;
   }
 
   @include desktop {
@@ -298,11 +295,10 @@
   }
 }
 
-// Safari-specific positioning fix
 @supports (-webkit-hyphens: none) {
   .hero__decorative-photo--2 {
     @include tablet {
-      right: 210px; // Safari tablet correction
+      right: 27.34vw;
     }
   }
 }
