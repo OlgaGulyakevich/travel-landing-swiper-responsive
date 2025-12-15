@@ -7,73 +7,7 @@ import { openModal, closeModal } from './modal.js';
 import { getToursData } from './tours-catalog.js';
 import { showMessage } from './utils/message-helpers.js';
 import { populateTourDetail } from './tour-detail/tour-detail-ui.js';
-import Swiper from 'swiper';
-import { Navigation, EffectFade, } from 'swiper/modules';
-import 'swiper/css/effect-fade';
-
-let tourDetailSwiper = null;
-
-/**
- * Initialize Swiper gallery
- * @param {Array} images - Array of image paths
- */
-const initGallery = (images) => {
-  const swiperContainer = document.querySelector('[data-tour-gallery]');
-  if (!swiperContainer) {
-    return;
-  }
-
-  // Hide gallery immediately before any DOM manipulation
-  swiperContainer.classList.add('is-loading');
-
-  const wrapper = swiperContainer.querySelector('.swiper-wrapper');
-  if (!wrapper) {
-    return;
-  }
-
-  // Generate slides
-  wrapper.innerHTML = images
-    .map(
-      (image) => `
-    <div class="swiper-slide">
-      <picture>
-        <source type="image/webp" srcset="${image.replace('.jpg', '.webp')} 1x, ${image.replace('@1x.jpg', '@2x.webp')} 2x">
-        <img src="${image}" srcset="${image.replace('@1x', '@2x')} 2x" alt="Фото тура" loading="lazy">
-      </picture>
-    </div>
-  `
-    )
-    .join('');
-
-  // Destroy existing swiper if any
-  if (tourDetailSwiper) {
-    tourDetailSwiper.destroy(true, true);
-  }
-
-  // Initialize new swiper
-  tourDetailSwiper = new Swiper(swiperContainer, {
-    modules: [Navigation, EffectFade],
-    loop: images.length > 1,
-    navigation: {
-      nextEl: '.tour-detail__slider-button--next',
-      prevEl: '.tour-detail__slider-button--prev',
-    },
-    // Fade effect with adaptive speed
-    effect: 'fade',
-    speed: 400,
-
-    fadeEffect: {
-      crossFade: false
-    },
-    grabCursor: true,
-  });
-
-  // Show gallery with smooth fade-in after modal is rendered
-  // Delay allows modal to open before starting gallery fade animation
-  setTimeout(() => {
-    swiperContainer.classList.remove('is-loading');
-  }, 100);
-};
+import { initGallery, destroyGallery } from './tour-detail/tour-detail-gallery.js';
 
 /**
  * Clear tour detail modal content
@@ -92,10 +26,7 @@ const clearTourDetail = () => {
   }
 
   // Destroy existing swiper
-  if (tourDetailSwiper) {
-    tourDetailSwiper.destroy(true, true);
-    tourDetailSwiper = null;
-  }
+  destroyGallery();
 
   // Clear all text content
   const elementsToСlear = [
