@@ -122,6 +122,8 @@ $shadow-star-glow: drop-shadow(0 0 2px rgb(255, 184, 0, 0.6)) drop-shadow(0 1px 
 
 // Transitions
 $transition: 0.3s ease;
+$transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);  // Slow transition for messages
+$transition-medium: 0.6s ease-in-out;  // Medium transition for modals
 
 // Opacity scale
 $opacity-subtle: 0.03;  // Title decorations

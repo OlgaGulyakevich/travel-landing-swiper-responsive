@@ -26,8 +26,8 @@
   line-height: $line-height-md;
   text-align: center;
   transition:
-    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity $transition-slow,
+    transform $transition-slow;
 
   // Icon before text
   &::before {
@@ -92,7 +92,7 @@
 
 .form-message[data-booking-message].form-message--success,
 .form-message[data-booking-message].form-message--error {
-  animation: slide-up-fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: slide-up-fade-in $transition-slow forwards;
 }
 
 // Reduce motion for accessibility

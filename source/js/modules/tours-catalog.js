@@ -1,164 +1,35 @@
-// =============================================================================
-// TOURS CATALOG
-// Load and display tours with filtering
-// =============================================================================
-
-let toursData = [];
-
 /**
- * Load tours data from JSON
- * @returns {Promise<Array>} - Tours data
+ * @fileoverview Tours Catalog Module (Main Coordinator)
+ * Coordinates tours catalog modal functionality by orchestrating data, rendering, and filtering.
+ * Acts as a facade pattern - delegates data loading and rendering to specialized submodules.
+ * @module tours-catalog
+ * @author Olga Gulakevich
+ * @version 1.0.0
  */
-const loadToursData = async () => {
-  try {
-    const response = await fetch('/data/tours.json');
-    if (!response.ok) {
-      throw new Error('Failed to load tours data');
-    }
-    toursData = await response.json();
-    return toursData;
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Error loading tours:', error);
-    return [];
-  }
-};
+
+import { loadToursData, getToursData, getDifficultyLevel } from './tours-catalog/tours-catalog-data.js';
+import { renderTours } from './tours-catalog/tours-catalog-render.js';
 
 /**
- * Get difficulty level text
- * @param {number} difficulty - Difficulty level (1-5)
- * @returns {string} - Difficulty text
- */
-const getDifficultyLevel = (difficulty) => {
-  if (difficulty <= 2) {
-    return 'easy';
-  }
-  if (difficulty <= 3) {
-    return 'medium';
-  }
-  return 'hard';
-};
-
-/**
- * Generate stars HTML
- * @param {number} count - Number of filled stars
- * @returns {string} - Stars HTML
- */
-const generateStars = (count) => {
-  let starsHTML = '';
-  for (let i = 0; i < 5; i++) {
-    const iconType = i < count ? 'star-fill' : 'star-stroke';
-    starsHTML += `
-      <svg class="icon" width="16" height="16" aria-hidden="true">
-        <use href="/__spritemap#sprite-${iconType}"></use>
-      </svg>
-    `;
-  }
-  return starsHTML;
-};
-
-/**
- * Get days text with correct declension
- * @param {number} days - Number of days
- * @returns {string} - Days text
- */
-const getDaysText = (days) => {
-  if (days === 1) {
-    return '1 день';
-  }
-  if (days >= 2 && days <= 4) {
-    return `${days} дня`;
-  }
-  return `${days} дней`;
-};
-
-/**
- * Get nights text with correct declension
- * @param {number} nights - Number of nights
- * @returns {string} - Nights text
- */
-const getNightsText = (nights) => {
-  if (nights === 1) {
-    return '1 ночь';
-  }
-  if (nights >= 2 && nights <= 4) {
-    return `${nights} ночи`;
-  }
-  return `${nights} ночей`;
-};
-
-/**
- * Generate tour card HTML
- * @param {Object} tour - Tour data
- * @returns {string} - Card HTML
- */
-const generateTourCard = (tour) => `
-  <article class="card">
-    <div class="card__image-wrapper">
-      <picture>
-        <source type="image/webp" srcset="${tour.images[0].replace('.jpg', '.webp')} 1x, ${tour.images[0].replace('@1x.jpg', '@2x.webp')} 2x" width="290" height="416">
-        <img class="card__image" src="${tour.images[0]}" srcset="${tour.images[0].replace('@1x', '@2x')} 2x" width="290" height="416" alt="${tour.title}" loading="lazy">
-      </picture>
-    </div>
-
-    <div class="card__content">
-      <div class="card__meta">
-        <span class="card__meta-location">
-          <svg class="icon" width="9" height="12" aria-hidden="true">
-            <use href="/__spritemap#sprite-pin-fill"></use>
-          </svg>
-          ${tour.region}
-        </span>
-        <div class="card__meta-duration-wrapper">
-          <span class="card__meta-duration">
-            <svg class="icon" width="20" height="20" aria-hidden="true">
-              <use href="/__spritemap#sprite-sun"></use>
-            </svg>
-            ${getDaysText(tour.duration.days)}
-          </span>
-          <span class="card__meta-duration">
-            <svg class="icon" width="16" height="16" aria-hidden="true">
-              <use href="/__spritemap#sprite-moon"></use>
-            </svg>
-            ${getNightsText(tour.duration.nights)}
-          </span>
-        </div>
-      </div>
-
-      <h3 class="card__title">${tour.title}</h3>
-
-      <p class="card__description">${tour.shortDescription}</p>
-
-      <div class="card__footer">
-        <div class="card__rating">
-          <span class="card__description">Cложность:</span>
-          <span class="visually-hidden">Рейтинг: ${tour.difficulty} из 5</span>
-          <div class="card__stars">
-            ${generateStars(tour.difficulty)}
-          </div>
-        </div>
-        <div class="card__price">
-          <span class="card__description">Цена:</span>
-          <span class="card__price-value">от ${tour.price.toLocaleString('ru-RU')} ₽</span>
-        </div>
-      </div>
-
-      <button class="button tours-catalog__card-button" type="button" data-tour-detail="${tour.id}">
-        Подробнее
-        <svg class="icon" width="6" height="12" aria-hidden="true">
-          <use href="/__spritemap#sprite-arrow-small-right"></use>
-        </svg>
-      </button>
-    </div>
-  </article>
-`;
-
-/**
- * Filter tours by difficulty
- * @param {string} filter - Filter type (all, easy, medium, hard)
- * @returns {Array} - Filtered tours
+ * Filter tours by difficulty level
+ *
+ * Returns filtered tours array based on difficulty category:
+ * - 'all': Returns all tours
+ * - 'easy': Returns tours with difficulty 1-2
+ * - 'medium': Returns tours with difficulty 3
+ * - 'hard': Returns tours with difficulty 4-5
+ *
+ * @param {string} filter - Filter type ('all', 'easy', 'medium', 'hard')
+ * @returns {Array<Object>} Filtered tours array
+ *
+ * @example
+ * // Get all easy tours
+ * const easyTours = filterTours('easy');
+ * renderTours(easyTours);
  */
 const filterTours = (filter) => {
+  const toursData = getToursData();
+
   if (filter === 'all') {
     return toursData;
   }
@@ -169,37 +40,18 @@ const filterTours = (filter) => {
   });
 };
 
-/**
- * Render tours grid
- * @param {Array} tours - Tours to render
- */
-const renderTours = (tours) => {
-  const container = document.querySelector('[data-tours-container]');
-  if (!container) {
-    return;
-  }
-
-  // Fade-out before replacing content
-  container.style.opacity = '0';
-  container.style.transition = 'opacity 0.2s ease-out';
-
-  setTimeout(() => {
-    if (tours.length === 0) {
-      container.innerHTML = '<p class="tours-catalog__empty">Туры не найдены</p>';
-    } else {
-      container.innerHTML = tours.map((tour) => generateTourCard(tour)).join('');
-    }
-
-    // Fade-in new content
-    requestAnimationFrame(() => {
-      container.style.opacity = '1';
-    });
-  }, 200); // Delay corresponds to fade-out time
-};
 
 /**
  * Handle filter button click
+ *
+ * Updates active filter state and re-renders tours grid with filtered results.
+ * Uses event delegation to handle clicks on filter buttons.
+ *
  * @param {Event} event - Click event
+ *
+ * @example
+ * // Attach to catalog modal
+ * catalogModal.addEventListener('click', handleFilterClick);
  */
 const handleFilterClick = (event) => {
   const button = event.target.closest('[data-filter]');
@@ -222,7 +74,15 @@ const handleFilterClick = (event) => {
 
 /**
  * Handle "Подробнее" button click
+ *
+ * Dispatches custom event to open tour detail modal with specific tour ID.
+ * Uses event delegation to handle clicks on "Подробнее" buttons.
+ *
  * @param {Event} event - Click event
+ *
+ * @example
+ * // Attach to catalog modal
+ * catalogModal.addEventListener('click', handleDetailClick);
  */
 const handleDetailClick = (event) => {
   const button = event.target.closest('[data-tour-detail]');
@@ -240,7 +100,19 @@ const handleDetailClick = (event) => {
 };
 
 /**
- * Initialize tours catalog
+ * Initialize tours catalog functionality
+ *
+ * Orchestrates catalog initialization by:
+ * 1. Loading tours data from JSON (via tours-catalog-data.js)
+ * 2. Setting up modal open handler to render all tours
+ * 3. Attaching filter and detail click handlers
+ *
+ * Called once on page load from main.js.
+ *
+ * @example
+ * // Initialize in main.js
+ * import { initToursCatalog } from './modules/tours-catalog.js';
+ * await initToursCatalog();
  */
 export const initToursCatalog = async () => {
   // Load tours data
@@ -251,6 +123,7 @@ export const initToursCatalog = async () => {
     const trigger = event.target.closest('[data-modal-trigger="tours-catalog"]');
     if (trigger) {
       // Render all tours when modal opens
+      const toursData = getToursData();
       renderTours(toursData);
     }
   });
@@ -265,6 +138,15 @@ export const initToursCatalog = async () => {
 
 /**
  * Get tours data (for use by other modules)
- * @returns {Array} - Tours data
+ *
+ * Re-exported from tours-catalog-data.js for backward compatibility.
+ * Used by tour-detail.js to access tours without reloading.
+ *
+ * @returns {Array<Object>} Tours data array
+ *
+ * @example
+ * // Used by tour-detail.js
+ * import { getToursData } from './tours-catalog.js';
+ * const tour = getToursData().find(t => t.id === tourId);
  */
-export const getToursData = () => toursData;
+export { getToursData } from './tours-catalog/tours-catalog-data.js';

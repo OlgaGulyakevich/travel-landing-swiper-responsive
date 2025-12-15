@@ -12,6 +12,8 @@
  * - Works with any number of items (1-5 per row)
  */
 
+import { TIMING } from './utils/constants.js';
+
 export function initTrainingLines() {
   const processSection = document.querySelector('.training__process');
   const processList = document.querySelector('.training__process-list');
@@ -187,7 +189,7 @@ export function initTrainingLines() {
   let resizeTimeout;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(updateLines, 150);
+    resizeTimeout = setTimeout(updateLines, TIMING.DEBOUNCE_RESIZE);
   });
 
   // Update when fonts load (affects item height)
@@ -198,7 +200,7 @@ export function initTrainingLines() {
   // Observe content changes (text changes, DOM mutations)
   const observer = new ResizeObserver(() => {
     clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(updateLines, 150);
+    resizeTimeout = setTimeout(updateLines, TIMING.DEBOUNCE_RESIZE);
   });
 
   // Observe all process items for size changes
@@ -208,7 +210,7 @@ export function initTrainingLines() {
   // Also observe the list itself for added/removed items
   const mutationObserver = new MutationObserver(() => {
     clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(updateLines, 150);
+    resizeTimeout = setTimeout(updateLines, TIMING.DEBOUNCE_RESIZE);
   });
 
   mutationObserver.observe(processList, {

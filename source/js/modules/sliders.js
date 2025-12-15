@@ -10,10 +10,32 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import { makePaginationKeyboardAccessible } from './pagination-keyboard.js';
+import { addNavigationIcons } from './utils/slider-helpers.js';
+
+// Common configuration for all sliders
+const commonConfig = {
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+  },
+};
+
+// Common configuration for sliders with navigation buttons
+const navigationConfig = {
+  ...commonConfig,
+  modules: [Navigation, Keyboard],
+  watchSlidesProgress: true,
+  on: {
+    init: function() {
+      addNavigationIcons(this);
+    }
+  }
+};
 
 export const initSliders = () => {
-  // Hero Slider
+  // Hero Slider - Main landing slider with fade effect and pagination
   void new Swiper('[data-slider="hero"]', {
+    ...commonConfig,
     modules: [Pagination, EffectFade, Keyboard],
     pagination: {
       el: '.swiper-pagination',
@@ -22,46 +44,28 @@ export const initSliders = () => {
     loop: true,
     autoplay: false,
     grabCursor: true,
-
-    // Fade effect with adaptive speed
     effect: 'fade',
     speed: 400,
-
     fadeEffect: {
       crossFade: false
     },
-
-    // Keyboard navigation for accessibility
-    keyboard: {
-      enabled: true,
-      onlyInViewport: true,
-    },
-
     breakpoints: {
-      768: {
-        speed: 600,
-      },
-
-      1440: {
-        speed: 800,
-      }
+      768: { speed: 600 },
+      1440: { speed: 800 }
     },
-
     on: {
       init: function() {
-        // Make pagination bullets keyboard accessible
         makePaginationKeyboardAccessible(this);
       },
       paginationUpdate: function() {
-        // Update pagination when it changes
         makePaginationKeyboardAccessible(this);
       }
     }
   });
 
-  // Tours Slider
+  // Tours Slider - Tours section carousel with responsive layout
   void new Swiper('[data-slider="tours"]', {
-    modules: [Navigation, Keyboard],
+    ...navigationConfig,
     navigation: {
       nextEl: '.tours__button-next',
       prevEl: '.tours__button-prev',
@@ -70,107 +74,36 @@ export const initSliders = () => {
     slidesPerGroup: 1,
     spaceBetween: 20,
     speed: 400,
-    watchSlidesProgress: true,
     resistance: true,
     resistanceRatio: 0.85,
-
-    // Keyboard navigation for accessibility
-    keyboard: {
-      enabled: true,
-      onlyInViewport: true,
-    },
-
     breakpoints: {
       768: { slidesPerView: 2 },
-      1440: {
-        slidesPerView: 3,
-        spaceBetween: 23,
-      },
+      1440: { slidesPerView: 3, spaceBetween: 23 },
     },
-    on: {
-      init: function() {
-        // Add SVG icons to navigation buttons
-        const prevBtn = this.navigation.prevEl;
-        const nextBtn = this.navigation.nextEl;
-
-        if (prevBtn) {
-          prevBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-left"></use>
-            </svg>
-          `;
-        }
-
-        if (nextBtn) {
-          nextBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-right"></use>
-            </svg>
-          `;
-        }
-      }
-    }
   });
 
-  // Training Slider
+  // Training Slider - Training team carousel with different initial slides per breakpoint
   void new Swiper('[data-slider="training"]', {
-    modules: [Navigation, Keyboard],
+    ...navigationConfig,
     navigation: {
       nextEl: '.training__button-next',
       prevEl: '.training__button-prev',
     },
     slidesPerView: 1,
-    initialSlide: 2, // Mobile starts from 3rd slide (Nadezhda)
+    initialSlide: 2, // Mobile: starts from 3rd slide (Nadezhda)
     spaceBetween: 20,
-    watchSlidesProgress: true,
     speed: 400,
     resistance: true,
     resistanceRatio: 0.85,
-
-    // Keyboard navigation for accessibility
-    keyboard: {
-      enabled: true,
-      onlyInViewport: true,
-    },
-
     breakpoints: {
-      768: {
-        slidesPerView: 3,
-        initialSlide: 0, // Tablet and Desktop start from 1st slide (Alexander)
-      },
-      1440: {
-        slidesPerView: 4,
-        initialSlide: 0,
-      },
+      768: { slidesPerView: 3, initialSlide: 0 }, // Tablet/Desktop: from 1st slide
+      1440: { slidesPerView: 4, initialSlide: 0 },
     },
-    on: {
-      init: function() {
-        // Add SVG icons to navigation buttons
-        const prevBtn = this.navigation.prevEl;
-        const nextBtn = this.navigation.nextEl;
-
-        if (prevBtn) {
-          prevBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-left"></use>
-            </svg>
-          `;
-        }
-
-        if (nextBtn) {
-          nextBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-right"></use>
-            </svg>
-          `;
-        }
-      }
-    }
   });
 
-  // Reviews Slider
+  // Reviews Slider - Customer reviews with auto width slides
   void new Swiper('[data-slider="reviews"]', {
-    modules: [Navigation, Keyboard],
+    ...navigationConfig,
     navigation: {
       nextEl: '.reviews__button-next',
       prevEl: '.reviews__button-prev',
@@ -178,75 +111,26 @@ export const initSliders = () => {
     slidesPerView: 'auto',
     spaceBetween: 30,
     speed: 600,
-    watchSlidesProgress: true,
     resistance: true,
     resistanceRatio: 0.85,
-
-    // Keyboard navigation for accessibility
-    keyboard: {
-      enabled: true,
-      onlyInViewport: true,
-    },
-
     breakpoints: {
-      1440: {
-        spaceBetween: 120,
-      },
+      1440: { spaceBetween: 120 },
     },
-    on: {
-      init: function() {
-        // Add SVG icons to navigation buttons
-        const prevBtn = this.navigation.prevEl;
-        const nextBtn = this.navigation.nextEl;
-
-        if (prevBtn) {
-          prevBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-left"></use>
-            </svg>
-          `;
-        }
-
-        if (nextBtn) {
-          nextBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-right"></use>
-            </svg>
-          `;
-        }
-      }
-    }
   });
 
-  // Advantages Slider (desktop only)
-  // Desktop: Shows cards with loop, slides by 2
-  // Mobile/Tablet: Static flex grid (slider disabled)
-  // HTML contains 10 slides: 5 original + 5 duplicates for smooth loop
-
+  // Advantages Slider - Desktop-only carousel (static grid on mobile/tablet)
+  // Mobile/Tablet: Disabled, uses CSS flex grid
+  // Desktop: Loop mode with 10 slides (5 original + 5 duplicates), slides by 2
   void new Swiper('[data-slider="advantages"]', {
-    modules: [Navigation, Keyboard],
-    enabled: false, // Disabled by default (enabled only on desktop via breakpoints)
+    ...navigationConfig,
     navigation: {
       nextEl: '.advantages__button-next',
       prevEl: '.advantages__button-prev',
     },
-
-    // Keyboard navigation for accessibility (desktop only)
-    keyboard: {
-      enabled: true,
-      onlyInViewport: true,
-    },
-
+    enabled: false, // Disabled by default
     breakpoints: {
-      // Mobile/Tablet: slider disabled
-      320: {
-        enabled: false,
-      },
-      768: {
-        enabled: false,
-      },
-      // Desktop: 10 slides with loop and slidesPerGroup: 2
-      // Target: Show partial + 3 full + partial
+      320: { enabled: false },
+      768: { enabled: false },
       1440: {
         enabled: true,
         loop: true,
@@ -254,52 +138,24 @@ export const initSliders = () => {
         speed: 800,
         slidesPerView: 'auto',
         slidesPerGroup: 2,
-
         centeredSlides: true,
         spaceBetween: 30,
         initialSlide: 2,
-
         watchSlidesProgress: true,
         watchOverflow: true,
       },
     },
-    on: {
-      init: function() {
-        // Add SVG icons to navigation buttons
-        const prevBtn = this.navigation.prevEl;
-        const nextBtn = this.navigation.nextEl;
-
-        if (prevBtn) {
-          prevBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-left"></use>
-            </svg>
-          `;
-        }
-
-        if (nextBtn) {
-          nextBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-right"></use>
-            </svg>
-          `;
-        }
-      }
-    }
   });
 
-  // Gallery Slider (mobile/tablet only, disabled on desktop)
-  // Mobile/Tablet: Shows slides with grid layout inside
-  // Desktop: Slider disabled, CSS Grid takes over
+  // Gallery Slider - Mobile/tablet-only carousel (static grid on desktop)
+  // Mobile/Tablet: Loop mode with grid layout inside slides
+  // Desktop: Disabled, uses CSS Grid layout
   void new Swiper('[data-slider="gallery"]', {
-    modules: [Navigation, Keyboard],
-
+    ...navigationConfig,
     navigation: {
       nextEl: '.gallery__button-next',
       prevEl: '.gallery__button-prev',
     },
-
-    // Mobile/Tablet
     slidesPerView: 'auto',
     slidesPerGroup: 1,
     spaceBetween: 5,
@@ -307,43 +163,8 @@ export const initSliders = () => {
     loopedSlides: 5,
     speed: 600,
     grabCursor: true,
-    watchSlidesProgress: true,
-
-    // Keyboard navigation for accessibility
-    keyboard: {
-      enabled: true,
-      onlyInViewport: true,
-    },
-
     breakpoints: {
-      // Desktop: Disabled (CSS Grid takes over)
-      1440: {
-        enabled: false,
-      },
+      1440: { enabled: false }, // Desktop: uses CSS Grid
     },
-
-    on: {
-      init: function() {
-        // Add SVG icons to navigation buttons
-        const prevBtn = this.navigation.prevEl;
-        const nextBtn = this.navigation.nextEl;
-
-        if (prevBtn) {
-          prevBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-left"></use>
-            </svg>
-          `;
-        }
-
-        if (nextBtn) {
-          nextBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-right"></use>
-            </svg>
-          `;
-        }
-      }
-    }
   });
 };
