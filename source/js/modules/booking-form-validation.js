@@ -49,82 +49,7 @@
  */
 
 import { fixDoublePunycodeEncoding } from './utils/email-helpers.js';
-
-/**
- * Validates a single input and displays/hides error message
- *
- * Uses browser's native Constraint Validation API (validity.valid) to check
- * if input is valid. Adds .is-invalid class and shows error message if invalid,
- * or removes class and hides error if valid.
- *
- * Error message element must have id matching input's aria-describedby attribute.
- *
- * @param {HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement} input - Input element to validate
- *
- * @example
- * const emailInput = document.querySelector('#booking-email');
- * validateInput(emailInput);
- * // If invalid: adds .is-invalid class, shows error message
- * // If valid: removes .is-invalid class, hides error message
- */
-const validateInput = (input) => {
-  const errorId = input.getAttribute('aria-describedby');
-
-  if (!input.validity.valid) {
-    input.classList.add('is-invalid');
-
-    // Show error message if error element exists
-    if (errorId) {
-      const errorElement = document.getElementById(errorId);
-      if (errorElement) {
-        errorElement.textContent = input.validationMessage;
-        errorElement.removeAttribute('hidden');
-      }
-    }
-  } else {
-    input.classList.remove('is-invalid');
-
-    // Hide error message
-    if (errorId) {
-      const errorElement = document.getElementById(errorId);
-      if (errorElement) {
-        errorElement.textContent = '';
-        errorElement.setAttribute('hidden', '');
-      }
-    }
-  }
-};
-
-/**
- * Validates all required inputs in form
- *
- * Iterates through all required inputs, selects, and textareas in the form
- * and validates each one using validateInput(). Used during form submission
- * to check all fields before allowing submit.
- *
- * @param {HTMLFormElement} form - The form element to validate
- * @returns {boolean} True if all required inputs are valid, false otherwise
- *
- * @example
- * const form = document.querySelector('[data-tour-booking-form]');
- * const isValid = validateAllInputs(form);
- * if (!isValid) {
- *   e.preventDefault(); // Prevent form submission
- * }
- */
-const validateAllInputs = (form) => {
-  const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
-  let isValid = true;
-
-  inputs.forEach((input) => {
-    if (!input.validity.valid) {
-      validateInput(input);
-      isValid = false;
-    }
-  });
-
-  return isValid;
-};
+import { validateInput, validateAllInputs } from './utils/validation-helpers.js';
 
 /**
  * Initializes validation for booking form (main export)
@@ -186,7 +111,7 @@ export const initBookingFormValidation = () => {
       hasSubmitted = true;
 
       // Show error
-      validateInput(input);
+      validateInput(input, { showErrorMessage: true });
     });
   });
 
@@ -210,7 +135,7 @@ export const initBookingFormValidation = () => {
     hasSubmitted = true;
 
     // Validate all inputs and show errors
-    const isValid = validateAllInputs(form);
+    const isValid = validateAllInputs(form, { showErrorMessage: true });
 
     if (!isValid) {
       e.preventDefault();
@@ -233,14 +158,14 @@ export const initBookingFormValidation = () => {
 
       // Only validate if form was submitted at least once
       if (hasSubmitted) {
-        validateInput(input);
+        validateInput(input, { showErrorMessage: true });
       }
     });
 
     // Also validate on blur (only after first submit)
     input.addEventListener('blur', () => {
       if (hasSubmitted) {
-        validateInput(input);
+        validateInput(input, { showErrorMessage: true });
       }
     });
   });

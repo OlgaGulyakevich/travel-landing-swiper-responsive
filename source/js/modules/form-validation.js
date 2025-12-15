@@ -11,6 +11,7 @@
  */
 
 import { fixDoublePunycodeEncoding } from './utils/email-helpers.js';
+import { validateInput, validateAllInputs } from './utils/validation-helpers.js';
 
 export const initFormValidation = () => {
   const form = document.querySelector('[data-form="contact"]');
@@ -21,35 +22,6 @@ export const initFormValidation = () => {
 
   const inputs = form.querySelectorAll('input');
   let hasSubmitted = false; // Track if form was submitted at least once
-
-  /**
-   * Validate single input and toggle .is-invalid class
-   * @param {HTMLInputElement} input - Input to validate
-   */
-  const validateInput = (input) => {
-    if (!input.validity.valid) {
-      input.classList.add('is-invalid');
-    } else {
-      input.classList.remove('is-invalid');
-    }
-  };
-
-  /**
-   * Validate all form inputs
-   * @returns {boolean} - True if all inputs are valid
-   */
-  const validateAllInputs = () => {
-    let isValid = true;
-
-    inputs.forEach((input) => {
-      validateInput(input);
-      if (!input.validity.valid) {
-        isValid = false;
-      }
-    });
-
-    return isValid;
-  };
 
   // Handle invalid event on each input (fired by browser validation)
   inputs.forEach((input) => {
@@ -88,7 +60,7 @@ export const initFormValidation = () => {
     hasSubmitted = true;
 
     // Validate all inputs and show errors
-    const isValid = validateAllInputs();
+    const isValid = validateAllInputs(form, { inputs, requiredOnly: false });
 
     if (!isValid) {
       e.preventDefault();
