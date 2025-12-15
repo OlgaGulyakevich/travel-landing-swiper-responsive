@@ -9,6 +9,7 @@
 import { showMessage } from '../utils/message-helpers.js';
 import { closeModal } from '../modal.js';
 import { clearForm } from '../utils/form-helpers.js';
+import { TIMING } from '../utils/constants.js';
 
 /**
  * Handle booking form submission
@@ -69,8 +70,8 @@ export const handleBookingSubmit = async (event) => {
         form.querySelectorAll('.tour-detail__form-error').forEach((error) => {
           error.setAttribute('hidden', '');
         });
-      }, 500);
-      setTimeout(() => closeModal('tour-detail'), 1000);
+      }, TIMING.FORM_CLEAR_DELAY);
+      setTimeout(() => closeModal('tour-detail'), TIMING.MODAL_CLOSE_DELAY);
     } else {
       showMessage('error', 'Ошибка отправки. Пожалуйста, попробуйте позже.', {
         containerSelector: '[data-booking-message]'

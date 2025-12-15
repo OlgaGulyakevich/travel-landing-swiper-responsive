@@ -5,6 +5,8 @@
  * @version 1.0.0
  */
 
+import { BREAKPOINTS, TIMING } from './constants.js';
+
 /**
  * Shows a success or error message to the user
  *
@@ -38,7 +40,7 @@
 export const showMessage = (type, text, options = {}) => {
   const {
     container: existingContainer = null,
-    duration = 5000,
+    duration = TIMING.MESSAGE_DISPLAY,
     scrollTarget = null,
     containerSelector = '[data-message]'
   } = options;
@@ -73,13 +75,13 @@ export const showMessage = (type, text, options = {}) => {
   }
 
   // Mobile: scroll to form to show it's cleared (only on success)
-  if (type === 'success' && scrollTarget && window.innerWidth < 768) {
+  if (type === 'success' && scrollTarget && window.innerWidth < BREAKPOINTS.TABLET) {
     setTimeout(() => {
       scrollTarget.scrollIntoView({
         behavior: 'smooth',
         block: 'center',
       });
-    }, 100);
+    }, TIMING.SCROLL_DELAY);
   }
 
   // Auto-hide message after duration

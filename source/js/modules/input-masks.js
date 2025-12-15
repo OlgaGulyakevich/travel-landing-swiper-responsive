@@ -8,8 +8,9 @@ import { initInputMask } from './utils/input-mask-helper.js';
 
 /**
  * Initialize phone input mask
+ * Private function, not exported
  */
-export const initPhoneMask = () => {
+const initPhoneMask = () => {
   const phoneInput = document.querySelector('input[type="tel"]');
   const patternHint = '+7 (000)-000-00-00';
 
@@ -18,8 +19,9 @@ export const initPhoneMask = () => {
 
 /**
  * Initialize email input mask
+ * Private function, not exported
  */
-export const initEmailMask = () => {
+const initEmailMask = () => {
   const emailInput = document.querySelector('input[type="email"]');
   const patternHint = 'example@mail.ru';
 

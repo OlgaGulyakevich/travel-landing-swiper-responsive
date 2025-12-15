@@ -42,11 +42,13 @@ import { initInputMask } from './utils/input-mask-helper.js';
  * Finds #booking-phone input and applies pattern hint '+7 (000)-000-00-00'.
  * Pattern appears on focus to guide users in entering Russian mobile numbers.
  *
+ * Private function, not exported.
+ *
  * @example
- * // Called in main.js via initBookingFormMasks()
+ * // Called internally via initBookingFormMasks()
  * initBookingPhoneMask();
  */
-export const initBookingPhoneMask = () => {
+const initBookingPhoneMask = () => {
   const phoneInput = document.querySelector('#booking-phone');
   const patternHint = '+7 (000)-000-00-00';
 
@@ -59,11 +61,13 @@ export const initBookingPhoneMask = () => {
  * Finds #booking-email input and applies pattern hint 'example@mail.ru'.
  * Pattern appears on focus to guide users in entering email addresses.
  *
+ * Private function, not exported.
+ *
  * @example
- * // Called in main.js via initBookingFormMasks()
+ * // Called internally via initBookingFormMasks()
  * initBookingEmailMask();
  */
-export const initBookingEmailMask = () => {
+const initBookingEmailMask = () => {
   const emailInput = document.querySelector('#booking-email');
   const patternHint = 'example@mail.ru';
 
