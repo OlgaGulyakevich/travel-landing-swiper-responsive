@@ -6,27 +6,7 @@
  */
 
 import { showMessage } from './utils/message-helpers.js';
-
-/**
- * Clear form and reset validation state
- * @param {HTMLFormElement} form - Form element
- */
-const clearForm = (form) => {
-  // Clear all inputs
-  form.reset();
-
-  // Remove all .is-invalid classes
-  const invalidInputs = form.querySelectorAll('.is-invalid');
-  invalidInputs.forEach((input) => {
-    input.classList.remove('is-invalid');
-  });
-
-  // Remove all pattern classes
-  const patternInputs = form.querySelectorAll('.input--pattern');
-  patternInputs.forEach((input) => {
-    input.classList.remove('input--pattern');
-  });
-};
+import { clearForm } from './utils/form-helpers.js';
 
 /**
  * Submit form via AJAX

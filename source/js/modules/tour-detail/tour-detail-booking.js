@@ -8,6 +8,7 @@
 
 import { showMessage } from '../utils/message-helpers.js';
 import { closeModal } from '../modal.js';
+import { clearForm } from '../utils/form-helpers.js';
 
 /**
  * Handle booking form submission
@@ -63,10 +64,8 @@ export const handleBookingSubmit = async (event) => {
         containerSelector: '[data-booking-message]'
       });
       setTimeout(() => {
-        form.reset();
-        form.querySelectorAll('.is-invalid').forEach((input) => {
-          input.classList.remove('is-invalid');
-        });
+        clearForm(form);
+        // Hide error messages (not handled by clearForm for booking form)
         form.querySelectorAll('.tour-detail__form-error').forEach((error) => {
           error.setAttribute('hidden', '');
         });
