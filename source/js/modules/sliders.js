@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import { makePaginationKeyboardAccessible } from './pagination-keyboard.js';
+import { addNavigationIcons } from './utils/slider-helpers.js';
 
 export const initSliders = () => {
   // Hero Slider
@@ -89,25 +90,7 @@ export const initSliders = () => {
     },
     on: {
       init: function() {
-        // Add SVG icons to navigation buttons
-        const prevBtn = this.navigation.prevEl;
-        const nextBtn = this.navigation.nextEl;
-
-        if (prevBtn) {
-          prevBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-left"></use>
-            </svg>
-          `;
-        }
-
-        if (nextBtn) {
-          nextBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-right"></use>
-            </svg>
-          `;
-        }
+        addNavigationIcons(this);
       }
     }
   });
@@ -145,25 +128,7 @@ export const initSliders = () => {
     },
     on: {
       init: function() {
-        // Add SVG icons to navigation buttons
-        const prevBtn = this.navigation.prevEl;
-        const nextBtn = this.navigation.nextEl;
-
-        if (prevBtn) {
-          prevBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-left"></use>
-            </svg>
-          `;
-        }
-
-        if (nextBtn) {
-          nextBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-right"></use>
-            </svg>
-          `;
-        }
+        addNavigationIcons(this);
       }
     }
   });
@@ -195,25 +160,7 @@ export const initSliders = () => {
     },
     on: {
       init: function() {
-        // Add SVG icons to navigation buttons
-        const prevBtn = this.navigation.prevEl;
-        const nextBtn = this.navigation.nextEl;
-
-        if (prevBtn) {
-          prevBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-left"></use>
-            </svg>
-          `;
-        }
-
-        if (nextBtn) {
-          nextBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-right"></use>
-            </svg>
-          `;
-        }
+        addNavigationIcons(this);
       }
     }
   });
@@ -265,25 +212,7 @@ export const initSliders = () => {
     },
     on: {
       init: function() {
-        // Add SVG icons to navigation buttons
-        const prevBtn = this.navigation.prevEl;
-        const nextBtn = this.navigation.nextEl;
-
-        if (prevBtn) {
-          prevBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-left"></use>
-            </svg>
-          `;
-        }
-
-        if (nextBtn) {
-          nextBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-right"></use>
-            </svg>
-          `;
-        }
+        addNavigationIcons(this);
       }
     }
   });
@@ -324,25 +253,7 @@ export const initSliders = () => {
 
     on: {
       init: function() {
-        // Add SVG icons to navigation buttons
-        const prevBtn = this.navigation.prevEl;
-        const nextBtn = this.navigation.nextEl;
-
-        if (prevBtn) {
-          prevBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-left"></use>
-            </svg>
-          `;
-        }
-
-        if (nextBtn) {
-          nextBtn.innerHTML = `
-            <svg aria-hidden="true">
-              <use href="/__spritemap#sprite-arrow-right"></use>
-            </svg>
-          `;
-        }
+        addNavigationIcons(this);
       }
     }
   });

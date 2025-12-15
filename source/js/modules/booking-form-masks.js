@@ -30,7 +30,7 @@
  * Used By:
  * - Tour detail modal booking form (#booking-phone, #booking-email)
  *
- * @author Olga Gulakevic
+ * @author Olga Gulakevich
  * @version 1.0.0
  */
 

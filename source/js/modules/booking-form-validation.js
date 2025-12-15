@@ -44,7 +44,7 @@
  * - .is-invalid (defined in utility.scss)
  * - .tour-detail__form-error (defined in tour-detail.scss)
  *
- * @author Olga Gulakevic
+ * @author Olga Gulakevich
  * @version 1.0.0
  */
 
