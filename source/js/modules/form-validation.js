@@ -10,21 +10,7 @@
  * - Email field: standard email + .рф local domain support
  */
 
-/**
- * Fix double Punycode encoding bug for .рф domains
- * Browser bug: .рф → xn--p1ai.xn--p1ai (double encoding)
- * This function fixes: xn--p1ai.xn--p1ai → xn--p1ai
- * @param {string} email - Email address (may contain double-encoded Punycode)
- * @returns {string} - Email with fixed single Punycode encoding
- */
-const fixDoublePunycodeEncoding = (email) => {
-  if (!email) {
-    return email;
-  }
-
-  // Fix only the specific bug: double .xn--p1ai encoding
-  return email.replace(/\.xn--p1ai\.xn--p1ai$/i, '.xn--p1ai');
-};
+import { fixDoublePunycodeEncoding } from './utils/email-helpers.js';
 
 export const initFormValidation = () => {
   const form = document.querySelector('[data-form="contact"]');
