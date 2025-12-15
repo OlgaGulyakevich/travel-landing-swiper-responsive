@@ -8,8 +8,9 @@
     "test": "backstop test --config=pp.config.cjs",
     "test-content": "vitest content.test.ts --ui",
     "build": "vite build --emptyOutDir",
+    "build:dev": "vite build --emptyOutDir --mode development",
     "preview": "vite preview --open",
-    "convert-rastr": "node convert-rastr.js",
+    "мож": "node convert-rastr.js",
     "w3c": "html-validator source --quiet",
     "linthtml": "linthtml source",
     "html-validate": "html-validate source/index.html",
@@ -19,7 +20,9 @@
     "ls-lint": "ls-lint",
     "editorconfig": "editorconfig-cli",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "predeploy:dev": "npm run build:dev",
+    "deploy:dev": "gh-pages -d dist"
   },
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "3.0.0",

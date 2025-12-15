@@ -27,7 +27,7 @@ let toursData = [];
  */
 export const loadToursData = async () => {
   try {
-    const response = await fetch('/data/tours.json');
+    const response = await fetch('./data/tours.json');
     if (!response.ok) {
       throw new Error('Failed to load tours data');
     }

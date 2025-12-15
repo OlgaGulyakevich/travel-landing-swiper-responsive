@@ -9,6 +9,7 @@
 import Swiper from 'swiper';
 import { Navigation, EffectFade } from 'swiper/modules';
 import 'swiper/css/effect-fade';
+import { addNavigationIcons } from '../utils/slider-helpers.js';
 
 /**
  * Swiper instance for tour detail gallery
@@ -75,14 +76,17 @@ export const initGallery = (images) => {
       nextEl: '.tour-detail__slider-button--next',
       prevEl: '.tour-detail__slider-button--prev',
     },
-    // Fade effect with adaptive speed
     effect: 'fade',
     speed: 400,
-
     fadeEffect: {
       crossFade: false
     },
     grabCursor: true,
+    on: {
+      init: function() {
+        addNavigationIcons(this);
+      }
+    }
   });
 
   // Show gallery with smooth fade-in after modal is rendered
