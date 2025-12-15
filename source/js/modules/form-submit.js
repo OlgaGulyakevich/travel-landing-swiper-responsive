@@ -5,35 +5,7 @@
  * Clears form after successful submission
  */
 
-/**
- * Show message to user
- * @param {HTMLElement} messageContainer - Container for message
- * @param {string} message - Message text
- * @param {string} type - Message type: 'success' or 'error'
- * @param {HTMLFormElement} form - Form element for mobile scroll
- */
-const showMessage = (messageContainer, message, type, form) => {
-  messageContainer.textContent = message;
-  messageContainer.className = `form-message form-message--${type}`;
-  messageContainer.setAttribute('role', 'status');
-  messageContainer.setAttribute('aria-live', 'polite');
-
-  // Mobile: scroll to form to show it's cleared (only on success)
-  if (type === 'success' && window.innerWidth < 768) {
-    setTimeout(() => {
-      form.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-    }, 100);
-  }
-
-  // Auto-hide message after 5 seconds
-  setTimeout(() => {
-    messageContainer.className = 'form-message';
-    messageContainer.textContent = '';
-  }, 5000);
-};
+import { showMessage } from './utils/message-helpers.js';
 
 /**
  * Clear form and reset validation state
@@ -88,12 +60,10 @@ const handleFormSubmit = async (e, form, messageContainer) => {
 
     if (response.ok) {
       // Success
-      showMessage(
-        messageContainer,
-        'Спасибо! Мы свяжемся с вами в ближайшее время.',
-        'success',
-        form
-      );
+      showMessage('success', 'Спасибо! Мы свяжемся с вами в ближайшее время.', {
+        container: messageContainer,
+        scrollTarget: form
+      });
 
       // Clear form after successful submission
       setTimeout(() => {
@@ -101,21 +71,15 @@ const handleFormSubmit = async (e, form, messageContainer) => {
       }, 500);
     } else {
       // Server error
-      showMessage(
-        messageContainer,
-        'Ошибка отправки. Пожалуйста, попробуйте позже.',
-        'error',
-        form
-      );
+      showMessage('error', 'Ошибка отправки. Пожалуйста, попробуйте позже.', {
+        container: messageContainer
+      });
     }
   } catch (error) {
     // Network error
-    showMessage(
-      messageContainer,
-      'Ошибка соединения. Проверьте интернет и попробуйте снова.',
-      'error',
-      form
-    );
+    showMessage('error', 'Ошибка соединения. Проверьте интернет и попробуйте снова.', {
+      container: messageContainer
+    });
 
     // Reset button
     const submitButton = form.querySelector('button[type="submit"]');

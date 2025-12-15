@@ -7,6 +7,7 @@ import { openModal, closeModal } from './modal.js';
 import { getToursData } from './tours-catalog.js';
 import { getDaysText, getNightsText } from './utils/text-helpers.js';
 import { generateStars } from './utils/ui-helpers.js';
+import { showMessage } from './utils/message-helpers.js';
 import Swiper from 'swiper';
 import { Navigation, EffectFade, } from 'swiper/modules';
 import 'swiper/css/effect-fade';
@@ -272,54 +273,6 @@ const openTourDetail = (tourId) => {
 };
 
 /**
- * Get or create message container for success/error messages
- * @returns {HTMLElement} - Message container
- */
-const getOrCreateMessageContainer = () => {
-  let container = document.querySelector('[data-booking-message]');
-  if (!container) {
-    container = document.createElement('div');
-    container.className = 'form-message';
-    container.setAttribute('data-booking-message', 'status');
-    document.body.appendChild(container);
-  }
-  return container;
-};
-
-/**
- * Show success message
- */
-const showBookingSuccessMessage = () => {
-  const container = getOrCreateMessageContainer();
-  container.textContent = 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.';
-  container.className = 'form-message form-message--success';
-  container.setAttribute('role', 'status');
-  container.setAttribute('aria-live', 'polite');
-
-  setTimeout(() => {
-    container.className = 'form-message';
-    container.textContent = '';
-  }, 5000);
-};
-
-/**
- * Show error message
- * @param {string} message - Error message text
- */
-const showBookingErrorMessage = (message) => {
-  const container = getOrCreateMessageContainer();
-  container.textContent = message;
-  container.className = 'form-message form-message--error';
-  container.setAttribute('role', 'alert');
-  container.setAttribute('aria-live', 'assertive');
-
-  setTimeout(() => {
-    container.className = 'form-message';
-    container.textContent = '';
-  }, 5000);
-};
-
-/**
  * Handle booking form submission
  * @param {Event} event - Submit event
  */
@@ -357,7 +310,9 @@ const handleBookingSubmit = async (event) => {
     submitButton.disabled = false;
 
     if (response.ok) {
-      showBookingSuccessMessage();
+      showMessage('success', 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.', {
+        containerSelector: '[data-booking-message]'
+      });
       setTimeout(() => {
         form.reset();
         form.querySelectorAll('.is-invalid').forEach((input) => {
@@ -369,10 +324,14 @@ const handleBookingSubmit = async (event) => {
       }, 500);
       setTimeout(() => closeModal('tour-detail'), 1000);
     } else {
-      showBookingErrorMessage('Ошибка отправки. Пожалуйста, попробуйте позже.');
+      showMessage('error', 'Ошибка отправки. Пожалуйста, попробуйте позже.', {
+        containerSelector: '[data-booking-message]'
+      });
     }
   } catch (error) {
-    showBookingErrorMessage('Ошибка соединения. Проверьте интернет и попробуйте снова.');
+    showMessage('error', 'Ошибка соединения. Проверьте интернет и попробуйте снова.', {
+      containerSelector: '[data-booking-message]'
+    });
     const submitButton = form.querySelector('button[type="submit"]');
     submitButton.textContent = 'Отправить заявку';
     submitButton.disabled = false;
