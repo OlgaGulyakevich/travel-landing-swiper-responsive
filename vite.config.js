@@ -61,6 +61,16 @@ export default {
   root: './source',
   build: {
     outDir: '../dist',
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && /\.(jpg|jpeg|png|webp)$/.test(assetInfo.name)) {
+            return 'img/[name][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        }
+      }
+    }
   },
   base: '/travel-landing-swiper-responsive/',
   server: {

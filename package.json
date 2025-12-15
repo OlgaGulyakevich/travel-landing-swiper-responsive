@@ -10,7 +10,7 @@
     "build": "vite build --emptyOutDir",
     "build:dev": "vite build --emptyOutDir --mode development",
     "preview": "vite preview --open",
-    "мож": "node convert-rastr.js",
+    "convert-rastr": "node convert-rastr.js",
     "w3c": "html-validator source --quiet",
     "linthtml": "linthtml source",
     "html-validate": "html-validate source/index.html",
