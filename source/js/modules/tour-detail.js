@@ -5,9 +5,8 @@
 
 import { openModal, closeModal } from './modal.js';
 import { getToursData } from './tours-catalog.js';
-import { getDaysText, getNightsText } from './utils/text-helpers.js';
-import { generateStars } from './utils/ui-helpers.js';
 import { showMessage } from './utils/message-helpers.js';
+import { populateTourDetail } from './tour-detail/tour-detail-ui.js';
 import Swiper from 'swiper';
 import { Navigation, EffectFade, } from 'swiper/modules';
 import 'swiper/css/effect-fade';
@@ -152,104 +151,6 @@ const clearTourDetail = () => {
   }
 };
 
-/**
- * Populate tour detail modal
- * @param {Object} tour - Tour data
- */
-const populateTourDetail = (tour) => {
-  if (!tour) {
-    return;
-  }
-
-  // Title
-  const titleElement = document.querySelector('[data-tour-title]');
-  if (titleElement) {
-    titleElement.textContent = tour.title;
-  }
-
-  // Region
-  const regionElement = document.querySelector('[data-tour-region]');
-  if (regionElement) {
-    regionElement.textContent = tour.region;
-  }
-
-  // Days
-  const daysElement = document.querySelector('[data-tour-days]');
-  if (daysElement) {
-    daysElement.textContent = getDaysText(tour.duration.days);
-  }
-
-  // Nights
-  const nightsElement = document.querySelector('[data-tour-nights]');
-  if (nightsElement) {
-    nightsElement.textContent = getNightsText(tour.duration.nights);
-  }
-
-  // Difficulty (stars)
-  const difficultyElement = document.querySelector('[data-tour-difficulty]');
-  if (difficultyElement) {
-    difficultyElement.innerHTML = generateStars(tour.difficulty);
-  }
-
-  // Dates
-  const datesElement = document.querySelector('[data-tour-dates]');
-  if (datesElement) {
-    datesElement.textContent = tour.dates;
-  }
-
-  // Group Size
-  const groupElement = document.querySelector('[data-tour-group]');
-  if (groupElement) {
-    groupElement.textContent = tour.groupSize;
-  }
-
-  // Price
-  const priceElement = document.querySelector('[data-tour-price]');
-  if (priceElement) {
-    priceElement.textContent = `от ${tour.price.toLocaleString('ru-RU')} ₽`;
-  }
-
-  // Description (content area - semantic HTML)
-  const descriptionElement = document.querySelector('[data-tour-description]');
-  if (descriptionElement) {
-    descriptionElement.innerHTML = `<p>${tour.fullDescription}</p>`;
-  }
-
-  // Included list (content area - semantic HTML)
-  const includedElement = document.querySelector('[data-tour-included]');
-  if (includedElement) {
-    includedElement.innerHTML = `
-      <ul>
-        ${tour.included.map((item) => `<li>${item}</li>`).join('')}
-      </ul>
-    `;
-  }
-
-  // Program (content area - semantic HTML)
-  const programElement = document.querySelector('[data-tour-program]');
-  if (programElement) {
-    programElement.innerHTML = tour.program
-      .map(
-        (day) => `
-        <article>
-          <h4>День ${day.day}</h4>
-          <strong>${day.title}</strong>
-          <p>${day.description}</p>
-        </article>
-      `
-      )
-      .join('');
-  }
-
-  // Auto-fill booking date
-  const dateInput = document.querySelector('#booking-date');
-  if (dateInput && tour.dates) {
-    dateInput.value = tour.dates;
-  }
-
-  // Initialize gallery
-  initGallery(tour.images);
-};
 
 /**
  * Handle tour detail modal open
@@ -267,6 +168,9 @@ const openTourDetail = (tourId) => {
 
   // Populate modal with tour data
   populateTourDetail(tour);
+
+  // Initialize gallery
+  initGallery(tour.images);
 
   // Open modal
   openModal('tour-detail');
