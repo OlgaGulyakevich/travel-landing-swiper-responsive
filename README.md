@@ -8,9 +8,9 @@
 
 <div align="center">
 <picture>
-  <source media="(min-width: 1440px)" srcset="bitmaps_reference/test-pp/hero-2-desktop.jpg">
-  <source media="(min-width: 768px)" srcset="bitmaps_reference/test-pp/hero-2-tablet.jpg">
-  <img src="bitmaps_reference/test-pp/hero-2-mobile.jpg" alt="Lifetour hero section preview">
+  <source media="(min-width: 1440px)" srcset="source/public/img//hero-2-desktop.jpg">
+  <source media="(min-width: 768px)" srcset="source/public/img//hero-2-tablet.jpg">
+  <img src="source/public/img//hero-2-mobile.jpg" alt="Lifetour hero section preview">
 </picture>
 </div>
 
