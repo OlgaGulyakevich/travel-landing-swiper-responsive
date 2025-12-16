@@ -178,25 +178,25 @@ initTourGallery(images);
 
 **What it does:**
 1. **Validation of fields:**
-   - Checks the required fields: firstname, lastname, phone, email, people, city, experience
-   - If validation fails - return (the validation module shows errors)
+    - Checks the required fields: firstname, lastname, phone, email, people, city, experience
+    - If validation fails - return (the validation module shows errors)
 
 2. **Sending the form:**
-   - Blocks the submit button
-   - Changes the text of the button to "Sending..."
-   - Sends FormData through fetch to `https://echo.htmlacademy.ru`
-   - Restores the button after the response
+    - Blocks the submit button
+    - Changes the text of the button to "Sending..."
+    - Sends FormData through fetch to `https://echo.htmlacademy.ru`
+    - Restores the button after the response
 
 3. **Processing the result:**
-   - **Success (response.ok):**
-     - Shows success message through `showMessage()`
-     - Through 500ms: clears the form through `clearForm()` + hides the errors
-     - Through 1000ms: closes the modal window through `closeModal('tour-detail')`
+    - **Success (response.ok):**
+        - Shows success message through `showMessage()`
+        - Through 500ms: clears the form through `clearForm()` + hides the errors
+        - Through 1000ms: closes the modal window through `closeModal('tour-detail')`
 
-   - **Error (response !ok or catch):**
-     - Shows error message through `showMessage()`
-     - Restores the submit button
-     - Saves the form data (does not clear)
+    - **Error (response !ok or catch):**
+        - Shows error message through `showMessage()`
+        - Restores the submit button
+        - Saves the form data (does not clear)
 
 **Used in:**
 - `tour-detail.js` - attaches to the booking form at initialization

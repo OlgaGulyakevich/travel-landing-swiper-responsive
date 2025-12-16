@@ -26,9 +26,9 @@ tours-catalog.js (coordinator, facade pattern)
 1. Loads tours data from JSON file
 2. Attaches event listeners to difficulty filter buttons
 3. When a filter button is clicked:
-   - Updates active state of buttons
-   - Calls `filterTours(filter)` with difficulty level ('all', 'easy', 'medium', 'hard')
-   - Calls `renderTours()` to update the UI
+    - Updates active state of buttons
+    - Calls `filterTours(filter)` with difficulty level ('all', 'easy', 'medium', 'hard')
+    - Calls `renderTours()` to update the UI
 4. Handles "Подробнее" button clicks to open tour detail modal
 
 **Used in:**
@@ -129,36 +129,36 @@ const hardTours = filterTours('hard'); // Returns tours with difficulty 4-5
 **What it does:**
 1. **Cleans the container** - removes old cards
 2. **Creates tour cards** for each tour in the array:
-   ```html
-   <article class="tours-catalog__card card" data-tour-id="${tour.id}">
-     <a class="card__link" data-open-tour-detail>
-       <div class="card__image-wrapper">
-         <img srcset="..." alt="${tour.title}">
-       </div>
-       <div class="card__content">
-         <h3 class="card__title">${tour.title}</h3>
-         <div class="card__details">
-           <p class="card__location">${tour.location}</p>
-           <p class="card__duration">${tour.duration} дней / ночей</p>
-           <p class="card__difficulty">${difficulty}</p>
-         </div>
-       </div>
-     </a>
-     <div class="card__footer">
-       <p class="card__price">от ${tour.price.toLocaleString('ru-RU')} ₽</p>
-       <button class="button card__button" data-open-tour-detail>Подробнее</button>
-     </div>
-   </article>
-   ```
+    ```html
+    <article class="tours-catalog__card card" data-tour-id="${tour.id}">
+        <a class="card__link" data-open-tour-detail>
+            <div class="card__image-wrapper">
+                <img srcset="..." alt="${tour.title}">
+            </div>
+            <div class="card__content">
+                <h3 class="card__title">${tour.title}</h3>
+                <div class="card__details">
+                    <p class="card__location">${tour.location}</p>
+                    <p class="card__duration">${tour.duration} дней / ночей</p>
+                    <p class="card__difficulty">${difficulty}</p>
+                </div>
+            </div>
+        </a>
+        <div class="card__footer">
+            <p class="card__price">от ${tour.price.toLocaleString('ru-RU')} ₽</p>
+            <button class="button card__button" data-open-tour-detail>Подробнее</button>
+        </div>
+    </article>
+    ```
 
 3. **Adds data-attributes** for the tour-detail module:
-   - `data-tour-id` - ID of the tour
-   - `data-tour-title`, `data-tour-location`, `data-tour-duration` and more
-   - `data-tour-images`, `data-tour-included`, `data-tour-program` (JSON.stringify)
+    - `data-tour-id` - ID of the tour
+    - `data-tour-title`, `data-tour-location`, `data-tour-duration` and more
+    - `data-tour-images`, `data-tour-included`, `data-tour-program` (JSON.stringify)
 
 4. **Handles empty result:**
-   - If there are no tours - shows the message "Tours not found"
-   - Applies styles for centering the text
+    - If there are no tours - shows the message "Tours not found"
+    - Applies styles for centering the text
 
 **Formatting data:**
 - **Difficulty:** Displayed as text labels (easy/medium/hard)
@@ -324,52 +324,52 @@ To add a new tour:
 
 1. **Open** `source/data/tours.json`
 2. **Add an object** to the array:
-   ```json
-   {
-     "id": "tour-slug",
-     "title": "Название тура",
-     "region": "Кавказ",
-     "difficulty": 2,
-     "duration": {
-       "days": 5,
-       "nights": 4
-     },
-     "price": 95000,
-     "shortDescription": "Краткое описание для карточки",
-     "fullDescription": "Полное описание тура для модального окна",
-     "included": [
-       "Проживание в гостиницах",
-       "Трёхразовое питание",
-       "Услуги гида"
-     ],
-     "program": [
-       {
-         "day": 1,
-         "title": "День 1",
-         "description": "Описание программы дня"
-       }
-     ],
-     "images": [
-       "img/tour-7@1x.jpg",
-       "img/tour-7.2@1x.jpg",
-       "img/tour-7.3@1x.jpg"
-     ],
-     "heroSlideIndex": null,
-     "dates": "12.06-19.06",
-     "groupSize": "до 15 чел."
-   }
-   ```
+    ```json
+    {
+        "id": "tour-slug",
+        "title": "Название тура",
+        "region": "Кавказ",
+        "difficulty": 2,
+        "duration": {
+            "days": 5,
+            "nights": 4
+        },
+        "price": 95000,
+        "shortDescription": "Краткое описание для карточки",
+        "fullDescription": "Полное описание тура для модального окна",
+        "included": [
+            "Проживание в гостиницах",
+            "Трёхразовое питание",
+            "Услуги гида"
+        ],
+        "program": [
+            {
+                "day": 1,
+                "title": "День 1",
+                "description": "Описание программы дня"
+            }
+        ],
+        "images": [
+            "img/tour-7@1x.jpg",
+            "img/tour-7.2@1x.jpg",
+            "img/tour-7.3@1x.jpg"
+        ],
+        "heroSlideIndex": null,
+        "dates": "12.06-19.06",
+        "groupSize": "до 15 чел."
+    }
+    ```
 
 3. **Add images** to `source/img/`:
-   - `tour-7@1x.jpg` and `tour-7@2x.jpg` (main image)
-   - `tour-7.2@1x.jpg` and `tour-7.2@2x.jpg` (gallery)
-   - `tour-7.3@1x.jpg` and `tour-7.3@2x.jpg` (gallery)
-   - And so on for additional gallery photos
+    - `tour-7@1x.jpg` and `tour-7@2x.jpg` (main image)
+    - `tour-7.2@1x.jpg` and `tour-7.2@2x.jpg` (gallery)
+    - `tour-7.3@1x.jpg` and `tour-7.3@2x.jpg` (gallery)
+    - And so on for additional gallery photos
 
 4. **Restart the dev-server** to load the updated JSON:
-   ```bash
-   npm run dev
-   ```
+    ```bash
+    npm run dev
+    ```
 
 5. **Done!** The tour will appear in the catalog automatically.
 
