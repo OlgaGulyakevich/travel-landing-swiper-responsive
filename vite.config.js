@@ -2,6 +2,9 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import VitePluginSvgSpritemap from '@spiriit/vite-plugin-svg-spritemap';
 
 /** @type {import('vite').UserConfig} */
+
+const isDev = process.env.NODE_ENV === 'development';
+
 export default {
   plugins: [
     VitePluginSvgSpritemap('img/sprite/*.svg', {
@@ -72,7 +75,7 @@ export default {
       }
     }
   },
-  base: './',
+  base: isDev ? './' : '/travel-landing-swiper-responsive/',
   server: {
     port: 3000,
   }
