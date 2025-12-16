@@ -123,7 +123,7 @@ This project intentionally uses **vanilla JavaScript** and **no CSS frameworks**
 
 ### **2. Modal Architecture**
 
-**Problem:** Limited tour catalog (5-10 items) doesn't justify full routing.
+**Problem:** Limited tour catalog (5-12 items) doesn't justify full routing.
 
 **Solution:** Centralized modal system with dynamic content injection:
 
