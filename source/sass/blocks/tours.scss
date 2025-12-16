@@ -14,7 +14,7 @@
 .tours--with-extended-background {
   position: relative;
   z-index: $z-default;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 // Pseudo-element for background image
