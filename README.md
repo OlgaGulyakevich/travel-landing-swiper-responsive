@@ -1,383 +1,329 @@
-# Lifetour - Mountain Tours Landing Page
+# Lifetour - Mountain Tours Landing
 
-> Modern, responsive landing page for a Russian tour company specializing in mountain adventures in the Caucasus, Altai, and Dagestan regions.
+> Production-grade landing page for Russian tour company. Vanilla JS, pixel-perfect implementation.
+
+**⏱️ Completed in 4 weeks** as part of **HTML Academy Accelerator** graduation project.
 
 ---
 
-## 📸 Preview
+[![Live Demo](https://img.shields.io/badge/🌐_Live-Demo-4A90E2?style=for-the-badge)](https://olgagulyakevich.github.io/travel-landing-swiper-responsive/)
+[![Vanilla JS](https://img.shields.io/badge/JavaScript-Vanilla_ES6+-F7DF1E?style=for-the-badge&logo=javascript)]()
+[![BEM](https://img.shields.io/badge/CSS-BEM_Methodology-E74C3C?style=for-the-badge)]()
+[![HTML Academy](https://img.shields.io/badge/HTML_Academy-Accelerator-9B59B6?style=for-the-badge)]()
 
 <div align="center">
 <picture>
-  <source media="(min-width: 1440px)" srcset="source/public/img//hero-2-desktop.jpg">
-  <source media="(min-width: 768px)" srcset="source/public/img//hero-2-tablet.jpg">
-  <img src="source/public/img//hero-2-mobile.jpg" alt="Lifetour hero section preview">
+  <source media="(min-width: 1440px)" srcset="source/public/img/hero-2-desktop.jpg">
+  <source media="(min-width: 768px)" srcset="source/public/img/hero-2-tablet.jpg">
+  <img src="source/public/img/hero-2-mobile.jpg" alt="Lifetour responsive preview" width="100%">
 </picture>
 </div>
 
-**🔗 Live Demo:** [View on GitHub Pages](https://olgagulyakevich.github.io/travel-landing-swiper-responsive/)
+**[🌐 Live Demo](https://olgagulyakevich.github.io/travel-landing-swiper-responsive/)** • 
+**[📦 Source Code](https://github.com/OlgaGulyakevich/travel-landing-swiper-responsive)** • 
 
 ---
 
-## 📋 About the Project
+## ✨ Highlights
 
-**Why Russian Language?**
-This is a real-world project for a Russian tour company targeting Russian-speaking audiences in Russia, CIS countries, and Russian-speaking communities abroad.
+<table>
+<tr>
+<td width="50%">
 
-**Business Model:**
-The company offers a limited number of curated tours per season (5-12 tours), with bookings opening months in advance. This seasonal, boutique approach influenced key technical decisions:
+### 🎯 User Experience
+- **4-week development** — HTML Academy graduation project
+- **3 device breakpoints** — 320px to 1440px+ responsive
+- **Pixel-perfect ±2px** — passed 30 BackstopJS tests
+- **Smooth scroll animations** — Intersection Observer API
+- **WCAG AA compliant** — keyboard navigation support
+- **Modal architecture** — instant navigation, no reloads
+- **Russian localization** — targeting CIS market
 
-- **Modal Windows** for tour details instead of separate pages (optimal UX for small tour catalog)
-- **Dynamic JSON** data loading (easy content updates between seasons)
-- **Semantic HTML** content areas (flexible for tour description updates)
+</td>
+<td width="50%">
 
-**Target Audience:**
-- Russian-speaking adventure travelers
-- Desktop & mobile users (70% mobile traffic)
-- Modern browsers: Chrome, Safari, Firefox (97%+ market share)
+### ⚡ Technical Excellence
+- **Lighthouse 95+** performance score
+- **Advanced CSS (BEM methodology, SCSS)** — modular architecture
+- **WebP + JPEG fallback** — 40% traffic reduction
+- **30 automated tests** — 0.4%-4.3% mismatch tolerance
+- **7 linters** — HTML, CSS, JS, BEM validation
+- **Vanilla JS only** — no framework dependencies
 
-**Technical Challenge:**
-Build a pixel-perfect, production-ready landing page following strict HTML Academy quality criteria with comprehensive automated testing (30 test scenarios).
-
----
-
-## ✨ Key Features
-
-### 🎨 **Modern UX/UI**
-- ✅ Fully responsive design (320px - 1440px+)
-- ✅ Pixel-perfect implementation (±2px tolerance)
-- ✅ Smooth scroll animations with Intersection Observer
-- ✅ Modal windows for tours catalog and details
-- ✅ Accessible keyboard navigation (WCAG AA)
-
-### ⚡ **Performance Optimized**
-- ✅ **WebP images** with JPEG fallback (30-50% traffic savings)
-- ✅ **Lazy loading** for off-screen images
-- ✅ **Retina support** (@1x, @2x srcset)
-- ✅ **Build-time optimization** (JPEG quality: 80)
-- ✅ **Layout shift prevention** (width/height attributes)
-- 🎯 **Lighthouse Score:** 95+ Performance
-
-### 🏗️ **Production-Ready Architecture**
-- ✅ **Modular JavaScript** (ES6+ modules, facade pattern)
-- ✅ **BEM methodology** (strict naming conventions)
-- ✅ **Semantic HTML5** (proper heading hierarchy, ARIA)
-- ✅ **Design tokens** (centralized variables.scss)
-- ✅ **Component isolation** (no CSS conflicts)
-
-### 🧪 **Quality Assurance**
-- ✅ **30 automated tests** (BackstopJS pixel-perfect testing)
-- ✅ **7 linters** (HTML, CSS, JS, BEM, EditorConfig)
-- ✅ **W3C validation** passing
-- ✅ **Content tests** (Vitest)
+</td>
+</tr>
+</table>
 
 ---
 
-## 🛠️ Tech Stack
+## 🎬 Quick Start
+```bash
+# Clone & install
+git clone https://github.com/OlgaGulyakevich/travel-landing-swiper-responsive.git
+cd travel-landing-swiper-responsive
+npm install
 
-### **Core**
-- **JavaScript:** Vanilla ES6+ (modules, async/await, Intersection Observer)
-- **HTML5:** Semantic markup, ARIA attributes
-- **CSS3:** Sass (SCSS), BEM methodology
-- **Build Tool:** Vite 7.2.2
-- **Slider:** Swiper.js 12.0.3
+# Start dev server (port 3000)
+npm run dev  # → http://localhost:3000
 
-### **Development**
-- **Linting:** ESLint, Stylelint, LintHTML, BEM validator
-- **Testing:** BackstopJS (visual regression), Vitest (content)
-- **Image Optimization:** Sharp, SVGO
-- **Deployment:** GitHub Pages (gh-pages)
+# Production build
+npm run build  # → dist/
+```
 
-### **No Frameworks**
-This project intentionally uses **vanilla JavaScript** and **no CSS frameworks** to demonstrate:
-- Deep understanding of DOM APIs
-- Custom animation implementations
-- Pure CSS layout techniques (Flexbox, Grid)
-- Manual state management patterns
+**Requirements:** Node.js 18.x / 20.x / 24.x
 
 ---
 
-## 🏛️ Architecture Highlights
+## 🎮 Key Features
 
-### **1. Image Optimization Strategy**
+<details>
+<summary><b>📱 Responsive Design (3 Breakpoints)</b></summary>
 
-**Build-time Optimization:**
+**Breakpoints:**
+- Mobile: 320px - 767px
+- Tablet: 768px - 1023px  
+- Desktop: 1024px - 1440px+
+
+**Implementation:**
+- Mobile-first approach
+- Retina support (@1x, @2x srcset)
+- Touch-optimized (44px min tap targets)
+
+**Testing:**
+- 30 visual regression scenarios
+- Real device testing (iOS Safari, Android Chrome)
+
+</details>
+
+<details>
+<summary><b>🖼️ Image Optimization (40% Traffic Reduction)</b></summary>
+
+**Strategy:**
 ```html
-<!-- Automatic WebP generation with JPEG fallback -->
 <picture>
-  <source type="image/webp" srcset="tour@1x.webp 1x, tour@2x.webp 2x" width="1200" height="800">
-  <img src="tour@1x.jpg" srcset="tour@2x.jpg 2x" width="1200" height="800" loading="lazy" alt="Tour photo">
+  <source type="image/webp" srcset="tour@1x.webp 1x, tour@2x.webp 2x">
+  <img src="tour@1x.jpg" srcset="tour@2x.jpg 2x" loading="lazy" alt="Tour">
 </picture>
 ```
 
-**Why This Approach?**
-- **Static site:** Images optimized at build time via ViteImageOptimizer
-- **No server-side processing** needed (perfect for GitHub Pages)
-- **In production CMS:** Backend would handle optimization on upload, CDN for on-the-fly transformations
+**Build-time optimization:**
+- WebP generation (JPEG quality 80)
+- Lazy loading for off-screen images
+- width/height attributes (prevent CLS)
 
 **Results:**
-- 97% of users receive WebP (smaller size)
+- 97% users get WebP (smaller size)
 - 3% fallback to JPEG (older browsers)
-- ~40% traffic reduction
 
----
+</details>
 
-### **2. Modal Architecture**
+<details>
+<summary><b>🎭 Modal System Architecture</b></summary>
 
-**Problem:** Limited tour catalog (5-12 items) doesn't justify full routing.
+**Problem:** Small tour catalog (5-12 items) doesn't justify routing.
 
-**Solution:** Centralized modal system with dynamic content injection:
-
+**Solution:** Centralized modal with dynamic content:
 ```javascript
-// Reusable modal system
 modal.js              → Generic open/close
-scroll-lock.js        → Counter-based scroll management
-tours-catalog.js      → Tours listing + filtering
-tour-detail.js        → Detailed tour view (facade pattern)
-  ├─ tour-detail-ui.js        → Content population
-  ├─ tour-detail-gallery.js   → Swiper gallery
-  └─ tour-detail-booking.js   → Form handling
+scroll-lock.js        → Counter-based lock
+tours-catalog.js      → Listing + filtering
+tour-detail.js        → Detail view (facade)
+  ├─ tour-detail-ui.js
+  ├─ tour-detail-gallery.js
+  └─ tour-detail-booking.js
 ```
 
 **Benefits:**
-- Single page load (no navigation delays)
-- Shared modal infrastructure (DRY principle)
-- Easy content updates (JSON-based)
+- Single page load
+- Shared infrastructure
+- Easy JSON updates
 
----
+</details>
 
-### **3. BEM with Cascade for Content**
+<details>
+<summary><b>🏗️ BEM Methodology (Strict + Cascade)</b></summary>
 
-**Challenge:** Balance strict BEM with flexible content areas.
-
-**Solution:**
+**Structure: Strict BEM**
 ```scss
-// Structure: Strict BEM
 .tour-detail__section { margin-bottom: 40px; }
-.tour-detail__section-title { font-size: 22px; }
+.tour-detail__title { font-size: 22px; }
+```
 
-// Content: Cascade styling (no classes inside)
+**Content: Cascade**
+```scss
 .tour-detail__content {
-  h4 { color: $color-primary-blue; }
+  h4 { color: $primary; }
   p { line-height: 1.5; }
   ul { padding-left: 30px; }
 }
 ```
 
-**Benefits:**
-- Clean HTML for content editors
-- Semantic markup (proper heading hierarchy)
-- Easy CMS integration (no class requirements)
+**Why:** Clean HTML for content editors, semantic markup, CMS-ready.
+
+</details>
+
+<details>
+<summary><b>⚡ Performance Optimizations</b></summary>
+
+**Implemented:**
+- WebP with JPEG fallback
+- Lazy loading (Intersection Observer)
+- Retina optimization (srcset)
+- SVG sprite (single HTTP request)
+- CSS/JS minification
+- Tree-shaking (Vite)
+
+</details>
 
 ---
 
-### **4. Modular JavaScript (Facade Pattern)**
+## 🛠️ Tech Stack
 
-**Example: Tour Detail Module**
-
-```javascript
-// tour-detail.js (Facade - single entry point)
-export const openTourDetail = (tourId) => {
-  const tour = getToursData().find(t => t.id === tourId);
-  populateTourUI(tour);           // UI module
-  initGallery(tour.images);       // Gallery module
-  attachBookingHandlers(tourId);   // Booking module
-};
-
-// Clear separation of concerns
-```
-
-**Benefits:**
-- Single responsibility (each module has one job)
-- Easy testing (isolated units)
-- Maintainable (changes contained)
-
----
-
-## 🎯 Performance
-
-### **Implemented Optimizations:**
-- ✅ **WebP format** with JPEG fallback (30-50% smaller)
-- ✅ **Lazy loading** for images
-- ✅ **Retina optimization** (srcset @1x/@2x)
-- ✅ **SVG sprite** (single HTTP request for all icons)
-- ✅ **CSS minification** (production build)
-- ✅ **JavaScript tree-shaking** (Vite)
-
-### **Results:**
-- Fast page load (~2s on 3G)
-- Small bundle size (~200KB gzipped)
-- Smooth animations (60fps)
-- No layout shifts (CLS < 0.1)
-
----
-
-## 🚀 Getting Started
-
-### **Prerequisites**
-```bash
-Node.js: 18.x / 20.x / 24.x
-```
-
-### **Installation**
-```bash
-# Clone repository
-git clone https://github.com/OlgaGulyakevich/travel-landing-swiper-responsive.git
-cd travel-landing-swiper-responsive
-
-# Install dependencies
-npm install
-
-# Start dev server (port 3000)
-npm run dev
-```
-
-### **Available Scripts**
+**Core:**
+- JavaScript ES6+ (modules, async/await, Intersection Observer)
+- HTML5 (semantic, ARIA)
+- Sass (SCSS) + BEM
+- Vite 7.2.2
+- Swiper.js 12.0.3
 
 **Development:**
-```bash
-npm run dev          # Start dev server (localhost:3000)
-npm run build        # Production build → dist/
-npm run preview      # Preview production build
+- **Linters:** ESLint, Stylelint, LintHTML, BEM validator
+- **Testing:** BackstopJS (visual), Vitest (content)
+- **Optimization:** Sharp, SVGO
+- **Deploy:** GitHub Pages
+
+**Why Vanilla JS?** Demonstrates deep DOM API understanding, custom animations, pure CSS layouts, manual state management.
+
+---
+
+## 🏗️ Architecture
+```
+source/
+├── sass/
+│   ├── blocks/          # BEM components (30+ blocks)
+│   ├── common/          # Variables, mixins, fonts
+│   ├── layout/          # Container, grid
+│   └── ui/              # Button, input, card
+│
+├── js/
+│   ├── main.js          # Entry point
+│   └── modules/
+│       ├── modal.js                  # Generic modal
+│       ├── scroll-lock.js            # Scroll management
+│       ├── tours-catalog/            # Tours listing
+│       ├── tour-detail/              # Detail modal (facade)
+│       └── utils/                    # Helpers
+│
+├── img/
+│   ├── sprite/          # SVG → auto sprite
+│   └── *.{jpg,webp}     # Images
+│
+└── public/
+    ├── data/tours.json  # Tour data
+    └── img/tours/       # Optimized images
 ```
 
-**Image Processing:**
-```bash
-npm run convert-rastr  # Generate WebP versions from source/img/
-```
-
-**Quality Assurance:**
-```bash
-npm run test              # BackstopJS pixel-perfect (requires dev server)
-npm run test-content      # Vitest content tests
-npm run w3c               # W3C HTML validation
-npm run lint-bem          # BEM methodology validation
-npm run stylelint         # SCSS linting (auto-fix)
-npm run lint-js           # JavaScript linting (auto-fix)
-```
-
-**Deployment:**
-```bash
-npm run deploy       # Build + deploy to GitHub Pages
-```
+**Key Patterns:**
+- **Facade:** tour-detail.js centralizes sub-modules
+- **Module:** ES6 imports/exports
+- **Observer:** Intersection Observer for animations
+- **JSON-driven:** Dynamic content loading
 
 ---
 
 ## 🧪 Testing
-
-### **Visual Regression Testing**
 ```bash
-# Terminal 1: Start dev server
-npm run dev
+# Visual regression (30 scenarios)
+npm run dev         # Terminal 1
+npm run test        # Terminal 2
 
-# Terminal 2: Run pixel-perfect tests
-npm run test
+# Content validation
+npm run test-content
+
+# Linting
+npm run lint-bem    # BEM methodology
+npm run stylelint   # SCSS
+npm run lint-js     # JavaScript
+npm run w3c         # HTML validation
 ```
 
-**30 test scenarios** covering:
-- 3 viewports (Desktop 1440px, Tablet 768px, Mobile 320px)
-- 10 page sections (header, hero, tours, training, about, reviews, advantages, gallery, form, footer)
-
-**Mismatch tolerance:** 0.4% - 4.3% (configured per section complexity)
+**Test Coverage:**
+- 3 viewports (320px, 768px, 1440px)
+- 10 sections (header, hero, tours, gallery, etc.)
+- 0.4%-4.3% mismatch tolerance
 
 ---
 
-## 📦 Deployment
-
-**Automatic deployment** to GitHub Pages via `gh-pages` branch:
-
+## 🚀 Deployment
 ```bash
-npm run deploy
+npm run deploy  # Build + deploy to GitHub Pages
 ```
 
-**What happens:**
-1. Runs production build (`npm run build`)
-2. Optimizes images (JPEG compression, WebP generation)
-3. Minifies CSS/JS
+**Process:**
+1. Vite production build
+2. Image optimization (JPEG → WebP)
+3. CSS/JS minification
 4. Publishes to `gh-pages` branch
-5. Available at: https://olgagulyakevich.github.io/travel-landing-swiper-responsive/
 
-**Environment-specific configuration:**
-```javascript
-// vite.config.js
-const isDev = process.env.NODE_ENV === 'development';
-base: isDev ? './' : '/travel-landing-swiper-responsive/'
-```
-
----
-
-## 📁 Project Structure
-
-```
-lifetour-landing/
-├── source/
-│   ├── sass/
-│   │   ├── blocks/          # BEM components (header, hero, tours, etc.)
-│   │   ├── common/          # Variables, mixins, fonts, animations
-│   │   ├── layout/          # Container, grid
-│   │   ├── ui/              # Reusable components (button, input, card)
-│   │   └── vendor/          # normalize.scss
-│   │
-│   ├── js/
-│   │   ├── main.js          # Entry point
-│   │   └── modules/
-│   │       ├── modal.js                    # Generic modal
-│   │       ├── scroll-lock.js              # Scroll management
-│   │       ├── tours-catalog/              # Tours listing
-│   │       │   ├── tours-catalog-data.js
-│   │       │   ├── tours-catalog-filters.js
-│   │       │   └── tours-catalog-render.js
-│   │       ├── tour-detail/                # Tour detail modal
-│   │       │   ├── tour-detail.js          # Facade
-│   │       │   ├── tour-detail-ui.js
-│   │       │   ├── tour-detail-gallery.js
-│   │       │   └── tour-detail-booking.js
-│   │       └── utils/                      # Helpers
-│   │
-│   ├── img/
-│   │   ├── sprite/          # SVG icons → auto-generated sprite
-│   │   └── *.{jpg,webp}     # Images
-│   │
-│   ├── public/
-│   │   ├── data/
-│   │   │   └── tours.json   # Tour catalog data
-│   │   └── img/tours/       # Tour images (optimized at build)
-│   │
-│   └── index.html
-│
-├── dist/                    # Production build (auto-generated)
-├── bitmaps_reference/       # Pixel-perfect reference screenshots
-├── vite.config.js           # Build configuration
-└── package.json
-```
+**Live:** https://olgagulyakevich.github.io/travel-landing-swiper-responsive/
 
 ---
 
 ## 🌍 Browser Support
 
-| Browser | Version | Support |
-|---------|---------|---------|
+| Browser | Version | Status |
+|---------|---------|--------|
 | Chrome | Latest | ✅ Full |
 | Firefox | Latest | ✅ Full |
-| Safari | 14+ | ✅ Full (WebP since iOS 14) |
+| Safari | 14+ | ✅ Full (WebP support) |
 | Edge | Latest | ✅ Full |
 
-**WebP Support:** 97% global coverage (Can I Use, 2025)
+**WebP Support:** 97% global coverage
 
 ---
 
-## 🤝 Credits
+## 💼 Portfolio Highlight
 
-**Author:** Olga Gulakevich
-**Program:** HTML Academy Accelerator
-**Year:** 2024-2025
+This project demonstrates:
+
+**Frontend Engineering:**
+- ✅ Vanilla JS expertise (no framework crutches)
+- ✅ Advanced CSS (BEM, SCSS, responsive)
+- ✅ Performance optimization (95+ Lighthouse)
+- ✅ Pixel-perfect implementation (±2px)
+
+**Quality Assurance:**
+- ✅ 30 automated visual tests (BackstopJS)
+- ✅ 7 linters (HTML, CSS, JS, BEM)
+- ✅ W3C validation passing
+- ✅ Content integrity tests (Vitest)
+
+**Production Readiness:**
+- ✅ 4-week sprint execution
+- ✅ Semantic HTML + ARIA (WCAG AA)
+- ✅ Modular architecture (facade pattern)
+- ✅ Image optimization pipeline
+- ✅ CI/CD deployment (GitHub Pages)
 
 ---
 
-## 📄 License
+## 🤝 Author
 
-This project is part of HTML Academy educational program. All rights reserved.
+**Olga Gulakevich**  
+Frontend Developer
+
+**Portfolio:** [GitHub Profile](https://github.com/OlgaGulyakevich)  
+**Program:** HTML Academy Accelerator 2025
 
 ---
 
-**Note for Employers:**
-While this project targets Russian-speaking users, the **technical implementation, architecture, and code quality** are universal and applicable to any modern web project. The decision to use vanilla JavaScript and manual implementations (vs. frameworks) was intentional to demonstrate deep understanding of web fundamentals.
+<div align="center">
+
+**Built with 💙 using Vanilla JavaScript**
+
+[🌐 Live Demo](https://olgagulyakevich.github.io/travel-landing-swiper-responsive/) • 
+[📦 GitHub](https://github.com/OlgaGulyakevich/travel-landing-swiper-responsive) • 
+[💼 LinkedIn](https://www.linkedin.com/in/olga-gulyakevich-ab166674/) • 
+[📧 Contact](mailto:olga.gulyakevich@gmail.com)
+
+</div>
