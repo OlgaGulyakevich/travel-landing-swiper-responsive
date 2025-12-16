@@ -13,7 +13,7 @@ export default {
     }),
     ViteImageOptimizer({
       test: /\.(jpe?g|png|svg)$/i,
-      includePublic: false,
+      includePublic: true, // Enable optimization for files in public/
       logStats: true,
       ansiColors: true,
       svg: {

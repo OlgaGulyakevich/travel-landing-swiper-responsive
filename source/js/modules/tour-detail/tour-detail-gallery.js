@@ -55,8 +55,8 @@ export const initGallery = (images) => {
       (image) => `
     <div class="swiper-slide">
       <picture>
-        <source type="image/webp" srcset="${image.replace('.jpg', '.webp')} 1x, ${image.replace('@1x.jpg', '@2x.webp')} 2x">
-        <img src="${image}" srcset="${image.replace('@1x', '@2x')} 2x" alt="Фото тура" loading="lazy">
+        <source type="image/webp" srcset="${image.replace('.jpg', '.webp')} 1x, ${image.replace('@1x.jpg', '@2x.webp')} 2x" width="1200" height="800">
+        <img src="${image}" srcset="${image.replace('@1x', '@2x')} 2x" width="1200" height="800" alt="Фото тура" loading="lazy">
       </picture>
     </div>
   `
