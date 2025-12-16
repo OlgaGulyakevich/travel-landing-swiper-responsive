@@ -257,48 +257,48 @@
 
 .hero__decorative-photo--1 {
   @include tablet {
-    bottom: 10.21vh;
-    left: 20.96vw;
-    width: 34.64vw;
+    bottom: 10vh;
+    left: 21vw;
+    width: 35vw;
   }
 
   @include desktop {
-    bottom: 30.875vh;
-    left: 63.47vw;
-    width: 21.39vw;
+    bottom: 31vh;
+    left: 64vw;
+    width: 22vw;
   }
 }
 
 @supports (-webkit-hyphens: none) {
   .hero__decorative-photo--1 {
     @include tablet {
-      left: 30.86vw;
+      left: 31vw;
     }
 
     @include desktop {
-      left: 74.79vw;
+      left: 75vw;
     }
   }
 }
 
 .hero__decorative-photo--2 {
   @include tablet {
-    bottom: 10.14vh;
-    right: 22.01vw;
-    width: 30.08vw;
+    bottom: 10vh;
+    right: 22vw;
+    width: 31vw;
   }
 
   @include desktop {
-    bottom: 25.25vh;
-    right: 9.31vw;
-    width: 19.24vw;
+    bottom: 26vh;
+    right: 9vw;
+    width: 20vw;
   }
 }
 
 @supports (-webkit-hyphens: none) {
   .hero__decorative-photo--2 {
     @include tablet {
-      right: 27.34vw;
+      right: 27vw;
     }
   }
 }
