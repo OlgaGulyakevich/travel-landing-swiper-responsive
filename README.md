@@ -5,6 +5,7 @@
 ---
 
 ## 📸 Preview
+
 <div align="center">
 <picture>
   <source media="(min-width: 1440px)" srcset="bitmaps_reference/test-pp/hero-2-desktop.jpg">
@@ -12,6 +13,7 @@
   <img src="bitmaps_reference/test-pp/hero-2-mobile.jpg" alt="Lifetour hero section preview">
 </picture>
 </div>
+
 **🔗 Live Demo:** [View on GitHub Pages](https://olgagulyakevich.github.io/travel-landing-swiper-responsive/)
 
 ---
