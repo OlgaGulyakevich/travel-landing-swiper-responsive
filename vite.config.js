@@ -72,7 +72,7 @@ export default {
       }
     }
   },
-  base: '/travel-landing-swiper-responsive/',
+  base: './',
   server: {
     port: 3000,
   }

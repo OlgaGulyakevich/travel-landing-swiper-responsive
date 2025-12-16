@@ -76,6 +76,7 @@ export const initSliders = () => {
     speed: 400,
     resistance: true,
     resistanceRatio: 0.85,
+    watchOverflow: true, // Prevent overflow issues
     breakpoints: {
       768: { slidesPerView: 2 },
       1440: { slidesPerView: 3, spaceBetween: 23 },
