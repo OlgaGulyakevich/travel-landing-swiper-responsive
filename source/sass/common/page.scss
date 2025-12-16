@@ -26,6 +26,11 @@
   }
 }
 
+// Prevent horizontal scroll from extended backgrounds
+.page main {
+  overflow-x: hidden;
+}
+
 // =============================================================================
 // 2. ELEMENT RESETS (low specificity through :where)
 // =============================================================================
