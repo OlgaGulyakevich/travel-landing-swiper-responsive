@@ -27,10 +27,10 @@ tour-detail.js (coordinator, facade pattern)
 1. Finds all tour cards on the page
 2. Attaches event handlers to the "Подробнее" buttons
 3. When clicked:
-   - Extracts tour data from data-attributes of the card
-   - Calls `populateTourDetail()` to fill the UI
-   - Calls `initTourGallery()` to initialize the gallery
-   - Opens the modal window through `openModal('tour-detail')`
+    - Extracts tour data from data-attributes of the card
+    - Calls `populateTourDetail()` to fill the UI
+    - Calls `initTourGallery()` to initialize the gallery
+    - Opens the modal window through `openModal('tour-detail')`
 
 **Used in:**
 - `main.js` - initialization on DOMContentLoaded
@@ -54,18 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 **What it does:**
 1. **Fills the tour metadata:**
-   - Title, location, duration
-   - Difficulty (easy/medium/hard)
-   - Group (number of people)
+    - Title, location, duration
+    - Difficulty (easy/medium/hard)
+    - Group (number of people)
 
 2. **Generates content areas** (cascade styling):
-   - Tour description (`<p>` in `.tour-detail__content`)
-   - List of included (`<ul><li>` in `.tour-detail__content--list`)
-   - Tour program (`<article>` with `<h4>`, `<strong>`, `<p>` in `.tour-detail__content--program`)
+    - Tour description (`<p>` in `.tour-detail__content`)
+    - List of included (`<ul><li>` in `.tour-detail__content--list`)
+    - Tour program (`<article>` with `<h4>`, `<strong>`, `<p>` in `.tour-detail__content--program`)
 
 3. **Applies fade-in animations:**
-   - Adds `data-animate` attribute to the form sections
-   - Intersection Observer starts the animation when appearing in the viewport
+    - Adds `data-animate` attribute to the form sections
+    - Intersection Observer starts the animation when appearing in the viewport
 
 **Структура tourData:**
 ```javascript
@@ -114,23 +114,23 @@ populateTourDetail(tourData);
 
 **What it does:**
 1. **Clears the previous gallery:**
-   - Destroys the old Swiper instance (`swiper.destroy(true, true)`)
-   - Clears the HTML container of the slides
+    - Destroys the old Swiper instance (`swiper.destroy(true, true)`)
+    - Clears the HTML container of the slides
 
 2. **Creates new slides:**
-   - Generates `<div class="swiper-slide">` for each image
-   - Adds `<img>` with `srcset` for retina displays (@1x and @2x)
-   - Sets `width` and `height` attributes (500x400)
+    - Generates `<div class="swiper-slide">` for each image
+    - Adds `<img>` with `srcset` for retina displays (@1x and @2x)
+    - Sets `width` and `height` attributes (500x400)
 
 3. **Инициализирует Swiper:**
-   - Modules: Navigation, Keyboard
-   - Navigation: prev/next buttons at the bottom of the slider
-   - Keyboard: arrows for switching slides
-   - Adaptive speed: 400ms (mobile) → 800ms (desktop)
+    - Modules: Navigation, Keyboard
+    - Navigation: prev/next buttons at the bottom of the slider
+    - Keyboard: arrows for switching slides
+    - Adaptive speed: 400ms (mobile) → 800ms (desktop)
 
 4. **Manages the loading state:**
-   - Adds `.is-loading` (opacity: 0) before initialization
-   - Removes the class after initialization (fade-in effect)
+    - Adds `.is-loading` (opacity: 0) before initialization
+    - Removes the class after initialization (fade-in effect)
 
 **Swiper configuration:**
 ```javascript

@@ -5,26 +5,24 @@
 ---
 
 ## 📸 Preview
-
+<div align="center">
 <picture>
   <source media="(min-width: 1440px)" srcset="bitmaps_reference/test-pp/hero-2-desktop.jpg">
   <source media="(min-width: 768px)" srcset="bitmaps_reference/test-pp/hero-2-tablet.jpg">
   <img src="bitmaps_reference/test-pp/hero-2-mobile.jpg" alt="Lifetour hero section preview">
 </picture>
-
+</div>
 **🔗 Live Demo:** [View on GitHub Pages](https://olgagulyakevich.github.io/travel-landing-swiper-responsive/)
 
 ---
 
 ## 📋 About the Project
 
-### Context for International Employers
-
 **Why Russian Language?**
 This is a real-world project for a Russian tour company targeting Russian-speaking audiences in Russia, CIS countries, and Russian-speaking communities abroad.
 
 **Business Model:**
-The company offers a limited number of curated tours per season (5-10 tours), with bookings opening months in advance. This seasonal, boutique approach influenced key technical decisions:
+The company offers a limited number of curated tours per season (5-12 tours), with bookings opening months in advance. This seasonal, boutique approach influenced key technical decisions:
 
 - **Modal Windows** for tour details instead of separate pages (optimal UX for small tour catalog)
 - **Dynamic JSON** data loading (easy content updates between seasons)
@@ -346,7 +344,6 @@ lifetour-landing/
 │
 ├── dist/                    # Production build (auto-generated)
 ├── bitmaps_reference/       # Pixel-perfect reference screenshots
-├── notes/                   # Documentation (architecture, roadmap)
 ├── vite.config.js           # Build configuration
 └── package.json
 ```
@@ -363,50 +360,6 @@ lifetour-landing/
 | Edge | Latest | ✅ Full |
 
 **WebP Support:** 97% global coverage (Can I Use, 2025)
-
----
-
-## 📚 Documentation
-
-- **Architecture:** `/notes/architecture.md` - Key architectural decisions
-- **Technical Spec:** `/notes/tz.md` - Full requirements (Russian)
-- **Roadmap:** `/notes/roadmap.md` - Development phases
-- **Code Comments:** JSDoc documentation throughout
-
----
-
-## 🎓 Learning Outcomes
-
-This project demonstrates proficiency in:
-
-✅ **Modern JavaScript:**
-- ES6+ modules, async/await
-- DOM manipulation, Event delegation
-- Intersection Observer API
-- Facade and modular patterns
-
-✅ **Advanced CSS:**
-- BEM methodology (strict adherence)
-- Sass (variables, mixins, modular architecture)
-- Responsive design (mobile-first)
-- Flexbox, Grid, animations
-
-✅ **Performance Optimization:**
-- Image optimization (WebP, lazy loading, srcset)
-- Build-time optimization (Vite)
-- Layout shift prevention (CLS)
-- Bundle size optimization
-
-✅ **Quality Assurance:**
-- Visual regression testing (BackstopJS)
-- Linting (7 different tools)
-- W3C validation
-- Accessibility (WCAG AA)
-
-✅ **Production Deployment:**
-- GitHub Pages setup
-- Environment-specific configuration
-- CI/CD workflow (automated deployment)
 
 ---
 
