@@ -65,6 +65,10 @@ export default {
   build: {
     outDir: '../dist',
     rollupOptions: {
+      input: {
+        main: './source/index.html',
+        404: './source/404.html'
+      },
       output: {
         assetFileNames: (assetInfo) => {
           if (assetInfo.name && /\.(jpg|jpeg|png|webp)$/.test(assetInfo.name)) {
