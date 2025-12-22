@@ -189,6 +189,7 @@
   line-height: 14px;
   letter-spacing: 0.56px;
   text-transform: uppercase;
+  border: 1px solid transparent;
 
   @include tablet {
     font-size: 16px;
